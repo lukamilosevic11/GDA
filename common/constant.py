@@ -14,6 +14,7 @@
 #  all copies or substantial portions of the Software.
 
 __DATA_DIRECTORY = "./Data/"
+# Sources
 __CLINVAR_FILE = "gene_condition_source_id.txt"
 __COSMIC_FILE = "cancer_gene_census.csv"
 __DISEASES_FILE = "human_disease_textmining_filtered.tsv"
@@ -21,8 +22,11 @@ __DISGENET_FILE = "curated_gene_disease_associations.tsv"
 __HPO_FILE = "genes_to_phenotype.txt"
 __HUMSAVAR_FILE = "humsavar.txt"
 __ORPHANET_FILE = "en_product6.xml"
+# Mapping
+__OBO_FILE = "RDO.obo"
 
 # TODO: implement with os.path and maybe reading from some json file
+# Sources
 CLINVAR_PATH = __DATA_DIRECTORY + __CLINVAR_FILE
 COSMIC_PATH = __DATA_DIRECTORY + __COSMIC_FILE
 DISEASES_PATH = __DATA_DIRECTORY + __DISEASES_FILE
@@ -30,3 +34,5 @@ DISGENET_PATH = __DATA_DIRECTORY + __DISGENET_FILE
 HPO_PATH = __DATA_DIRECTORY + __HPO_FILE
 HUMSAVAR_PATH = __DATA_DIRECTORY + __HUMSAVAR_FILE
 ORPHANET_PATH = __DATA_DIRECTORY + __ORPHANET_FILE
+# Mapping
+OBO_PATH = __DATA_DIRECTORY + __OBO_FILE

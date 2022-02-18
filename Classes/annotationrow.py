@@ -92,11 +92,6 @@ class HPORow(AnnotationRow):
         return super(HPORow, self).__str__() + '\t' + str(self.omim) + '\t' + str(self.orpha)
 
 
-class HugoRow(AnnotationRow):
-    def __init__(self, symbol, ensemblID):
-        super(HugoRow, self).__init__(symbol, None, None, ensemblID, None, "Hugo", None)
-
-
 class HumsaVarRow(AnnotationRow):
     def __init__(self, symbol, diseaseName, omim):
         super(HumsaVarRow, self).__init__(symbol, None, None, None, None, "HumsaVar", diseaseName)
@@ -112,16 +107,46 @@ class HumsaVarRow(AnnotationRow):
         return super(HumsaVarRow, self).__str__() + '\t' + str(self.omim)
 
 
+class OrphanetRow(AnnotationRow):
+    def __init__(self, symbol, ensemblID, diseaseName):
+        super(OrphanetRow, self).__init__(symbol, None, None, ensemblID, None, "Orphanet", diseaseName)
+
+
+class HugoRow(AnnotationRow):
+    def __init__(self, symbol, ensemblID):
+        super(HugoRow, self).__init__(symbol, None, None, ensemblID, None, "Hugo", None)
+
+
 class OBORow(AnnotationRow):
     def __init__(self, doid, diseaseName, synonyms, parentDoids):
         self.synonyms = synonyms
         self.parentDoids = parentDoids
         super(OBORow, self).__init__(None, None, None, None, doid, "Obo", diseaseName)
 
+    def __eq__(self, other):
+        return super(OBORow, self).__eq__(other) and self.synonyms == other.synonyms \
+               and self.parentDoids == other.parentDoids
 
-class OrphanetRow(AnnotationRow):
-    def __init__(self, symbol, ensemblID, diseaseName):
-        super(OrphanetRow, self).__init__(symbol, None, None, ensemblID, None, "Orphanet", diseaseName)
+    def __hash__(self):
+        return hash((self.doid, self.diseaseName))
+
+    def __str__(self):
+        synonymsStr = '  '.join(self.getSynonyms()).strip()
+        parentDoidsStr = '  '.join(self.getParentDoids()).strip()
+
+        if len(synonymsStr) != 0:
+            synonymsStr = "\n\tSynonyms: " + synonymsStr
+
+        if len(parentDoidsStr) != 0:
+            parentDoidsStr = "\n\tParent Doids: " + parentDoidsStr
+
+        return super(OBORow, self).__str__() + synonymsStr + parentDoidsStr
+
+    def getSynonyms(self):
+        return [synonym.description.strip() for synonym in self.synonyms]
+
+    def getParentDoids(self):
+        return [parentDoid.name.strip() for parentDoid in self.parentDoids]
 
 
 class UniprotRow(AnnotationRow):

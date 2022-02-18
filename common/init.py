@@ -17,4 +17,5 @@ import pandas as PD
 import numpy as NP
 import nltk
 import xml.etree.ElementTree as ET
-
+from pronto import Ontology
+import multiprocessing

@@ -14,9 +14,11 @@
 #  all copies or substantial portions of the Software.
 
 from Sources import clinvar, cosmic, diseases, disgenet, hpo, humsavar, orphanet
+from Mapping import obo
 from common import constant, util
 
 def main():
+    # Sources
     clinvarSet = clinvar.ClinVar.Read(constant.CLINVAR_PATH)
     cosmicSet = cosmic.Cosmic.Read(constant.COSMIC_PATH)
     diseasesSet = diseases.Diseases.Read(constant.DISEASES_PATH)
@@ -24,6 +26,9 @@ def main():
     hpoSet = hpo.HPO.Read(constant.HPO_PATH)
     humsavarSet = humsavar.HumsaVar.Read(constant.HUMSAVAR_PATH)
     orphanetSet = orphanet.Orphanet.Read(constant.ORPHANET_PATH)
+
+    # Mapping
+    oboSet = obo.OBO.Read(constant.OBO_PATH)
 
     # util.printSet(clinvarSet)
 
@@ -38,8 +43,11 @@ def main():
 
     # util.printSet(humsavarSet)
 
-    util.printSet(orphanetSet)
+    # util.printSet(orphanetSet)
     # util.writeSetToFile("./Results/tmp.txt", orphanetSet)
+
+    # util.printSet(oboSet)
+    util.writeSetToFile("./Results/tmp.txt", oboSet)
 
 
 if __name__ == '__main__':
