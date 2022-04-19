@@ -14,7 +14,7 @@
 #  all copies or substantial portions of the Software.
 
 from Classes import annotationrow as ar
-from common import init, util
+from Common import init, util
 
 
 class Cosmic:

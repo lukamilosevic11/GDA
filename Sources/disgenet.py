@@ -14,7 +14,7 @@
 #  all copies or substantial portions of the Software.
 
 from Classes import annotationrow as ar
-from common import init
+from Common import init
 
 
 class DisGeNet:

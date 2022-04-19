@@ -13,25 +13,17 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Sources import clinvar, cosmic, diseases, disgenet, hpo, humsavar, orphanet
-from Mapping import obo
-from common import constant, util
+from Classes.search_engine_client import SearchEngineClient
+from Classes.db_context import DBContext
+from Common.init import Attribute, Source
+from Common import constant, util
+
 
 def main():
-    # Sources
-    clinvarSet = clinvar.ClinVar.Read(constant.CLINVAR_PATH)
-    cosmicSet = cosmic.Cosmic.Read(constant.COSMIC_PATH)
-    diseasesSet = diseases.Diseases.Read(constant.DISEASES_PATH)
-    disGeNetSet = disgenet.DisGeNet.Read(constant.DISGENET_PATH)
-    hpoSet = hpo.HPO.Read(constant.HPO_PATH)
-    humsavarSet = humsavar.HumsaVar.Read(constant.HUMSAVAR_PATH)
-    orphanetSet = orphanet.Orphanet.Read(constant.ORPHANET_PATH)
+    dbContext = DBContext()
 
-    # Mapping
-    oboSet = obo.OBO.Read(constant.OBO_PATH)
-
-    # util.printSet(clinvarSet)
-
+    # util.printSet(dbContext.clinvar)
+    tmpFilePath = "./Results/tmp.txt"
     # util.printSet(cosmicSet)
 
     # util.printSet(diseasesSet)
@@ -47,7 +39,9 @@ def main():
     # util.writeSetToFile("./Results/tmp.txt", orphanetSet)
 
     # util.printSet(oboSet)
-    util.writeSetToFile("./Results/tmp.txt", oboSet)
+    # util.writeSetToFile("./Results/tmp.txt", oboSet)
+    # util.writeJsonSetToFile("./Results/tmp.jsonl", oboSet, [Attribute.DOID, Attribute.DISEASE_NAME], Source.OBO)
+    # util.writeSetToFile(tmpFilePath, dbContext.uniprot)
 
 
 if __name__ == '__main__':

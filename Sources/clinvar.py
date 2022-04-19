@@ -14,7 +14,7 @@
 #  all copies or substantial portions of the Software.
 
 from Classes import annotationrow as ar
-from common import init, util
+from Common import init, util
 
 
 class ClinVar:
@@ -30,7 +30,6 @@ class ClinVar:
             relatedGeneSymbol = str(row[2]).strip()
             entrezID = str(row[0]).strip()
             diseaseName = str(row[3]).strip()
-            symbol = None
             if not util.isNan(associatedGeneSymbol):
                 symbol = associatedGeneSymbol
             else:

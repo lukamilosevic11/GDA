@@ -15,7 +15,7 @@
 
 
 from Classes import annotationrow as ar
-from common import init
+from Common import init
 
 
 class OBO:
