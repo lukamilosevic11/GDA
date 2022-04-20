@@ -150,5 +150,23 @@ class OBORow(AnnotationRow):
 
 
 class UniprotRow(AnnotationRow):
-    def __init__(self, symbol, entrezID, uniprotID):
-        super(UniprotRow, self).__init__(symbol, entrezID, uniprotID, None, None, "Uniprot", None)
+    def __init__(self, symbol, symbolSynonyms, entrezID, ensemblID, uniprotID):
+        self.symbolSynonyms = symbolSynonyms
+        super(UniprotRow, self).__init__(symbol, entrezID, uniprotID, ensemblID, None, "Uniprot", None)
+
+    def __eq__(self, other):
+        return super(UniprotRow, self).__eq__(other) and self.symbolSynonyms == other.symbolSynonyms
+
+    def __hash__(self):
+        return hash((self.symbol, self.entrezID, self.ensemblID, self.uniprotID))
+
+    def __str__(self):
+        symbolSynonymsStr = '  '.join(self.getSymbolSynonyms()).strip()
+
+        if len(symbolSynonymsStr) != 0:
+            symbolSynonymsStr = "\n\tSymbol Synonyms: " + symbolSynonymsStr
+
+        return super(UniprotRow, self).__str__() + symbolSynonymsStr
+
+    def getSymbolSynonyms(self):
+        return [symbolSynonym for symbolSynonym in self.symbolSynonyms]

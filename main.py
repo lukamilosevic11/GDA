@@ -41,7 +41,7 @@ def main():
     # util.printSet(oboSet)
     # util.writeSetToFile("./Results/tmp.txt", oboSet)
     # util.writeJsonSetToFile("./Results/tmp.jsonl", oboSet, [Attribute.DOID, Attribute.DISEASE_NAME], Source.OBO)
-    # util.writeSetToFile(tmpFilePath, dbContext.uniprot)
+    util.writeSetToFile(tmpFilePath, dbContext.uniprot)
 
 
 if __name__ == '__main__':

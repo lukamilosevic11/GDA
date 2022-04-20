@@ -29,8 +29,6 @@ class OBO:
                 continue
             doid = term.id.strip()
             diseaseName = term.name.strip()
-            #TODO think about using only EXACT synonyms
-            # synonyms = filter(lambda synonym: synonym.scope == "EXACT", term.synonyms)
             synonyms = term.synonyms
             parentDoids = term.superclasses().to_set()
             oboSet.add(ar.OBORow(doid, diseaseName, synonyms, parentDoids))

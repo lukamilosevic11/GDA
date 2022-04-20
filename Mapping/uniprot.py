@@ -15,34 +15,50 @@
 
 
 from Classes import annotationrow as ar
-from Common import init
 
 
-# TODO: fix read method parsing doesn't work properly
 class Uniprot:
     @staticmethod
     def Read(filePath):
         uniprotSet = set()
         with open(filePath, 'r') as uniprotFile:
             uniprotLines = uniprotFile.readlines()
-            filteredLines = list(filter(lambda row: "Gene_Name" in row or "GeneID" in row or "UniProtKB-ID" in row or
-                                                    ("Ensembl" in row and "ENSG" in row), uniprotLines))
-            symbol = None
-            entrezID = None
-            ensemblID = None
-            uniprotID = None
+            filteredLines = list(filter(lambda row: "Gene_Name" in row or "GeneID" in row or "UniProtKB-ID" in row
+                                                    or "Gene_Synonym" in row or ("Ensembl" in row and "ENSG" in row),
+                                        uniprotLines))
+            filteredLines.append("\tUniProtKB-ID\t")  # Added to force parsing last UniProtKB-ID term
+
             currentUniprotID = None
+            symbols = []
+            symbolSynonymsDict = {}
+            entrezIDs = []
+            ensemblIDs = []
             for line in filteredLines:
                 uniprotID = currentUniprotID
-                currentUniprotID, valueType, value = line.strip().split(maxsplit=2)
-                if valueType == "UniProtKB-ID" and (symbol is not None or entrezID is not None
-                                                    or ensemblID is not None):
-                    uniprotSet.add(ar.UniprotRow(symbol, entrezID, uniprotID))
-                    symbol = None
-                    entrezID = None
+                currentUniprotID, valueType, value = map(str.strip, line.strip().split(maxsplit=2))
+                if valueType == "UniProtKB-ID" and symbols:
+                    if len(symbols) == 1 and len(entrezIDs) <= 1 and len(ensemblIDs) <= 1:
+                        symbol = symbols[0]
+                        symbolSynonyms = symbolSynonymsDict[symbol]
+                        entrezID = entrezIDs[0] if entrezIDs else None
+                        ensemblID = ensemblIDs[0] if ensemblIDs else None
+                        uniprotSet.add(ar.UniprotRow(symbol, symbolSynonyms, entrezID, ensemblID, uniprotID))
+                    else:
+                        for symbol in symbols:
+                            symbolSynonyms = symbolSynonymsDict[symbol]
+                            uniprotSet.add(ar.UniprotRow(symbol, symbolSynonyms, None, None, uniprotID))
+                    symbols = []
+                    symbolSynonymsDict = {}
+                    entrezIDs = []
+                    ensemblIDs = []
                 elif valueType == "Gene_Name":
-                    symbol = value
+                    symbols.append(value)
+                    symbolSynonymsDict[value] = []
+                elif valueType == "Gene_Synonym":
+                    symbolSynonymsDict[symbols[-1]].append(value)
                 elif valueType == "GeneID":
-                    entrezID = value
+                    entrezIDs.append(value)
+                elif valueType == "Ensembl":
+                    ensemblIDs.append(value)
 
         return uniprotSet
