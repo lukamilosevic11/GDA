@@ -112,11 +112,6 @@ class OrphanetRow(AnnotationRow):
         super(OrphanetRow, self).__init__(symbol, None, None, ensemblID, None, "Orphanet", diseaseName)
 
 
-class HugoRow(AnnotationRow):
-    def __init__(self, symbol, ensemblID):
-        super(HugoRow, self).__init__(symbol, None, None, ensemblID, None, "Hugo", None)
-
-
 class OBORow(AnnotationRow):
     def __init__(self, doid, diseaseName, synonyms, parentDoids):
         self.synonyms = synonyms
@@ -170,3 +165,27 @@ class UniprotRow(AnnotationRow):
 
     def getSymbolSynonyms(self):
         return [symbolSynonym for symbolSynonym in self.symbolSynonyms]
+
+
+class HugoRow(AnnotationRow):
+    def __init__(self, symbol, entrezID, ensemblID, uniprotIDs):
+        self.uniprotIDs = [] if len(uniprotIDs) <= 1 else uniprotIDs
+        uniprotID = uniprotIDs[0] if len(uniprotIDs) == 1 else None
+        super(HugoRow, self).__init__(symbol, entrezID, uniprotID, ensemblID, None, "Hugo", None)
+
+    def __eq__(self, other):
+        return super(HugoRow, self).__eq__(other) and self.uniprotIDs == other.uniprotIDs
+
+    def __hash__(self):
+        return hash((self.symbol, self.entrezID, self.uniprotID, self.ensemblID))
+
+    def __str__(self):
+        uniprotIDsStr = '  '.join(self.getUniprotIDs()).strip()
+
+        if len(uniprotIDsStr) != 0:
+            uniprotIDsStr = "\n\tUniprot IDs: " + uniprotIDsStr
+
+        return super(HugoRow, self).__str__() + uniprotIDsStr
+
+    def getUniprotIDs(self):
+        return [uniprotID for uniprotID in self.uniprotIDs]

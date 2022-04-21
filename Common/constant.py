@@ -26,6 +26,7 @@ __ORPHANET_FILE = "en_product6.xml"
 # Mapping
 __OBO_FILE = "RDO.obo.txt"
 __UNIPROT_FILE = "HUMAN_9606_idmapping.dat"
+__HUGO_FILE = "hgnc_complete_set.txt"
 
 # TODO: implement with os.path and maybe reading from some json file
 # Sources
@@ -40,3 +41,4 @@ ORPHANET_PATH = __DATA_DIRECTORY + __ORPHANET_FILE
 # Mapping
 OBO_PATH = __DATA_DIRECTORY + __OBO_FILE
 UNIPROT_PATH = __DATA_DIRECTORY + __UNIPROT_FILE
+HUGO_PATH = __DATA_DIRECTORY + __HUGO_FILE

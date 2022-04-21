@@ -20,14 +20,14 @@ from Common import init
 class Diseases:
     @staticmethod
     def Read(filePath):
-        diseasesData = init.PD.read_csv(filePath, sep='\t', header=None, usecols=[1, 2, 3])
+        diseasesData = init.PD.read_csv(filePath, sep='\t', header=None, usecols=[1, 2, 3], dtype=str)
         diseasesData = diseasesData.to_numpy()
 
         diseasesSet = set()
         for row in diseasesData:
-            symbol = str(row[0]).strip()
-            doid = str(row[1]).strip()
-            diseaseName = str(row[2]).strip()
+            symbol = row[0].strip()
+            doid = row[1].strip()
+            diseaseName = row[2].strip()
             diseasesSet.add(ar.DiseasesRow(symbol, doid, diseaseName))
 
         return diseasesSet

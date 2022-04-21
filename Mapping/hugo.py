@@ -1,4 +1,4 @@
-#  GDA Copyright (c) 2021.
+#  GDA Copyright (c) 2022.
 #  University of Belgrade, Faculty of Mathematics
 #  Luka Milosevic
 #  lukamilosevic11@gmail.com
@@ -17,22 +17,19 @@ from Classes import annotationrow as ar
 from Common import init, util
 
 
-class ClinVar:
+class Hugo:
     @staticmethod
     def Read(filePath):
-        clinVarData = init.PD.read_csv(filePath, sep='\t', dtype=str)
-        clinVarData = clinVarData[["#GeneID", "AssociatedGenes", "RelatedGenes", "DiseaseName"]]
-        clinVarData = clinVarData.to_numpy()
+        hugoData = init.PD.read_csv(filePath, sep='\t', dtype=str)
+        hugoData = hugoData[["symbol", "entrez_id", "uniprot_ids", "ensembl_gene_id"]]
+        hugoData = hugoData.to_numpy()
 
-        clinVarSet = set()
-        for row in clinVarData:
-            associatedGeneSymbol = row[1]
-            relatedGeneSymbol = row[2]
-            entrezID = row[0].strip()
-            diseaseName = row[3].strip()
-            if not init.PD.isnull(associatedGeneSymbol):
-                symbol = associatedGeneSymbol.strip()
-            else:
-                symbol = relatedGeneSymbol.strip()
-            clinVarSet.add(ar.ClinVarRow(symbol, entrezID, diseaseName))
-        return clinVarSet
+        hugoSet = set()
+        for row in hugoData:
+            symbol = row[0].strip()
+            entrezID = None if init.PD.isnull(row[1]) else row[1].strip()
+            uniprotIDs = [] if init.PD.isnull(row[2]) else row[2].strip().split('|')
+            ensemblID = None if init.PD.isnull(row[3]) else row[3].strip()
+            hugoSet.add(ar.HugoRow(symbol, entrezID, ensemblID, uniprotIDs))
+
+        return hugoSet

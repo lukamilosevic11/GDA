@@ -1,5 +1,5 @@
 from Sources import clinvar, cosmic, diseases, disgenet, hpo, humsavar, orphanet
-from Mapping import obo, uniprot
+from Mapping import obo, uniprot, hugo
 from Common import constant
 
 
@@ -13,4 +13,5 @@ class DBContext:
         # self.hpoSet = hpo.HPO.Read(constant.HPO_PATH)
         # self.diseases = diseases.Diseases.Read(constant.DISEASES_PATH)
         # self.obo = obo.OBO.Read(constant.OBO_PATH)
-        self.uniprot = uniprot.Uniprot.Read(constant.UNIPROT_PATH)
+        # self.uniprot = uniprot.Uniprot.Read(constant.UNIPROT_PATH)
+        self.hugo = hugo.Hugo.Read(constant.HUGO_PATH)

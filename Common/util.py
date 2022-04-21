@@ -16,10 +16,6 @@ import json
 from Common.init import Attribute, Source
 
 
-def isNan(data):
-    return data == "nan"
-
-
 def printSet(sourceSet):
     for row in sourceSet:
         print(row)

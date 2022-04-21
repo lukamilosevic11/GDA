@@ -20,16 +20,16 @@ from Common import init
 class DisGeNet:
     @staticmethod
     def Read(filePath):
-        disGeNetData = init.PD.read_csv(filePath, sep='\t')
+        disGeNetData = init.PD.read_csv(filePath, sep='\t', dtype=str)
         disGeNetData = disGeNetData[["geneId", "geneSymbol", "diseaseId", "diseaseName"]]
         disGeNetData = disGeNetData.to_numpy()
 
         disGeNetSet = set()
         for row in disGeNetData:
-            symbol = str(row[1]).strip()
-            entrezID = str(row[0]).strip()
-            umls = str(row[2]).strip()
-            diseaseName = str(row[3]).strip()
+            symbol = row[1].strip()
+            entrezID = row[0].strip()
+            umls = row[2].strip()
+            diseaseName = row[3].strip()
             disGeNetSet.add(ar.DisGeNetRow(symbol, entrezID, diseaseName, umls))
 
         return disGeNetSet
