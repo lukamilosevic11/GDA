@@ -26,13 +26,13 @@ class ClinVar:
 
         clinVarSet = set()
         for row in clinVarData:
-            associatedGeneSymbol = row[1]
-            relatedGeneSymbol = row[2]
-            entrezID = row[0].strip()
-            diseaseName = row[3].strip()
-            if not init.PD.isnull(associatedGeneSymbol):
-                symbol = associatedGeneSymbol.strip()
+            associatedGeneSymbol = util.checkNan(row[1])
+            relatedGeneSymbol = util.checkNan(row[2])
+            entrezID = util.checkNan(row[0])
+            diseaseName = util.checkNan(row[3])
+            if associatedGeneSymbol is not None:
+                symbol = associatedGeneSymbol
             else:
-                symbol = relatedGeneSymbol.strip()
+                symbol = relatedGeneSymbol
             clinVarSet.add(ar.ClinVarRow(symbol, entrezID, diseaseName))
         return clinVarSet

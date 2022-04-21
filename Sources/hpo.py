@@ -24,11 +24,11 @@ class HPO:
             hpoLines = hpoFile.readlines()
             for line in hpoLines[1:]:
                 splittedLine = line.strip().split('\t')
-                symbol = str(splittedLine[1]).strip()
-                entrezID = str(splittedLine[0]).strip()
+                symbol = splittedLine[1].strip()
+                entrezID = splittedLine[0].strip()
                 omim = None
                 orpha = None
-                omimOrpha = str(splittedLine[8]).strip()
+                omimOrpha = splittedLine[8].strip()
                 if omimOrpha.split(":")[0] == "OMIM":
                     omim = omimOrpha
                 elif omimOrpha.split(":")[0] == "ORPHA":

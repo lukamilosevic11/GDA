@@ -26,10 +26,10 @@ class Hugo:
 
         hugoSet = set()
         for row in hugoData:
-            symbol = row[0].strip()
-            entrezID = None if init.PD.isnull(row[1]) else row[1].strip()
-            uniprotIDs = [] if init.PD.isnull(row[2]) else row[2].strip().split('|')
-            ensemblID = None if init.PD.isnull(row[3]) else row[3].strip()
+            symbol = util.checkNan(row[0])
+            entrezID = util.checkNan(row[1])
+            uniprotIDs = util.checkNan(row[2], [])
+            ensemblID = util.checkNan(row[3])
             hugoSet.add(ar.HugoRow(symbol, entrezID, ensemblID, uniprotIDs))
 
         return hugoSet

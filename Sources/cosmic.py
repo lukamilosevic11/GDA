@@ -26,13 +26,13 @@ class Cosmic:
 
         cosmicSet = set()
         for row in cosmicData:
-            symbol = row[0].strip()
-            entrezID = row[1].strip()
-            diseaseNameSomatic = row[2]
-            diseaseNameGermline = row[3]
-            if not init.PD.isnull(diseaseNameSomatic):
-                cosmicSet.add(ar.CosmicRow(symbol, entrezID, diseaseNameSomatic.strip()))
-            if not init.PD.isnull(diseaseNameGermline):
-                cosmicSet.add(ar.CosmicRow(symbol, entrezID, diseaseNameGermline.strip()))
+            symbol = util.checkNan(row[0])
+            entrezID = util.checkNan(row[1])
+            diseaseNameSomatic = util.checkNan(row[2])
+            diseaseNameGermline = util.checkNan(row[3])
+            if diseaseNameSomatic is not None:
+                cosmicSet.add(ar.CosmicRow(symbol, entrezID, diseaseNameSomatic))
+            if diseaseNameGermline is not None:
+                cosmicSet.add(ar.CosmicRow(symbol, entrezID, diseaseNameGermline))
 
         return cosmicSet

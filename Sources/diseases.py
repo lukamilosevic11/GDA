@@ -14,7 +14,7 @@
 #  all copies or substantial portions of the Software.
 
 from Classes import annotationrow as ar
-from Common import init
+from Common import init, util
 
 
 class Diseases:
@@ -25,9 +25,9 @@ class Diseases:
 
         diseasesSet = set()
         for row in diseasesData:
-            symbol = row[0].strip()
-            doid = row[1].strip()
-            diseaseName = row[2].strip()
+            symbol = util.checkNan(row[0])
+            doid = util.checkNan(row[1])
+            diseaseName = util.checkNan(row[2])
             diseasesSet.add(ar.DiseasesRow(symbol, doid, diseaseName))
 
         return diseasesSet

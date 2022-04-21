@@ -14,7 +14,7 @@
 #  all copies or substantial portions of the Software.
 
 from Classes import annotationrow as ar
-from Common import init
+from Common import init, util
 
 
 class DisGeNet:
@@ -26,10 +26,10 @@ class DisGeNet:
 
         disGeNetSet = set()
         for row in disGeNetData:
-            symbol = row[1].strip()
-            entrezID = row[0].strip()
-            umls = row[2].strip()
-            diseaseName = row[3].strip()
+            symbol = util.checkNan(row[1])
+            entrezID = util.checkNan(row[0])
+            umls = util.checkNan(row[2])
+            diseaseName = util.checkNan(row[3])
             disGeNetSet.add(ar.DisGeNetRow(symbol, entrezID, diseaseName, umls))
 
         return disGeNetSet

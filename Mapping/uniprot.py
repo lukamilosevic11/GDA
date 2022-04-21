@@ -26,7 +26,7 @@ class Uniprot:
             filteredLines = list(filter(lambda row: "Gene_Name" in row or "GeneID" in row or "UniProtKB-ID" in row
                                                     or "Gene_Synonym" in row or ("Ensembl" in row and "ENSG" in row),
                                         uniprotLines))
-            filteredLines.append("\tUniProtKB-ID\t")  # Added to force parsing last UniProtKB-ID term
+            filteredLines.append("x\tUniProtKB-ID\ty")  # Added to force parsing last UniProtKB-ID term
 
             currentUniprotID = None
             symbols = []

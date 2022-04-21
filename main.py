@@ -16,7 +16,7 @@
 from Classes.search_engine_client import SearchEngineClient
 from Classes.db_context import DBContext
 from Common.init import Attribute, Source
-from Common import constant, util
+from Common import constants, util
 
 
 def main():

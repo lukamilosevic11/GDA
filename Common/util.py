@@ -13,7 +13,11 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 import json
-from Common.init import Attribute, Source
+from Common.init import Attribute, Source, PD
+
+
+def checkNan(data, resultIfNan=None):
+    return resultIfNan if PD.isnull(data) else data.strip()
 
 
 def printSet(sourceSet):
