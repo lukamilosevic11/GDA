@@ -13,13 +13,13 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Classes import annotationrow as ar
-from Common import init, util
+from Classes import annotation_row as ar
+from Common import init, util, constants
 
 
 class Cosmic:
     @staticmethod
-    def Read(filePath):
+    def Read(filePath=constants.COSMIC_PATH):
         cosmicData = init.PD.read_csv(filePath, sep=',', dtype=str)
         cosmicData = cosmicData[["Gene Symbol", "Entrez GeneId", "Tumour Types(Somatic)", "Tumour Types(Germline)"]]
         cosmicData = cosmicData.to_numpy()

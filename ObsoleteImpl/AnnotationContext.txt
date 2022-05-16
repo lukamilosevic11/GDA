@@ -1,0 +1,186 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2638
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red109\green109\blue109;\red32\green32\blue32;\red191\green100\blue38;
+\red153\green168\blue186;\red160\green0\blue163;\red128\green63\blue122;\red254\green187\blue91;}
+{\*\expandedcolortbl;;\csgenericrgb\c42745\c42745\c42745;\csgenericrgb\c12549\c12549\c12549;\csgenericrgb\c74902\c39216\c14902;
+\csgenericrgb\c60000\c65882\c72941;\csgenericrgb\c62745\c0\c63922;\csgenericrgb\c50196\c24706\c47843;\csgenericrgb\c99608\c73333\c35686;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf2 \cb3 #  GDA Copyright (c) 2022.\
+#  University of Belgrade, Faculty of Mathematics\
+#  Luka Milosevic\
+#  lukamilosevic11@gmail.com\
+#\
+#  Permission is hereby granted, free of charge, to any person obtaining a copy\
+#  of this software and associated documentation files (the "Software"), to deal\
+#  in the Software without restriction, including without limitation the rights\
+#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\
+#  copies of the Software, and to permit persons to whom the Software is\
+#  furnished to do so, subject to the following conditions:\
+#\
+#  The above copyright notice and this permission notice shall be included in\
+#  all copies or substantial portions of the Software.\
+\cf4 from \cf5 Common.init \cf4 import \cf5 Source\
+\cf4 from \cf5 Common \cf4 import \cf5 util\
+\
+\
+\cf4 class \cf5 AnnotationContext:\
+    \cf4 def \cf6 __init__\cf5 (\cf7 self\cf4 , \cf5 dbContext):\
+        \cf7 self\cf5 .dbContext = dbContext\
+        \cf7 self\cf5 .sources = Source.GetAllSources()\
+\
+        \cf2 # Fields\
+        \cf7 self\cf5 .entrezID = \cf4 None\
+        \cf7 self\cf5 .uniprotID = \cf4 None\
+        \cf7 self\cf5 .ensemblID = \cf4 None\
+\
+        \cf2 # Dictionaries\
+        # EntrezID\
+        \cf7 self\cf5 .__symbolToEntrezID = \{\}\
+        \cf7 self\cf5 .__ensemblIDToEntrezID = \{\}\
+        \cf7 self\cf5 .__uniprotIDToEntrezID = \{\}\
+\
+        \cf2 # UniprotID\
+        \cf7 self\cf5 .__symbolToUniprotID = \{\}\
+        \cf7 self\cf5 .__entrezIDToUniprotID = \{\}\
+        \cf7 self\cf5 .__ensemblIDToUniprotID = \{\}\
+\
+        \cf2 # EnsemblID\
+        \cf7 self\cf5 .__symbolToEnsemblID = \{\}\
+        \cf7 self\cf5 .__entrezIDToEnsemblID = \{\}\
+        \cf7 self\cf5 .__uniprotIDToEnsemblID = \{\}\
+\
+        \cf7 self\cf5 .InitializeDictionaries()\
+        \cf7 self\cf5 .InitializeFields()\
+\
+    \cf4 def \cf8 InitializeDictionaries\cf5 (\cf7 self\cf5 ):\
+        \cf4 for \cf5 source \cf4 in \cf7 self\cf5 .sources:\
+            sourceSet = \cf7 self\cf5 .dbContext.GetDatabaseBySource(source)\
+            \cf4 for \cf5 term \cf4 in \cf5 sourceSet:\
+                \cf2 # Creating dictionaries for EntrezID\
+                \cf4 if \cf5 term.entrezID \cf4 is not None\cf5 :\
+                    \cf2 # Symbol -> EntrezID\
+                    \cf4 if \cf5 term.symbol \cf4 is not None and \cf5 term.symbol \cf4 not in \cf7 self\cf5 .__symbolToEntrezID:\
+                        \cf4 if \cf5 term.symbol \cf4 not in \cf7 self\cf5 .__symbolToEntrezID \
+                        \cf7 self\cf5 .__symbolToEntrezID[term.symbol] = term.entrezID\
+\
+                    \cf2 # Symbol -> EntrezID (for additional Uniprot symbol synonyms)\
+                    \cf4 if \cf5 source \cf4 is \cf5 Source.UNIPROT:\
+                        symbolSynonyms = term.getSymbolSynonyms()\
+                        \cf4 if \cf5 symbolSynonyms:\
+                            \cf4 for \cf5 symbol \cf4 in \cf5 symbolSynonyms:\
+                                \cf4 if \cf5 symbol \cf4 not in \cf7 self\cf5 .__symbolToEntrezID:\
+                                    \cf7 self\cf5 .__symbolToEntrezID[term.symbol] = term.entrezID\
+\
+                    \cf2 # EnsemblID -> EntrezID\
+                    \cf4 if \cf5 term.ensemblID \cf4 is not None and \cf5 term.ensemblID \cf4 not in \cf7 self\cf5 .__ensemblIDToEntrezID:\
+                        \cf7 self\cf5 .__ensemblIDToEntrezID[term.ensemblID] = term.entrezID\
+\
+                    \cf2 # UniprotID -> EntrezID\
+                    \cf4 if \cf5 source \cf4 is \cf5 Source.UNIPROT \cf4 and \cf5 term.uniprotID \cf4 is not None \cf5 \\\
+                            \cf4 and \cf5 term.uniprotID \cf4 not in \cf7 self\cf5 .__uniprotIDToEntrezID:\
+                        \cf7 self\cf5 .__uniprotIDToEntrezID[term.uniprotID] = term.entrezID\
+                    \cf2 # Hugo database with only one uniprotID\
+                    \cf4 elif \cf5 source \cf4 is \cf5 Source.HUGO \cf4 and \cf5 term.uniprotID \cf4 is not None \cf5 \\\
+                            \cf4 and \cf5 term.uniprotID \cf4 not in \cf7 self\cf5 .__uniprotIDToEntrezID:\
+                        \cf7 self\cf5 .__uniprotIDToEntrezID[term.uniprotID] = term.entrezID\
+                    \cf2 # Hugo database with more than one uniprotID\
+                    \cf4 elif \cf5 source \cf4 is \cf5 Source.HUGO:\
+                        uniprotIDs = term.getUniprotIDs()\
+                        \cf4 for \cf5 uniprotID \cf4 in \cf5 uniprotIDs:\
+                            \cf4 if \cf5 uniprotID \cf4 not in \cf7 self\cf5 .__uniprotIDToEntrezID:\
+                                \cf7 self\cf5 .__uniprotIDToEntrezID[uniprotID] = term.entrezID\
+\
+                \cf2 # Creating dictionaries for UniprotID\
+                \cf4 if \cf5 term.uniprotID \cf4 is not None\cf5 :\
+                    \cf2 # Symbol -> UniprotID\
+                    \cf4 if \cf5 term.symbol \cf4 is not None and \cf5 term.symbol \cf4 not in \cf7 self\cf5 .__symbolToUniprotID:\
+                        \cf7 self\cf5 .__symbolToUniprotID[term.symbol] = term.uniprotID\
+\
+                    \cf2 # EntrezID -> UniprotID\
+                    \cf4 if \cf5 term.entrezID \cf4 is not None and \cf5 term.entrezID \cf4 not in \cf7 self\cf5 .__entrezIDToUniprotID:\
+                        \cf7 self\cf5 .__entrezIDToUniprotID[term.entrezID] = term.uniprotID\
+\
+                    \cf2 # EnsemblID -> UniprotID\
+                    \cf4 if \cf5 term.ensemblID \cf4 is not None and \cf5 term.ensemblID \cf4 not in \cf7 self\cf5 .__ensemblIDToUniprotID:\
+                        \cf7 self\cf5 .__ensemblIDToUniprotID[term.ensemblID] = term.uniprotID\
+                \cf2 # Hugo database with more than one uniprotID\
+                \cf4 elif \cf5 source \cf4 is \cf5 source.HUGO:\
+                    uniprotIDs = term.getUniprotIDs()\
+                    \cf4 for \cf5 uniprotID \cf4 in \cf5 uniprotIDs:\
+                        \cf2 # Symbol -> UniprotID\
+                        \cf4 if \cf5 term.symbol \cf4 is not None and \cf5 term.symbol \cf4 not in \cf7 self\cf5 .__symbolToUniprotID:\
+                            \cf7 self\cf5 .__symbolToUniprotID[term.symbol] = uniprotID\
+\
+                        \cf2 # EntrezID -> UniprotID\
+                        \cf4 if \cf5 term.entrezID \cf4 is not None and \cf5 term.entrezID \cf4 not in \cf7 self\cf5 .__entrezIDToUniprotID:\
+                            \cf7 self\cf5 .__entrezIDToUniprotID[term.entrezID] = uniprotID\
+\
+                        \cf2 # EnsemblID -> UniprotID\
+                        \cf4 if \cf5 term.ensemblID \cf4 is not None and \cf5 term.ensemblID \cf4 not in \cf7 self\cf5 .__ensemblIDToUniprotID:\
+                            \cf7 self\cf5 .__ensemblIDToUniprotID[term.ensemblID] = uniprotID\
+\
+                \cf2 # Creating dictionaries for EnsemblID\
+                \cf4 if \cf5 term.ensemblID \cf4 is not None\cf5 :\
+\
+\
+    \cf4 def \cf8 InitializeFields\cf5 (\cf7 self\cf5 ):\
+        \cf7 self\cf5 .entrezID = EntrezID(\cf7 self\cf5 .__symbolToEntrezID\cf4 , \cf7 self\cf5 .__ensemblIDToEntrezID\cf4 , \cf7 self\cf5 .__uniprotIDToEntrezID)\
+        \cf7 self\cf5 .uniprotID = UniprotID(\cf7 self\cf5 .__symbolToUniprotID\cf4 , \cf7 self\cf5 .__entrezIDToUniprotID\cf4 , \cf7 self\cf5 .__ensemblIDToUniprotID)\
+        \cf7 self\cf5 .ensemblID = EnsemblID(\cf7 self\cf5 .__symbolToEnsemblID\cf4 , \cf7 self\cf5 .__entrezIDToEnsemblID\cf4 , \cf7 self\cf5 .__uniprotIDToEnsemblID)\
+\
+\cf2 # EntrezID is part of: DisGeNet, Cosmic, ClinVar, HPO, Uniprot, Hugo\
+# EntrezID can be found using symbol, ensemblID and uniprotID\
+\cf4 class \cf5 EntrezID:\
+    \cf4 def \cf6 __init__\cf5 (\cf7 self\cf4 , \cf5 symbolDict\cf4 , \cf5 ensemblIDDict\cf4 , \cf5 uniprotIDDict):\
+        \cf7 self\cf5 .__symbolDict = symbolDict\
+        \cf7 self\cf5 .__ensemblIDDict = ensemblIDDict\
+        \cf7 self\cf5 .__uniprotIDDict = uniprotIDDict\
+\
+    \cf4 def \cf8 GetBySymbol\cf5 (\cf7 self\cf4 , \cf5 symbol):\
+        \cf4 return \cf7 self\cf5 .__symbolDict[symbol] \cf4 if \cf5 symbol \cf4 in \cf7 self\cf5 .__symbolDict \cf4 else None\
+\
+    def \cf8 GetByEnsemblID\cf5 (\cf7 self\cf4 , \cf5 ensemblID):\
+        \cf4 return \cf7 self\cf5 .__ensemblIDDict[ensemblID] \cf4 if \cf5 ensemblID \cf4 in \cf7 self\cf5 .__ensemblIDDict \cf4 else None\
+\
+    def \cf8 GetByUniprotID\cf5 (\cf7 self\cf4 , \cf5 uniprotID):\
+        \cf4 return \cf7 self\cf5 .__uniprotIDDict[uniprotID] \cf4 if \cf5 uniprotID \cf4 in \cf7 self\cf5 .__uniprotIDDict \cf4 else None\
+\
+\
+\cf2 # UniprotID is part of: Uniprot, Hugo\
+# UniprotID can be found using symbol, entrezID and ensemblID\
+\cf4 class \cf5 UniprotID:\
+    \cf4 def \cf6 __init__\cf5 (\cf7 self\cf4 , \cf5 symbolDict\cf4 , \cf5 entrezIDDict\cf4 , \cf5 ensemblIDDict):\
+        \cf7 self\cf5 .__symbolDict = symbolDict\
+        \cf7 self\cf5 .__entrezIDDict = entrezIDDict\
+        \cf7 self\cf5 .__ensemblIDDict = ensemblIDDict\
+\
+    \cf4 def \cf8 GetBySymbol\cf5 (\cf7 self\cf4 , \cf5 symbol):\
+        \cf4 return \cf7 self\cf5 .__symbolDict[symbol] \cf4 if \cf5 symbol \cf4 in \cf7 self\cf5 .__symbolDict \cf4 else None\
+\
+    def \cf8 GetByEntrezID\cf5 (\cf7 self\cf4 , \cf5 entrezID):\
+        \cf4 return \cf7 self\cf5 .__entrezIDDict[entrezID] \cf4 if \cf5 entrezID \cf4 in \cf7 self\cf5 .__entrezIDDict \cf4 else None\
+\
+    def \cf8 GetByEnsemblID\cf5 (\cf7 self\cf4 , \cf5 ensemblID):\
+        \cf4 return \cf7 self\cf5 .__ensemblIDDict[ensemblID] \cf4 if \cf5 ensemblID \cf4 in \cf7 self\cf5 .__ensemblIDDict \cf4 else None\
+\
+\
+\cf2 # EnsemblID is part of: Orphanet ,Uniprot, Hugo\
+# EnsemblID can be found using symbol, entrezID and uniprotID\
+\cf4 class \cf5 EnsemblID:\
+    \cf4 def \cf6 __init__\cf5 (\cf7 self\cf4 , \cf5 symbolDict\cf4 , \cf5 entrezIDDict\cf4 , \cf5 uniprotIDDict):\
+        \cf7 self\cf5 .__symbolDict = symbolDict\
+        \cf7 self\cf5 .__entrezIDDict = entrezIDDict\
+        \cf7 self\cf5 .__uniprotIDDict = uniprotIDDict\
+\
+    \cf4 def \cf8 GetBySymbol\cf5 (\cf7 self\cf4 , \cf5 symbol):\
+        \cf4 return \cf7 self\cf5 .__symbolDict[symbol] \cf4 if \cf5 symbol \cf4 in \cf7 self\cf5 .__symbolDict \cf4 else None\
+\
+    def \cf8 GetByEntrezID\cf5 (\cf7 self\cf4 , \cf5 entrezID):\
+        \cf4 return \cf7 self\cf5 .__entrezIDDict[entrezID] \cf4 if \cf5 entrezID \cf4 in \cf7 self\cf5 .__entrezIDDict \cf4 else None\
+\
+    def \cf8 GetByUniprotID\cf5 (\cf7 self\cf4 , \cf5 uniprotID):\
+        \cf4 return \cf7 self\cf5 .__uniprotIDDict[uniprotID] \cf4 if \cf5 uniprotID \cf4 in \cf7 self\cf5 .__uniprotIDDict \cf4 else None\
+\
+}

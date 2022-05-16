@@ -13,13 +13,13 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Classes import annotationrow as ar
-from Common import init
+from Classes import annotation_row as ar
+from Common import init, constants
 
 
 class Orphanet:
     @staticmethod
-    def Read(filePath):
+    def Read(filePath=constants.ORPHANET_PATH):
         orphanetSet = set()
         tree = init.ET.parse(filePath)
         root = tree.getroot()

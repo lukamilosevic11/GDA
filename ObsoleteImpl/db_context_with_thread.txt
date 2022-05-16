@@ -1,0 +1,58 @@
+from Sources import clinvar, cosmic, diseases, disgenet, hpo, humsavar, orphanet
+from Mapping import obo, uniprot, hugo
+from Common.init import Thread, Source
+import concurrent.futures
+
+
+# TODO: remove thread support
+class DBContext:
+    def __init__(self):
+        # self.threadFunctions = [disgenet.DisGeNet.Read,
+        #                         cosmic.Cosmic.Read,
+        #                         clinvar.ClinVar.Read,
+        #                         humsavar.HumsaVar.Read,
+        #                         orphanet.Orphanet.Read,
+        #                         hpo.HPO.Read,
+        #                         diseases.Diseases.Read,
+        #                         obo.OBO.Read,
+        #                         uniprot.Uniprot.Read,
+        #                         hugo.Hugo.Read]
+        # self.databases = [() for i in range(len(self.threadFunctions))]
+        self.disGeNet = disgenet.DisGeNet.Read()
+        self.cosmic = cosmic.Cosmic.Read()
+        self.clinvar = clinvar.ClinVar.Read()
+        self.humsavar = humsavar.HumsaVar.Read()
+        self.orphanet = orphanet.Orphanet.Read()
+        self.hpoSet = hpo.HPO.Read()
+        self.diseases = diseases.Diseases.Read()
+        self.obo = obo.OBO.Read()
+        self.uniprot = uniprot.Uniprot.Read()
+        self.hugo = hugo.Hugo.Read()
+        # self.Initialize()
+
+    # def Initialize(self):
+    # numberOfThreads = len(self.threadFunctions)
+    # threads = []
+    # with concurrent.futures.ThreadPoolExecutor(max_workers=numberOfThreads) as executor:
+    #     for src in Source:
+    #         future = executor.submit(self.threadFunctions[src.value - 1])
+    #         self.databases = future.result(future.result())
+
+    # for i in range(numberOfThreads):
+    #     t = Thread(target=self.ThreadTask, args=[i])
+    #     threads.append(t)
+    #     t.start()
+    #
+    # for th in threads:
+    #     th.join()
+
+    # def GetDatabase(self, source):
+    #     return self.databases[source.value - 1]
+    #
+    # def ThreadTask(self, threadNum):
+    #     self.databases[threadNum] = self.threadFunctions[threadNum]()
+
+    def GetDatabaseBySource(self, source):
+        if source is Source.DISGENET:
+            return self.disGeNet
+        elif source is Source.

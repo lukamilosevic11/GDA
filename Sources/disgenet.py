@@ -13,13 +13,13 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Classes import annotationrow as ar
-from Common import init, util
+from Classes import annotation_row as ar
+from Common import init, util, constants
 
 
 class DisGeNet:
     @staticmethod
-    def Read(filePath):
+    def Read(filePath=constants.DISGENET_PATH):
         disGeNetData = init.PD.read_csv(filePath, sep='\t', dtype=str)
         disGeNetData = disGeNetData[["geneId", "geneSymbol", "diseaseId", "diseaseName"]]
         disGeNetData = disGeNetData.to_numpy()

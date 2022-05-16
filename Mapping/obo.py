@@ -14,13 +14,13 @@
 #  all copies or substantial portions of the Software.
 
 
-from Classes import annotationrow as ar
-from Common import init
+from Classes import annotation_row as ar
+from Common import init, constants
 
 
 class OBO:
     @staticmethod
-    def Read(filePath):
+    def Read(filePath=constants.OBO_PATH):
         oboData = init.Ontology(filePath, threads=init.multiprocessing.cpu_count())
         oboSet = set()
 

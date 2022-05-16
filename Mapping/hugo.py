@@ -13,13 +13,13 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Classes import annotationrow as ar
-from Common import init, util
+from Classes import annotation_row as ar
+from Common import init, util, constants
 
 
 class Hugo:
     @staticmethod
-    def Read(filePath):
+    def Read(filePath=constants.HUGO_PATH):
         hugoData = init.PD.read_csv(filePath, sep='\t', dtype=str)
         hugoData = hugoData[["symbol", "entrez_id", "uniprot_ids", "ensembl_gene_id"]]
         hugoData = hugoData.to_numpy()
@@ -29,7 +29,15 @@ class Hugo:
             symbol = util.checkNan(row[0])
             entrezID = util.checkNan(row[1])
             uniprotIDs = util.checkNan(row[2], [])
+            uniprotID = None
+            if uniprotIDs:
+                splittedUnirotIDs = uniprotIDs.split("|")
+                if len(splittedUnirotIDs) > 1:
+                    uniprotIDs = splittedUnirotIDs
+                else:
+                    uniprotID = splittedUnirotIDs[0].strip()
+                    uniprotIDs = []
             ensemblID = util.checkNan(row[3])
-            hugoSet.add(ar.HugoRow(symbol, entrezID, ensemblID, uniprotIDs))
+            hugoSet.add(ar.HugoRow(symbol, entrezID, uniprotID, ensemblID, uniprotIDs))
 
         return hugoSet

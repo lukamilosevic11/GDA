@@ -13,12 +13,13 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Classes import annotationrow as ar
+from Classes import annotation_row as ar
+from Common import constants
 
 
 class HPO:
     @staticmethod
-    def Read(filePath):
+    def Read(filePath=constants.HPO_PATH):
         hpoSet = set()
         with open(filePath, 'r') as hpoFile:
             hpoLines = hpoFile.readlines()

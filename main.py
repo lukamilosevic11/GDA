@@ -14,34 +14,23 @@
 #  all copies or substantial portions of the Software.
 
 from Classes.search_engine_client import SearchEngineClient
-from Classes.db_context import DBContext
-from Common.init import Attribute, Source
+from Classes.parsing_context import ParsingContext
+from Common.init import Attribute, Source, time
 from Common import constants, util
 
 
 def main():
-    dbContext = DBContext()
-
-    # util.printSet(dbContext.clinvar)
+    startTime = time.time()
+    # dbContext = DBContext()
+    parsingContext = ParsingContext()
+    endTime = time.time()
+    print("Time processing files: {}".format(endTime - startTime))
     tmpFilePath = "./Results/tmp.txt"
-    # util.printSet(cosmicSet)
 
-    # util.printSet(diseasesSet)
-    # util.writeSetToFile("./Results/tmp.txt", diseasesSet)
-
-    # util.printSet(disGeNetSet)
-
-    # util.printSet(hpoSet)
-
-    # util.printSet(humsavarSet)
-
-    # util.printSet(orphanetSet)
-    # util.writeSetToFile("./Results/tmp.txt", orphanetSet)
-
-    # util.printSet(oboSet)
     # util.writeSetToFile("./Results/tmp.txt", oboSet)
     # util.writeJsonSetToFile("./Results/tmp.jsonl", oboSet, [Attribute.DOID, Attribute.DISEASE_NAME], Source.OBO)
-    util.writeSetToFile(tmpFilePath, dbContext.hugo)
+    # util.writeSetToFile(tmpFilePath, parsingContext.dbContext.uniprot)
+    # print(len(parsingContext.annotationContext.entrezID.symbolDict))
 
 
 if __name__ == '__main__':

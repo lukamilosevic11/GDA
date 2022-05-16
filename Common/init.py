@@ -13,13 +13,15 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-import pandas as PD
 import numpy as NP
+import pandas as PD
 import nltk
 import xml.etree.ElementTree as ET
 import multiprocessing
 import json
 import typesense
+import time
+import concurrent.futures
 from pronto import Ontology
 from time import perf_counter
 from threading import Thread
@@ -37,4 +39,18 @@ class Attribute(Enum):
 
 
 class Source(Enum):
-    OBO = 1
+    DISGENET = 1
+    COSMIC = 2
+    CLINVAR = 3
+    HUMSAVAR = 4
+    ORPHANET = 5
+    HPO = 6
+    DISEASES = 7
+    OBO = 8
+    UNIPROT = 9
+    HUGO = 10
+
+    @staticmethod
+    def GetAllSources():
+        return [Source.DISGENET, Source.COSMIC, Source.CLINVAR, Source.HUMSAVAR, Source.ORPHANET,
+                Source.HPO, Source.DISEASES, Source.OBO, Source.UNIPROT, Source.HUGO]

@@ -14,12 +14,13 @@
 #  all copies or substantial portions of the Software.
 
 
-from Classes import annotationrow as ar
+from Classes import annotation_row as ar
+from Common import constants
 
 
 class Uniprot:
     @staticmethod
-    def Read(filePath):
+    def Read(filePath=constants.UNIPROT_PATH):
         uniprotSet = set()
         with open(filePath, 'r') as uniprotFile:
             uniprotLines = uniprotFile.readlines()

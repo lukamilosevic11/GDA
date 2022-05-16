@@ -13,13 +13,13 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Classes import annotationrow as ar
-from Common import init, util
+from Classes import annotation_row as ar
+from Common import init, util, constants
 
 
 class Diseases:
     @staticmethod
-    def Read(filePath):
+    def Read(filePath=constants.DISEASES_PATH):
         diseasesData = init.PD.read_csv(filePath, sep='\t', header=None, usecols=[1, 2, 3], dtype=str)
         diseasesData = diseasesData.to_numpy()
 

@@ -13,12 +13,13 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Classes import annotationrow as ar
+from Classes import annotation_row as ar
+from Common import constants
 
 
 class HumsaVar:
     @staticmethod
-    def Read(filePath):
+    def Read(filePath=constants.HUMSAVAR_PATH):
         humsavarSet = set()
         with open(filePath, 'r') as humsavarFile:
             humsavarLines = humsavarFile.readlines()
