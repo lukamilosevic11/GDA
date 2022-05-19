@@ -13,17 +13,22 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 from Common.init import Source
+from Common.util import preprocessingDiseaseName, writeDictToJsonlFile, jaccardSimilarity
+from Common.constants import COLLECTION_NAME_DOID, QUERY_BY_DOID, DISEASE_NAME_DOID_JSONL_PATH
+from Classes.search_engine_client import SearchEngineClient
 
 
 class AnnotationContext:
-    def __init__(self, dbContext):
-        self.dbContext = dbContext
-        self.sources = Source.GetAllSources()
+    def __init__(self, dbContext, dropCollection):
+        self.__dbContext = dbContext
+        self.__searchEngineClient = SearchEngineClient()
+        self.__sources = Source.GetAllSources()
 
         # Fields
         self.entrezID = None
         self.uniprotID = None
         self.ensemblID = None
+        self.doid = None
         self.diseaseName = None
 
         # Dictionaries
@@ -42,18 +47,23 @@ class AnnotationContext:
         self.__entrezIDToEnsemblID = {}
         self.__uniprotIDToEnsemblID = {}
 
+        # DOID
+        self.__diseaseNameFrozenSetToDOID = {}
+        self.__diseaseNameToDOID = {}
+
         # DiseaseName
         self.__symbolToDiseaseName = {}
         self.__entrezIDToDiseaseName = {}
         self.__ensemblIDToDiseaseName = {}
         self.__doidToDiseaseName = {}
 
-        self.InitializeDictionaries()
-        self.InitializeFields()
+        self.__InitializeDictionaries()
+        self.__InitializeSearchEngineClient(dropCollection)
+        self.__InitializeFields()
 
-    def InitializeDictionaries(self):
-        for source in self.sources:
-            sourceSet = self.dbContext.GetDatabaseBySource(source)
+    def __InitializeDictionaries(self):
+        for source in self.__sources:
+            sourceSet = self.__dbContext.GetDatabaseBySource(source)
             for term in sourceSet:
                 # Symbol
                 if term.symbol is not None:
@@ -156,12 +166,69 @@ class AnnotationContext:
                         if diseaseNameSynonyms:
                             self.__doidToDiseaseName[term.doid] = diseaseNameSynonyms[0]
 
-    def InitializeFields(self):
+                # DiseaseName
+                if term.diseaseName is not None:
+                    # DiseaseName -> DOID
+                    if source is Source.DISEASES or source is Source.OBO:
+                        if term.doid is not None:
+                            preprocessedDiseaseName = preprocessingDiseaseName(term.diseaseName)
+                            preprocessedDiseaseNameFrozenSet = frozenset(preprocessedDiseaseName)
+                            if preprocessedDiseaseNameFrozenSet not in self.__diseaseNameFrozenSetToDOID:
+                                self.__diseaseNameFrozenSetToDOID[preprocessedDiseaseNameFrozenSet] = term.doid
+
+                            preprocessedDiseaseName = ' '.join(preprocessedDiseaseName)
+                            if preprocessedDiseaseName not in self.__diseaseNameToDOID:
+                                self.__diseaseNameToDOID[preprocessedDiseaseName] = term.doid
+
+                    # DiseaseName -> DOID (OBO synonyms)
+                    if source is Source.OBO:
+                        diseaseNameSynonyms = term.getSynonyms()
+                        if diseaseNameSynonyms:
+                            for diseaseNameSynonym in diseaseNameSynonyms:
+                                if term.doid is not None:
+                                    preprocessedDiseaseNameSynonym = preprocessingDiseaseName(diseaseNameSynonym)
+                                    preprocessedDiseaseNameSynonymFrozenSet = \
+                                        frozenset(preprocessedDiseaseNameSynonym)
+                                    if preprocessedDiseaseNameSynonymFrozenSet not in self.__diseaseNameFrozenSetToDOID:
+                                        self.__diseaseNameFrozenSetToDOID[preprocessedDiseaseNameSynonymFrozenSet] = \
+                                            term.doid
+
+                                    preprocessedDiseaseNameSynonym = ' '.join(preprocessedDiseaseNameSynonym)
+                                    if preprocessedDiseaseNameSynonym not in self.__diseaseNameToDOID:
+                                        self.__diseaseNameToDOID[preprocessedDiseaseNameSynonym] = term.doid
+
+    def __InitializeFields(self):
         self.entrezID = EntrezID(self.__symbolToEntrezID, self.__ensemblIDToEntrezID, self.__uniprotIDToEntrezID)
         self.uniprotID = UniprotID(self.__symbolToUniprotID, self.__entrezIDToUniprotID, self.__ensemblIDToUniprotID)
         self.ensemblID = EnsemblID(self.__symbolToEnsemblID, self.__entrezIDToEnsemblID, self.__uniprotIDToEnsemblID)
+        self.doid = DOID(self.__diseaseNameFrozenSetToDOID, self.__searchEngineClient)
         self.diseaseName = DiseaseName(self.__symbolToDiseaseName, self.__entrezIDToDiseaseName,
                                        self.__ensemblIDToDiseaseName, self.__doidToDiseaseName)
+
+    def __InitializeSearchEngineClient(self, dropCollection):
+        try:
+            if dropCollection:
+                self.__searchEngineClient.deleteCollection(COLLECTION_NAME_DOID)
+
+            collections = self.__searchEngineClient.getAllCollections()
+            createCollection = True
+            insertDocuments = True
+            for collection in collections:
+                if collection["name"] == COLLECTION_NAME_DOID:
+                    createCollection = False
+                    insertDocuments = True if collection["num_documents"] < len(self.__diseaseNameToDOID) else False
+
+            if createCollection:
+                self.__searchEngineClient.createCollection(COLLECTION_NAME_DOID,
+                                                           [
+                                                               {'name': 'diseaseName', 'type': 'string'},
+                                                               {'name': 'doid', 'type': 'string'}
+                                                           ])
+            if insertDocuments:
+                writeDictToJsonlFile(DISEASE_NAME_DOID_JSONL_PATH, self.__diseaseNameToDOID, "diseaseName", "doid")
+                self.__searchEngineClient.importDataFromFile(COLLECTION_NAME_DOID, DISEASE_NAME_DOID_JSONL_PATH)
+        except:
+            print("Collection already exist")
 
 
 # EntrezID is part of: DisGeNet, Cosmic, ClinVar, HPO, Uniprot, Hugo
@@ -216,6 +283,33 @@ class EnsemblID:
 
     def GetByUniprotID(self, uniprotID):
         return self.__uniprotIDDict[uniprotID] if uniprotID in self.__uniprotIDDict else None
+
+
+# DOID is part of: Diseases, OBO
+# DOID can be found using diseaseName
+class DOID:
+    def __init__(self, diseaseNameFrozenSetDict, searchEngineClient):
+        self.__searchEngineClient = searchEngineClient
+        self.__diseaseNameFrozenSetDict = diseaseNameFrozenSetDict
+
+    def GetByDiseaseName(self, diseaseName):
+        preprocessedDiseaseName = preprocessingDiseaseName(diseaseName)
+        preprocessedDiseaseNameFrozenSet = frozenset(preprocessedDiseaseName)
+        if preprocessedDiseaseNameFrozenSet in self.__diseaseNameFrozenSetDict:
+            return self.__diseaseNameFrozenSetDict[preprocessedDiseaseNameFrozenSet]
+        else:
+            return self.__SearchWithSearchEngine(' '.join(preprocessedDiseaseName))
+
+    # TODO: add check if we have more than one hit then we can compare results with Jaccard index or some other measure
+    def __SearchWithSearchEngine(self, preprocessedDiseaseName):
+        searchResult = self.__searchEngineClient. \
+            searchByQuery(COLLECTION_NAME_DOID, preprocessedDiseaseName, QUERY_BY_DOID)
+        if len(searchResult["hits"]) > 0:
+            foundDiseaseName = searchResult["hits"][0]["document"]["diseaseName"]
+            # jaccSimiliarity = jaccardSimilarity(foundDiseaseName, preprocessedDiseaseName)
+            return searchResult["hits"][0]["document"]["doid"]
+        else:
+            return None
 
 
 # DiseaseName is part of: DisGeNet, Cosmic, HumsaVar, Orphanet, ClinVar, Diseases, OBO

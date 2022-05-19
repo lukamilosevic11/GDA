@@ -16,12 +16,17 @@
 import numpy as NP
 import pandas as PD
 import nltk
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
 import xml.etree.ElementTree as ET
 import multiprocessing
 import json
 import typesense
 import time
 import concurrent.futures
+import string
 from pronto import Ontology
 from time import perf_counter
 from threading import Thread

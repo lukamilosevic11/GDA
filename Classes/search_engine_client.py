@@ -1,8 +1,9 @@
 from Common.init import typesense, json
+from Common.constants import API_KEY
 
 
 class SearchEngineClient:
-    def __init__(self, apiKey, nodes=None, connectionTimeoutSeconds=2):
+    def __init__(self, apiKey=API_KEY, nodes=None, connectionTimeoutSeconds=2):
         if nodes is None:
             nodes = [{"host": "localhost", "port": "8108", "protocol": "http"}]
 
@@ -18,13 +19,19 @@ class SearchEngineClient:
             "fields": fields
         })
 
-    def importDataFromFile(self, name, filePath, batchSize):
-        res = None
+    def deleteCollection(self, name):
+        return self.client.collections[name].delete()
+
+    def getAllCollections(self):
+        return self.client.collections.retrieve()
+
+    def importDataFromFile(self, name, filePath, batchSize=200):
+        result = None
         with open(filePath, "r") as jsonlFile:
-            res = self.client.collections[name]. \
+            result = self.client.collections[name]. \
                 documents.import_(jsonlFile.read().encode("utf-8"), {"batch_size": batchSize})
 
-        return res
+        return result
 
     def searchByQuery(self, name, query, queryBy, sortBy="_text_match:desc"):
         searchParameters = {

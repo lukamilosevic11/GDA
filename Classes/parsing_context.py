@@ -17,6 +17,6 @@ from Classes.annotation_context import AnnotationContext
 
 
 class ParsingContext:
-    def __init__(self):
+    def __init__(self, dropCollection=False):
         self.dbContext = DBContext()
-        self.annotationContext = AnnotationContext(self.dbContext)
+        self.annotationContext = AnnotationContext(self.dbContext, dropCollection)

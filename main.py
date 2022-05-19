@@ -13,24 +13,32 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Classes.search_engine_client import SearchEngineClient
 from Classes.parsing_context import ParsingContext
-from Common.init import Attribute, Source, time
-from Common import constants, util
+from Common.init import time
+from Common import util
 
 
 def main():
     startTime = time.time()
-    # dbContext = DBContext()
     parsingContext = ParsingContext()
-    endTime = time.time()
-    print("Time processing files: {}".format(endTime - startTime))
+    parsingContextTime = time.time()
+    print("Time processing parsing context: {}".format(parsingContextTime - startTime))
     tmpFilePath = "./Results/tmp.txt"
+    disGeNetDoidSet = set()
+    for row in parsingContext.dbContext.disGeNet:
+        disGeNetDoidSet.add(row.diseaseName + " " +
+                            str(parsingContext.annotationContext.doid.GetByDiseaseName(row.diseaseName)))
+    disGeNetDoidTime = time.time()
+    print("Time processing disGeNet doid: {}".format(disGeNetDoidTime - parsingContextTime))
+    util.writeSetToFile(tmpFilePath, disGeNetDoidSet)
+    disGeNetDoidWritingSetTime = time.time()
+    print("Time processing writing disGeNetSet doid: {}".format(disGeNetDoidWritingSetTime - disGeNetDoidTime))
+    print("Total time: {}".format(disGeNetDoidWritingSetTime - startTime))
 
-    # util.writeSetToFile("./Results/tmp.txt", oboSet)
     # util.writeJsonSetToFile("./Results/tmp.jsonl", oboSet, [Attribute.DOID, Attribute.DISEASE_NAME], Source.OBO)
     # util.writeSetToFile(tmpFilePath, parsingContext.dbContext.uniprot)
     # print(len(parsingContext.annotationContext.entrezID.symbolDict))
+    # print(' '.join(util.preprocessingDiseaseName("Schizophrenia-like symptoms (uncommon)")))
 
 
 if __name__ == '__main__':
