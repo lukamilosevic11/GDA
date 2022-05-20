@@ -13,21 +13,23 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Classes import annotation_row as ar
-from Common import init, util, constants
+from Classes.annotation_row import DiseasesRow
+from Common.constants import DISEASES_PATH
+from Common.init import PD
+from Common.util import CheckNan
 
 
 class Diseases:
     @staticmethod
-    def Read(filePath=constants.DISEASES_PATH):
-        diseasesData = init.PD.read_csv(filePath, sep='\t', header=None, usecols=[1, 2, 3], dtype=str)
+    def Read(filePath=DISEASES_PATH):
+        diseasesData = PD.read_csv(filePath, sep='\t', header=None, usecols=[1, 2, 3], dtype=str)
         diseasesData = diseasesData.to_numpy()
 
         diseasesSet = set()
         for row in diseasesData:
-            symbol = util.checkNan(row[0])
-            doid = util.checkNan(row[1])
-            diseaseName = util.checkNan(row[2])
-            diseasesSet.add(ar.DiseasesRow(symbol, doid, diseaseName))
+            symbol = CheckNan(row[0])
+            doid = CheckNan(row[1])
+            diseaseName = CheckNan(row[2])
+            diseasesSet.add(DiseasesRow(symbol, doid, diseaseName))
 
         return diseasesSet

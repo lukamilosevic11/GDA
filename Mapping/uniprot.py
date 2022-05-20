@@ -13,14 +13,13 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-
-from Classes import annotation_row as ar
-from Common import constants
+from Classes.annotation_row import UniprotRow
+from Common.constants import UNIPROT_PATH
 
 
 class Uniprot:
     @staticmethod
-    def Read(filePath=constants.UNIPROT_PATH):
+    def Read(filePath=UNIPROT_PATH):
         uniprotSet = set()
         with open(filePath, 'r') as uniprotFile:
             uniprotLines = uniprotFile.readlines()
@@ -43,11 +42,11 @@ class Uniprot:
                         symbolSynonyms = symbolSynonymsDict[symbol]
                         entrezID = entrezIDs[0] if entrezIDs else None
                         ensemblID = ensemblIDs[0] if ensemblIDs else None
-                        uniprotSet.add(ar.UniprotRow(symbol, symbolSynonyms, entrezID, ensemblID, uniprotID))
+                        uniprotSet.add(UniprotRow(symbol, symbolSynonyms, entrezID, ensemblID, uniprotID))
                     else:
                         for symbol in symbols:
                             symbolSynonyms = symbolSynonymsDict[symbol]
-                            uniprotSet.add(ar.UniprotRow(symbol, symbolSynonyms, None, None, uniprotID))
+                            uniprotSet.add(UniprotRow(symbol, symbolSynonyms, None, None, uniprotID))
                     symbols = []
                     symbolSynonymsDict = {}
                     entrezIDs = []

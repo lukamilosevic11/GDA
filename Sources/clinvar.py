@@ -13,26 +13,28 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Classes import annotation_row as ar
-from Common import init, util, constants
+from Classes.annotation_row import ClinVarRow
+from Common.constants import CLINVAR_PATH
+from Common.init import PD
+from Common.util import CheckNan
 
 
 class ClinVar:
     @staticmethod
-    def Read(filePath=constants.CLINVAR_PATH):
-        clinVarData = init.PD.read_csv(filePath, sep='\t', dtype=str)
+    def Read(filePath=CLINVAR_PATH):
+        clinVarData = PD.read_csv(filePath, sep='\t', dtype=str)
         clinVarData = clinVarData[["#GeneID", "AssociatedGenes", "RelatedGenes", "DiseaseName"]]
         clinVarData = clinVarData.to_numpy()
 
         clinVarSet = set()
         for row in clinVarData:
-            associatedGeneSymbol = util.checkNan(row[1])
-            relatedGeneSymbol = util.checkNan(row[2])
-            entrezID = util.checkNan(row[0])
-            diseaseName = util.checkNan(row[3])
+            associatedGeneSymbol = CheckNan(row[1])
+            relatedGeneSymbol = CheckNan(row[2])
+            entrezID = CheckNan(row[0])
+            diseaseName = CheckNan(row[3])
             if associatedGeneSymbol is not None:
                 symbol = associatedGeneSymbol
             else:
                 symbol = relatedGeneSymbol
-            clinVarSet.add(ar.ClinVarRow(symbol, entrezID, diseaseName))
+            clinVarSet.add(ClinVarRow(symbol, entrezID, diseaseName))
         return clinVarSet

@@ -13,13 +13,13 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Classes import annotation_row as ar
-from Common import constants
+from Classes.annotation_row import HumsaVarRow
+from Common.constants import HUMSAVAR_PATH
 
 
 class HumsaVar:
     @staticmethod
-    def Read(filePath=constants.HUMSAVAR_PATH):
+    def Read(filePath=HUMSAVAR_PATH):
         humsavarSet = set()
         with open(filePath, 'r') as humsavarFile:
             humsavarLines = humsavarFile.readlines()
@@ -38,6 +38,6 @@ class HumsaVar:
                         diseaseNameAndOmim = lineSplitted[6].strip().rsplit(" ", 2)
                         diseaseName = diseaseNameAndOmim[0].strip()
                         omim = diseaseNameAndOmim[2].strip().split(":")[1][:-1].strip()
-                        humsavarSet.add(ar.HumsaVarRow(symbol, diseaseName, omim))
+                        humsavarSet.add(HumsaVarRow(symbol, diseaseName, omim))
 
         return humsavarSet

@@ -12,10 +12,11 @@
 #
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
-from Common.init import Source
-from Common.util import preprocessingDiseaseName, writeDictToJsonlFile, jaccardSimilarity
-from Common.constants import COLLECTION_NAME_DOID, QUERY_BY_DOID, DISEASE_NAME_DOID_JSONL_PATH
+
 from Classes.search_engine_client import SearchEngineClient
+from Common.constants import COLLECTION_NAME_DOID, QUERY_BY_DOID, DISEASE_NAME_DOID_JSONL_PATH
+from Common.init import Source
+from Common.util import PreprocessingDiseaseName, WriteDictToJsonlFile, JaccardSimilarity
 
 
 class AnnotationContext:
@@ -24,7 +25,7 @@ class AnnotationContext:
         self.__searchEngineClient = SearchEngineClient()
         self.__sources = Source.GetAllSources()
 
-        # Fields
+        # Attributes
         self.entrezID = None
         self.uniprotID = None
         self.ensemblID = None
@@ -59,7 +60,7 @@ class AnnotationContext:
 
         self.__InitializeDictionaries()
         self.__InitializeSearchEngineClient(dropCollection)
-        self.__InitializeFields()
+        self.__InitializeAttributes()
 
     def __InitializeDictionaries(self):
         for source in self.__sources:
@@ -171,7 +172,7 @@ class AnnotationContext:
                     # DiseaseName -> DOID
                     if source is Source.DISEASES or source is Source.OBO:
                         if term.doid is not None:
-                            preprocessedDiseaseName = preprocessingDiseaseName(term.diseaseName)
+                            preprocessedDiseaseName = PreprocessingDiseaseName(term.diseaseName)
                             preprocessedDiseaseNameFrozenSet = frozenset(preprocessedDiseaseName)
                             if preprocessedDiseaseNameFrozenSet not in self.__diseaseNameFrozenSetToDOID:
                                 self.__diseaseNameFrozenSetToDOID[preprocessedDiseaseNameFrozenSet] = term.doid
@@ -186,7 +187,7 @@ class AnnotationContext:
                         if diseaseNameSynonyms:
                             for diseaseNameSynonym in diseaseNameSynonyms:
                                 if term.doid is not None:
-                                    preprocessedDiseaseNameSynonym = preprocessingDiseaseName(diseaseNameSynonym)
+                                    preprocessedDiseaseNameSynonym = PreprocessingDiseaseName(diseaseNameSynonym)
                                     preprocessedDiseaseNameSynonymFrozenSet = \
                                         frozenset(preprocessedDiseaseNameSynonym)
                                     if preprocessedDiseaseNameSynonymFrozenSet not in self.__diseaseNameFrozenSetToDOID:
@@ -197,7 +198,7 @@ class AnnotationContext:
                                     if preprocessedDiseaseNameSynonym not in self.__diseaseNameToDOID:
                                         self.__diseaseNameToDOID[preprocessedDiseaseNameSynonym] = term.doid
 
-    def __InitializeFields(self):
+    def __InitializeAttributes(self):
         self.entrezID = EntrezID(self.__symbolToEntrezID, self.__ensemblIDToEntrezID, self.__uniprotIDToEntrezID)
         self.uniprotID = UniprotID(self.__symbolToUniprotID, self.__entrezIDToUniprotID, self.__ensemblIDToUniprotID)
         self.ensemblID = EnsemblID(self.__symbolToEnsemblID, self.__entrezIDToEnsemblID, self.__uniprotIDToEnsemblID)
@@ -208,9 +209,9 @@ class AnnotationContext:
     def __InitializeSearchEngineClient(self, dropCollection):
         try:
             if dropCollection:
-                self.__searchEngineClient.deleteCollection(COLLECTION_NAME_DOID)
+                self.__searchEngineClient.DeleteCollection(COLLECTION_NAME_DOID)
 
-            collections = self.__searchEngineClient.getAllCollections()
+            collections = self.__searchEngineClient.GetAllCollections()
             createCollection = True
             insertDocuments = True
             for collection in collections:
@@ -219,14 +220,14 @@ class AnnotationContext:
                     insertDocuments = True if collection["num_documents"] < len(self.__diseaseNameToDOID) else False
 
             if createCollection:
-                self.__searchEngineClient.createCollection(COLLECTION_NAME_DOID,
+                self.__searchEngineClient.CreateCollection(COLLECTION_NAME_DOID,
                                                            [
                                                                {'name': 'diseaseName', 'type': 'string'},
                                                                {'name': 'doid', 'type': 'string'}
                                                            ])
             if insertDocuments:
-                writeDictToJsonlFile(DISEASE_NAME_DOID_JSONL_PATH, self.__diseaseNameToDOID, "diseaseName", "doid")
-                self.__searchEngineClient.importDataFromFile(COLLECTION_NAME_DOID, DISEASE_NAME_DOID_JSONL_PATH)
+                WriteDictToJsonlFile(DISEASE_NAME_DOID_JSONL_PATH, self.__diseaseNameToDOID, "diseaseName", "doid")
+                self.__searchEngineClient.ImportDataFromFile(COLLECTION_NAME_DOID, DISEASE_NAME_DOID_JSONL_PATH)
         except:
             print("Collection already exist")
 
@@ -293,7 +294,10 @@ class DOID:
         self.__diseaseNameFrozenSetDict = diseaseNameFrozenSetDict
 
     def GetByDiseaseName(self, diseaseName):
-        preprocessedDiseaseName = preprocessingDiseaseName(diseaseName)
+        if diseaseName is None:
+            return None
+
+        preprocessedDiseaseName = PreprocessingDiseaseName(diseaseName)
         preprocessedDiseaseNameFrozenSet = frozenset(preprocessedDiseaseName)
         if preprocessedDiseaseNameFrozenSet in self.__diseaseNameFrozenSetDict:
             return self.__diseaseNameFrozenSetDict[preprocessedDiseaseNameFrozenSet]
@@ -303,13 +307,21 @@ class DOID:
     # TODO: add check if we have more than one hit then we can compare results with Jaccard index or some other measure
     def __SearchWithSearchEngine(self, preprocessedDiseaseName):
         searchResult = self.__searchEngineClient. \
-            searchByQuery(COLLECTION_NAME_DOID, preprocessedDiseaseName, QUERY_BY_DOID)
+            SearchByQuery(COLLECTION_NAME_DOID, preprocessedDiseaseName, QUERY_BY_DOID)
         if len(searchResult["hits"]) > 0:
-            foundDiseaseName = searchResult["hits"][0]["document"]["diseaseName"]
+            # foundDiseaseName = searchResult["hits"][0]["document"]["diseaseName"]
             # jaccSimiliarity = jaccardSimilarity(foundDiseaseName, preprocessedDiseaseName)
             return searchResult["hits"][0]["document"]["doid"]
-        else:
-            return None
+        elif " due " in preprocessedDiseaseName:
+            return self.__SearchWithSearchEngine(preprocessedDiseaseName.split(" due ")[0])
+        elif " with without " in preprocessedDiseaseName:
+            return self.__SearchWithSearchEngine(preprocessedDiseaseName.split(" with without ")[0])
+        elif " with " in preprocessedDiseaseName:
+            return self.__SearchWithSearchEngine(preprocessedDiseaseName.split(" with ")[0])
+        elif " without " in preprocessedDiseaseName:
+            return self.__SearchWithSearchEngine(preprocessedDiseaseName.split(" without ")[0])
+
+        return None
 
 
 # DiseaseName is part of: DisGeNet, Cosmic, HumsaVar, Orphanet, ClinVar, Diseases, OBO

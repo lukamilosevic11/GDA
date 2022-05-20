@@ -13,15 +13,16 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Classes import annotation_row as ar
-from Common import init, constants
+from Classes.annotation_row import OrphanetRow
+from Common.constants import ORPHANET_PATH
+from Common.init import ET
 
 
 class Orphanet:
     @staticmethod
-    def Read(filePath=constants.ORPHANET_PATH):
+    def Read(filePath=ORPHANET_PATH):
         orphanetSet = set()
-        tree = init.ET.parse(filePath)
+        tree = ET.parse(filePath)
         root = tree.getroot()
         disorderList = root.find("DisorderList")
         for disorder in disorderList:
@@ -40,8 +41,9 @@ class Orphanet:
                     source = externalReference.find("Source").text.strip()
                     if source != "Ensembl":
                         continue
+
                     ensemblID = externalReference.find("Reference").text.strip()
 
-                    orphanetSet.add(ar.OrphanetRow(symbol, ensemblID, diseaseName))
+                    orphanetSet.add(OrphanetRow(symbol, ensemblID, diseaseName))
 
         return orphanetSet

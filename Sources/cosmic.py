@@ -13,26 +13,28 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Classes import annotation_row as ar
-from Common import init, util, constants
+from Classes.annotation_row import CosmicRow
+from Common.constants import COSMIC_PATH
+from Common.init import PD
+from Common.util import CheckNan
 
 
 class Cosmic:
     @staticmethod
-    def Read(filePath=constants.COSMIC_PATH):
-        cosmicData = init.PD.read_csv(filePath, sep=',', dtype=str)
+    def Read(filePath=COSMIC_PATH):
+        cosmicData = PD.read_csv(filePath, sep=',', dtype=str)
         cosmicData = cosmicData[["Gene Symbol", "Entrez GeneId", "Tumour Types(Somatic)", "Tumour Types(Germline)"]]
         cosmicData = cosmicData.to_numpy()
 
         cosmicSet = set()
         for row in cosmicData:
-            symbol = util.checkNan(row[0])
-            entrezID = util.checkNan(row[1])
-            diseaseNameSomatic = util.checkNan(row[2])
-            diseaseNameGermline = util.checkNan(row[3])
+            symbol = CheckNan(row[0])
+            entrezID = CheckNan(row[1])
+            diseaseNameSomatic = CheckNan(row[2])
+            diseaseNameGermline = CheckNan(row[3])
             if diseaseNameSomatic is not None:
-                cosmicSet.add(ar.CosmicRow(symbol, entrezID, diseaseNameSomatic))
+                cosmicSet.add(CosmicRow(symbol, entrezID, diseaseNameSomatic))
             if diseaseNameGermline is not None:
-                cosmicSet.add(ar.CosmicRow(symbol, entrezID, diseaseNameGermline))
+                cosmicSet.add(CosmicRow(symbol, entrezID, diseaseNameGermline))
 
         return cosmicSet

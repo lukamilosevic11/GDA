@@ -1,20 +1,43 @@
-from Sources import clinvar, cosmic, diseases, disgenet, hpo, humsavar, orphanet
-from Mapping import obo, uniprot, hugo
+#  GDA Copyright (c) 2022.
+#  University of Belgrade, Faculty of Mathematics
+#  Luka Milosevic
+#  lukamilosevic11@gmail.com
+#
+#  Permission is hereby granted, free of charge, to any person obtaining a copy
+#  of this software and associated documentation files (the "Software"), to deal
+#  in the Software without restriction, including without limitation the rights
+#  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#  copies of the Software, and to permit persons to whom the Software is
+#  furnished to do so, subject to the following conditions:
+#
+#  The above copyright notice and this permission notice shall be included in
+#  all copies or substantial portions of the Software.
+
 from Common.init import Source
+from Mapping.hugo import Hugo
+from Mapping.obo import OBO
+from Mapping.uniprot import Uniprot
+from Sources.clinvar import ClinVar
+from Sources.cosmic import Cosmic
+from Sources.diseases import Diseases
+from Sources.disgenet import DisGeNet
+from Sources.hpo import HPO
+from Sources.humsavar import HumsaVar
+from Sources.orphanet import Orphanet
 
 
 class DBContext:
     def __init__(self):
-        self.disGeNet = disgenet.DisGeNet.Read()
-        self.cosmic = cosmic.Cosmic.Read()
-        self.clinvar = clinvar.ClinVar.Read()
-        self.humsavar = humsavar.HumsaVar.Read()
-        self.orphanet = orphanet.Orphanet.Read()
-        self.hpo = hpo.HPO.Read()
-        self.diseases = diseases.Diseases.Read()
-        self.obo = obo.OBO.Read()
-        self.uniprot = uniprot.Uniprot.Read()
-        self.hugo = hugo.Hugo.Read()
+        self.disGeNet = DisGeNet.Read()
+        self.cosmic = Cosmic.Read()
+        self.clinvar = ClinVar.Read()
+        self.humsavar = HumsaVar.Read()
+        self.orphanet = Orphanet.Read()
+        self.hpo = HPO.Read()
+        self.diseases = Diseases.Read()
+        self.obo = OBO.Read()
+        self.uniprot = Uniprot.Read()
+        self.hugo = Hugo.Read()
 
     def GetDatabaseBySource(self, source):
         if source is Source.DISGENET:

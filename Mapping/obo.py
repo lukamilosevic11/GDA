@@ -13,15 +13,15 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-
-from Classes import annotation_row as ar
-from Common import init, constants
+from Classes.annotation_row import OBORow
+from Common.constants import OBO_PATH
+from Common.init import Ontology, multiprocessing
 
 
 class OBO:
     @staticmethod
-    def Read(filePath=constants.OBO_PATH):
-        oboData = init.Ontology(filePath, threads=init.multiprocessing.cpu_count())
+    def Read(filePath=OBO_PATH):
+        oboData = Ontology(filePath, threads=multiprocessing.cpu_count())
         oboSet = set()
 
         for term in oboData.terms():
@@ -31,6 +31,6 @@ class OBO:
             diseaseName = term.name.strip()
             synonyms = term.synonyms
             parentDoids = term.superclasses().to_set()
-            oboSet.add(ar.OBORow(doid, diseaseName, synonyms, parentDoids))
+            oboSet.add(OBORow(doid, diseaseName, synonyms, parentDoids))
 
         return oboSet

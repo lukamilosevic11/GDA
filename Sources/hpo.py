@@ -13,13 +13,13 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Classes import annotation_row as ar
-from Common import constants
+from Classes.annotation_row import HPORow
+from Common.constants import HPO_PATH
 
 
 class HPO:
     @staticmethod
-    def Read(filePath=constants.HPO_PATH):
+    def Read(filePath=HPO_PATH):
         hpoSet = set()
         with open(filePath, 'r') as hpoFile:
             hpoLines = hpoFile.readlines()
@@ -35,6 +35,6 @@ class HPO:
                 elif omimOrpha.split(":")[0] == "ORPHA":
                     orpha = omimOrpha
 
-                hpoSet.add(ar.HPORow(symbol, entrezID, omim, orpha))
+                hpoSet.add(HPORow(symbol, entrezID, omim, orpha))
 
         return hpoSet

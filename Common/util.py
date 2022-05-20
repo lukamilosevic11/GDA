@@ -12,28 +12,29 @@
 #
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
-from Common.init import Attribute, Source, PD, json, string, nltk
-from nltk.tokenize import word_tokenize
-from nltk.stem.porter import PorterStemmer
+
+from Common.init import Attribute, Source, PD, json, string, nltk, re
 from nltk.stem import WordNetLemmatizer
+from nltk.stem.porter import PorterStemmer
+from nltk.tokenize import word_tokenize
 
 
-def checkNan(data, resultIfNan=None):
+def CheckNan(data, resultIfNan=None):
     return resultIfNan if PD.isnull(data) else data.strip()
 
 
-def printSet(sourceSet):
-    for row in sourceSet:
+def PrintStructure(source):
+    for row in source:
         print(row)
 
 
-def writeSetToFile(filePath, sourceSet):
+def WriteStructureToFile(filePath, source):
     with open(filePath, "w") as file:
-        for row in sourceSet:
+        for row in source:
             file.write(str(row) + "\n")
 
 
-def setToJson(filePath, sourceSet, attributes, source):
+def SetToJson(filePath, sourceSet, attributes, source):
     jsonArray = []
     for row in sourceSet:
         jsonRow = {}
@@ -63,15 +64,15 @@ def setToJson(filePath, sourceSet, attributes, source):
     return jsonArray
 
 
-def writeJsonSetToFile(filePath, sourceSet, attributes, source):
-    jsonSet = setToJson(filePath, sourceSet, attributes, source)
+def WriteJsonSetToFile(filePath, sourceSet, attributes, source):
+    jsonSet = SetToJson(filePath, sourceSet, attributes, source)
     with open(filePath, "w") as jsonFile:
         for jsonRow in jsonSet:
             json.dump(jsonRow, jsonFile)
             jsonFile.write("\n")
 
 
-def writeDictToJsonlFile(filePath, dictionary, keyName, valueName):
+def WriteDictToJsonlFile(filePath, dictionary, keyName, valueName):
     with open(filePath, "w") as jsonlFile:
         for key, value in dictionary.items():
             jsonRow = {keyName: key, valueName: value}
@@ -79,24 +80,29 @@ def writeDictToJsonlFile(filePath, dictionary, keyName, valueName):
             jsonlFile.write("\n")
 
 
-def removePunctuation(text):
+def RemovePunctuation(text):
     stringPunctuation = string.punctuation
     return ''.join([c for c in text if c not in stringPunctuation])
 
 
-def preprocessingDiseaseName(diseaseName):
+def PreprocessingDiseaseName(diseaseName):
     # Replacing dash with space
     diseaseNameWithoutDash = diseaseName.replace('-', ' ')
     # Replacing slash with space
     diseaseNameWithoutSlash = diseaseNameWithoutDash.replace('/', ' ')
+    # Remove multiple spaces
+    diseaseNameWithoutMultipleSpaces = re.sub(' +', ' ', diseaseNameWithoutSlash)
     # Punctuation Removal
-    diseaseNameWithoutPunctuation = removePunctuation(diseaseNameWithoutSlash)
+    diseaseNameWithoutPunctuation = RemovePunctuation(diseaseNameWithoutMultipleSpaces)
     # Lowering the text
     diseaseNameLower = diseaseNameWithoutPunctuation.lower()
     # Tokenization
     diseaseNameTokenized = word_tokenize(diseaseNameLower)
     # Removing Stopwords
-    stopwords = nltk.corpus.stopwords.words('english')
+    stopwords = nltk.corpus.stopwords.words("english")
+    stopwords.remove("with")
+    stopwords.remove("i")
+    stopwords.append("type")
     diseaseNameWithoutStopwords = [word for word in diseaseNameTokenized if word not in stopwords]
     # Stemming
     porterStemmer = PorterStemmer()
@@ -108,7 +114,7 @@ def preprocessingDiseaseName(diseaseName):
     return diseaseNameLemmatized
 
 
-def jaccardSimilarity(doc1, doc2):
+def JaccardSimilarity(doc1, doc2):
     # List the unique words in a document
     wordsDoc1 = set(doc1.split())
     wordsDoc2 = set(doc2.split())
@@ -122,3 +128,12 @@ def jaccardSimilarity(doc1, doc2):
     # Calculate Jaccard similarity score
     # using length of intersection set divided by length of union set
     return float(len(intersection)) / len(union)
+
+
+def GetAttribute(getMethods):
+    for getMethod in getMethods:
+        attribute = getMethod()
+        if attribute is not None:
+            return attribute
+
+    return None

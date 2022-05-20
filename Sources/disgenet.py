@@ -13,23 +13,25 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Classes import annotation_row as ar
-from Common import init, util, constants
+from Classes.annotation_row import DisGeNetRow
+from Common.constants import DISGENET_PATH
+from Common.init import PD
+from Common.util import CheckNan
 
 
 class DisGeNet:
     @staticmethod
-    def Read(filePath=constants.DISGENET_PATH):
-        disGeNetData = init.PD.read_csv(filePath, sep='\t', dtype=str)
+    def Read(filePath=DISGENET_PATH):
+        disGeNetData = PD.read_csv(filePath, sep='\t', dtype=str)
         disGeNetData = disGeNetData[["geneId", "geneSymbol", "diseaseId", "diseaseName"]]
         disGeNetData = disGeNetData.to_numpy()
 
         disGeNetSet = set()
         for row in disGeNetData:
-            symbol = util.checkNan(row[1])
-            entrezID = util.checkNan(row[0])
-            umls = util.checkNan(row[2])
-            diseaseName = util.checkNan(row[3])
-            disGeNetSet.add(ar.DisGeNetRow(symbol, entrezID, diseaseName, umls))
+            symbol = CheckNan(row[1])
+            entrezID = CheckNan(row[0])
+            umls = CheckNan(row[2])
+            diseaseName = CheckNan(row[3])
+            disGeNetSet.add(DisGeNetRow(symbol, entrezID, diseaseName, umls))
 
         return disGeNetSet

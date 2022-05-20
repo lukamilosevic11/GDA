@@ -13,24 +13,26 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-import numpy as NP
-import pandas as PD
+import concurrent.futures
+import json
+import multiprocessing
 import nltk
+nltk.download('omw-1.4')
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
-nltk.download('omw-1.4')
-import xml.etree.ElementTree as ET
-import multiprocessing
-import json
-import typesense
-import time
-import concurrent.futures
+import numpy as NP
+import pandas as PD
+import re
 import string
-from pronto import Ontology
-from time import perf_counter
-from threading import Thread
+import time
+import typesense
+import xml.etree.ElementTree as ET
 from enum import Enum
+from functools import partial
+from pronto import Ontology
+from threading import Thread
+from time import perf_counter
 
 
 class Attribute(Enum):
@@ -59,3 +61,31 @@ class Source(Enum):
     def GetAllSources():
         return [Source.DISGENET, Source.COSMIC, Source.CLINVAR, Source.HUMSAVAR, Source.ORPHANET,
                 Source.HPO, Source.DISEASES, Source.OBO, Source.UNIPROT, Source.HUGO]
+
+    @staticmethod
+    def GetSourcesForParsing():
+        return [Source.DISGENET, Source.COSMIC, Source.CLINVAR, Source.HUMSAVAR, Source.ORPHANET,
+                Source.HPO, Source.DISEASES]
+
+    @staticmethod
+    def GetSourceName(source):
+        if source is Source.DISGENET:
+            return "DisGeNet"
+        elif source is Source.COSMIC:
+            return "Cosmic"
+        elif source is Source.CLINVAR:
+            return "ClinVar"
+        elif source is Source.HUMSAVAR:
+            return "HumsaVar"
+        elif source is Source.ORPHANET:
+            return "Orphanet"
+        elif source is Source.HPO:
+            return "HPO"
+        elif source is Source.DISEASES:
+            return "Diseases"
+        elif source is Source.OBO:
+            return "OBO"
+        elif source is Source.UNIPROT:
+            return "Uniprot"
+        elif source is Source.HUGO:
+            return "Hugo"
