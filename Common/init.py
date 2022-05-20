@@ -21,13 +21,13 @@ nltk.download('omw-1.4')
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('wordnet')
-import numpy as NP
-import pandas as PD
+import numpy as np
+import pandas as pd
 import re
 import string
 import time
 import typesense
-import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as et
 from enum import Enum
 from functools import partial
 from pronto import Ontology

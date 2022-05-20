@@ -15,14 +15,14 @@
 
 from Classes.annotation_row import CosmicRow
 from Common.constants import COSMIC_PATH
-from Common.init import PD
+from Common.init import pd
 from Common.util import CheckNan
 
 
 class Cosmic:
     @staticmethod
     def Read(filePath=COSMIC_PATH):
-        cosmicData = PD.read_csv(filePath, sep=',', dtype=str)
+        cosmicData = pd.read_csv(filePath, sep=',', dtype=str)
         cosmicData = cosmicData[["Gene Symbol", "Entrez GeneId", "Tumour Types(Somatic)", "Tumour Types(Germline)"]]
         cosmicData = cosmicData.to_numpy()
 

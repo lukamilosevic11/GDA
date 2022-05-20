@@ -15,14 +15,14 @@
 
 from Classes.annotation_row import DiseasesRow
 from Common.constants import DISEASES_PATH
-from Common.init import PD
+from Common.init import pd
 from Common.util import CheckNan
 
 
 class Diseases:
     @staticmethod
     def Read(filePath=DISEASES_PATH):
-        diseasesData = PD.read_csv(filePath, sep='\t', header=None, usecols=[1, 2, 3], dtype=str)
+        diseasesData = pd.read_csv(filePath, sep='\t', header=None, usecols=[1, 2, 3], dtype=str)
         diseasesData = diseasesData.to_numpy()
 
         diseasesSet = set()

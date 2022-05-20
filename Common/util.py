@@ -13,14 +13,14 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Common.init import Attribute, Source, PD, json, string, nltk, re
+from Common.init import Attribute, Source, pd, json, string, nltk, re
 from nltk.stem import WordNetLemmatizer
 from nltk.stem.porter import PorterStemmer
 from nltk.tokenize import word_tokenize
 
 
 def CheckNan(data, resultIfNan=None):
-    return resultIfNan if PD.isnull(data) else data.strip()
+    return resultIfNan if pd.isnull(data) else data.strip()
 
 
 def PrintStructure(source):

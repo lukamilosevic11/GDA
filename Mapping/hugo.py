@@ -15,14 +15,14 @@
 
 from Classes.annotation_row import HugoRow
 from Common.constants import HUGO_PATH
-from Common.init import PD
+from Common.init import pd
 from Common.util import CheckNan
 
 
 class Hugo:
     @staticmethod
     def Read(filePath=HUGO_PATH):
-        hugoData = PD.read_csv(filePath, sep='\t', dtype=str)
+        hugoData = pd.read_csv(filePath, sep='\t', dtype=str)
         hugoData = hugoData[["symbol", "entrez_id", "uniprot_ids", "ensembl_gene_id"]]
         hugoData = hugoData.to_numpy()
 

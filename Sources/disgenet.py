@@ -15,14 +15,14 @@
 
 from Classes.annotation_row import DisGeNetRow
 from Common.constants import DISGENET_PATH
-from Common.init import PD
+from Common.init import pd
 from Common.util import CheckNan
 
 
 class DisGeNet:
     @staticmethod
     def Read(filePath=DISGENET_PATH):
-        disGeNetData = PD.read_csv(filePath, sep='\t', dtype=str)
+        disGeNetData = pd.read_csv(filePath, sep='\t', dtype=str)
         disGeNetData = disGeNetData[["geneId", "geneSymbol", "diseaseId", "diseaseName"]]
         disGeNetData = disGeNetData.to_numpy()
 

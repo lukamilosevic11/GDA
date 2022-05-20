@@ -15,14 +15,14 @@
 
 from Classes.annotation_row import ClinVarRow
 from Common.constants import CLINVAR_PATH
-from Common.init import PD
+from Common.init import pd
 from Common.util import CheckNan
 
 
 class ClinVar:
     @staticmethod
     def Read(filePath=CLINVAR_PATH):
-        clinVarData = PD.read_csv(filePath, sep='\t', dtype=str)
+        clinVarData = pd.read_csv(filePath, sep='\t', dtype=str)
         clinVarData = clinVarData[["#GeneID", "AssociatedGenes", "RelatedGenes", "DiseaseName"]]
         clinVarData = clinVarData.to_numpy()
 
