@@ -15,6 +15,7 @@
 
 from Classes.annotation_row import HPORow
 from Common.constants import HPO_PATH
+from Common.util import CheckEmpty
 
 
 class HPO:
@@ -25,16 +26,9 @@ class HPO:
             hpoLines = hpoFile.readlines()
             for line in hpoLines[1:]:
                 splittedLine = line.strip().split('\t')
-                symbol = splittedLine[1].strip()
-                entrezID = splittedLine[0].strip()
-                omim = None
-                orpha = None
-                omimOrpha = splittedLine[8].strip()
-                if omimOrpha.split(":")[0] == "OMIM":
-                    omim = omimOrpha
-                elif omimOrpha.split(":")[0] == "ORPHA":
-                    orpha = omimOrpha
-
-                hpoSet.add(HPORow(symbol, entrezID, omim, orpha))
+                symbol = CheckEmpty(splittedLine[1])
+                entrezID = CheckEmpty(splittedLine[0])
+                diseaseName = CheckEmpty(splittedLine[3])
+                hpoSet.add(HPORow(symbol, entrezID, diseaseName))
 
         return hpoSet

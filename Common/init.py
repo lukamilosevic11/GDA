@@ -30,8 +30,9 @@ import typesense
 import xml.etree.ElementTree as et
 from enum import Enum
 from functools import partial
+from itertools import permutations
 from pronto import Ontology
-from threading import Thread
+from threading import Thread, Lock
 from time import perf_counter
 
 
@@ -64,8 +65,8 @@ class Source(Enum):
 
     @staticmethod
     def GetSourcesForParsing():
-        return [Source.DISGENET, Source.COSMIC, Source.CLINVAR, Source.HUMSAVAR, Source.ORPHANET,
-                Source.HPO, Source.DISEASES]
+        return [Source.DISGENET, Source.COSMIC, Source.CLINVAR, Source.HUMSAVAR, Source.ORPHANET, Source.HPO,
+                Source.DISEASES]
 
     @staticmethod
     def GetSourceName(source):

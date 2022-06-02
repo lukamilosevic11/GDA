@@ -53,9 +53,6 @@ class AnnotationContext:
         self.__diseaseNameToDOID = {}
 
         # DiseaseName
-        self.__symbolToDiseaseName = {}
-        self.__entrezIDToDiseaseName = {}
-        self.__ensemblIDToDiseaseName = {}
         self.__doidToDiseaseName = {}
 
         self.__InitializeDictionaries()
@@ -77,9 +74,6 @@ class AnnotationContext:
                     # Symbol -> EnsemblID
                     if term.symbol not in self.__symbolToEnsemblID and term.ensemblID is not None:
                         self.__symbolToEnsemblID[term.symbol] = term.ensemblID
-                    # Symbol -> DiseaseName
-                    if term.symbol not in self.__symbolToDiseaseName and term.diseaseName is not None:
-                        self.__symbolToDiseaseName[term.symbol] = term.diseaseName
 
                 # Symbol (for additional Uniprot symbol synonyms)
                 if source is Source.UNIPROT:
@@ -104,9 +98,6 @@ class AnnotationContext:
                     # EntrezID -> EnsemblID
                     if term.entrezID not in self.__entrezIDToEnsemblID and term.ensemblID is not None:
                         self.__entrezIDToEnsemblID[term.entrezID] = term.ensemblID
-                    # EntrezID -> DiseaseName
-                    if term.entrezID not in self.__entrezIDToDiseaseName and term.diseaseName is not None:
-                        self.__entrezIDToDiseaseName[term.entrezID] = term.diseaseName
 
                 # UniprotID
                 if term.uniprotID is not None:
@@ -151,9 +142,6 @@ class AnnotationContext:
                     # EnsemblID -> UniprotID
                     if term.ensemblID not in self.__ensemblIDToUniprotID and term.uniprotID is not None:
                         self.__ensemblIDToUniprotID[term.ensemblID] = term.uniprotID
-                    # EnsemblID -> DiseaseName
-                    if term.ensemblID not in self.__ensemblIDToDiseaseName and term.diseaseName is not None:
-                        self.__ensemblIDToDiseaseName[term.ensemblID] = term.diseaseName
 
                 # DOID
                 if term.doid is not None:
@@ -203,8 +191,7 @@ class AnnotationContext:
         self.uniprotID = UniprotID(self.__symbolToUniprotID, self.__entrezIDToUniprotID, self.__ensemblIDToUniprotID)
         self.ensemblID = EnsemblID(self.__symbolToEnsemblID, self.__entrezIDToEnsemblID, self.__uniprotIDToEnsemblID)
         self.doid = DOID(self.__diseaseNameFrozenSetToDOID, self.__searchEngineClient)
-        self.diseaseName = DiseaseName(self.__symbolToDiseaseName, self.__entrezIDToDiseaseName,
-                                       self.__ensemblIDToDiseaseName, self.__doidToDiseaseName)
+        self.diseaseName = DiseaseName(self.__doidToDiseaseName)
 
     def __InitializeSearchEngineClient(self, dropCollection):
         try:
@@ -302,45 +289,44 @@ class DOID:
         if preprocessedDiseaseNameFrozenSet in self.__diseaseNameFrozenSetDict:
             return self.__diseaseNameFrozenSetDict[preprocessedDiseaseNameFrozenSet]
         else:
-            return self.__SearchWithSearchEngine(' '.join(preprocessedDiseaseName))
+            return self.__SearchWithSearchEngine(preprocessedDiseaseName)
 
     # TODO: add check if we have more than one hit then we can compare results with Jaccard index or some other measure
-    def __SearchWithSearchEngine(self, preprocessedDiseaseName):
+    def __SearchWithSearchEngine(self, preprocessedDiseaseNameTokens):
+        preprocessedDiseaseName = ' '.join(preprocessedDiseaseNameTokens)
         searchResult = self.__searchEngineClient. \
             SearchByQuery(COLLECTION_NAME_DOID, preprocessedDiseaseName, QUERY_BY_DOID)
         if len(searchResult["hits"]) > 0:
             # foundDiseaseName = searchResult["hits"][0]["document"]["diseaseName"]
             # jaccSimiliarity = jaccardSimilarity(foundDiseaseName, preprocessedDiseaseName)
-            return searchResult["hits"][0]["document"]["doid"]
+            doid = searchResult["hits"][0]["document"]["doid"]
+            self.__diseaseNameFrozenSetDict[frozenset(preprocessedDiseaseNameTokens)] = doid
+            return doid
         elif " due " in preprocessedDiseaseName:
-            return self.__SearchWithSearchEngine(preprocessedDiseaseName.split(" due ")[0])
+            doid = self.GetByDiseaseName(preprocessedDiseaseName.split(" due ")[0])
+            self.__diseaseNameFrozenSetDict[frozenset(preprocessedDiseaseNameTokens)] = doid
+            return doid
         elif " with without " in preprocessedDiseaseName:
-            return self.__SearchWithSearchEngine(preprocessedDiseaseName.split(" with without ")[0])
+            doid = self.GetByDiseaseName(preprocessedDiseaseName.split(" with without ")[0])
+            self.__diseaseNameFrozenSetDict[frozenset(preprocessedDiseaseNameTokens)] = doid
+            return doid
         elif " with " in preprocessedDiseaseName:
-            return self.__SearchWithSearchEngine(preprocessedDiseaseName.split(" with ")[0])
+            doid = self.GetByDiseaseName(preprocessedDiseaseName.split(" with ")[0])
+            self.__diseaseNameFrozenSetDict[frozenset(preprocessedDiseaseNameTokens)] = doid
+            return doid
         elif " without " in preprocessedDiseaseName:
-            return self.__SearchWithSearchEngine(preprocessedDiseaseName.split(" without ")[0])
+            doid = self.GetByDiseaseName(preprocessedDiseaseName.split(" without ")[0])
+            self.__diseaseNameFrozenSetDict[frozenset(preprocessedDiseaseNameTokens)] = doid
+            return doid
 
         return None
 
 
 # DiseaseName is part of: DisGeNet, Cosmic, HumsaVar, Orphanet, ClinVar, Diseases, OBO
-# DiseaseName can be found using symbol, entrezID, ensemblID and DOID
+# DiseaseName can be found using DOID (OBO and Diseases)
 class DiseaseName:
-    def __init__(self, symbolDict, entrezIDDict, ensemblIDDict, doidDict):
-        self.__symbolDict = symbolDict
-        self.__entrezIDDict = entrezIDDict
-        self.__ensemblIDDict = ensemblIDDict
+    def __init__(self, doidDict):
         self.__doidDict = doidDict
-
-    def GetBySymbol(self, symbol):
-        return self.__symbolDict[symbol] if symbol in self.__symbolDict else None
-
-    def GetByEntrezID(self, entrezID):
-        return self.__entrezIDDict[entrezID] if entrezID in self.__entrezIDDict else None
-
-    def GetByEnsemblID(self, ensemblID):
-        return self.__ensemblIDDict[ensemblID] if ensemblID in self.__ensemblIDDict else None
 
     def GetByDoid(self, doid):
         return self.__doidDict[doid] if doid in self.__doidDict else None

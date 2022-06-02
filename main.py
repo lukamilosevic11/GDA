@@ -14,7 +14,11 @@
 #  all copies or substantial portions of the Software.
 
 from Classes.parsing_context import ParsingContext
+from Classes.parsing_context_thread import ParsingContextThread
 from Common.init import time
+from DataTables.datatables import DataTables
+from Sources.hpo import HPO
+from Common.util import WriteStructureToFile
 
 
 def main():
@@ -36,7 +40,7 @@ def main():
     # print("Total time: {}".format(disGeNetDoidWritingSetTime - startTime))
 
     startTime = time.time()
-    parsingContext = ParsingContext(True)
+    parsingContext = ParsingContextThread()
     parsingContextEndTime = time.time()
     print("Time processing parsing context: {}".format(parsingContextEndTime - startTime))
     tmpFilePath = "./Results/annotationFile.txt"
@@ -48,8 +52,28 @@ def main():
           .format(AnnotationFileWritingEndTime - startTimeAnnotationFile))
     print("Total time: {}".format(AnnotationFileWritingEndTime - startTime))
 
+    # startTime = time.time()
+    # parsingContext = ParsingContextThread(True)
+    # parsingContextEndTime = time.time()
+    # print("Time processing parsing context: {}".format(parsingContextEndTime - startTime))
+    # tmpFilePath = "./Results/annotationFile.txt"
+    # startTimeAnnotationFile = time.time()
+    # print("Time processing Final annotation file: {}".format(startTimeAnnotationFile - parsingContextEndTime))
+    # parsingContext.CreateAnnotationFile(tmpFilePath)
+    # AnnotationFileWritingEndTime = time.time()
+    # print("Time processing writing final annotatiton file: {}"
+    #       .format(AnnotationFileWritingEndTime - startTimeAnnotationFile))
+    # datatablesFilePath = "./DataTables/index.html"
+    # datatables = DataTables(tmpFilePath)
+    # datatables.CreateDataTableHTML(datatablesFilePath)
+    # datatablesTime = time.time()
+    # print("Time processing datatables: {}".format(datatablesTime-AnnotationFileWritingEndTime))
+    # print("Total time: {}".format(datatablesTime - startTime))
+
+    # hpoSet = HPO.Read()
+
     # util.writeJsonSetToFile("./Results/tmp.jsonl", oboSet, [Attribute.DOID, Attribute.DISEASE_NAME], Source.OBO)
-    # util.writeSetToFile(tmpFilePath, parsingContext.dbContext.uniprot)
+    # WriteStructureToFile("./Results/hpoTest.txt", hpoSet)
     # print(len(parsingContext.annotationContext.entrezID.symbolDict))
     # print(' '.join(util.preprocessingDiseaseName("Schizophrenia-like symptoms (uncommon)")))
 

@@ -19,6 +19,10 @@ from nltk.stem.porter import PorterStemmer
 from nltk.tokenize import word_tokenize
 
 
+def CheckEmpty(data):
+    return data.strip() if data else None
+
+
 def CheckNan(data, resultIfNan=None):
     return resultIfNan if pd.isnull(data) else data.strip()
 

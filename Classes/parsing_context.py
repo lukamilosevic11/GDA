@@ -72,10 +72,7 @@ class ParsingContext:
                     doid = GetAttribute(partialGetMethods)
 
                 if diseaseName is None:
-                    partialGetMethods = [partial(diseaseNameAttribute.GetBySymbol, symbol),
-                                         partial(diseaseNameAttribute.GetByEntrezID, entrezID),
-                                         partial(diseaseNameAttribute.GetByEnsemblID, ensemblID),
-                                         partial(diseaseNameAttribute.GetByDoid, doid)]
+                    partialGetMethods = [partial(diseaseNameAttribute.GetByDoid, doid)]
                     diseaseName = GetAttribute(partialGetMethods)
 
                 sourceSet.add(AnnotationRow(symbol, entrezID, uniprotID, ensemblID, doid, sourceName, diseaseName))

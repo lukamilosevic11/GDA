@@ -38,6 +38,8 @@ class DBContext:
         self.obo = OBO.Read()
         self.uniprot = Uniprot.Read()
         self.hugo = Hugo.Read()
+        self.__totalLength = len(self.disGeNet) + len(self.cosmic) + len(self.clinvar) + len(self.humsavar) + \
+            len(self.orphanet) + len(self.hpo) + len(self.diseases)
 
     def GetDatabaseBySource(self, source):
         if source is Source.DISGENET:
@@ -60,3 +62,6 @@ class DBContext:
             return self.uniprot
         elif source is Source.HUGO:
             return self.hugo
+
+    def GetTotalLength(self):
+        return self.__totalLength

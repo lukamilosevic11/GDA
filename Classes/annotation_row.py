@@ -76,19 +76,8 @@ class DisGeNetRow(AnnotationRow):
 
 
 class HPORow(AnnotationRow):
-    def __init__(self, symbol, entrezID, omim, orpha):
-        super(HPORow, self).__init__(symbol, entrezID, None, None, None, "HPO", None)
-        self.omim = omim
-        self.orpha = orpha
-
-    def __eq__(self, other):
-        return super(HPORow, self).__eq__(other) and self.omim == other.omim and self.orpha == other.orpha
-
-    def __hash__(self):
-        return hash((self.symbol, self.entrezID, self.omim, self.orpha))
-
-    def __str__(self):
-        return super(HPORow, self).__str__() + '\t' + str(self.omim) + '\t' + str(self.orpha)
+    def __init__(self, symbol, entrezID, diseaseName):
+        super(HPORow, self).__init__(symbol, entrezID, None, None, None, "HPO", diseaseName)
 
 
 class HumsaVarRow(AnnotationRow):
