@@ -14,9 +14,8 @@
 #  all copies or substantial portions of the Software.
 
 from Classes.annotation_context import AnnotationContext
-from Classes.annotation_row import AnnotationRow
+from Classes.annotation_row import AnnotationRowOutput
 from Classes.db_context import DBContext
-from Common.constants import FOUND_KEY
 from Common.init import Source, partial, Thread, Lock, Attribute, permutations, time
 from Common.util import GetAttribute, WriteStructureToFile
 
@@ -46,6 +45,7 @@ class ParsingContextThread:
             ensemblID = term.ensemblID
             doid = term.doid
             diseaseName = term.diseaseName
+            jaccardIndex = None if sourceName != "Diseases" else "100.0"
 
             noneAttributes = []
             entrezIDFlagNone = False
@@ -122,12 +122,13 @@ class ParsingContextThread:
                     break
 
             if doid is None and diseaseName is not None:
-                doid = doidAttribute.GetByDiseaseName(diseaseName)
+                doid, jaccardIndex = doidAttribute.GetByDiseaseName(diseaseName)
 
             if diseaseName is None and doid is not None:
                 diseaseName = diseaseNameAttribute.GetByDoid(doid)
 
-            sourceSet.add(AnnotationRow(symbol, entrezID, uniprotID, ensemblID, doid, sourceName, diseaseName))
+            sourceSet.add(AnnotationRowOutput(symbol, entrezID, uniprotID, ensemblID, doid, sourceName, diseaseName,
+                                              jaccardIndex))
         with lock:
             self.__sourcesAnnotationSetDict[source] = sourceSet
 

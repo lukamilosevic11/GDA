@@ -45,6 +45,22 @@ class AnnotationRow:
                str(self.diseaseName)
 
 
+class AnnotationRowOutput(AnnotationRow):
+    def __init__(self, symbol, entrezID, uniprotID, ensemblID, doid, source, diseaseName, jaccardIndex):
+        super(AnnotationRowOutput, self).__init__(symbol, entrezID, uniprotID, ensemblID, doid, source, diseaseName)
+        self.jaccardIndex = jaccardIndex
+
+    def __hash__(self):
+        return hash((self.symbol, self.entrezID, self.uniprotID, self.ensemblID, self.doid, self.diseaseName,
+                     self.jaccardIndex))
+
+    def __str__(self):
+        if self.jaccardIndex is None:
+            return super(AnnotationRowOutput, self).__str__() + '\t' + str(self.jaccardIndex)
+        else:
+            return super(AnnotationRowOutput, self).__str__() + '\t' + str(round(self.jaccardIndex*100, 0)) + "%"
+
+
 class ClinVarRow(AnnotationRow):
     def __init__(self, symbol, entrezID, diseaseName):
         super(ClinVarRow, self).__init__(symbol, entrezID, None, None, None, "ClinVar", diseaseName)
@@ -72,7 +88,7 @@ class DisGeNetRow(AnnotationRow):
         return hash((self.symbol, self.entrezID, self.diseaseName, self.umls))
 
     def __str__(self):
-        return super(DisGeNetRow, self).__str__() + "\t" + str(self.umls)
+        return super(DisGeNetRow, self).__str__() + '\t' + str(self.umls)
 
 
 class HPORow(AnnotationRow):

@@ -14,7 +14,7 @@
 #  all copies or substantial portions of the Software.
 
 from Classes.search_engine_client import SearchEngineClient
-from Common.constants import COLLECTION_NAME_DOID, QUERY_BY_DOID, DISEASE_NAME_DOID_JSONL_PATH
+from Common.constants import COLLECTION_NAME_DOID, QUERY_BY_DOID, DISEASE_NAME_DOID_JSONL_PATH, MAX_JACCARD_INDEX
 from Common.init import Source
 from Common.util import PreprocessingDiseaseName, WriteDictToJsonlFile, JaccardSimilarity
 
@@ -282,12 +282,12 @@ class DOID:
 
     def GetByDiseaseName(self, diseaseName):
         if diseaseName is None:
-            return None
+            return None, None
 
         preprocessedDiseaseName = PreprocessingDiseaseName(diseaseName)
         preprocessedDiseaseNameFrozenSet = frozenset(preprocessedDiseaseName)
         if preprocessedDiseaseNameFrozenSet in self.__diseaseNameFrozenSetDict:
-            return self.__diseaseNameFrozenSetDict[preprocessedDiseaseNameFrozenSet]
+            return self.__diseaseNameFrozenSetDict[preprocessedDiseaseNameFrozenSet], MAX_JACCARD_INDEX
         else:
             return self.__SearchWithSearchEngine(preprocessedDiseaseName)
 
@@ -297,29 +297,21 @@ class DOID:
         searchResult = self.__searchEngineClient. \
             SearchByQuery(COLLECTION_NAME_DOID, preprocessedDiseaseName, QUERY_BY_DOID)
         if len(searchResult["hits"]) > 0:
-            # foundDiseaseName = searchResult["hits"][0]["document"]["diseaseName"]
-            # jaccSimiliarity = jaccardSimilarity(foundDiseaseName, preprocessedDiseaseName)
+            foundDiseaseName = searchResult["hits"][0]["document"]["diseaseName"]
+            jaccSimilarity = JaccardSimilarity(foundDiseaseName, preprocessedDiseaseName)
             doid = searchResult["hits"][0]["document"]["doid"]
             self.__diseaseNameFrozenSetDict[frozenset(preprocessedDiseaseNameTokens)] = doid
-            return doid
+            return doid, jaccSimilarity
         elif " due " in preprocessedDiseaseName:
-            doid = self.GetByDiseaseName(preprocessedDiseaseName.split(" due ")[0])
-            self.__diseaseNameFrozenSetDict[frozenset(preprocessedDiseaseNameTokens)] = doid
-            return doid
+            return self.GetByDiseaseName(preprocessedDiseaseName.split(" due ")[0])
         elif " with without " in preprocessedDiseaseName:
-            doid = self.GetByDiseaseName(preprocessedDiseaseName.split(" with without ")[0])
-            self.__diseaseNameFrozenSetDict[frozenset(preprocessedDiseaseNameTokens)] = doid
-            return doid
+            return self.GetByDiseaseName(preprocessedDiseaseName.split(" with without ")[0])
         elif " with " in preprocessedDiseaseName:
-            doid = self.GetByDiseaseName(preprocessedDiseaseName.split(" with ")[0])
-            self.__diseaseNameFrozenSetDict[frozenset(preprocessedDiseaseNameTokens)] = doid
-            return doid
+            return self.GetByDiseaseName(preprocessedDiseaseName.split(" with ")[0])
         elif " without " in preprocessedDiseaseName:
-            doid = self.GetByDiseaseName(preprocessedDiseaseName.split(" without ")[0])
-            self.__diseaseNameFrozenSetDict[frozenset(preprocessedDiseaseNameTokens)] = doid
-            return doid
+            return self.GetByDiseaseName(preprocessedDiseaseName.split(" without ")[0])
 
-        return None
+        return None, None
 
 
 # DiseaseName is part of: DisGeNet, Cosmic, HumsaVar, Orphanet, ClinVar, Diseases, OBO

@@ -52,7 +52,8 @@ class SearchEngineClient:
         searchParameters = {
             "q": query,
             "query_by": queryBy,
-            "sort_by": sortBy
+            "sort_by": sortBy,
+            "num_typos": 0
         }
 
         return self.client.collections[name].documents.search(searchParameters)

@@ -51,6 +51,7 @@ def main():
     print("Time processing writing final annotatiton file: {}"
           .format(AnnotationFileWritingEndTime - startTimeAnnotationFile))
     print("Total time: {}".format(AnnotationFileWritingEndTime - startTime))
+    # print(parsingContext.annotationContext.doid.diseaseNameFrozenSetDict)
 
     # startTime = time.time()
     # parsingContext = ParsingContextThread(True)
