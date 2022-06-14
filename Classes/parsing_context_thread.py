@@ -16,8 +16,9 @@
 from Classes.annotation_context import AnnotationContext
 from Classes.annotation_row import AnnotationRowOutput
 from Classes.db_context import DBContext
-from Common.init import Source, partial, Thread, Lock, Attribute, permutations, time
-from Common.util import GetAttribute, WriteStructureToFile
+from Common.constants import MAX_JACCARD_INDEX
+from Common.init import Source, partial, Thread, Lock, Attribute, permutations
+from Common.util import GetAttribute, WriteStructureToFile, JaccardSimilarity
 
 
 class ParsingContextThread:
@@ -36,7 +37,8 @@ class ParsingContextThread:
                       uniprotIDAttribute,
                       ensemblIDAttribute,
                       doidAttribute,
-                      diseaseNameAttribute):
+                      diseaseNameAttribute,
+                      xrefsAttribute):
         sourceSet = set()
         for term in sourceDB:
             symbol = term.symbol
@@ -45,7 +47,7 @@ class ParsingContextThread:
             ensemblID = term.ensemblID
             doid = term.doid
             diseaseName = term.diseaseName
-            jaccardIndex = None if sourceName != "Diseases" else "100.0"
+            jaccardIndex = None if sourceName != "Diseases" else str(MAX_JACCARD_INDEX)
 
             noneAttributes = []
             entrezIDFlagNone = False
@@ -62,41 +64,42 @@ class ParsingContextThread:
                 ensemblIDFlagNone = True
 
             foundAttributes = {
-                Attribute.ENTREZ_ID: entrezIDFlagNone,
-                Attribute.UNIPROT_ID: uniprotIDFlagNone,
-                Attribute.ENSEMBL_ID: ensemblIDFlagNone
+                Attribute.ENTREZ_ID: not entrezIDFlagNone,
+                Attribute.UNIPROT_ID: not uniprotIDFlagNone,
+                Attribute.ENSEMBL_ID: not ensemblIDFlagNone
             }
 
-            def partialGetMethodsEntrezID(symbolL, uniprotIDL, ensemblIDL):
-                partialMethods = [partial(entrezIDAttribute.GetBySymbol, symbolL)]
-                if uniprotIDL is not None:
-                    partialMethods.append(partial(entrezIDAttribute.GetByUniprotID, uniprotIDL))
+            def partialGetMethodsEntrezID(symbolP, uniprotIDP, ensemblIDP):
+                partialMethods = [partial(entrezIDAttribute.GetBySymbol, symbolP)]
+                if uniprotIDP is not None:
+                    partialMethods.append(partial(entrezIDAttribute.GetByUniprotID, uniprotIDP))
 
-                if ensemblIDL is not None:
-                    partialMethods.append(partial(entrezIDAttribute.GetByEnsemblID, ensemblIDL))
-
-                return partialMethods
-
-            def partialGetMethodsUniprotID(symbolL, entrezIDL, ensemblIDL):
-                partialMethods = [partial(uniprotIDAttribute.GetBySymbol, symbolL)]
-                if entrezIDL is not None:
-                    partialMethods.append(partial(uniprotIDAttribute.GetByEntrezID, entrezIDL))
-
-                if ensemblIDL is not None:
-                    partialMethods.append(partial(uniprotIDAttribute.GetByEnsemblID, ensemblIDL))
+                if ensemblIDP is not None:
+                    partialMethods.append(partial(entrezIDAttribute.GetByEnsemblID, ensemblIDP))
 
                 return partialMethods
 
-            def partialGetMethodsEnsemblID(symbolL, entrezIDL, uniprotIDL):
-                partialMethods = [partial(ensemblIDAttribute.GetBySymbol, symbolL)]
-                if entrezIDL is not None:
-                    partialMethods.append(partial(ensemblIDAttribute.GetByEntrezID, entrezIDL))
+            def partialGetMethodsUniprotID(symbolP, entrezIDP, ensemblIDP):
+                partialMethods = [partial(uniprotIDAttribute.GetBySymbol, symbolP)]
+                if entrezIDP is not None:
+                    partialMethods.append(partial(uniprotIDAttribute.GetByEntrezID, entrezIDP))
 
-                if uniprotIDL is not None:
-                    partialMethods.append(partial(ensemblIDAttribute.GetByUniprotID, uniprotIDL))
+                if ensemblIDP is not None:
+                    partialMethods.append(partial(uniprotIDAttribute.GetByEnsemblID, ensemblIDP))
 
                 return partialMethods
 
+            def partialGetMethodsEnsemblID(symbolP, entrezIDP, uniprotIDP):
+                partialMethods = [partial(ensemblIDAttribute.GetBySymbol, symbolP)]
+                if entrezIDP is not None:
+                    partialMethods.append(partial(ensemblIDAttribute.GetByEntrezID, entrezIDP))
+
+                if uniprotIDP is not None:
+                    partialMethods.append(partial(ensemblIDAttribute.GetByUniprotID, uniprotIDP))
+
+                return partialMethods
+
+            # EntrezID, UniprotID, EnsemblID
             ordersOfSearch = list(permutations(noneAttributes))
             stopSearch = False
             for order in ordersOfSearch:
@@ -121,9 +124,63 @@ class ParsingContextThread:
                 if stopSearch:
                     break
 
-            if doid is None and diseaseName is not None:
+            # Disease Name for HPO
+            if source is Source.HPO:
+                if term.orpha is not None:
+                    diseaseName = diseaseNameAttribute.GetByOrpha(term.orpha)
+                elif term.omim is not None:
+                    diseaseNames = diseaseNameAttribute.GetByOmim(term.omim)
+                    if len(diseaseNames) == 1:
+                        diseaseName = diseaseNames[0]
+                        # elif len(diseaseNames) > 1:
+                        #     print(term.omim, diseaseNames)  # TODO: remove
+                        # else:
+                        diseaseNameForSearch = "OMIM:" + term.omim
+                        # print(term.omim)  # TODO: remove
+                        # pass  # TODO: Notify which omim has different disease names
+
+            # DOID
+            # Get Doid using xref UMLS
+            if (source is Source.DISGENET or source is Source.CLINVAR) and term.umls is not None and doid is None:
+                doid, jaccardIndex = doidAttribute.GetByUmls(term.umls)
+
+            # Get Doid using xref OMIM
+            if (source is Source.HUMSAVAR or source is Source.HPO or source is Source.CLINVAR) \
+                    and term.omim is not None and doid is None:
+                doid, jaccardIndex = doidAttribute.GetByOmim(term.omim)
+                if doid is None:
+                    diseaseNameForSearch = "OMIM:" + term.omim
+                    doid, jaccardIndex = doidAttribute.GetByDiseaseName(diseaseNameForSearch)
+
+            # Get Doid using xref ORPHA
+            if (source is Source.ORPHANET or source is Source.HPO) and term.orpha is not None and doid is None:
+                # Exact xref search
+                exactXrefs = xrefsAttribute.GetByOrphaExact(term.orpha)
+                for xref, value in exactXrefs.items():
+                    doid, jaccardIndex = doidAttribute.GetByXref(xref, value)
+                    if doid is not None:
+                        break
+
+                # Disease name without search engine and not exact xref search
+                if doid is None:
+                    # Disease name without search engine
+                    doid, jaccardIndex = doidAttribute.GetByDiseaseNameWithoutSearchEngine(diseaseName)
+
+                    # Not exact xref search
+                    if doid is None:
+                        notExactXrefs = xrefsAttribute.GetByOrphaNotExact(term.orpha)
+                        for xref, value in notExactXrefs.items():
+                            doid, jaccardIndex = doidAttribute.GetByXref(xref, value)
+                            if doid is not None:
+                                print(diseaseName + " *** " + diseaseNameAttribute.GetByDoid(doid), doid)
+                                print(JaccardSimilarity(diseaseName, diseaseNameAttribute.GetByDoid(doid)))  # TODO: REMOVE
+                                break
+
+            # Get Doid using disease name
+            if doid is None:
                 doid, jaccardIndex = doidAttribute.GetByDiseaseName(diseaseName)
 
+            # Disease Name
             if diseaseName is None and doid is not None:
                 diseaseName = diseaseNameAttribute.GetByDoid(doid)
 
@@ -140,6 +197,7 @@ class ParsingContextThread:
         ensemblIDAttribute = self.annotationContext.ensemblID
         doidAttribute = self.annotationContext.doid
         diseaseNameAttribute = self.annotationContext.diseaseName
+        xrefsAttribute = self.annotationContext.xrefs
 
         for source in self.__sources:
             sourceName = Source.GetSourceName(source)
@@ -149,7 +207,8 @@ class ParsingContextThread:
                                                         uniprotIDAttribute,
                                                         ensemblIDAttribute,
                                                         doidAttribute,
-                                                        diseaseNameAttribute))
+                                                        diseaseNameAttribute,
+                                                        xrefsAttribute))
             threads.append(t)
             t.start()
 

@@ -16,6 +16,7 @@
 from Common.init import Source
 from Mapping.hugo import Hugo
 from Mapping.obo import OBO
+from Mapping.orphanet_xref import OrphanetXref
 from Mapping.uniprot import Uniprot
 from Sources.clinvar import ClinVar
 from Sources.cosmic import Cosmic
@@ -28,40 +29,43 @@ from Sources.orphanet import Orphanet
 
 class DBContext:
     def __init__(self):
-        self.disGeNet = DisGeNet.Read()
-        self.cosmic = Cosmic.Read()
-        self.clinvar = ClinVar.Read()
-        self.humsavar = HumsaVar.Read()
-        self.orphanet = Orphanet.Read()
-        self.hpo = HPO.Read()
-        self.diseases = Diseases.Read()
-        self.obo = OBO.Read()
-        self.uniprot = Uniprot.Read()
-        self.hugo = Hugo.Read()
-        self.__totalLength = len(self.disGeNet) + len(self.cosmic) + len(self.clinvar) + len(self.humsavar) + \
-            len(self.orphanet) + len(self.hpo) + len(self.diseases)
+        self.__disGeNet = DisGeNet.Read()
+        self.__cosmic = Cosmic.Read()
+        self.__clinvar = ClinVar.Read()
+        self.__humsavar = HumsaVar.Read()
+        self.__orphanet = Orphanet.Read()
+        self.__hpo = HPO.Read()
+        self.__diseases = Diseases.Read()
+        self.__obo = OBO.Read()
+        self.__uniprot = Uniprot.Read()
+        self.__hugo = Hugo.Read()
+        self.__orphanetXref = OrphanetXref.Read()
+        self.__totalLength = len(self.__disGeNet) + len(self.__cosmic) + len(self.__clinvar) + len(self.__humsavar) + \
+                             len(self.__orphanet) + len(self.__hpo) + len(self.__diseases)
 
     def GetDatabaseBySource(self, source):
         if source is Source.DISGENET:
-            return self.disGeNet
+            return self.__disGeNet
         elif source is Source.COSMIC:
-            return self.cosmic
+            return self.__cosmic
         elif source is Source.CLINVAR:
-            return self.clinvar
+            return self.__clinvar
         elif source is Source.HUMSAVAR:
-            return self.humsavar
+            return self.__humsavar
         elif source is Source.ORPHANET:
-            return self.orphanet
+            return self.__orphanet
         elif source is Source.HPO:
-            return self.hpo
+            return self.__hpo
         elif source is Source.DISEASES:
-            return self.diseases
+            return self.__diseases
         elif source is Source.OBO:
-            return self.obo
+            return self.__obo
         elif source is Source.UNIPROT:
-            return self.uniprot
+            return self.__uniprot
         elif source is Source.HUGO:
-            return self.hugo
+            return self.__hugo
+        elif source is Source.ORPHANET_XREF:
+            return self.__orphanetXref
 
     def GetTotalLength(self):
         return self.__totalLength

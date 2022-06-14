@@ -23,7 +23,8 @@ class ClinVar:
     @staticmethod
     def Read(filePath=CLINVAR_PATH):
         clinVarData = pd.read_csv(filePath, sep='\t', dtype=str)
-        clinVarData = clinVarData[["#GeneID", "AssociatedGenes", "RelatedGenes", "DiseaseName"]]
+        clinVarData = clinVarData[["#GeneID", "AssociatedGenes", "RelatedGenes", "ConceptID", "DiseaseName",
+                                   "DiseaseMIM"]]
         clinVarData = clinVarData.to_numpy()
 
         clinVarSet = set()
@@ -31,10 +32,12 @@ class ClinVar:
             associatedGeneSymbol = CheckNan(row[1])
             relatedGeneSymbol = CheckNan(row[2])
             entrezID = CheckNan(row[0])
-            diseaseName = CheckNan(row[3])
+            diseaseName = CheckNan(row[4])
+            umls = CheckNan(row[3])
+            omim = CheckNan(row[5])
             if associatedGeneSymbol is not None:
                 symbol = associatedGeneSymbol
             else:
                 symbol = relatedGeneSymbol
-            clinVarSet.add(ClinVarRow(symbol, entrezID, diseaseName))
+            clinVarSet.add(ClinVarRow(symbol, entrezID, diseaseName, umls, omim))
         return clinVarSet

@@ -14,23 +14,29 @@
 #  all copies or substantial portions of the Software.
 
 from Classes.annotation_row import OBORow
-from Common.constants import OBO_PATH
+from Common.constants import OBO_PATH, RGD_OBO_PATH
 from Common.init import Ontology, multiprocessing
 
 
 class OBO:
     @staticmethod
-    def Read(filePath=OBO_PATH):
-        oboData = Ontology(filePath, threads=multiprocessing.cpu_count())
+    def Read(filePathOBO=OBO_PATH, filePathRGD=RGD_OBO_PATH):
+        filePaths = [filePathOBO, filePathRGD]
         oboSet = set()
 
-        for term in oboData.terms():
-            if term.obsolete:
-                continue
-            doid = term.id.strip()
-            diseaseName = term.name.strip()
-            synonyms = term.synonyms
-            parentDoids = term.superclasses().to_set()
-            oboSet.add(OBORow(doid, diseaseName, synonyms, parentDoids))
+        for filePath in filePaths:
+            oboData = Ontology(filePath, threads=multiprocessing.cpu_count())
+
+            for term in oboData.terms():
+                if term.obsolete:
+                    continue
+
+                doid = term.id.strip()
+                diseaseName = term.name.strip()
+                synonyms = term.synonyms
+                parentDoids = term.superclasses().to_set()
+                xrefs = term.xrefs
+                altIds = term.alternate_ids
+                oboSet.add(OBORow(doid, diseaseName, synonyms, parentDoids, xrefs, altIds))
 
         return oboSet

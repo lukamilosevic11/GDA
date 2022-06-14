@@ -13,10 +13,11 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
+from Classes.attributes import EntrezID, UniprotID, EnsemblID, DOID, DiseaseName, Xrefs
 from Classes.search_engine_client import SearchEngineClient
-from Common.constants import COLLECTION_NAME_DOID, QUERY_BY_DOID, DISEASE_NAME_DOID_JSONL_PATH, MAX_JACCARD_INDEX
-from Common.init import Source
-from Common.util import PreprocessingDiseaseName, WriteDictToJsonlFile, JaccardSimilarity
+from Common.constants import COLLECTION_NAME_DOID, DISEASE_NAME_DOID_JSONL_PATH
+from Common.init import Source, Xref, XREFS_SOURCE
+from Common.util import PreprocessingDiseaseName, WriteDictToJsonlFile, PreprocessingDiseaseNameLight
 
 
 class AnnotationContext:
@@ -31,6 +32,7 @@ class AnnotationContext:
         self.ensemblID = None
         self.doid = None
         self.diseaseName = None
+        self.xrefs = None
 
         # Dictionaries
         # EntrezID
@@ -51,16 +53,56 @@ class AnnotationContext:
         # DOID
         self.__diseaseNameFrozenSetToDOID = {}
         self.__diseaseNameToDOID = {}
+        self.__omimToDOID = {}
+        self.__umlsToDOID = {}
+        self.__meshToDOID = {}
+        self.__gardToDOID = {}
+        self.__medDraToDOID = {}
+        self.__icd10ToDOID = {}
 
         # DiseaseName
         self.__doidToDiseaseName = {}
+        self.__orphaToDiseaseName = {}
+        self.__omimToDiseaseName = {}  # Omim -> list(DiseaseName)
+
+        # Xrefs
+        self.__orphaToExactXrefs = {}  # Orpha -> dict(xrefs)
+        self.__orphaToNotExactXrefs = {}  # Orpha -> dict(xrefs)
+        self.__orphaToXrefs = {}  # Orpha -> dict(xrefs)
 
         self.__InitializeDictionaries()
         self.__InitializeSearchEngineClient(dropCollection)
         self.__InitializeAttributes()
 
+    def __InitializeOrphanetXrefDictionaries(self):
+        sourceSet = self.__dbContext.GetDatabaseBySource(Source.ORPHANET_XREF)
+        for term in sourceSet:
+            # Orpha
+            if term.orpha is not None:
+                # Orpha -> Xrefs
+                if term.orpha not in self.__orphaToExactXrefs:
+                    exactXrefs = term.GetExactXrefs()
+                    notExactXrefs = term.GetNotExactXrefs()
+                    xrefs = term.GetXrefs()
+                    if exactXrefs:
+                        self.__orphaToExactXrefs[term.orpha] = exactXrefs
+
+                    if notExactXrefs:
+                        self.__orphaToNotExactXrefs[term.orpha] = notExactXrefs
+
+                    if xrefs:
+                        self.__orphaToXrefs[term.orpha] = xrefs
+
+                # Orpha -> Disease Name
+                if term.orpha not in self.__orphaToDiseaseName and term.diseaseName is not None:
+                    self.__orphaToDiseaseName[term.orpha] = term.diseaseName
+
     def __InitializeDictionaries(self):
+        self.__InitializeOrphanetXrefDictionaries()
         for source in self.__sources:
+            if source is Source.ORPHANET_XREF:
+                continue
+
             sourceSet = self.__dbContext.GetDatabaseBySource(source)
             for term in sourceSet:
                 # Symbol
@@ -151,7 +193,7 @@ class AnnotationContext:
 
                     # DOID -> Synonym(additional disease name synonyms from OBO)
                     if source is Source.OBO and term.doid not in self.__doidToDiseaseName:
-                        diseaseNameSynonyms = term.getSynonyms()
+                        diseaseNameSynonyms = term.GetSynonyms()
                         if diseaseNameSynonyms:
                             self.__doidToDiseaseName[term.doid] = diseaseNameSynonyms[0]
 
@@ -169,29 +211,81 @@ class AnnotationContext:
                             if preprocessedDiseaseName not in self.__diseaseNameToDOID:
                                 self.__diseaseNameToDOID[preprocessedDiseaseName] = term.doid
 
-                    # DiseaseName -> DOID (OBO synonyms)
-                    if source is Source.OBO:
-                        diseaseNameSynonyms = term.getSynonyms()
-                        if diseaseNameSynonyms:
-                            for diseaseNameSynonym in diseaseNameSynonyms:
-                                if term.doid is not None:
-                                    preprocessedDiseaseNameSynonym = PreprocessingDiseaseName(diseaseNameSynonym)
-                                    preprocessedDiseaseNameSynonymFrozenSet = \
-                                        frozenset(preprocessedDiseaseNameSynonym)
-                                    if preprocessedDiseaseNameSynonymFrozenSet not in self.__diseaseNameFrozenSetToDOID:
-                                        self.__diseaseNameFrozenSetToDOID[preprocessedDiseaseNameSynonymFrozenSet] = \
-                                            term.doid
+                # DiseaseName -> DOID (OBO synonyms) and xrefs -> DOID
+                if source is Source.OBO:
+                    diseaseNameSynonyms = term.GetSynonyms()
+                    if diseaseNameSynonyms and term.doid is not None:
+                        for diseaseNameSynonym in diseaseNameSynonyms:
+                            preprocessedDiseaseNameSynonym = PreprocessingDiseaseName(diseaseNameSynonym)
+                            preprocessedDiseaseNameSynonymFrozenSet = \
+                                frozenset(preprocessedDiseaseNameSynonym)
+                            if preprocessedDiseaseNameSynonymFrozenSet not in self.__diseaseNameFrozenSetToDOID:
+                                self.__diseaseNameFrozenSetToDOID[preprocessedDiseaseNameSynonymFrozenSet] = \
+                                    term.doid
 
-                                    preprocessedDiseaseNameSynonym = ' '.join(preprocessedDiseaseNameSynonym)
-                                    if preprocessedDiseaseNameSynonym not in self.__diseaseNameToDOID:
-                                        self.__diseaseNameToDOID[preprocessedDiseaseNameSynonym] = term.doid
+                            preprocessedDiseaseNameSynonym = ' '.join(preprocessedDiseaseNameSynonym)
+                            if preprocessedDiseaseNameSynonym not in self.__diseaseNameToDOID:
+                                self.__diseaseNameToDOID[preprocessedDiseaseNameSynonym] = term.doid
+
+                    # xrefs -> DOID
+                    xrefs = term.GetXrefs()
+                    for xref in xrefs:
+                        xrefSplitted = xref.id.split(':')
+                        if len(xrefSplitted) != 2:
+                            continue
+
+                        xref = xrefSplitted[0].strip()
+                        value = xrefSplitted[1].strip()
+                        self.__AddXrefValue(xref, value, term.doid, term.diseaseName)
+
+                    alternateIds = term.GetAlternateIds()
+                    for alternateId in alternateIds:
+                        alternateIdSplitted = alternateId.split(':')
+                        if len(alternateIdSplitted) != 2:
+                            continue
+
+                        xref = alternateIdSplitted[0].strip()
+                        value = alternateIdSplitted[1].strip()
+                        self.__AddXrefValue(xref, value, term.doid, term.diseaseName)
+
+    def __AddXrefValue(self, xref, value, doid, diseaseName):
+        if xref in XREFS_SOURCE:
+            xrefSource = XREFS_SOURCE[xref]
+            if xrefSource == Xref.OMIM:
+                # Omim -> DOID
+                if doid is not None and value not in self.__omimToDOID:
+                    self.__omimToDOID[value] = doid
+
+                # Omim -> Disease Name
+                if diseaseName is not None:
+                    if value not in self.__omimToDiseaseName:
+                        self.__omimToDiseaseName[value] = [diseaseName]
+                    elif diseaseName not in self.__omimToDiseaseName[value]:
+                        omimDiseaseNames = list(map(PreprocessingDiseaseNameLight, self.__omimToDiseaseName[value]))
+                        diseaseNamePreprocessed = PreprocessingDiseaseNameLight(diseaseName)
+                        if diseaseNamePreprocessed not in omimDiseaseNames:
+                            self.__omimToDiseaseName[value].append(diseaseName)
+
+            elif xrefSource == Xref.UMLS and value not in self.__umlsToDOID and doid is not None:
+                self.__umlsToDOID[value] = doid
+            elif xrefSource == Xref.MeSH and value not in self.__meshToDOID and doid is not None:
+                self.__meshToDOID[value] = doid
+            elif xrefSource == Xref.GARD and value not in self.__gardToDOID and doid is not None:
+                self.__gardToDOID[value] = doid
+            elif xrefSource == Xref.MedDRA and value not in self.__medDraToDOID and doid is not None:
+                self.__medDraToDOID[value] = doid
+            elif xrefSource == Xref.ICD10 and value not in self.__icd10ToDOID and doid is not None:
+                self.__icd10ToDOID[value] = doid
 
     def __InitializeAttributes(self):
         self.entrezID = EntrezID(self.__symbolToEntrezID, self.__ensemblIDToEntrezID, self.__uniprotIDToEntrezID)
         self.uniprotID = UniprotID(self.__symbolToUniprotID, self.__entrezIDToUniprotID, self.__ensemblIDToUniprotID)
         self.ensemblID = EnsemblID(self.__symbolToEnsemblID, self.__entrezIDToEnsemblID, self.__uniprotIDToEnsemblID)
-        self.doid = DOID(self.__diseaseNameFrozenSetToDOID, self.__searchEngineClient)
-        self.diseaseName = DiseaseName(self.__doidToDiseaseName)
+        self.doid = DOID(self.__searchEngineClient, self.__diseaseNameFrozenSetToDOID, self.__omimToDOID,
+                         self.__umlsToDOID, self.__meshToDOID, self.__gardToDOID, self.__medDraToDOID,
+                         self.__icd10ToDOID)
+        self.diseaseName = DiseaseName(self.__doidToDiseaseName, self.__orphaToDiseaseName, self.__omimToDiseaseName)
+        self.xrefs = Xrefs(self.__orphaToExactXrefs, self.__orphaToNotExactXrefs, self.__orphaToXrefs)
 
     def __InitializeSearchEngineClient(self, dropCollection):
         try:
@@ -217,108 +311,3 @@ class AnnotationContext:
                 self.__searchEngineClient.ImportDataFromFile(COLLECTION_NAME_DOID, DISEASE_NAME_DOID_JSONL_PATH)
         except:
             print("Collection already exist")
-
-
-# EntrezID is part of: DisGeNet, Cosmic, ClinVar, HPO, Uniprot, Hugo
-# EntrezID can be found using symbol, ensemblID and uniprotID
-class EntrezID:
-    def __init__(self, symbolDict, ensemblIDDict, uniprotIDDict):
-        self.__symbolDict = symbolDict
-        self.__ensemblIDDict = ensemblIDDict
-        self.__uniprotIDDict = uniprotIDDict
-
-    def GetBySymbol(self, symbol):
-        return self.__symbolDict[symbol] if symbol in self.__symbolDict else None
-
-    def GetByEnsemblID(self, ensemblID):
-        return self.__ensemblIDDict[ensemblID] if ensemblID in self.__ensemblIDDict else None
-
-    def GetByUniprotID(self, uniprotID):
-        return self.__uniprotIDDict[uniprotID] if uniprotID in self.__uniprotIDDict else None
-
-
-# UniprotID is part of: Uniprot, Hugo
-# UniprotID can be found using symbol, entrezID and ensemblID
-class UniprotID:
-    def __init__(self, symbolDict, entrezIDDict, ensemblIDDict):
-        self.__symbolDict = symbolDict
-        self.__entrezIDDict = entrezIDDict
-        self.__ensemblIDDict = ensemblIDDict
-
-    def GetBySymbol(self, symbol):
-        return self.__symbolDict[symbol] if symbol in self.__symbolDict else None
-
-    def GetByEntrezID(self, entrezID):
-        return self.__entrezIDDict[entrezID] if entrezID in self.__entrezIDDict else None
-
-    def GetByEnsemblID(self, ensemblID):
-        return self.__ensemblIDDict[ensemblID] if ensemblID in self.__ensemblIDDict else None
-
-
-# EnsemblID is part of: Orphanet ,Uniprot, Hugo
-# EnsemblID can be found using symbol, entrezID and uniprotID
-class EnsemblID:
-    def __init__(self, symbolDict, entrezIDDict, uniprotIDDict):
-        self.__symbolDict = symbolDict
-        self.__entrezIDDict = entrezIDDict
-        self.__uniprotIDDict = uniprotIDDict
-
-    def GetBySymbol(self, symbol):
-        return self.__symbolDict[symbol] if symbol in self.__symbolDict else None
-
-    def GetByEntrezID(self, entrezID):
-        return self.__entrezIDDict[entrezID] if entrezID in self.__entrezIDDict else None
-
-    def GetByUniprotID(self, uniprotID):
-        return self.__uniprotIDDict[uniprotID] if uniprotID in self.__uniprotIDDict else None
-
-
-# DOID is part of: Diseases, OBO
-# DOID can be found using diseaseName
-class DOID:
-    def __init__(self, diseaseNameFrozenSetDict, searchEngineClient):
-        self.__searchEngineClient = searchEngineClient
-        self.__diseaseNameFrozenSetDict = diseaseNameFrozenSetDict
-
-    def GetByDiseaseName(self, diseaseName):
-        if diseaseName is None:
-            return None, None
-
-        preprocessedDiseaseName = PreprocessingDiseaseName(diseaseName)
-        preprocessedDiseaseNameFrozenSet = frozenset(preprocessedDiseaseName)
-        if preprocessedDiseaseNameFrozenSet in self.__diseaseNameFrozenSetDict:
-            return self.__diseaseNameFrozenSetDict[preprocessedDiseaseNameFrozenSet], MAX_JACCARD_INDEX
-        else:
-            return self.__SearchWithSearchEngine(preprocessedDiseaseName)
-
-    # TODO: add check if we have more than one hit then we can compare results with Jaccard index or some other measure
-    def __SearchWithSearchEngine(self, preprocessedDiseaseNameTokens):
-        preprocessedDiseaseName = ' '.join(preprocessedDiseaseNameTokens)
-        searchResult = self.__searchEngineClient. \
-            SearchByQuery(COLLECTION_NAME_DOID, preprocessedDiseaseName, QUERY_BY_DOID)
-        if len(searchResult["hits"]) > 0:
-            foundDiseaseName = searchResult["hits"][0]["document"]["diseaseName"]
-            jaccSimilarity = JaccardSimilarity(foundDiseaseName, preprocessedDiseaseName)
-            doid = searchResult["hits"][0]["document"]["doid"]
-            self.__diseaseNameFrozenSetDict[frozenset(preprocessedDiseaseNameTokens)] = doid
-            return doid, jaccSimilarity
-        elif " due " in preprocessedDiseaseName:
-            return self.GetByDiseaseName(preprocessedDiseaseName.split(" due ")[0])
-        elif " with without " in preprocessedDiseaseName:
-            return self.GetByDiseaseName(preprocessedDiseaseName.split(" with without ")[0])
-        elif " with " in preprocessedDiseaseName:
-            return self.GetByDiseaseName(preprocessedDiseaseName.split(" with ")[0])
-        elif " without " in preprocessedDiseaseName:
-            return self.GetByDiseaseName(preprocessedDiseaseName.split(" without ")[0])
-
-        return None, None
-
-
-# DiseaseName is part of: DisGeNet, Cosmic, HumsaVar, Orphanet, ClinVar, Diseases, OBO
-# DiseaseName can be found using DOID (OBO and Diseases)
-class DiseaseName:
-    def __init__(self, doidDict):
-        self.__doidDict = doidDict
-
-    def GetByDoid(self, doid):
-        return self.__doidDict[doid] if doid in self.__doidDict else None

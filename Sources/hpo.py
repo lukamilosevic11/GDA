@@ -28,7 +28,16 @@ class HPO:
                 splittedLine = line.strip().split('\t')
                 symbol = CheckEmpty(splittedLine[1])
                 entrezID = CheckEmpty(splittedLine[0])
-                diseaseName = CheckEmpty(splittedLine[3])
-                hpoSet.add(HPORow(symbol, entrezID, diseaseName))
+                omim = None
+                orpha = None
+                omimOrpha = CheckEmpty(splittedLine[8])
+                if omimOrpha is not None:
+                    omimOrphaSplitted = omimOrpha.split(":")
+                    if omimOrphaSplitted[0] == "OMIM":
+                        omim = omimOrphaSplitted[1]
+                    elif omimOrphaSplitted[0] == "ORPHA":
+                        orpha = omimOrphaSplitted[1]
+
+                hpoSet.add(HPORow(symbol, entrezID, omim, orpha))
 
         return hpoSet

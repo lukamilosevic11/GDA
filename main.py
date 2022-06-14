@@ -13,15 +13,46 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Classes.parsing_context import ParsingContext
+from Classes.parsing_context_obsolete import ParsingContext
 from Classes.parsing_context_thread import ParsingContextThread
 from Common.init import time
-from DataTables.datatables import DataTables
 from Sources.hpo import HPO
-from Common.util import WriteStructureToFile
+from Common.util import WriteStructureToFile, PrintStructure
+from Mapping.obo import OBO
+from Sources.orphanet import Orphanet
+from Sources.humsavar import HumsaVar
+from Mapping.orphanet_xref import OrphanetXref
 
 
 def main():
+    # oboSet = OBO.Read()
+    # for row in oboSet:
+    #     altIds = row.GetAlternateIds()
+    #     if altIds:
+    #         # for altid in altIds:
+    #         #     splitted = altid.split(':')
+    #         #     if len(splitted) == 1:
+    #         #         print(splitted)
+    #         # print()
+    #         print(altIds)
+    # orphanetSet = Orphanet.Read()
+    # hpoSet = HPO.Read()
+    # humsavarSet = HumsaVar.Read()
+    # orphanetXrefSet = OrphanetXref.Read()
+    # PrintStructure(orphanetXrefSet)
+    # for row in orphanetXrefSet:
+    #     exact = row.GetExactXrefs()
+    #     if exact:
+    #         print(exact)
+    # for row in oboSet:
+    # for xref in row.GetAlternateIds():
+    # print(xref.split(':'))
+    # print()
+    # print(row.GetAlternateIds())
+    # print()
+    # PrintStructure(oboSet)
+    # WriteStructureToFile('Results/oboSet.txt', oboSet)
+
     # startTime = time.time()
     # parsingContext = ParsingContext(True)
     # parsingContextTime = time.time()
@@ -39,6 +70,7 @@ def main():
     # print("Time processing writing disGeNetSet doid: {}".format(disGeNetDoidWritingSetTime - disGeNetDoidTime))
     # print("Total time: {}".format(disGeNetDoidWritingSetTime - startTime))
 
+    # *********************************************************************************************************
     startTime = time.time()
     parsingContext = ParsingContextThread()
     parsingContextEndTime = time.time()
@@ -51,7 +83,7 @@ def main():
     print("Time processing writing final annotatiton file: {}"
           .format(AnnotationFileWritingEndTime - startTimeAnnotationFile))
     print("Total time: {}".format(AnnotationFileWritingEndTime - startTime))
-    # print(parsingContext.annotationContext.doid.diseaseNameFrozenSetDict)
+    # *********************************************************************************************************
 
     # startTime = time.time()
     # parsingContext = ParsingContextThread(True)

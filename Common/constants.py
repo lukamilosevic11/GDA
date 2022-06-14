@@ -24,9 +24,11 @@ __HUMSAVAR_FILE = "humsavar.txt"
 __ORPHANET_FILE = "en_product6.xml"
 
 # Mapping
-__OBO_FILE = "RDO.obo.txt"
+__RGD_OBO_FILE = "RDO.obo.txt"
+__OBO_FILE = "doid.obo.txt"
 __UNIPROT_FILE = "HUMAN_9606_idmapping.dat"
 __HUGO_FILE = "hgnc_complete_set.txt"
+__ORPHANET_XREF_FILE = "en_product1.xml"
 
 # TODO: implement with os.path and maybe reading from some json file
 # Sources
@@ -39,12 +41,14 @@ HUMSAVAR_PATH = __DATA_DIRECTORY + __HUMSAVAR_FILE
 ORPHANET_PATH = __DATA_DIRECTORY + __ORPHANET_FILE
 
 # Mapping
+RGD_OBO_PATH = __DATA_DIRECTORY + __RGD_OBO_FILE
 OBO_PATH = __DATA_DIRECTORY + __OBO_FILE
 UNIPROT_PATH = __DATA_DIRECTORY + __UNIPROT_FILE
 HUGO_PATH = __DATA_DIRECTORY + __HUGO_FILE
+ORPHANET_XREF_PATH = __DATA_DIRECTORY + __ORPHANET_XREF_FILE
 
 # Search Engine
-API_KEY = "1"
+API_KEY = "1"  # TODO: implement guid api key creation
 COLLECTION_NAME_DOID = "DOID"
 QUERY_BY_DOID = "diseaseName"
 

@@ -36,6 +36,26 @@ from threading import Thread, Lock
 from time import perf_counter
 
 
+class Xref(Enum):
+    OMIM = 1
+    UMLS = 2
+    MeSH = 3
+    GARD = 4
+    MedDRA = 5
+    ICD10 = 6
+
+
+# Xrefs
+XREFS_SOURCE = {
+    "UMLS_CUI": Xref.UMLS,
+    "MESH": Xref.MeSH,
+    "MEDDRA": Xref.MedDRA,
+    "ICD10CM": Xref.ICD10,
+    "OMIM": Xref.OMIM,
+    "GARD": Xref.GARD
+}
+
+
 class Attribute(Enum):
     SYMBOL = 1
     ENTREZ_ID = 2
@@ -57,11 +77,12 @@ class Source(Enum):
     OBO = 8
     UNIPROT = 9
     HUGO = 10
+    ORPHANET_XREF = 11
 
     @staticmethod
     def GetAllSources():
         return [Source.DISGENET, Source.COSMIC, Source.CLINVAR, Source.HUMSAVAR, Source.ORPHANET,
-                Source.HPO, Source.DISEASES, Source.OBO, Source.UNIPROT, Source.HUGO]
+                Source.HPO, Source.DISEASES, Source.OBO, Source.UNIPROT, Source.HUGO, Source.ORPHANET_XREF]
 
     @staticmethod
     def GetSourcesForParsing():
@@ -90,3 +111,5 @@ class Source(Enum):
             return "Uniprot"
         elif source is Source.HUGO:
             return "Hugo"
+        elif source is Source.ORPHANET_XREF:
+            return "Orphanet Xref"

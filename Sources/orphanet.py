@@ -26,11 +26,12 @@ class Orphanet:
         root = tree.getroot()
         disorderList = root.find("DisorderList")
         for disorder in disorderList:
-            diseaseName = disorder.find("Name").text.strip()
             disorderType = disorder.find("DisorderType").find("Name").text.strip()
             if disorderType != "Disease":
                 continue
 
+            orpha = disorder.find("OrphaCode").text.strip()
+            diseaseName = disorder.find("Name").text.strip()
             disorderGeneAssociationList = disorder.find("DisorderGeneAssociationList")
             for disorderGeneAssociation in disorderGeneAssociationList:
                 gene = disorderGeneAssociation.find("Gene")
@@ -44,6 +45,6 @@ class Orphanet:
 
                     ensemblID = externalReference.find("Reference").text.strip()
 
-                    orphanetSet.add(OrphanetRow(symbol, ensemblID, diseaseName))
+                    orphanetSet.add(OrphanetRow(symbol, ensemblID, diseaseName, orpha))
 
         return orphanetSet

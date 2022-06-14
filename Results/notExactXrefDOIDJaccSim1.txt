@@ -1,0 +1,1880 @@
+Zebra body myopathy *** muscular dystrophy-dystroglycanopathy DOID:0112374
+0.0
+MiT family translocation renal cell carcinoma *** Renal cell carcinoma DOID:4450
+0.2857142857142857
+Charcot-Marie-Tooth disease type 2B5 *** Charcot-Marie-Tooth disease type 1F DOID:0110149
+0.6
+MiT family translocation renal cell carcinoma *** Renal cell carcinoma DOID:4450
+0.2857142857142857
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Autoinflammatory syndrome with pyogenic bacterial infection and amylopectinosis *** Polyglucosan Body Myopathy 1 with or without Immunodeficiency DOID:9007616
+0.06666666666666667
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Severe early-childhood-onset retinal dystrophy *** hereditary retinal dystrophy DOID:8500
+0.4
+Atypical Werner syndrome *** Progeria DOID:3911
+0.0
+Hereditary pulmonary alveolar proteinosis *** Pulmonary Surfactant Metabolism Dysfunction 5 DOID:9007475
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Congenital muscular dystrophy with cerebellar involvement *** Muscular dystrophy-dystroglycanopathy type B5 DOID:0110635
+0.0
+Primary microcephaly-mild intellectual disability-young-onset diabetes syndrome *** Microcephaly, Short Stature, and Impaired Glucose Metabolism 1 DOID:9006685
+0.0
+Childhood-onset progressive contractures-limb-girdle weakness-muscle dystrophy syndrome *** Autosomal recessive limb-girdle muscular dystrophy type 2B DOID:0110276
+0.08333333333333333
+Leigh syndrome with cardiomyopathy *** nuclear type mitochondrial complex I deficiency 32 DOID:0112080
+0.0
+Autosomal recessive spastic paraplegia type 70 *** hereditary spastic paraplegia 77 DOID:0110822
+0.25
+Isolated neonatal sclerosing cholangitis *** Cholangitis DOID:9446
+0.0
+Exercise-induced malignant hyperthermia *** Malignant hyperthermia DOID:8545
+0.25
+Benign Samaritan congenital myopathy *** muscular dystrophy-dystroglycanopathy DOID:0112374
+0.0
+2p21 microdeletion syndrome *** hypotonia-cystinuria syndrome DOID:0060858
+0.25
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+Intermediate generalized junctional epidermolysis bullosa *** junctional epidermolysis bullosa non-Herlitz type DOID:0060738
+0.42857142857142855
+Early-onset autosomal dominant Alzheimer disease *** Alzheimer's disease 15 DOID:0110048
+0.14285714285714285
+Self-improving collodion baby *** autosomal recessive congenital ichthyosis 2 DOID:0060710
+0.0
+Congenital muscular dystrophy with intellectual disability *** muscular dystrophy-dystroglycanopathy type B15 DOID:0112376
+0.1111111111111111
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Kyphoscoliosis-lateral tongue atrophy-hereditary spastic paraplegia syndrome *** hereditary spastic paraplegia 77 DOID:0110822
+0.25
+Severe congenital nemaline myopathy *** Nemaline myopathy 8 DOID:0110930
+0.16666666666666666
+Congenital muscular dystrophy with cerebellar involvement *** Muscular dystrophy-dystroglycanopathy type B5 DOID:0110635
+0.0
+Severe early-childhood-onset retinal dystrophy *** hereditary retinal dystrophy DOID:8500
+0.4
+Severe early-childhood-onset retinal dystrophy *** hereditary retinal dystrophy DOID:8500
+0.4
+NON RARE IN EUROPE: Infantile capillary hemangioma *** Cavernous hemangioma DOID:483
+0.125
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+Myeloid/lymphoid neoplasm associated with FGFR1 rearrangement *** bone marrow cancer DOID:4960
+0.0
+PRKAR1B-related neurodegenerative dementia with intermediate filaments *** Aicardi-Goutieres syndrome DOID:0050629
+0.0
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Hypothyroidism due to deficient transcription factors involved in pituitary development or function *** Congenital nongoitrous hypothyroidism 4 DOID:0070123
+0.0
+Ferro-cerebro-cutaneous syndrome *** Neurodegeneration with brain iron accumulation 5 DOID:0110739
+0.0
+Dystonia 28 *** Episodic kinesigenic dyskinesia 1 DOID:0090053
+0.0
+Congenital muscular dystrophy without intellectual disability *** Muscular dystrophy-dystroglycanopathy type B5 DOID:0110635
+0.0
+Typical nemaline myopathy *** Nemaline myopathy 3 DOID:0110927
+0.2
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Intermediate nemaline myopathy *** Nemaline myopathy 1 DOID:0110926
+0.2
+Familial or sporadic hemiplegic migraine *** Familial hemiplegic migraine 1 DOID:0111181
+0.5
+Acute necrotizing encephalopathy of childhood *** Brain disease DOID:936
+0.0
+Isolated autosomal dominant hypomagnesemia, Glaudemans type *** Intestinal hypomagnesemia 1 DOID:0060883
+0.0
+NON RARE IN EUROPE: Crohn disease *** Crohn's disease DOID:8778
+0.14285714285714285
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Multifocal pattern dystrophy simulating fundus flavimaculatus *** hereditary retinal dystrophy DOID:8500
+0.125
+Congenital muscular dystrophy with intellectual disability *** muscular dystrophy-dystroglycanopathy type B15 DOID:0112376
+0.1111111111111111
+Klippel-TrÃ©naunay syndrome *** Klippel-Trenaunay syndrome DOID:2926
+0.3333333333333333
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Congenital muscular dystrophy without intellectual disability *** Muscular dystrophy-dystroglycanopathy type B5 DOID:0110635
+0.0
+Familial papillary or follicular thyroid carcinoma *** thyroid gland follicular carcinoma DOID:3962
+0.42857142857142855
+Acrodysostosis with multiple hormone resistance *** Acrodysostosis 1, with or without Hormone Resistance DOID:9001451
+0.2
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+ATTRV122I amyloidosis *** Transthyretin amyloidosis DOID:0050638
+0.3333333333333333
+Self-improving collodion baby *** autosomal recessive congenital ichthyosis 2 DOID:0060710
+0.0
+Homozygous familial hypercholesterolemia *** familial hypercholesterolemia DOID:13810
+0.6666666666666666
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+MT-ATP6-related mitochondrial spastic paraplegia *** hereditary spastic paraplegia 77 DOID:0110822
+0.3333333333333333
+High bone mass osteogenesis imperfecta *** Osteogenesis imperfecta type 2 DOID:0110341
+0.125
+Severe intellectual disability-progressive postnatal microcephaly-midline stereotypic hand movements syndrome *** non-syndromic X-linked intellectual disability 1 DOID:0112038
+0.07692307692307693
+Atypical juvenile parkinsonism *** Parkinson's disease 19A DOID:0060891
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Hypothyroidism due to deficient transcription factors involved in pituitary development or function *** Congenital nongoitrous hypothyroidism 4 DOID:0070123
+0.0
+Familial colorectal cancer Type X *** cecum cancer DOID:1521
+0.16666666666666666
+Primary microcephaly-mild intellectual disability-young-onset diabetes syndrome *** Microcephaly, Short Stature, and Impaired Glucose Metabolism 1 DOID:9006685
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Squamous cell carcinoma of the hypopharynx *** head and neck squamous cell carcinoma DOID:5520
+0.2
+X-linked intellectual disability-hypotonia-movement disorder syndrome *** Mental Retardation, X-Linked 102 DOID:9002789
+0.0
+Familial or sporadic hemiplegic migraine *** Familial hemiplegic migraine 1 DOID:0111181
+0.5
+AKT2-related familial partial lipodystrophy *** Lipodystrophy DOID:811
+0.0
+Hereditary persistence of fetal hemoglobin-beta-thalassemia syndrome *** delta beta-thalassemia DOID:0080773
+0.0
+NON RARE IN EUROPE: Age-related macular degeneration *** degeneration of macula and posterior pole DOID:2007
+0.08333333333333333
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+NON RARE IN EUROPE: Age-related macular degeneration *** degeneration of macula and posterior pole DOID:2007
+0.08333333333333333
+Intermediate generalized junctional epidermolysis bullosa *** junctional epidermolysis bullosa non-Herlitz type DOID:0060738
+0.42857142857142855
+Congenital cerebellar ataxia due to RNU12 mutation *** Cayman type cerebellar ataxia DOID:0060694
+0.2222222222222222
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Pediatric systemic lupus erythematosus *** drug-induced lupus erythematosus DOID:0040093
+0.4
+Familial or sporadic hemiplegic migraine *** Familial hemiplegic migraine 1 DOID:0111181
+0.5
+2p21 microdeletion syndrome *** hypotonia-cystinuria syndrome DOID:0060858
+0.25
+Muscle-eye-brain disease with bilateral multicystic leucodystrophy *** congenital muscular dystrophy-dystroglycanopathy type A9 DOID:0111232
+0.0
+Benign Samaritan congenital myopathy *** muscular dystrophy-dystroglycanopathy DOID:0112374
+0.0
+NON RARE IN EUROPE: Age-related macular degeneration *** degeneration of macula and posterior pole DOID:2007
+0.08333333333333333
+Progressive myoclonic epilepsy with dystonia *** Early infantile epileptic encephalopathy 16 DOID:0080449
+0.0
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Leigh syndrome with cardiomyopathy *** nuclear type mitochondrial complex I deficiency 32 DOID:0112080
+0.0
+LMNA-related cardiocutaneous progeria syndrome *** Progeria DOID:3911
+0.0
+Senior-Boichis syndrome *** Nephronophthisis 19 DOID:0111126
+0.0
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Typical nemaline myopathy *** Nemaline myopathy 3 DOID:0110927
+0.2
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Hereditary persistence of fetal hemoglobin-beta-thalassemia syndrome *** delta beta-thalassemia DOID:0080773
+0.0
+Autosomal semi-dominant severe lipodystrophic laminopathy *** Lipodystrophy DOID:811
+0.0
+PRKAR1B-related neurodegenerative dementia with intermediate filaments *** Aicardi-Goutieres syndrome DOID:0050629
+0.0
+Atypical hypotonia-cystinuria syndrome *** hypotonia-cystinuria syndrome DOID:0060858
+0.6666666666666666
+Acute myeloid leukemia with t(8;21)(q22;q22) translocation *** Acute myeloid leukemia DOID:9119
+0.5
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Autosomal dominant spastic paraplegia type 9B *** hereditary spastic paraplegia 77 DOID:0110822
+0.25
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Squamous cell carcinoma of the oropharynx *** head and neck squamous cell carcinoma DOID:5520
+0.2
+Autosomal dominant macrothrombocytopenia *** Platelet-Type Bleeding Disorder 24 DOID:9000430
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Immunodeficiency due to a classical component pathway complement deficiency *** Complement Component C1r/C1s Deficiency DOID:9005411
+0.0
+Megakaryoblastic acute myeloid leukemia with t(1;22)(p13;q13) *** Megakaryocytic leukemia DOID:8761
+0.14285714285714285
+Congenital muscular dystrophy with cerebellar involvement *** Muscular dystrophy-dystroglycanopathy type B5 DOID:0110635
+0.0
+Severe congenital nemaline myopathy *** Nemaline myopathy 8 DOID:0110930
+0.16666666666666666
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+Intellectual disability-expressive aphasia-facial dysmorphism syndrome *** Autosomal dominant non-syndromic intellectual disability 29 DOID:0070059
+0.0
+Familial mesial temporal lobe epilepsy with febrile seizures *** Familial febrile seizures 11 DOID:0111308
+0.3333333333333333
+Congenital cerebellar ataxia due to RNU12 mutation *** Cayman type cerebellar ataxia DOID:0060694
+0.2222222222222222
+Huntington disease-like syndrome due to C9ORF72 expansions *** Huntington's disease DOID:12858
+0.0
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Congenital muscular dystrophy without intellectual disability *** Muscular dystrophy-dystroglycanopathy type B5 DOID:0110635
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+46,XY disorder of sex development due to isolated 17,20-lyase deficiency *** Congenital adrenal hyperplasia DOID:0050811
+0.0
+Leigh syndrome with cardiomyopathy *** nuclear type mitochondrial complex I deficiency 32 DOID:0112080
+0.0
+Congenital cataract-severe neonatal hepatopathy-global developmental delay syndrome *** Cholestasis DOID:13580
+0.0
+Sickle cell-beta-thalassemia disease syndrome *** Sickle cell anemia DOID:10923
+0.16666666666666666
+Acrodysostosis with multiple hormone resistance *** Acrodysostosis 1, with or without Hormone Resistance DOID:9001451
+0.2
+Intermediate generalized junctional epidermolysis bullosa *** junctional epidermolysis bullosa non-Herlitz type DOID:0060738
+0.42857142857142855
+Behavioral variant of frontotemporal dementia *** Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis-8 DOID:9007226
+0.0
+XYLT1-CDG *** NGLY1-deficiency DOID:0060728
+0.0
+Diazoxide-resistant focal hyperinsulinism due to Kir6.2 deficiency *** Familial hyperinsulinemic hypoglycemia 2 DOID:0070218
+0.0
+Leigh syndrome with cardiomyopathy *** nuclear type mitochondrial complex I deficiency 32 DOID:0112080
+0.0
+Autosomal dominant macrothrombocytopenia *** Platelet-Type Bleeding Disorder 24 DOID:9000430
+0.0
+Behavioral variant of frontotemporal dementia *** Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis-8 DOID:9007226
+0.0
+Inherited isolated adrenal insufficiency due to partial CYP11A1 deficiency *** Addison's disease DOID:13774
+0.0
+2p21 microdeletion syndrome *** hypotonia-cystinuria syndrome DOID:0060858
+0.25
+Hyperinsulinism due to HNF1A deficiency *** Hyperinsulinism DOID:2018
+0.2
+2p21 microdeletion syndrome *** hypotonia-cystinuria syndrome DOID:0060858
+0.25
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Isolated ATP synthase deficiency *** mitochondrial complex V (ATP synthase) deficiency nuclear type 6 DOID:0111749
+0.08333333333333333
+Ehlers-Danlos/osteogenesis imperfecta syndrome *** Combined Osteogenesis Imperfecta and Ehlers-Danlos Syndrome 1 DOID:9006782
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Immunodeficiency due to a classical component pathway complement deficiency *** Complement Component C1r/C1s Deficiency DOID:9005411
+0.0
+Intermediate nemaline myopathy *** Nemaline myopathy 1 DOID:0110926
+0.2
+XYLT1-CDG *** NGLY1-deficiency DOID:0060728
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Early-onset autosomal dominant Alzheimer disease *** Alzheimer's disease 15 DOID:0110048
+0.14285714285714285
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Homozygous familial hypercholesterolemia *** familial hypercholesterolemia DOID:13810
+0.6666666666666666
+Autosomal recessive spastic paraplegia type 59 *** hereditary spastic paraplegia 77 DOID:0110822
+0.25
+Behavioral variant of frontotemporal dementia *** Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis-8 DOID:9007226
+0.0
+Hypercholesterolemia due to cholesterol 7alpha-hydroxylase deficiency *** Autosomal recessive hypercholesterolemia DOID:0090105
+0.0
+Primary microcephaly-epilepsy-permanent neonatal diabetes syndrome *** Microcephaly, Epilepsy, and Diabetes Syndrome 1 DOID:9004175
+0.0
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Squamous cell carcinoma of the oral cavity *** head and neck squamous cell carcinoma DOID:5520
+0.18181818181818182
+Autosomal dominant Charcot-Marie-Tooth disease type 2 due to DGAT2 mutation *** Charcot-Marie-Tooth disease type 1A DOID:0110148
+0.2727272727272727
+Atypical juvenile parkinsonism *** Parkinson's disease 19A DOID:0060891
+0.0
+ATTRV122I amyloidosis *** Transthyretin amyloidosis DOID:0050638
+0.3333333333333333
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+NON RARE IN EUROPE: Exfoliation syndrome *** open-angle glaucoma DOID:1067
+0.0
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Autosomal dominant hyperinsulinism due to Kir6.2 deficiency *** Familial hyperinsulinemic hypoglycemia 2 DOID:0070218
+0.0
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Sialidosis type 1 *** Neuraminidase Deficiency DOID:9008118
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Neonatal alloimmune neutropenia *** transient neonatal neutropenia DOID:11245
+0.2
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Atypical hypotonia-cystinuria syndrome *** hypotonia-cystinuria syndrome DOID:0060858
+0.6666666666666666
+Thrombocytopenia with congenital dyserythropoietic anemia *** Thrombocytopenia DOID:1588
+0.2
+Lethal arteriopathy syndrome due to fibulin-4 deficiency *** autosomal recessive cutis laxa type IB DOID:0070133
+0.0
+Unclassified myelodysplastic syndrome *** Chromosome 5q deletion syndrome DOID:0090016
+0.16666666666666666
+Intermediate nemaline myopathy *** Nemaline myopathy 1 DOID:0110926
+0.2
+46,XY disorder of sex development due to isolated 17,20-lyase deficiency *** Congenital adrenal hyperplasia DOID:0050811
+0.0
+Hemoglobin E-beta-thalassemia syndrome *** hemoglobin D disease DOID:5378
+0.0
+Familial colorectal cancer Type X *** cecum cancer DOID:1521
+0.16666666666666666
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Autosomal dominant optic atrophy, classic form *** optic atrophy 12 DOID:0080840
+0.125
+Homozygous familial hypercholesterolemia *** familial hypercholesterolemia DOID:13810
+0.6666666666666666
+Autosomal dominant secondary polycythemia *** familial erythrocytosis 3 DOID:0080338
+0.0
+Behavioral variant of frontotemporal dementia *** Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis-8 DOID:9007226
+0.0
+Severe congenital nemaline myopathy *** Nemaline myopathy 8 DOID:0110930
+0.16666666666666666
+Severe congenital nemaline myopathy *** Nemaline myopathy 8 DOID:0110930
+0.16666666666666666
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Behavioral variant of frontotemporal dementia *** Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis-8 DOID:9007226
+0.0
+Congenital muscular dystrophy with cerebellar involvement *** Muscular dystrophy-dystroglycanopathy type B5 DOID:0110635
+0.0
+Autosomal dominant hyperinsulinism due to SUR1 deficiency *** Familial hyperinsulinemic hypoglycemia 1 DOID:0070219
+0.0
+Hereditary breast cancer *** Breast cancer DOID:1612
+0.25
+Autosomal dominant Charcot-Marie-Tooth disease type 2 due to KIF5A mutation *** Charcot-Marie-Tooth disease type 1A DOID:0110148
+0.2727272727272727
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Hereditary pulmonary alveolar proteinosis *** Pulmonary Surfactant Metabolism Dysfunction 5 DOID:9007475
+0.0
+Unclassified myelodysplastic syndrome *** Chromosome 5q deletion syndrome DOID:0090016
+0.16666666666666666
+Hereditary persistence of fetal hemoglobin-beta-thalassemia syndrome *** delta beta-thalassemia DOID:0080773
+0.0
+Behavioral variant of frontotemporal dementia *** Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis-8 DOID:9007226
+0.0
+Early-onset autosomal dominant Alzheimer disease *** Alzheimer's disease 15 DOID:0110048
+0.14285714285714285
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Benign familial mesial temporal lobe epilepsy *** Familial temporal lobe epilepsy 3 DOID:0060750
+0.375
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Pseudoxanthoma elasticum-like skin manifestations with retinitis pigmentosa *** autosomal recessive cutis laxa type IIB DOID:0070137
+0.0
+NON RARE IN EUROPE: Age-related macular degeneration *** degeneration of macula and posterior pole DOID:2007
+0.08333333333333333
+Typical nemaline myopathy *** Nemaline myopathy 3 DOID:0110927
+0.2
+Hypothyroidism due to deficient transcription factors involved in pituitary development or function *** Congenital nongoitrous hypothyroidism 4 DOID:0070123
+0.0
+Autosomal dominant secondary polycythemia *** familial erythrocytosis 3 DOID:0080338
+0.0
+Autosomal dominant secondary polycythemia *** familial erythrocytosis 3 DOID:0080338
+0.0
+Primary microcephaly-mild intellectual disability-young-onset diabetes syndrome *** Microcephaly, Short Stature, and Impaired Glucose Metabolism 1 DOID:9006685
+0.0
+Autosomal recessive generalized dystrophic epidermolysis bullosa, intermediate form *** Epidermolysis bullosa dystrophica DOID:4959
+0.0
+Autosomal semi-dominant severe lipodystrophic laminopathy *** Lipodystrophy DOID:811
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Malignant migrating focal seizures of infancy *** developmental and epileptic encephalopathy 12 DOID:0080459
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Pseudoxanthoma elasticum-like skin manifestations with retinitis pigmentosa *** autosomal recessive cutis laxa type IIB DOID:0070137
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+Hereditary breast cancer *** Breast cancer DOID:1612
+0.25
+Autosomal recessive hyperinsulinism due to Kir6.2 deficiency *** Familial hyperinsulinemic hypoglycemia 2 DOID:0070218
+0.0
+Autosomal recessive spastic paraplegia type 66 *** hereditary spastic paraplegia 77 DOID:0110822
+0.25
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Behavioral variant of frontotemporal dementia *** Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis-8 DOID:9007226
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Intellectual disability-hyperkinetic movement-truncal ataxia syndrome *** Choreatic disease DOID:12859
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Metaphyseal chondromatosis with D-2-hydroxyglutaric aciduria *** Osteopoikilosis DOID:11991
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Early-onset calcifying leukoencephalopathy-skeletal dysplasia *** Aicardi-Goutieres syndrome DOID:0050629
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Inherited isolated adrenal insufficiency due to partial CYP11A1 deficiency *** Addison's disease DOID:13774
+0.0
+Acute myeloid leukemia with t(8;16)(p11;p13) translocation *** Acute myeloid leukemia DOID:9119
+0.5
+Rolandic epilepsy-speech dyspraxia syndrome *** Focal Epilepsy with Speech Disorder and with or without Mental Retardation DOID:9002510
+0.0
+Leigh syndrome with nephrotic syndrome *** primary coenzyme Q10 deficiency 1 DOID:0070238
+0.0
+Autosomal dominant secondary polycythemia *** familial erythrocytosis 3 DOID:0080338
+0.0
+Behavioral variant of frontotemporal dementia *** Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis-8 DOID:9007226
+0.0
+NON RARE IN EUROPE: Partial color blindness, deutan type *** Color blindness DOID:13399
+0.0
+Renin-angiotensin-aldosterone system-blocker-induced angioedema *** acquired angioedema DOID:0080941
+0.25
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Autosomal recessive severe congenital neutropenia due to CXCR2 deficiency *** Neutropenia DOID:1227
+0.0
+Hereditary breast cancer *** Breast cancer DOID:1612
+0.25
+Localized junctional epidermolysis bullosa *** junctional epidermolysis bullosa non-Herlitz type DOID:0060738
+0.5
+Familial Chilblain lupus *** Chilblain Lupus 1 DOID:9005881
+0.2
+Metaphyseal chondromatosis with D-2-hydroxyglutaric aciduria *** Osteopoikilosis DOID:11991
+0.0
+Homozygous familial hypercholesterolemia *** familial hypercholesterolemia DOID:13810
+0.6666666666666666
+Autosomal dominant intermediate Charcot-Marie-Tooth disease with neuropathic pain *** Charcot-Marie-Tooth disease type 1A DOID:0110148
+0.2
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Hypothyroidism due to deficient transcription factors involved in pituitary development or function *** Congenital nongoitrous hypothyroidism 4 DOID:0070123
+0.0
+AKT2-related familial partial lipodystrophy *** Lipodystrophy DOID:811
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Continuous spikes and waves during sleep *** Focal Epilepsy with Speech Disorder and with or without Mental Retardation DOID:9002510
+0.06666666666666667
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Localized junctional epidermolysis bullosa *** junctional epidermolysis bullosa non-Herlitz type DOID:0060738
+0.5
+Thrombocythemia with distal limb defects *** split hand-foot malformation 1 with sensorineural hearing loss DOID:0090024
+0.08333333333333333
+MT-ATP6-related mitochondrial spastic paraplegia *** hereditary spastic paraplegia 77 DOID:0110822
+0.3333333333333333
+T-B+ severe combined immunodeficiency due to CD3delta/CD3epsilon/CD3zeta *** Severe combined immunodeficiency, autosomal recessive, T cell-negative, B cell-positive, Nk cell-positive DOID:0090014
+0.058823529411764705
+Congenital autosomal recessive small-platelet thrombocytopenia *** autosomal dominant macrothrombocytopenia TUBB1-related DOID:0090102
+0.125
+Huntington disease-like syndrome due to C9ORF72 expansions *** Huntington's disease DOID:12858
+0.0
+Hereditary persistence of fetal hemoglobin-sickle cell disease syndrome *** Sickle cell anemia DOID:10923
+0.1
+Intrauterine growth restriction-short stature-early adult-onset diabetes syndrome *** Seckel syndrome DOID:0050569
+0.125
+Behavioral variant of frontotemporal dementia *** Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis-8 DOID:9007226
+0.0
+Familial colorectal cancer Type X *** cecum cancer DOID:1521
+0.16666666666666666
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Hypothyroidism due to deficient transcription factors involved in pituitary development or function *** Congenital nongoitrous hypothyroidism 4 DOID:0070123
+0.0
+Atypical juvenile parkinsonism *** Parkinson's disease 19A DOID:0060891
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Inherited congenital spastic tetraplegia *** hereditary spastic paraplegia 50 DOID:0110802
+0.14285714285714285
+Palmoplantar keratoderma-hereditary motor and sensory neuropathy syndrome *** Charcot-Marie-Tooth disease type 1A DOID:0110148
+0.0
+Acrodysostosis with multiple hormone resistance *** Acrodysostosis 1, with or without Hormone Resistance DOID:9001451
+0.2
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Severe congenital nemaline myopathy *** Nemaline myopathy 8 DOID:0110930
+0.16666666666666666
+NON RARE IN EUROPE: Age-related macular degeneration *** degeneration of macula and posterior pole DOID:2007
+0.08333333333333333
+Isolated ATP synthase deficiency *** mitochondrial complex V (ATP synthase) deficiency nuclear type 6 DOID:0111749
+0.08333333333333333
+Early-onset autosomal dominant Alzheimer disease *** Alzheimer's disease 15 DOID:0110048
+0.14285714285714285
+Late-onset junctional epidermolysis bullosa *** junctional epidermolysis bullosa with pyloric atresia DOID:0060733
+0.42857142857142855
+Primary microcephaly-mild intellectual disability-young-onset diabetes syndrome *** Microcephaly, Short Stature, and Impaired Glucose Metabolism 1 DOID:9006685
+0.0
+Typical nemaline myopathy *** Nemaline myopathy 3 DOID:0110927
+0.2
+6q16 microdeletion syndrome *** Smith-Magenis syndrome DOID:0060768
+0.25
+Congenital hereditary endothelial dystrophy type I *** Posterior amorphous corneal dystrophy DOID:0060452
+0.1111111111111111
+NON RARE IN EUROPE: Familial hypobetalipoproteinemia *** Tangier disease DOID:1388
+0.0
+Non-seminomatous germ cell tumor of testis *** Testicular germ cell cancer DOID:5557
+0.25
+Congenital muscular dystrophy with intellectual disability *** muscular dystrophy-dystroglycanopathy type B15 DOID:0112376
+0.1111111111111111
+Pediatric systemic lupus erythematosus *** drug-induced lupus erythematosus DOID:0040093
+0.4
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+¨
+B   °­
+B   0¤
+B   ð®
+B   ð¦
+B   pª
+B   °®
+B   0¡
+B   ð¤
+B   p­
+B   ðÆä   ðéæ   0B   pCongenital muscular dystrophy with cerebellar involvement *** Muscular dystrophy-dystroglycanopathy type B5 DOID:0110635
+0.0
+Neuropathy with hearing impairment *** hereditary sensory neuropathy type 1E DOID:0070158
+0.0
+Genetic recurrent myoglobinuria *** Acute Recurrent Myoglobinuria, Autosomal Recessive DOID:9007777
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Charcot-Marie-Tooth disease type 2T *** Charcot-Marie-Tooth disease axonal type 2T DOID:0110160
+0.8
+X-linked osteoporosis with fractures *** Osteoporosis DOID:11476
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Female infertility due to oocyte meiotic arrest *** Oocyte Maturation Defect 4 DOID:9000602
+0.0
+Early-onset epileptic encephalopathy and intellectual disability due to GRIN2A mutation *** Hypermethioninemia due to adenosine kinase deficiency DOID:0111038
+0.14285714285714285
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Behavioral variant of frontotemporal dementia *** Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis-8 DOID:9007226
+0.0
+Severe congenital nemaline myopathy *** Nemaline myopathy 8 DOID:0110930
+0.16666666666666666
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Female infertility due to oocyte meiotic arrest *** Oocyte Maturation Defect 4 DOID:9000602
+0.0
+Squamous cell carcinoma of the nasal cavity and paranasal sinuses *** head and neck squamous cell carcinoma DOID:5520
+0.23076923076923078
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Hyperinsulinism due to UCP2 deficiency *** Hyperinsulinism DOID:2018
+0.2
+Thomsen and Becker disease *** Myotonia congenita DOID:2106
+0.0
+MiT family translocation renal cell carcinoma *** Renal cell carcinoma DOID:4450
+0.2857142857142857
+Congenital muscular dystrophy with intellectual disability *** muscular dystrophy-dystroglycanopathy type B15 DOID:0112376
+0.1111111111111111
+Familial papillary or follicular thyroid carcinoma *** thyroid gland follicular carcinoma DOID:3962
+0.42857142857142855
+Striate palmoplantar keratoderma *** Keratosis Palmoplantaris Striata 1 DOID:9005618
+0.0
+Predisposition to severe viral infection due to IRF7 deficiency *** immunodeficiency-centromeric instability-facial anomalies syndrome 3 DOID:0090010
+0.0
+Early-onset autosomal dominant Alzheimer disease *** Alzheimer's disease 15 DOID:0110048
+0.14285714285714285
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+Spastic paraplegia-Paget disease of bone syndrome *** hereditary spastic paraplegia 77 DOID:0110822
+0.0
+Pediatric systemic lupus erythematosus *** drug-induced lupus erythematosus DOID:0040093
+0.4
+Familial Chilblain lupus *** Chilblain Lupus 1 DOID:9005881
+0.2
+Behavioral variant of frontotemporal dementia *** Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis-8 DOID:9007226
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Genetic recurrent myoglobinuria *** Acute Recurrent Myoglobinuria, Autosomal Recessive DOID:9007777
+0.0
+Intermediate nemaline myopathy *** Nemaline myopathy 1 DOID:0110926
+0.2
+Autoinflammatory syndrome with pyogenic bacterial infection and amylopectinosis *** Polyglucosan Body Myopathy 1 with or without Immunodeficiency DOID:9007616
+0.06666666666666667
+Sickle cell-hemoglobin E disease syndrome *** Sickle cell anemia DOID:10923
+0.14285714285714285
+Intermediate generalized junctional epidermolysis bullosa *** junctional epidermolysis bullosa non-Herlitz type DOID:0060738
+0.42857142857142855
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Multiple paragangliomas associated with polycythemia *** familial erythrocytosis 2 DOID:0060474
+0.0
+NON RARE IN EUROPE: Familial hypobetalipoproteinemia *** Tangier disease DOID:1388
+0.0
+Acute necrotizing encephalopathy of childhood *** Brain disease DOID:936
+0.0
+Early-onset epilepsy-intellectual disability-brain anomalies syndrome *** Mental Retardation, Autosomal Recessive 53 DOID:9005541
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Acute undifferentiated leukemia *** Acute myeloid leukemia DOID:9119
+0.5
+EMILIN-1-related connective tissue disease *** hereditary sensory neuropathy type 1E DOID:0070158
+0.0
+Spastic ataxia-dysarthria due to glutaminase deficiency *** mitochondrial complex V (ATP synthase) deficiency nuclear type 3 DOID:0060332
+0.07142857142857142
+Acral self-healing collodion baby *** autosomal recessive congenital ichthyosis 3 DOID:0060711
+0.0
+Autosomal dominant mendelian susceptibility to mycobacterial diseases due to partial IFNgammaR2 deficiency *** immunodeficiency-centromeric instability-facial anomalies syndrome 3 DOID:0090010
+0.0
+Female infertility due to oocyte meiotic arrest *** Oocyte Maturation Defect 4 DOID:9000602
+0.0
+Rolandic epilepsy-speech dyspraxia syndrome *** Focal Epilepsy with Speech Disorder and with or without Mental Retardation DOID:9002510
+0.0
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+Localized junctional epidermolysis bullosa *** junctional epidermolysis bullosa non-Herlitz type DOID:0060738
+0.5
+Recessive dystrophic epidermolysis bullosa inversa *** Epidermolysis bullosa dystrophica DOID:4959
+0.14285714285714285
+Congenital myopathy with myasthenic-like onset *** muscular dystrophy-dystroglycanopathy DOID:0112374
+0.0
+Autosomal dominant optic atrophy, classic form *** optic atrophy 12 DOID:0080840
+0.125
+Severe primary trimethylaminuria *** Trimethylaminuria DOID:0080361
+0.0
+Hereditary pulmonary alveolar proteinosis *** Pulmonary Surfactant Metabolism Dysfunction 5 DOID:9007475
+0.0
+Intermediate generalized junctional epidermolysis bullosa *** junctional epidermolysis bullosa non-Herlitz type DOID:0060738
+0.42857142857142855
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Genetic recurrent myoglobinuria *** Acute Recurrent Myoglobinuria, Autosomal Recessive DOID:9007777
+0.0
+Familial multiple meningioma *** Familial meningioma DOID:4586
+0.6666666666666666
+NON RARE IN EUROPE: Dementia with Lewy body *** Aicardi-Goutieres syndrome DOID:0050629
+0.0
+Multicentric osteolysis-nodulosis-arthropathy spectrum *** Osteolysis Hereditary Multicentric DOID:9006569
+0.2
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Congenital myopathy, Paradas type *** muscular dystrophy-dystroglycanopathy DOID:0112374
+0.0
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+Inherited congenital spastic tetraplegia *** hereditary spastic paraplegia 50 DOID:0110802
+0.14285714285714285
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Severe congenital nemaline myopathy *** Nemaline myopathy 8 DOID:0110930
+0.16666666666666666
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Atypical Fanconi syndrome-neonatal hyperinsulinism syndrome *** Wolcott-Rallison syndrome DOID:0090060
+0.16666666666666666
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Leigh syndrome with nephrotic syndrome *** primary coenzyme Q10 deficiency 1 DOID:0070238
+0.0
+Immunodeficiency due to a classical component pathway complement deficiency *** Complement Component C1r/C1s Deficiency DOID:9005411
+0.0
+Isolated ATP synthase deficiency *** mitochondrial complex V (ATP synthase) deficiency nuclear type 6 DOID:0111749
+0.08333333333333333
+Porokeratotic eccrine ostial and dermal duct nevus *** Capillary hemangioma DOID:2725
+0.0
+Homozygous familial hypercholesterolemia *** familial hypercholesterolemia DOID:13810
+0.6666666666666666
+Pediatric systemic lupus erythematosus *** drug-induced lupus erythematosus DOID:0040093
+0.4
+NON RARE IN EUROPE: Familial hypobetalipoproteinemia *** Tangier disease DOID:1388
+0.0
+Familial Chilblain lupus *** Chilblain Lupus 1 DOID:9005881
+0.2
+Isolated ATP synthase deficiency *** mitochondrial complex V (ATP synthase) deficiency nuclear type 6 DOID:0111749
+0.08333333333333333
+Early-onset autosomal dominant Alzheimer disease *** Alzheimer's disease 15 DOID:0110048
+0.14285714285714285
+Hypothyroidism due to deficient transcription factors involved in pituitary development or function *** Congenital nongoitrous hypothyroidism 4 DOID:0070123
+0.0
+Early-onset autosomal dominant Alzheimer disease *** Alzheimer's disease 15 DOID:0110048
+0.14285714285714285
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Attenuated ChÃ©diak-Higashi syndrome *** Griscelli syndrome DOID:0060831
+0.25
+Pediatric systemic lupus erythematosus *** drug-induced lupus erythematosus DOID:0040093
+0.4
+Atypical juvenile parkinsonism *** Parkinson's disease 19A DOID:0060891
+0.0
+Homozygous familial hypercholesterolemia *** familial hypercholesterolemia DOID:13810
+0.6666666666666666
+MiT family translocation renal cell carcinoma *** Renal cell carcinoma DOID:4450
+0.2857142857142857
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Intermediate generalized junctional epidermolysis bullosa *** junctional epidermolysis bullosa non-Herlitz type DOID:0060738
+0.42857142857142855
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+Autosomal dominant macrothrombocytopenia *** Platelet-Type Bleeding Disorder 24 DOID:9000430
+0.0
+Behavioral variant of frontotemporal dementia *** Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis-8 DOID:9007226
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Hemoglobin C-beta-thalassemia syndrome *** hemoglobin D disease DOID:5378
+0.0
+NON RARE IN EUROPE: Crohn disease *** Crohn's disease DOID:8778
+0.14285714285714285
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Leigh syndrome with cardiomyopathy *** nuclear type mitochondrial complex I deficiency 32 DOID:0112080
+0.0
+Congenital insensitivity to pain with severe intellectual disability *** hereditary sensory neuropathy type 1E DOID:0070158
+0.0
+Acute myeloid leukemia with t(8;16)(p11;p13) translocation *** Acute myeloid leukemia DOID:9119
+0.5
+Malignant migrating focal seizures of infancy *** developmental and epileptic encephalopathy 12 DOID:0080459
+0.0
+Striate palmoplantar keratoderma *** Keratosis Palmoplantaris Striata 1 DOID:9005618
+0.0
+Hyposmia-nasal and ocular hypoplasia-hypogonadotropic hypogonadism syndrome *** Arhinia, Choanal Atresia, and Microphthalmia DOID:9007423
+0.1
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Acral self-healing collodion baby *** autosomal recessive congenital ichthyosis 3 DOID:0060711
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Female infertility due to oocyte meiotic arrest *** Oocyte Maturation Defect 4 DOID:9000602
+0.0
+Congenital muscular dystrophy without intellectual disability *** Muscular dystrophy-dystroglycanopathy type B5 DOID:0110635
+0.0
+Multicentric osteolysis-nodulosis-arthropathy spectrum *** Osteolysis Hereditary Multicentric DOID:9006569
+0.2
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Inherited acute myeloid leukemia *** Acute myeloid leukemia DOID:9119
+0.4
+Early-onset autosomal dominant Alzheimer disease *** Alzheimer's disease 15 DOID:0110048
+0.14285714285714285
+Leigh syndrome with cardiomyopathy *** nuclear type mitochondrial complex I deficiency 32 DOID:0112080
+0.0
+MiT family translocation renal cell carcinoma *** Renal cell carcinoma DOID:4450
+0.2857142857142857
+Autosomal recessive spastic paraplegia type 71 *** hereditary spastic paraplegia 77 DOID:0110822
+0.25
+T-B+ severe combined immunodeficiency due to CD3delta/CD3epsilon/CD3zeta *** Severe combined immunodeficiency, autosomal recessive, T cell-negative, B cell-positive, Nk cell-positive DOID:0090014
+0.058823529411764705
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Continuous spikes and waves during sleep *** Focal Epilepsy with Speech Disorder and with or without Mental Retardation DOID:9002510
+0.06666666666666667
+Sialidosis type 1 *** Neuraminidase Deficiency DOID:9008118
+0.0
+Diazoxide-resistant focal hyperinsulinism due to SUR1 deficiency *** Familial hyperinsulinemic hypoglycemia 1 DOID:0070219
+0.0
+Squamous cell carcinoma of the hypopharynx *** head and neck squamous cell carcinoma DOID:5520
+0.2
+Primary hypomagnesemia-refractory seizures-intellectual disability syndrome *** Intestinal hypomagnesemia 1 DOID:0060883
+0.0
+Familial or sporadic hemiplegic migraine *** Familial hemiplegic migraine 1 DOID:0111181
+0.5
+Autosomal recessive spastic paraplegia type 60 *** hereditary spastic paraplegia 77 DOID:0110822
+0.25
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Acute myeloid leukemia with CEBPA somatic mutations *** Acute myeloid leukemia DOID:9119
+0.42857142857142855
+Primary microcephaly-epilepsy-permanent neonatal diabetes syndrome *** Microcephaly, Epilepsy, and Diabetes Syndrome 1 DOID:9004175
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Intermediate nemaline myopathy *** Nemaline myopathy 1 DOID:0110926
+0.2
+Congenital muscular dystrophy without intellectual disability *** Muscular dystrophy-dystroglycanopathy type B5 DOID:0110635
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Typical nemaline myopathy *** Nemaline myopathy 3 DOID:0110927
+0.2
+2p21 microdeletion syndrome *** hypotonia-cystinuria syndrome DOID:0060858
+0.25
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+Typical nemaline myopathy *** Nemaline myopathy 3 DOID:0110927
+0.2
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+Intrauterine growth restriction-short stature-early adult-onset diabetes syndrome *** Seckel syndrome DOID:0050569
+0.125
+Isolated ATP synthase deficiency *** mitochondrial complex V (ATP synthase) deficiency nuclear type 6 DOID:0111749
+0.08333333333333333
+Squamous cell carcinoma of the lip *** head and neck squamous cell carcinoma DOID:5520
+0.2
+Autosomal recessive axonal Charcot-Marie-Tooth disease due to copper metabolism defect *** Charcot-Marie-Tooth disease type 1A DOID:0110148
+0.16666666666666666
+Exercise-induced malignant hyperthermia *** Malignant hyperthermia DOID:8545
+0.25
+Hereditary persistence of fetal hemoglobin-sickle cell disease syndrome *** Sickle cell anemia DOID:10923
+0.1
+Prenatal-onset spinal muscular atrophy with congenital bone fractures *** Spinal Muscular Atrophy with Congenital Bone Fractures 1 DOID:9007140
+0.06666666666666667
+Sickle cell-hemoglobin D disease syndrome *** Sickle cell anemia DOID:10923
+0.14285714285714285
+Homozygous familial hypercholesterolemia *** familial hypercholesterolemia DOID:13810
+0.6666666666666666
+Senior-Boichis syndrome *** Nephronophthisis 19 DOID:0111126
+0.0
+Familial or sporadic hemiplegic migraine *** Familial hemiplegic migraine 1 DOID:0111181
+0.5
+Late-onset junctional epidermolysis bullosa *** junctional epidermolysis bullosa with pyloric atresia DOID:0060733
+0.42857142857142855
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Homozygous familial hypercholesterolemia *** familial hypercholesterolemia DOID:13810
+0.6666666666666666
+Progressive myoclonic epilepsy with dystonia *** Early infantile epileptic encephalopathy 16 DOID:0080449
+0.0
+Squamous cell carcinoma of the oropharynx *** head and neck squamous cell carcinoma DOID:5520
+0.2
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+Symptomatic form of fragile X syndrome in female carriers *** Fragile X syndrome DOID:14261
+0.2
+Syndromic recessive X-linked ichthyosis *** X-linked ichthyosis DOID:1700
+0.5
+Immunodeficiency due to a classical component pathway complement deficiency *** Complement Component C1r/C1s Deficiency DOID:9005411
+0.0
+Symptomatic form of fragile X syndrome in female carriers *** Fragile X syndrome DOID:14261
+0.2
+SIM1-related Prader-Willi-like syndrome *** Seckel syndrome DOID:0050569
+0.25
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Early-onset autosomal dominant Alzheimer disease *** Alzheimer's disease 15 DOID:0110048
+0.14285714285714285
+2p21 microdeletion syndrome *** hypotonia-cystinuria syndrome DOID:0060858
+0.25
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Myopathy and diabetes mellitus *** mitochondrial complex V (ATP synthase) deficiency nuclear type 2 DOID:0060331
+0.0
+Congenital muscular dystrophy with cerebellar involvement *** Muscular dystrophy-dystroglycanopathy type B5 DOID:0110635
+0.0
+Congenital muscular dystrophy with cerebellar involvement *** Muscular dystrophy-dystroglycanopathy type B5 DOID:0110635
+0.0
+Acetazolamide-responsive myotonia *** Potassium Aggravated Myotonia DOID:9005884
+0.0
+T-B+ severe combined immunodeficiency due to CD3delta/CD3epsilon/CD3zeta *** Severe combined immunodeficiency, autosomal recessive, T cell-negative, B cell-positive, Nk cell-positive DOID:0090014
+0.058823529411764705
+Severe early-childhood-onset retinal dystrophy *** hereditary retinal dystrophy DOID:8500
+0.4
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Hypothyroidism due to deficient transcription factors involved in pituitary development or function *** Congenital nongoitrous hypothyroidism 4 DOID:0070123
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Severe early-childhood-onset retinal dystrophy *** hereditary retinal dystrophy DOID:8500
+0.4
+Autosomal recessive isolated optic atrophy *** optic atrophy 9 DOID:0111442
+0.3333333333333333
+Congenital muscular dystrophy with intellectual disability *** muscular dystrophy-dystroglycanopathy type B15 DOID:0112376
+0.1111111111111111
+Thrombocytopenia with congenital dyserythropoietic anemia *** Thrombocytopenia DOID:1588
+0.2
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Early-onset epilepsy-intellectual disability-brain anomalies syndrome *** Mental Retardation, Autosomal Recessive 53 DOID:9005541
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Renal tubulopathy-encephalopathy-liver failure syndrome *** mitochondrial complex III deficiency nuclear type 1 DOID:0080111
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Chronic myeloproliferative disease, unclassifiable *** myeloproliferative disorder with eosinophilia DOID:0111344
+0.14285714285714285
+Sporadic fatal insomnia *** Prion disease DOID:649
+0.0
+Intermediate generalized junctional epidermolysis bullosa *** junctional epidermolysis bullosa non-Herlitz type DOID:0060738
+0.42857142857142855
+Severe early-childhood-onset retinal dystrophy *** hereditary retinal dystrophy DOID:8500
+0.4
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Multicentric osteolysis-nodulosis-arthropathy spectrum *** Osteolysis Hereditary Multicentric DOID:9006569
+0.2
+X-linked intellectual disability-limb spasticity-retinal dystrophy-diabetes insipidus syndrome *** purine-pyrimidine metabolic disorder DOID:653
+0.0
+NON RARE IN EUROPE: Dementia with Lewy body *** Aicardi-Goutieres syndrome DOID:0050629
+0.0
+Congenital myopathy with myasthenic-like onset *** muscular dystrophy-dystroglycanopathy DOID:0112374
+0.0
+Diffuse palmoplantar keratoderma with painful fissures *** Keratosis Palmoplantaris Striata 1 DOID:9005618
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Vocal cord and pharyngeal distal myopathy *** Amyotrophic lateral sclerosis type 21 DOID:0060212
+0.0
+Congenital muscular dystrophy without intellectual disability *** Muscular dystrophy-dystroglycanopathy type B5 DOID:0110635
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+ATP13A2-related juvenile neuronal ceroid lipofuscinosis *** Kufor-Rakeb syndrome DOID:0060556
+0.0
+Early-onset autosomal dominant Alzheimer disease *** Alzheimer's disease 15 DOID:0110048
+0.14285714285714285
+NON RARE IN EUROPE: Crohn disease *** Crohn's disease DOID:8778
+0.14285714285714285
+NON RARE IN EUROPE: Crohn disease *** Crohn's disease DOID:8778
+0.14285714285714285
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Renin-angiotensin-aldosterone system-blocker-induced angioedema *** acquired angioedema DOID:0080941
+0.25
+Autosomal recessive isolated optic atrophy *** optic atrophy 9 DOID:0111442
+0.3333333333333333
+Typical nemaline myopathy *** Nemaline myopathy 3 DOID:0110927
+0.2
+Syndromic recessive X-linked ichthyosis *** X-linked ichthyosis DOID:1700
+0.5
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Hypothyroidism due to deficient transcription factors involved in pituitary development or function *** Congenital nongoitrous hypothyroidism 4 DOID:0070123
+0.0
+Severe hereditary thrombophilia due to congenital protein C deficiency *** autosomal recessive thrombophilia due to protein C deficiency DOID:0111904
+0.5454545454545454
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Acute myeloid leukemia with t(8;21)(q22;q22) translocation *** Acute myeloid leukemia DOID:9119
+0.5
+NON RARE IN EUROPE: Age-related macular degeneration *** degeneration of macula and posterior pole DOID:2007
+0.08333333333333333
+46,XY disorder of sex development due to isolated 17,20-lyase deficiency *** Congenital adrenal hyperplasia DOID:0050811
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Hypertrophic cardiomyopathy with kidney anomalies due to mitochondrial DNA mutation *** mitochondrial complex V (ATP synthase) deficiency nuclear type 3 DOID:0060332
+0.05555555555555555
+Pediatric systemic lupus erythematosus *** drug-induced lupus erythematosus DOID:0040093
+0.4
+Triglyceride deposit cardiomyovasculopathy *** Wolman disease DOID:14497
+0.0
+Autosomal dominant macrothrombocytopenia *** Platelet-Type Bleeding Disorder 24 DOID:9000430
+0.0
+NON RARE IN EUROPE: Dementia with Lewy body *** Aicardi-Goutieres syndrome DOID:0050629
+0.0
+MiT family translocation renal cell carcinoma *** Renal cell carcinoma DOID:4450
+0.2857142857142857
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Glycogen storage disease due to liver phosphorylase kinase deficiency *** Glycogen storage disease IXa DOID:0111042
+0.3
+High bone mass osteogenesis imperfecta *** Osteogenesis imperfecta type 2 DOID:0110341
+0.125
+Intermediate nemaline myopathy *** Nemaline myopathy 1 DOID:0110926
+0.2
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Early-onset autosomal dominant Alzheimer disease *** Alzheimer's disease 15 DOID:0110048
+0.14285714285714285
+Typical nemaline myopathy *** Nemaline myopathy 3 DOID:0110927
+0.2
+Hereditary persistence of fetal hemoglobin-beta-thalassemia syndrome *** delta beta-thalassemia DOID:0080773
+0.0
+Hereditary persistence of fetal hemoglobin-beta-thalassemia syndrome *** delta beta-thalassemia DOID:0080773
+0.0
+Leigh syndrome with cardiomyopathy *** nuclear type mitochondrial complex I deficiency 32 DOID:0112080
+0.0
+Malignant migrating focal seizures of infancy *** developmental and epileptic encephalopathy 12 DOID:0080459
+0.0
+Autosomal dominant Charcot-Marie-Tooth disease type 2M *** Charcot-Marie-Tooth disease dominant intermediate B DOID:0110197
+0.375
+Zebra body myopathy *** muscular dystrophy-dystroglycanopathy DOID:0112374
+0.0
+Typical nemaline myopathy *** Nemaline myopathy 3 DOID:0110927
+0.2
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Genetic recurrent myoglobinuria *** Acute Recurrent Myoglobinuria, Autosomal Recessive DOID:9007777
+0.0
+Megakaryoblastic acute myeloid leukemia with t(1;22)(p13;q13) *** Megakaryocytic leukemia DOID:8761
+0.14285714285714285
+Hereditary persistence of fetal hemoglobin-beta-thalassemia syndrome *** delta beta-thalassemia DOID:0080773
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Typical nemaline myopathy *** Nemaline myopathy 3 DOID:0110927
+0.2
+Autosomal dominant macrothrombocytopenia *** Platelet-Type Bleeding Disorder 24 DOID:9000430
+0.0
+Autosomal recessive spastic paraplegia type 67 *** hereditary spastic paraplegia 77 DOID:0110822
+0.25
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Glycogen storage disease due to liver phosphorylase kinase deficiency *** Glycogen storage disease IXa DOID:0111042
+0.3
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+Acute myeloid leukemia with inv(3)(q21q26.2) or t(3;3)(q21;q26.2) *** Acute myeloid leukemia DOID:9119
+0.42857142857142855
+Squamous cell carcinoma of the oral cavity *** head and neck squamous cell carcinoma DOID:5520
+0.18181818181818182
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+T-B+ severe combined immunodeficiency due to CD3delta/CD3epsilon/CD3zeta *** Severe combined immunodeficiency, autosomal recessive, T cell-negative, B cell-positive, Nk cell-positive DOID:0090014
+0.058823529411764705
+Homozygous familial hypercholesterolemia *** familial hypercholesterolemia DOID:13810
+0.6666666666666666
+KLHL9-related early-onset distal myopathy *** Autosomal recessive limb-girdle muscular dystrophy type 2B DOID:0110276
+0.0
+Congenital muscular dystrophy with cerebellar involvement *** Muscular dystrophy-dystroglycanopathy type B5 DOID:0110635
+0.0
+Distal nebulin myopathy *** Autosomal recessive limb-girdle muscular dystrophy type 2B DOID:0110276
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+X-linked intellectual disability-hypotonia-movement disorder syndrome *** Mental Retardation, X-Linked 102 DOID:9002789
+0.0
+Autosomal recessive cerebral atrophy *** Aicardi-Goutieres syndrome DOID:0050629
+0.0
+Leigh syndrome with nephrotic syndrome *** primary coenzyme Q10 deficiency 1 DOID:0070238
+0.0
+Hereditary persistence of fetal hemoglobin-sickle cell disease syndrome *** Sickle cell anemia DOID:10923
+0.1
+Behavioral variant of frontotemporal dementia *** Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis-8 DOID:9007226
+0.0
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+Congenital muscular dystrophy with intellectual disability *** muscular dystrophy-dystroglycanopathy type B15 DOID:0112376
+0.1111111111111111
+Female infertility due to oocyte meiotic arrest *** Oocyte Maturation Defect 4 DOID:9000602
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Familial multiple meningioma *** Familial meningioma DOID:4586
+0.6666666666666666
+Autosomal dominant optic atrophy, classic form *** optic atrophy 12 DOID:0080840
+0.125
+Autosomal dominant spastic paraplegia type 9B *** hereditary spastic paraplegia 77 DOID:0110822
+0.25
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Intellectual disability-hyperkinetic movement-truncal ataxia syndrome *** Choreatic disease DOID:12859
+0.0
+Self-improving collodion baby *** autosomal recessive congenital ichthyosis 2 DOID:0060710
+0.0
+Immunodeficiency with factor H anomaly *** Complement Factor H Deficiency DOID:9005377
+0.125
+Autosomal dominant macrothrombocytopenia *** Platelet-Type Bleeding Disorder 24 DOID:9000430
+0.0
+NON RARE IN EUROPE: Familial hypobetalipoproteinemia *** Tangier disease DOID:1388
+0.0
+Congenital muscular dystrophy with intellectual disability *** muscular dystrophy-dystroglycanopathy type B15 DOID:0112376
+0.1111111111111111
+Squamous cell carcinoma of the oral cavity *** head and neck squamous cell carcinoma DOID:5520
+0.18181818181818182
+Deficiency in anterior pituitary function-variable immunodeficiency syndrome *** Common Variable Immunodeficiency 10 DOID:9000689
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+T-B+ severe combined immunodeficiency due to IL-7Ralpha deficiency *** Severe combined immunodeficiency, autosomal recessive, T cell-negative, B cell-positive, Nk cell-positive DOID:0090014
+0.05555555555555555
+Early-onset autosomal dominant Alzheimer disease *** Alzheimer's disease 15 DOID:0110048
+0.14285714285714285
+46,XY disorder of sex development due to isolated 17,20-lyase deficiency *** Congenital adrenal hyperplasia DOID:0050811
+0.0
+NON RARE IN EUROPE: Crohn disease *** Crohn's disease DOID:8778
+0.14285714285714285
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Congenital muscular dystrophy with cerebellar involvement *** Muscular dystrophy-dystroglycanopathy type B5 DOID:0110635
+0.0
+Adult-onset distal myopathy due to VCP mutation *** Autosomal recessive limb-girdle muscular dystrophy type 2B DOID:0110276
+0.0
+Autosomal dominant hyperinsulinism due to Kir6.2 deficiency *** Familial hyperinsulinemic hypoglycemia 2 DOID:0070218
+0.0
+Autosomal dominant macrothrombocytopenia *** Platelet-Type Bleeding Disorder 24 DOID:9000430
+0.0
+Behavioral variant of frontotemporal dementia *** Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis-8 DOID:9007226
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+Familial papillary or follicular thyroid carcinoma *** thyroid gland follicular carcinoma DOID:3962
+0.42857142857142855
+Hypercholesterolemia due to cholesterol 7alpha-hydroxylase deficiency *** Autosomal recessive hypercholesterolemia DOID:0090105
+0.0
+Hypothyroidism due to deficient transcription factors involved in pituitary development or function *** Congenital nongoitrous hypothyroidism 4 DOID:0070123
+0.0
+Rolandic epilepsy-speech dyspraxia syndrome *** Focal Epilepsy with Speech Disorder and with or without Mental Retardation DOID:9002510
+0.0
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Spastic paraplegia-Paget disease of bone syndrome *** hereditary spastic paraplegia 77 DOID:0110822
+0.0
+Continuous spikes and waves during sleep *** Focal Epilepsy with Speech Disorder and with or without Mental Retardation DOID:9002510
+0.06666666666666667
+Autosomal recessive spastic paraplegia type 60 *** hereditary spastic paraplegia 77 DOID:0110822
+0.25
+Distal hereditary motor neuropathy type 7 *** distal hereditary motor neuronopathy type 7A DOID:0111201
+0.3333333333333333
+Small cell carcinoma of the ovary *** Ovarian cancer DOID:2394
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Inherited congenital spastic tetraplegia *** hereditary spastic paraplegia 50 DOID:0110802
+0.14285714285714285
+Adult-onset distal myopathy due to VCP mutation *** Autosomal recessive limb-girdle muscular dystrophy type 2B DOID:0110276
+0.0
+Autosomal dominant macrothrombocytopenia *** Platelet-Type Bleeding Disorder 24 DOID:9000430
+0.0
+Congenital generalized hypercontractile muscle stiffness syndrome *** muscular dystrophy-dystroglycanopathy DOID:0112374
+0.0
+Malignant migrating focal seizures of infancy *** developmental and epileptic encephalopathy 12 DOID:0080459
+0.0
+Self-improving collodion baby *** autosomal recessive congenital ichthyosis 2 DOID:0060710
+0.0
+Severe intellectual disability-progressive postnatal microcephaly-midline stereotypic hand movements syndrome *** non-syndromic X-linked intellectual disability 1 DOID:0112038
+0.07692307692307693
+NON RARE IN EUROPE: Age-related macular degeneration *** degeneration of macula and posterior pole DOID:2007
+0.08333333333333333
+Familial or sporadic hemiplegic migraine *** Familial hemiplegic migraine 1 DOID:0111181
+0.5
+Pediatric multiple sclerosis *** Multiple sclerosis DOID:2377
+0.25
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Idiopathic hypercalciuria *** Hypercalciuria, Absorptive, 2 DOID:9005047
+0.0
+Glycogen storage disease due to liver phosphorylase kinase deficiency *** Glycogen storage disease IXa DOID:0111042
+0.3
+Symptomatic form of muscular dystrophy of Duchenne and Becker in female carriers *** Autosomal recessive limb-girdle muscular dystrophy type 2B DOID:0110276
+0.125
+NON RARE IN EUROPE: Crohn disease *** Crohn's disease DOID:8778
+0.14285714285714285
+Striate palmoplantar keratoderma *** Keratosis Palmoplantaris Striata 1 DOID:9005618
+0.0
+T-B+ severe combined immunodeficiency due to CD45 deficiency *** Severe combined immunodeficiency, autosomal recessive, T cell-negative, B cell-positive, Nk cell-positive DOID:0090014
+0.05555555555555555
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Progressive cerebello-cerebral atrophy *** pontocerebellar hypoplasia type 2E DOID:0060271
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Senior-Boichis syndrome *** Nephronophthisis 19 DOID:0111126
+0.0
+Acute myeloid leukemia with inv(3)(q21q26.2) or t(3;3)(q21;q26.2) *** Acute myeloid leukemia DOID:9119
+0.42857142857142855
+Periodic paralysis with later-onset distal motor neuropathy *** Hyperkalemic periodic paralysis DOID:14451
+0.1111111111111111
+Autosomal recessive hyperinsulinism due to Kir6.2 deficiency *** Familial hyperinsulinemic hypoglycemia 2 DOID:0070218
+0.0
+Progressive sensorineural hearing loss-hypertrophic cardiomyopathy syndrome *** Autosomal dominant nonsyndromic deafness 22 DOID:0110552
+0.0
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Pancreatic agenesis-holoprosencephaly syndrome *** Holoprosencephaly 12 DOID:9004991
+0.0
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Atypical juvenile parkinsonism *** Parkinson's disease 19A DOID:0060891
+0.0
+Hereditary persistence of fetal hemoglobin-sickle cell disease syndrome *** Sickle cell anemia DOID:10923
+0.1
+Continuous spikes and waves during sleep *** Focal Epilepsy with Speech Disorder and with or without Mental Retardation DOID:9002510
+0.06666666666666667
+Autosomal recessive spastic paraplegia type 69 *** hereditary spastic paraplegia 77 DOID:0110822
+0.25
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Striate palmoplantar keratoderma *** Keratosis Palmoplantaris Striata 1 DOID:9005618
+0.0
+Striate palmoplantar keratoderma *** Keratosis Palmoplantaris Striata 1 DOID:9005618
+0.0
+Autosomal recessive spastic paraplegia type 71 *** hereditary spastic paraplegia 77 DOID:0110822
+0.25
+Autosomal dominant distal axonal motor neuropathy-myofibrillar myopathy syndrome *** hereditary sensory neuropathy type 1E DOID:0070158
+0.0
+Hyperinsulinism due to HNF1A deficiency *** Hyperinsulinism DOID:2018
+0.2
+Female infertility due to oocyte meiotic arrest *** Oocyte Maturation Defect 4 DOID:9000602
+0.0
+Autosomal recessive spastic paraplegia type 66 *** hereditary spastic paraplegia 77 DOID:0110822
+0.25
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Genetic recurrent myoglobinuria *** Acute Recurrent Myoglobinuria, Autosomal Recessive DOID:9007777
+0.0
+Autosomal recessive spastic paraplegia type 59 *** hereditary spastic paraplegia 77 DOID:0110822
+0.25
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+Hereditary breast cancer *** Breast cancer DOID:1612
+0.25
+NON RARE IN EUROPE: Age-related macular degeneration *** degeneration of macula and posterior pole DOID:2007
+0.08333333333333333
+NON RARE IN EUROPE: Age-related macular degeneration *** degeneration of macula and posterior pole DOID:2007
+0.08333333333333333
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Autosomal recessive isolated optic atrophy *** optic atrophy 9 DOID:0111442
+0.3333333333333333
+Autosomal recessive axonal Charcot-Marie-Tooth disease due to copper metabolism defect *** Charcot-Marie-Tooth disease type 1A DOID:0110148
+0.16666666666666666
+Acute myeloid leukaemia with myelodysplasia-related features *** Acute myeloid leukemia DOID:9119
+0.2857142857142857
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Female infertility due to oocyte meiotic arrest *** Oocyte Maturation Defect 4 DOID:9000602
+0.0
+Hereditary isolated aplastic anemia *** autosomal dominant dyskeratosis congenita 6 DOID:0070023
+0.0
+Squamous cell carcinoma of the lip *** head and neck squamous cell carcinoma DOID:5520
+0.2
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Idiopathic hypercalciuria *** Hypercalciuria, Absorptive, 2 DOID:9005047
+0.0
+Hereditary persistence of fetal hemoglobin-beta-thalassemia syndrome *** delta beta-thalassemia DOID:0080773
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Hereditary site-specific ovarian cancer syndrome *** Ovarian cancer DOID:2394
+0.16666666666666666
+ATP13A2-related juvenile neuronal ceroid lipofuscinosis *** Kufor-Rakeb syndrome DOID:0060556
+0.0
+High bone mass osteogenesis imperfecta *** Osteogenesis imperfecta type 2 DOID:0110341
+0.125
+Familial colorectal cancer Type X *** cecum cancer DOID:1521
+0.16666666666666666
+Severe congenital nemaline myopathy *** Nemaline myopathy 8 DOID:0110930
+0.16666666666666666
+Isolated ATP synthase deficiency *** mitochondrial complex V (ATP synthase) deficiency nuclear type 6 DOID:0111749
+0.08333333333333333
+Periodic paralysis with later-onset distal motor neuropathy *** Hyperkalemic periodic paralysis DOID:14451
+0.1111111111111111
+Atypical hypotonia-cystinuria syndrome *** hypotonia-cystinuria syndrome DOID:0060858
+0.6666666666666666
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+NON RARE IN EUROPE: Recurrent acute pancreatitis *** Acute pancreatitis DOID:2913
+0.125
+Hereditary persistence of fetal hemoglobin-beta-thalassemia syndrome *** delta beta-thalassemia DOID:0080773
+0.0
+NON RARE IN EUROPE: Age-related macular degeneration *** degeneration of macula and posterior pole DOID:2007
+0.08333333333333333
+Distal nebulin myopathy *** Autosomal recessive limb-girdle muscular dystrophy type 2B DOID:0110276
+0.0
+Hereditary sensorimotor neuropathy with hyperelastic skin *** Age Related Macular Degeneration 3 DOID:9007916
+0.0
+Butterfly-shaped pigment dystrophy *** patterned macular dystrophy 1 DOID:0060866
+0.16666666666666666
+Triglyceride deposit cardiomyovasculopathy *** Wolman disease DOID:14497
+0.0
+Hereditary isolated aplastic anemia *** autosomal dominant dyskeratosis congenita 6 DOID:0070023
+0.0
+Microcephaly-complex motor and sensory axonal neuropathy syndrome *** Charcot-Marie-Tooth disease type 1A DOID:0110148
+0.0
+NON RARE IN EUROPE: Infantile capillary hemangioma *** Cavernous hemangioma DOID:483
+0.125
+Chronic respiratory distress with surfactant metabolism deficiency *** Pulmonary Surfactant Metabolism Dysfunction 2 DOID:9005976
+0.0
+Malignant migrating focal seizures of infancy *** developmental and epileptic encephalopathy 12 DOID:0080459
+0.0
+PrP systemic amyloidosis *** hereditary sensory neuropathy type 1E DOID:0070158
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Intermediate nemaline myopathy *** Nemaline myopathy 1 DOID:0110926
+0.2
+NON RARE IN EUROPE: Familial hypobetalipoproteinemia *** Tangier disease DOID:1388
+0.0
+NON RARE IN EUROPE: Rheumatoid arthritis *** Felty's syndrome DOID:11042
+0.0
+Self-improving collodion baby *** autosomal recessive congenital ichthyosis 2 DOID:0060710
+0.0
+Acute myeloid leukemia with t(8;21)(q22;q22) translocation *** Acute myeloid leukemia DOID:9119
+0.5
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Congenital muscular dystrophy without intellectual disability *** Muscular dystrophy-dystroglycanopathy type B5 DOID:0110635
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Malignant migrating focal seizures of infancy *** developmental and epileptic encephalopathy 12 DOID:0080459
+0.0
+Kyphoscoliosis-lateral tongue atrophy-hereditary spastic paraplegia syndrome *** hereditary spastic paraplegia 77 DOID:0110822
+0.25
+Familial progressive hyper- and hypopigmentation *** Familial progressive hyperpigmentation with or without hypopigmentation DOID:0111373
+0.3333333333333333
+Hyperinsulinism due to UCP2 deficiency *** Hyperinsulinism DOID:2018
+0.2
+Attenuated ChÃ©diak-Higashi syndrome *** Griscelli syndrome DOID:0060831
+0.25
+Malignant migrating focal seizures of infancy *** developmental and epileptic encephalopathy 12 DOID:0080459
+0.0
+Autosomal recessive secondary polycythemia not associated with VHL gene *** familial erythrocytosis 2 DOID:0060474
+0.0
+Hereditary pulmonary alveolar proteinosis *** Pulmonary Surfactant Metabolism Dysfunction 5 DOID:9007475
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Severe congenital nemaline myopathy *** Nemaline myopathy 8 DOID:0110930
+0.16666666666666666
+Ehlers-Danlos/osteogenesis imperfecta syndrome *** Combined Osteogenesis Imperfecta and Ehlers-Danlos Syndrome 1 DOID:9006782
+0.0
+Squamous cell carcinoma of the nasal cavity and paranasal sinuses *** head and neck squamous cell carcinoma DOID:5520
+0.23076923076923078
+Leigh syndrome with cardiomyopathy *** nuclear type mitochondrial complex I deficiency 32 DOID:0112080
+0.0
+Severe early-childhood-onset retinal dystrophy *** hereditary retinal dystrophy DOID:8500
+0.4
+Hemoglobinopathy Toms River *** Transient Neonatal Cyanosis DOID:9006812
+0.0
+Leigh syndrome with cardiomyopathy *** nuclear type mitochondrial complex I deficiency 32 DOID:0112080
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Hereditary isolated aplastic anemia *** autosomal dominant dyskeratosis congenita 6 DOID:0070023
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Behavioral variant of frontotemporal dementia *** Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis-8 DOID:9007226
+0.0
+Acute myeloid leukemia with t(8;21)(q22;q22) translocation *** Acute myeloid leukemia DOID:9119
+0.5
+Typical nemaline myopathy *** Nemaline myopathy 3 DOID:0110927
+0.2
+Hereditary breast cancer *** Breast cancer DOID:1612
+0.25
+Distal hereditary motor neuropathy type 7 *** distal hereditary motor neuronopathy type 7A DOID:0111201
+0.3333333333333333
+Familial papillary or follicular thyroid carcinoma *** thyroid gland follicular carcinoma DOID:3962
+0.42857142857142855
+Symptomatic form of muscular dystrophy of Duchenne and Becker in female carriers *** Autosomal recessive limb-girdle muscular dystrophy type 2B DOID:0110276
+0.125
+Myopathy and diabetes mellitus *** mitochondrial complex V (ATP synthase) deficiency nuclear type 2 DOID:0060331
+0.0
+Childhood-onset autosomal recessive myopathy with external ophthalmoplegia *** proximal myopathy and ophthalmoplegia DOID:0080719
+0.2222222222222222
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Inherited acute myeloid leukemia *** Acute myeloid leukemia DOID:9119
+0.4
+Autosomal dominant macrothrombocytopenia *** Platelet-Type Bleeding Disorder 24 DOID:9000430
+0.0
+Immunodeficiency due to a classical component pathway complement deficiency *** Complement Component C1r/C1s Deficiency DOID:9005411
+0.0
+Behavioral variant of frontotemporal dementia *** Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis-8 DOID:9007226
+0.0
+Congenital insensitivity to pain with severe intellectual disability *** hereditary sensory neuropathy type 1E DOID:0070158
+0.0
+Familial papillary or follicular thyroid carcinoma *** thyroid gland follicular carcinoma DOID:3962
+0.42857142857142855
+Intermediate generalized junctional epidermolysis bullosa *** junctional epidermolysis bullosa non-Herlitz type DOID:0060738
+0.42857142857142855
+Familial or sporadic hemiplegic migraine *** Familial hemiplegic migraine 1 DOID:0111181
+0.5
+T-B+ severe combined immunodeficiency due to IL-7Ralpha deficiency *** Severe combined immunodeficiency, autosomal recessive, T cell-negative, B cell-positive, Nk cell-positive DOID:0090014
+0.05555555555555555
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Intermediate generalized junctional epidermolysis bullosa *** junctional epidermolysis bullosa non-Herlitz type DOID:0060738
+0.42857142857142855
+T-B+ severe combined immunodeficiency due to CD3delta/CD3epsilon/CD3zeta *** Severe combined immunodeficiency, autosomal recessive, T cell-negative, B cell-positive, Nk cell-positive DOID:0090014
+0.058823529411764705
+Hereditary site-specific ovarian cancer syndrome *** Ovarian cancer DOID:2394
+0.16666666666666666
+Hereditary breast cancer *** Breast cancer DOID:1612
+0.25
+Behavioral variant of frontotemporal dementia *** Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis-8 DOID:9007226
+0.0
+Immunodeficiency due to a classical component pathway complement deficiency *** Complement Component C1r/C1s Deficiency DOID:9005411
+0.0
+Intermediate DEND syndrome *** Transient neonatal diabetes mellitus DOID:0060334
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Squamous cell carcinoma of the nasal cavity and paranasal sinuses *** head and neck squamous cell carcinoma DOID:5520
+0.23076923076923078
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Intrauterine growth restriction-congenital multiple cafÃ©-au-lait macules-increased sister chromatid exchange syndrome *** Microcephaly, Growth Restriction, and Increased Sister Chromatid Exchange 2 DOID:9009217
+0.0
+Thomsen and Becker disease *** Myotonia congenita DOID:2106
+0.0
+Brain calcification, Rajab type *** Rajab Interstitial Lung Disease with Brain Calcifications 2 DOID:9001670
+0.2
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Familial multiple meningioma *** Familial meningioma DOID:4586
+0.6666666666666666
+SIM1-related Prader-Willi-like syndrome *** Seckel syndrome DOID:0050569
+0.25
+Vocal cord and pharyngeal distal myopathy *** Amyotrophic lateral sclerosis type 21 DOID:0060212
+0.0
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+Acute myeloid leukemia with t(9;11)(p22;q23) *** Acute myeloid leukemia DOID:9119
+0.6
+Familial colorectal cancer Type X *** cecum cancer DOID:1521
+0.16666666666666666
+Hereditary breast cancer *** Breast cancer DOID:1612
+0.25
+X-linked intellectual disability-limb spasticity-retinal dystrophy-diabetes insipidus syndrome *** purine-pyrimidine metabolic disorder DOID:653
+0.0
+Pediatric multiple sclerosis *** Multiple sclerosis DOID:2377
+0.25
+Primary hypomagnesemia-refractory seizures-intellectual disability syndrome *** Intestinal hypomagnesemia 1 DOID:0060883
+0.0
+Exfoliative ichthyosis *** Peeling Skin Syndrome 4 DOID:9007796
+0.0
+Familial colorectal cancer Type X *** cecum cancer DOID:1521
+0.16666666666666666
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Striate palmoplantar keratoderma *** Keratosis Palmoplantaris Striata 1 DOID:9005618
+0.0
+Hemoglobin C-beta-thalassemia syndrome *** hemoglobin D disease DOID:5378
+0.0
+Congenital muscular dystrophy with cerebellar involvement *** Muscular dystrophy-dystroglycanopathy type B5 DOID:0110635
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+NON RARE IN EUROPE: Crohn disease *** Crohn's disease DOID:8778
+0.14285714285714285
+Leigh syndrome with nephrotic syndrome *** primary coenzyme Q10 deficiency 1 DOID:0070238
+0.0
+NON RARE IN EUROPE: Recurrent acute pancreatitis *** Acute pancreatitis DOID:2913
+0.125
+Isolated delta-storage pool disease *** Qualitative platelet defect DOID:11125
+0.0
+Hyposmia-nasal and ocular hypoplasia-hypogonadotropic hypogonadism syndrome *** Arhinia, Choanal Atresia, and Microphthalmia DOID:9007423
+0.1
+Dominant hypophosphatemia with nephrolithiasis or osteoporosis *** hypophosphatemic nephrolithiasis/osteoporosis 1 DOID:0080077
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+NON RARE IN EUROPE: Age-related macular degeneration *** degeneration of macula and posterior pole DOID:2007
+0.08333333333333333
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Congenital muscular dystrophy with intellectual disability *** muscular dystrophy-dystroglycanopathy type B15 DOID:0112376
+0.1111111111111111
+Non-seminomatous germ cell tumor of testis *** Testicular germ cell cancer DOID:5557
+0.25
+Acetazolamide-responsive myotonia *** Potassium Aggravated Myotonia DOID:9005884
+0.0
+Hypothyroidism due to deficient transcription factors involved in pituitary development or function *** Congenital nongoitrous hypothyroidism 4 DOID:0070123
+0.0
+Deficiency in anterior pituitary function-variable immunodeficiency syndrome *** Common Variable Immunodeficiency 10 DOID:9000689
+0.0
+Intermediate generalized junctional epidermolysis bullosa *** junctional epidermolysis bullosa non-Herlitz type DOID:0060738
+0.42857142857142855
+Atypical Werner syndrome *** Progeria DOID:3911
+0.0
+Muscle-eye-brain disease with bilateral multicystic leucodystrophy *** congenital muscular dystrophy-dystroglycanopathy type A9 DOID:0111232
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Recessive dystrophic epidermolysis bullosa inversa *** Epidermolysis bullosa dystrophica DOID:4959
+0.14285714285714285
+Senior-Boichis syndrome *** Nephronophthisis 19 DOID:0111126
+0.0
+Susceptibility to localized juvenile periodontitis *** Chronic granulomatous disease DOID:3265
+0.0
+Squamous cell carcinoma of the hypopharynx *** head and neck squamous cell carcinoma DOID:5520
+0.2
+Self-improving collodion baby *** autosomal recessive congenital ichthyosis 2 DOID:0060710
+0.0
+Acute myeloid leukemia with NPM1 somatic mutations *** Acute myeloid leukemia DOID:9119
+0.42857142857142855
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Leigh syndrome with cardiomyopathy *** nuclear type mitochondrial complex I deficiency 32 DOID:0112080
+0.0
+Class I glucose-6-phosphate dehydrogenase deficiency *** Glucosephosphate dehydrogenase deficiency DOID:2862
+0.3333333333333333
+KLHL9-related early-onset distal myopathy *** Autosomal recessive limb-girdle muscular dystrophy type 2B DOID:0110276
+0.0
+Homozygous familial hypercholesterolemia *** familial hypercholesterolemia DOID:13810
+0.6666666666666666
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Autosomal recessive hyperinsulinism due to SUR1 deficiency *** Familial hyperinsulinemic hypoglycemia 1 DOID:0070219
+0.0
+Autosomal dominant hyperinsulinism due to SUR1 deficiency *** Familial hyperinsulinemic hypoglycemia 1 DOID:0070219
+0.0
+Hereditary breast cancer *** Breast cancer DOID:1612
+0.25
+Behavioral variant of frontotemporal dementia *** Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis-8 DOID:9007226
+0.0
+NON RARE IN EUROPE: Crohn disease *** Crohn's disease DOID:8778
+0.14285714285714285
+Congenital muscular dystrophy with cerebellar involvement *** Muscular dystrophy-dystroglycanopathy type B5 DOID:0110635
+0.0
+Squamous cell carcinoma of the oropharynx *** head and neck squamous cell carcinoma DOID:5520
+0.2
+Klippel-TrÃ©naunay syndrome *** Klippel-Trenaunay syndrome DOID:2926
+0.3333333333333333
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Hereditary persistence of fetal hemoglobin-sickle cell disease syndrome *** Sickle cell anemia DOID:10923
+0.1
+Autosomal recessive spastic paraplegia type 67 *** hereditary spastic paraplegia 77 DOID:0110822
+0.25
+Familial or sporadic hemiplegic migraine *** Familial hemiplegic migraine 1 DOID:0111181
+0.5
+Hemolytic uremic syndrome with DGKE deficiency *** Nephrotic syndrome type 7 DOID:0080388
+0.1111111111111111
+Localized junctional epidermolysis bullosa *** junctional epidermolysis bullosa non-Herlitz type DOID:0060738
+0.5
+Early-onset autosomal dominant Alzheimer disease *** Alzheimer's disease 15 DOID:0110048
+0.14285714285714285
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Congenital muscular dystrophy with cerebellar involvement *** Muscular dystrophy-dystroglycanopathy type B5 DOID:0110635
+0.0
+MME-related autosomal dominant Charcot Marie Tooth disease type 2 *** Charcot-Marie-Tooth disease axonal type 2T DOID:0110160
+0.16666666666666666
+Hereditary breast cancer *** Breast cancer DOID:1612
+0.25
+Acrodysostosis with multiple hormone resistance *** Acrodysostosis 1, with or without Hormone Resistance DOID:9001451
+0.2
+NON RARE IN EUROPE: Wolff-Parkinson-White syndrome *** Wolff-Parkinson-White syndrome DOID:384
+0.3333333333333333
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Focal epilepsy-intellectual disability-cerebro-cerebellar malformation *** Cortical dysplasia-focal epilepsy syndrome DOID:0090130
+0.0
+Palmoplantar keratoderma-hereditary motor and sensory neuropathy syndrome *** Charcot-Marie-Tooth disease type 1A DOID:0110148
+0.0
+Immunodeficiency due to a classical component pathway complement deficiency *** Complement Component C1r/C1s Deficiency DOID:9005411
+0.0
+Hemoglobin E-beta-thalassemia syndrome *** hemoglobin D disease DOID:5378
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Malignant migrating focal seizures of infancy *** developmental and epileptic encephalopathy 12 DOID:0080459
+0.0
+Butterfly-shaped pigment dystrophy *** patterned macular dystrophy 1 DOID:0060866
+0.16666666666666666
+Periodic paralysis with transient compartment-like syndrome *** Hyperkalemic periodic paralysis DOID:14451
+0.125
+Familial papillary or follicular thyroid carcinoma *** thyroid gland follicular carcinoma DOID:3962
+0.42857142857142855
+NON RARE IN EUROPE: Familial hypobetalipoproteinemia *** Tangier disease DOID:1388
+0.0
+Autosomal dominant secondary polycythemia *** familial erythrocytosis 3 DOID:0080338
+0.0
+NON RARE IN EUROPE: Dementia with Lewy body *** Aicardi-Goutieres syndrome DOID:0050629
+0.0
+Glycogen storage disease due to liver phosphorylase kinase deficiency *** Glycogen storage disease IXa DOID:0111042
+0.3
+Female infertility due to oocyte meiotic arrest *** Oocyte Maturation Defect 4 DOID:9000602
+0.0
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Acute myeloid leukemia with t(8;21)(q22;q22) translocation *** Acute myeloid leukemia DOID:9119
+0.5
+LMNA-related cardiocutaneous progeria syndrome *** Progeria DOID:3911
+0.0
+Autosomal recessive spastic paraplegia type 69 *** hereditary spastic paraplegia 77 DOID:0110822
+0.25
+Inherited acute myeloid leukemia *** Acute myeloid leukemia DOID:9119
+0.4
+Exfoliative ichthyosis *** Peeling Skin Syndrome 4 DOID:9007796
+0.0
+Ravine syndrome *** PCWH syndrome DOID:0090111
+0.3333333333333333
+Homozygous familial hypercholesterolemia *** familial hypercholesterolemia DOID:13810
+0.6666666666666666
+NIK deficiency *** Omenn syndrome DOID:0060010
+0.0
+NON RARE IN EUROPE: Hemochromatosis type 1 *** Hemochromatosis type 1 DOID:0111029
+0.42857142857142855
+Isolated ATP synthase deficiency *** mitochondrial complex V (ATP synthase) deficiency nuclear type 6 DOID:0111749
+0.08333333333333333
+Mitochondrial DNA-associated Leigh syndrome *** Leigh disease DOID:3652
+0.2
+Familial multiple meningioma *** Familial meningioma DOID:4586
+0.6666666666666666
+Autosomal dominant optic atrophy, classic form *** optic atrophy 12 DOID:0080840
+0.125
+Squamous cell carcinoma of the lip *** head and neck squamous cell carcinoma DOID:5520
+0.2
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Autosomal dominant Charcot-Marie-Tooth disease type 2 due to TFG mutation *** Charcot-Marie-Tooth disease type 1A DOID:0110148
+0.2727272727272727
+Butterfly-shaped pigment dystrophy *** patterned macular dystrophy 1 DOID:0060866
+0.16666666666666666
+Congenital muscular dystrophy with intellectual disability *** muscular dystrophy-dystroglycanopathy type B15 DOID:0112376
+0.1111111111111111
+Atypical juvenile parkinsonism *** Parkinson's disease 19A DOID:0060891
+0.0
+Immunodeficiency due to a classical component pathway complement deficiency *** Complement Component C1r/C1s Deficiency DOID:9005411
+0.0
+Dominant hypophosphatemia with nephrolithiasis or osteoporosis *** hypophosphatemic nephrolithiasis/osteoporosis 1 DOID:0080077
+0.0
+NON RARE IN EUROPE: Infantile capillary hemangioma *** Cavernous hemangioma DOID:483
+0.125
+2p21 microdeletion syndrome *** hypotonia-cystinuria syndrome DOID:0060858
+0.25
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+MRCS syndrome *** Autosomal dominant vitreoretinochoroidopathy DOID:0111569
+0.0
+Autosomal recessive mendelian susceptibility to mycobacterial diseases due to partial JAK1 deficiency *** immunodeficiency-centromeric instability-facial anomalies syndrome 3 DOID:0090010
+0.0
+Intellectual disability-expressive aphasia-facial dysmorphism syndrome *** Autosomal dominant non-syndromic intellectual disability 29 DOID:0070059
+0.0
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Genetic recurrent myoglobinuria *** Acute Recurrent Myoglobinuria, Autosomal Recessive DOID:9007777
+0.0
+Spinal muscular atrophy with respiratory distress type 2 *** Amyotrophic lateral sclerosis type 4 DOID:0060196
+0.08333333333333333
+NON RARE IN EUROPE: Partial color blindness, protan type *** Color blindness DOID:13399
+0.0
+Pancreatic agenesis-holoprosencephaly syndrome *** Holoprosencephaly 12 DOID:9004991
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Autosomal dominant secondary polycythemia *** familial erythrocytosis 3 DOID:0080338
+0.0
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+MiT family translocation renal cell carcinoma *** Renal cell carcinoma DOID:4450
+0.2857142857142857
+Severe early-childhood-onset retinal dystrophy *** hereditary retinal dystrophy DOID:8500
+0.4
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Isolated ATP synthase deficiency *** mitochondrial complex V (ATP synthase) deficiency nuclear type 6 DOID:0111749
+0.08333333333333333
+Focal palmoplantar keratoderma with joint keratoses *** Keratosis Palmoplantaris Striata 1 DOID:9005618
+0.0
+Severe hereditary thrombophilia due to congenital protein C deficiency *** autosomal recessive thrombophilia due to protein C deficiency DOID:0111904
+0.5454545454545454
+Inherited acute myeloid leukemia *** Acute myeloid leukemia DOID:9119
+0.4
+Genetic steroid-resistant nephrotic syndrome *** nephrotic syndrome type 23 DOID:0112266
+0.3333333333333333
+Familial multiple meningioma *** Familial meningioma DOID:4586
+0.6666666666666666
+Laron syndrome with immunodeficiency *** growth hormone insensitivity syndrome with immune dysregulation 2 DOID:0080837
+0.2
+Autosomal recessive generalized dystrophic epidermolysis bullosa, intermediate form *** Epidermolysis bullosa dystrophica DOID:4959
+0.0
+Spondyloepimetaphyseal dysplasia, PAPSS2 type *** Spondyloepimetaphyseal dysplasia, Pakistani type DOID:0050812
+0.6
+Prenatal-onset spinal muscular atrophy with congenital bone fractures *** Spinal Muscular Atrophy with Congenital Bone Fractures 1 DOID:9007140
+0.06666666666666667
+6q16 microdeletion syndrome *** Smith-Magenis syndrome DOID:0060768
+0.25
+Progressive cerebello-cerebral atrophy *** pontocerebellar hypoplasia type 2E DOID:0060271
+0.0
+Interstitial lung disease due to SP-C deficiency *** Pulmonary Surfactant Metabolism Dysfunction 2 DOID:9005976
+0.0
+NON RARE IN EUROPE: Recurrent acute pancreatitis *** Acute pancreatitis DOID:2913
+0.125
+Severe primary trimethylaminuria *** Trimethylaminuria DOID:0080361
+0.0
+Rolandic epilepsy-speech dyspraxia syndrome *** Focal Epilepsy with Speech Disorder and with or without Mental Retardation DOID:9002510
+0.0
+Early-onset autosomal dominant Alzheimer disease *** Alzheimer's disease 15 DOID:0110048
+0.14285714285714285
+Autosomal recessive mendelian susceptibility to mycobacterial diseases due to partial IFNgammaR2 deficiency *** immunodeficiency 28 DOID:0111995
+0.0
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+DNAJB2-related Charcot-Marie-Tooth disease type 2 *** Charcot-Marie-Tooth disease type 1A DOID:0110148
+0.5
+2p21 microdeletion syndrome *** hypotonia-cystinuria syndrome DOID:0060858
+0.25
+Multicentric osteolysis-nodulosis-arthropathy spectrum *** Osteolysis Hereditary Multicentric DOID:9006569
+0.2
+Congenital muscular dystrophy with intellectual disability *** muscular dystrophy-dystroglycanopathy type B15 DOID:0112376
+0.1111111111111111
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Intrauterine growth restriction-congenital multiple cafÃ©-au-lait macules-increased sister chromatid exchange syndrome *** Microcephaly, Growth Restriction, and Increased Sister Chromatid Exchange 2 DOID:9009217
+0.0
+Severe congenital nemaline myopathy *** Nemaline myopathy 8 DOID:0110930
+0.16666666666666666
+Homozygous familial hypercholesterolemia *** familial hypercholesterolemia DOID:13810
+0.6666666666666666
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Typical nemaline myopathy *** Nemaline myopathy 3 DOID:0110927
+0.2
+NON RARE IN EUROPE: Familial hypobetalipoproteinemia *** Tangier disease DOID:1388
+0.0
+Autosomal recessive spastic paraplegia type 70 *** hereditary spastic paraplegia 77 DOID:0110822
+0.25
+Non-specific early-onset epileptic encephalopathy *** developmental and epileptic encephalopathy 25 DOID:0080453
+0.2857142857142857
+Acute myeloid leukemia with t(9;11)(p22;q23) *** Acute myeloid leukemia DOID:9119
+0.6
+NON RARE IN EUROPE: Trimethylaminuria *** mitochondrial complex V (ATP synthase) deficiency nuclear type 3 DOID:0060332
+0.0
+Early-onset epileptic encephalopathy and intellectual disability due to GRIN2A mutation *** Hypermethioninemia due to adenosine kinase deficiency DOID:0111038
+0.14285714285714285
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Autosomal recessive isolated optic atrophy *** optic atrophy 9 DOID:0111442
+0.3333333333333333
+Bile acid CoA ligase deficiency and defective amidation *** Congenital bile acid synthesis defect DOID:0050674
+0.08333333333333333
+NON RARE IN EUROPE: Age-related macular degeneration *** degeneration of macula and posterior pole DOID:2007
+0.08333333333333333
+T-B+ severe combined immunodeficiency due to CD3delta/CD3epsilon/CD3zeta *** Severe combined immunodeficiency, autosomal recessive, T cell-negative, B cell-positive, Nk cell-positive DOID:0090014
+0.058823529411764705
+Neonatal alloimmune neutropenia *** transient neonatal neutropenia DOID:11245
+0.2
+Leigh syndrome with leukodystrophy *** nuclear type mitochondrial complex I deficiency 8 DOID:0112081
+0.0
+Intermediate nemaline myopathy *** Nemaline myopathy 1 DOID:0110926
+0.2
+Congenital muscular dystrophy without intellectual disability *** Muscular dystrophy-dystroglycanopathy type B5 DOID:0110635
+0.0
+Malignant migrating focal seizures of infancy *** developmental and epileptic encephalopathy 12 DOID:0080459
+0.0
+Time processing parsing context: 98.09695410728455
+Time processing Final annotation file: 1.7881393432617188e-05
+Time processing writing final annotatiton file: 0.7002170085906982
+Total time: 98.79718899726868

@@ -52,6 +52,9 @@ def RemovePunctuation(text):
 
 
 def PreprocessingDiseaseName(diseaseName):
+    if diseaseName is None:
+        return None
+
     # Replacing dash with space
     diseaseNameWithoutDash = diseaseName.replace('-', ' ')
     # Replacing slash with space
@@ -80,7 +83,28 @@ def PreprocessingDiseaseName(diseaseName):
     return diseaseNameLemmatized
 
 
+def PreprocessingDiseaseNameLight(diseaseName):
+    if diseaseName is None:
+        return None
+
+    # Replacing dash with space
+    diseaseNameWithoutDash = diseaseName.replace('-', ' ')
+    # Replacing slash with space
+    diseaseNameWithoutSlash = diseaseNameWithoutDash.replace('/', ' ')
+    # Remove multiple spaces
+    diseaseNameWithoutMultipleSpaces = re.sub(' +', ' ', diseaseNameWithoutSlash)
+    # Punctuation Removal
+    diseaseNameWithoutPunctuation = RemovePunctuation(diseaseNameWithoutMultipleSpaces)
+    # Lowering the text
+    diseaseNameLower = diseaseNameWithoutPunctuation.lower()
+
+    return diseaseNameLower
+
+
 def JaccardSimilarity(doc1, doc2):
+    if doc1 is None or doc2 is None:
+        return None
+
     # List the unique words in a document
     wordsDoc1 = set(doc1.split())
     wordsDoc2 = set(doc2.split())
