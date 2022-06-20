@@ -15,12 +15,12 @@
 
 from Classes.annotation_row import HumsaVarRow
 from Common.constants import HUMSAVAR_PATH
-
+from Common.init import OrderedSet
 
 class HumsaVar:
     @staticmethod
     def Read(filePath=HUMSAVAR_PATH):
-        humsavarSet = set()
+        humsavarSet = OrderedSet()
         with open(filePath, 'r') as humsavarFile:
             humsavarLines = humsavarFile.readlines()
             takeLine = False

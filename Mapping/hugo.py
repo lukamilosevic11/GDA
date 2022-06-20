@@ -15,7 +15,7 @@
 
 from Classes.annotation_row import HugoRow
 from Common.constants import HUGO_PATH
-from Common.init import pd
+from Common.init import pd, OrderedSet
 from Common.util import CheckNan
 
 
@@ -26,7 +26,7 @@ class Hugo:
         hugoData = hugoData[["symbol", "entrez_id", "uniprot_ids", "ensembl_gene_id"]]
         hugoData = hugoData.to_numpy()
 
-        hugoSet = set()
+        hugoSet = OrderedSet()
         for row in hugoData:
             symbol = CheckNan(row[0])
             entrezID = CheckNan(row[1])

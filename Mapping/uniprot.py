@@ -15,12 +15,13 @@
 
 from Classes.annotation_row import UniprotRow
 from Common.constants import UNIPROT_PATH
+from Common.init import OrderedSet
 
 
 class Uniprot:
     @staticmethod
     def Read(filePath=UNIPROT_PATH):
-        uniprotSet = set()
+        uniprotSet = OrderedSet()
         with open(filePath, 'r') as uniprotFile:
             uniprotLines = uniprotFile.readlines()
             filteredLines = list(filter(lambda row: "Gene_Name" in row or "GeneID" in row or "UniProtKB-ID" in row

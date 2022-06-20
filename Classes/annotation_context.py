@@ -16,8 +16,8 @@
 from Classes.attributes import EntrezID, UniprotID, EnsemblID, DOID, DiseaseName, Xrefs
 from Classes.search_engine_client import SearchEngineClient
 from Common.constants import COLLECTION_NAME_DOID, DISEASE_NAME_DOID_JSONL_PATH
-from Common.init import Source, Xref, XREFS_SOURCE
-from Common.util import PreprocessingDiseaseName, WriteDictToJsonlFile, PreprocessingDiseaseNameLight
+from Common.init import Source, Xref, XREFS_SOURCE, json
+from Common.util import PreprocessingDiseaseName, WriteDictToJsonlFile
 
 
 class AnnotationContext:
@@ -52,7 +52,6 @@ class AnnotationContext:
 
         # DOID
         self.__diseaseNameFrozenSetToDOID = {}
-        self.__diseaseNameToDOID = {}
         self.__omimToDOID = {}
         self.__umlsToDOID = {}
         self.__meshToDOID = {}
@@ -62,13 +61,19 @@ class AnnotationContext:
 
         # DiseaseName
         self.__doidToDiseaseName = {}
+        self.__doidToParentDoidAndDiseaseName = {}  # Doid -> list((Doid, DiseaseName))
         self.__orphaToDiseaseName = {}
         self.__omimToDiseaseName = {}  # Omim -> list(DiseaseName)
+        self.__omimToDoidAndDiseaseName = {}  # Omim -> list((Doid, DiseaseName))
 
         # Xrefs
         self.__orphaToExactXrefs = {}  # Orpha -> dict(xrefs)
-        self.__orphaToNotExactXrefs = {}  # Orpha -> dict(xrefs)
-        self.__orphaToXrefs = {}  # Orpha -> dict(xrefs)
+        self.__orphaToBtntXrefs = {}  # Orpha -> dict(xrefs)
+        self.__orphaToNtbtXrefs = {}  # Orpha -> dict(xrefs)
+        self.__orphaToOtherXrefs = {}  # Orpha -> dict(xrefs)
+
+        # Search Engine set{(diseaseName, definition, DOID)}
+        self.__searchEngineSet = set()
 
         self.__InitializeDictionaries()
         self.__InitializeSearchEngineClient(dropCollection)
@@ -77,21 +82,23 @@ class AnnotationContext:
     def __InitializeOrphanetXrefDictionaries(self):
         sourceSet = self.__dbContext.GetDatabaseBySource(Source.ORPHANET_XREF)
         for term in sourceSet:
-            # Orpha
             if term.orpha is not None:
                 # Orpha -> Xrefs
-                if term.orpha not in self.__orphaToExactXrefs:
-                    exactXrefs = term.GetExactXrefs()
-                    notExactXrefs = term.GetNotExactXrefs()
-                    xrefs = term.GetXrefs()
-                    if exactXrefs:
-                        self.__orphaToExactXrefs[term.orpha] = exactXrefs
+                exactXrefs = term.GetExactXrefs()
+                btntXrefs = term.GetBtntXrefs()
+                ntbtXrefs = term.GetNtbtXrefs()
+                otherXrefs = term.GetOtherXrefs()
+                if exactXrefs and term.orpha not in self.__orphaToExactXrefs:
+                    self.__orphaToExactXrefs[term.orpha] = exactXrefs
 
-                    if notExactXrefs:
-                        self.__orphaToNotExactXrefs[term.orpha] = notExactXrefs
+                if btntXrefs and term.orpha not in self.__orphaToBtntXrefs:
+                    self.__orphaToBtntXrefs[term.orpha] = btntXrefs
 
-                    if xrefs:
-                        self.__orphaToXrefs[term.orpha] = xrefs
+                if ntbtXrefs and term.orpha not in self.__orphaToNtbtXrefs:
+                    self.__orphaToNtbtXrefs[term.orpha] = ntbtXrefs
+
+                if otherXrefs and term.orpha not in self.__orphaToOtherXrefs:
+                    self.__orphaToOtherXrefs[term.orpha] = otherXrefs
 
                 # Orpha -> Disease Name
                 if term.orpha not in self.__orphaToDiseaseName and term.diseaseName is not None:
@@ -150,8 +157,6 @@ class AnnotationContext:
                     if term.uniprotID not in self.__uniprotIDToEnsemblID and term.ensemblID is not None:
                         self.__uniprotIDToEnsemblID[term.uniprotID] = term.ensemblID
 
-                # TODO: implement early out of the loop using break if we have
-                # TODO: term.symbol in self.__symbolToUniprotID and term.entrezID in self.__entrezIDToUniprotID and ...
                 # UniprotID (additional UniprotIDs from Hugo)
                 if source is Source.HUGO:
                     uniprotIDs = term.getUniprotIDs()
@@ -207,12 +212,20 @@ class AnnotationContext:
                             if preprocessedDiseaseNameFrozenSet not in self.__diseaseNameFrozenSetToDOID:
                                 self.__diseaseNameFrozenSetToDOID[preprocessedDiseaseNameFrozenSet] = term.doid
 
+                            # Search Engine Set
                             preprocessedDiseaseName = ' '.join(preprocessedDiseaseName)
-                            if preprocessedDiseaseName not in self.__diseaseNameToDOID:
-                                self.__diseaseNameToDOID[preprocessedDiseaseName] = term.doid
+                            definition = (PreprocessingDiseaseName(term.definition, True)
+                                          if term.definition is not None else "") if source is Source.OBO else ""
+                            self.__searchEngineSet.add((preprocessedDiseaseName, definition, term.doid))
 
-                # DiseaseName -> DOID (OBO synonyms) and xrefs -> DOID
+                # DiseaseName -> DOID (OBO synonyms) and xrefs -> DOID and DOID -> ParentDoidAndDiseaseName
                 if source is Source.OBO:
+                    # DOID -> ParentDoidAndDiseaseName
+                    parentDoidAndDiseaseNames = term.GetParentDiseaseNameAndDoids()
+                    if parentDoidAndDiseaseNames and term.doid is not None:
+                        self.__doidToParentDoidAndDiseaseName[term.doid] = parentDoidAndDiseaseNames
+
+                    # DiseaseName -> DOID (OBO synonyms)
                     diseaseNameSynonyms = term.GetSynonyms()
                     if diseaseNameSynonyms and term.doid is not None:
                         for diseaseNameSynonym in diseaseNameSynonyms:
@@ -223,9 +236,11 @@ class AnnotationContext:
                                 self.__diseaseNameFrozenSetToDOID[preprocessedDiseaseNameSynonymFrozenSet] = \
                                     term.doid
 
+                            # Search Engine Set
                             preprocessedDiseaseNameSynonym = ' '.join(preprocessedDiseaseNameSynonym)
-                            if preprocessedDiseaseNameSynonym not in self.__diseaseNameToDOID:
-                                self.__diseaseNameToDOID[preprocessedDiseaseNameSynonym] = term.doid
+                            definition = (PreprocessingDiseaseName(term.definition, True)
+                                          if term.definition is not None else "") if source is Source.OBO else ""
+                            self.__searchEngineSet.add((preprocessedDiseaseNameSynonym, definition, term.doid))
 
                     # xrefs -> DOID
                     xrefs = term.GetXrefs()
@@ -256,15 +271,28 @@ class AnnotationContext:
                 if doid is not None and value not in self.__omimToDOID:
                     self.__omimToDOID[value] = doid
 
+                diseaseNamePreprocessed = set(PreprocessingDiseaseName(diseaseName))
                 # Omim -> Disease Name
                 if diseaseName is not None:
                     if value not in self.__omimToDiseaseName:
                         self.__omimToDiseaseName[value] = [diseaseName]
                     elif diseaseName not in self.__omimToDiseaseName[value]:
-                        omimDiseaseNames = list(map(PreprocessingDiseaseNameLight, self.__omimToDiseaseName[value]))
-                        diseaseNamePreprocessed = PreprocessingDiseaseNameLight(diseaseName)
+                        omimDiseaseNames = list(map(lambda x: set(PreprocessingDiseaseName(x)),
+                                                    self.__omimToDiseaseName[value]))
                         if diseaseNamePreprocessed not in omimDiseaseNames:
                             self.__omimToDiseaseName[value].append(diseaseName)
+
+                # Omim -> Doid and Disease Name
+                if diseaseName is not None and doid is not None:
+                    if value not in self.__omimToDoidAndDiseaseName:
+                        self.__omimToDoidAndDiseaseName[value] = [(doid, diseaseName)]
+                    elif (doid, diseaseName) not in self.__omimToDoidAndDiseaseName[value]:
+                        omimDoidAndDiseaseNames = \
+                            list(map(lambda x: (x[0], set(PreprocessingDiseaseName(x[1]))),
+                                     self.__omimToDoidAndDiseaseName[value]))
+                        if (doid, diseaseNamePreprocessed) not in omimDoidAndDiseaseNames:
+                            self.__omimToDoidAndDiseaseName[value].append((doid, diseaseName))
+                            self.__omimToDoidAndDiseaseName[value].sort(key=lambda x: x[0])
 
             elif xrefSource == Xref.UMLS and value not in self.__umlsToDOID and doid is not None:
                 self.__umlsToDOID[value] = doid
@@ -284,30 +312,39 @@ class AnnotationContext:
         self.doid = DOID(self.__searchEngineClient, self.__diseaseNameFrozenSetToDOID, self.__omimToDOID,
                          self.__umlsToDOID, self.__meshToDOID, self.__gardToDOID, self.__medDraToDOID,
                          self.__icd10ToDOID)
-        self.diseaseName = DiseaseName(self.__doidToDiseaseName, self.__orphaToDiseaseName, self.__omimToDiseaseName)
-        self.xrefs = Xrefs(self.__orphaToExactXrefs, self.__orphaToNotExactXrefs, self.__orphaToXrefs)
+        self.diseaseName = DiseaseName(self.__doidToDiseaseName, self.__orphaToDiseaseName, self.__omimToDiseaseName,
+                                       self.__omimToDoidAndDiseaseName, self.__doidToParentDoidAndDiseaseName)
+        self.xrefs = Xrefs(self.__orphaToExactXrefs, self.__orphaToBtntXrefs, self.__orphaToNtbtXrefs,
+                           self.__orphaToOtherXrefs)
 
-    def __InitializeSearchEngineClient(self, dropCollection):
+    def __InitializeSearchEngineClient(self, createCollection):
         try:
-            if dropCollection:
-                self.__searchEngineClient.DeleteCollection(COLLECTION_NAME_DOID)
-
             collections = self.__searchEngineClient.GetAllCollections()
-            createCollection = True
-            insertDocuments = True
+            collectionExist = False
             for collection in collections:
                 if collection["name"] == COLLECTION_NAME_DOID:
-                    createCollection = False
-                    insertDocuments = True if collection["num_documents"] < len(self.__diseaseNameToDOID) else False
+                    collectionExist = True
 
-            if createCollection:
+            if collectionExist and createCollection:
+                self.__searchEngineClient.DeleteCollection(COLLECTION_NAME_DOID)
+
+            if createCollection or not collectionExist:
                 self.__searchEngineClient.CreateCollection(COLLECTION_NAME_DOID,
                                                            [
                                                                {'name': 'diseaseName', 'type': 'string'},
+                                                               {'name': 'definition', 'type': 'string'},
                                                                {'name': 'doid', 'type': 'string'}
                                                            ])
-            if insertDocuments:
-                WriteDictToJsonlFile(DISEASE_NAME_DOID_JSONL_PATH, self.__diseaseNameToDOID, "diseaseName", "doid")
+                with open(DISEASE_NAME_DOID_JSONL_PATH, 'w') as jsonlFile:
+                    for diseaseName, definition, doid in self.__searchEngineSet:
+                        jsonRow = {
+                            "diseaseName": diseaseName,
+                            "definition": definition,
+                            "doid": doid
+                        }
+                        json.dump(jsonRow, jsonlFile)
+                        jsonlFile.write('\n')
+
                 self.__searchEngineClient.ImportDataFromFile(COLLECTION_NAME_DOID, DISEASE_NAME_DOID_JSONL_PATH)
-        except:
-            print("Collection already exist")
+        except Exception as e:
+            print(e)

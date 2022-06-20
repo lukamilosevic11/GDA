@@ -15,13 +15,13 @@
 
 from Classes.annotation_row import OrphanetXrefRow
 from Common.constants import ORPHANET_XREF_PATH
-from Common.init import et
+from Common.init import et, Xref, OrderedDict, OrderedSet
 
 
 class OrphanetXref:
     @staticmethod
     def Read(filePath=ORPHANET_XREF_PATH):
-        orphanetXrefSet = set()
+        orphanetXrefSet = OrderedSet()
         tree = et.parse(filePath)
         root = tree.getroot()
         disorderList = root.find("DisorderList")
@@ -32,49 +32,57 @@ class OrphanetXref:
 
             orpha = disorder.find("OrphaCode").text.strip()
             diseaseName = disorder.find("Name").text.strip()
-            omim = None
-            umls = None
-            mesh = None
-            gard = None
-            medDra = None
-            icd10 = None
+            eDict = {}
+            btntDict = {}
+            ntbtDict = {}
+            otherDict = {}
+
+            def addValueToMappingRelationDict(xref, valueP, mappingRelationP):
+                if mappingRelationP == 'E':
+                    if xref not in eDict:
+                        eDict[xref] = {valueP}
+                    else:
+                        eDict[xref].add(valueP)
+                elif mappingRelationP == "BTNT":
+                    if xref not in btntDict:
+                        btntDict[xref] = {valueP}
+                    else:
+                        btntDict[xref].add(valueP)
+                elif mappingRelationP == "NTBT":
+                    if xref not in ntbtDict:
+                        ntbtDict[xref] = {valueP}
+                    else:
+                        ntbtDict[xref].add(valueP)
+                else:
+                    if xref not in otherDict:
+                        otherDict[xref] = {valueP}
+                    else:
+                        otherDict[xref].add(valueP)
+
             externalReferenceList = disorder.find("ExternalReferenceList")
             for externalReference in externalReferenceList:
                 source = externalReference.find("Source").text.strip()
                 value = externalReference.find("Reference").text.strip()
                 mappingRelation = externalReference.find("DisorderMappingRelation").find("Name").text.strip().split()[0]
-                exactFlag = True if mappingRelation == 'E' else False
-                if source == "OMIM":
-                    if omim is None:
-                        omim = (value, exactFlag)
-                    elif not omim[1] and exactFlag:
-                        omim = (value, exactFlag)
-                elif source == "UMLS":
-                    if umls is None:
-                        umls = (value, exactFlag)
-                    elif not umls[1] and exactFlag:
-                        umls = (value, exactFlag)
-                elif source == "MeSH":
-                    if mesh is None:
-                        mesh = (value, exactFlag)
-                    elif not mesh[1] and exactFlag:
-                        mesh = (value, exactFlag)
-                elif source == "GARD":
-                    if gard is None:
-                        gard = (value, exactFlag)
-                    elif not gard[1] and exactFlag:
-                        gard = (value, exactFlag)
-                elif source == "MedDRA":
-                    if medDra is None:
-                        medDra = (value, exactFlag)
-                    elif not medDra[1] and exactFlag:
-                        medDra = (value, exactFlag)
-                elif source == "ICD-10":
-                    if icd10 is None:
-                        icd10 = (value, exactFlag)
-                    elif not icd10[1] and exactFlag:
-                        icd10 = (value, exactFlag)
 
-            orphanetXrefSet.add(OrphanetXrefRow(orpha, omim, umls, mesh, gard, medDra, icd10, diseaseName))
+                if source == "OMIM":
+                    addValueToMappingRelationDict(Xref.OMIM, value, mappingRelation)
+                elif source == "UMLS":
+                    addValueToMappingRelationDict(Xref.UMLS, value, mappingRelation)
+                elif source == "MeSH":
+                    addValueToMappingRelationDict(Xref.MeSH, value, mappingRelation)
+                elif source == "GARD":
+                    addValueToMappingRelationDict(Xref.GARD, value, mappingRelation)
+                elif source == "MedDRA":
+                    addValueToMappingRelationDict(Xref.MedDRA, value, mappingRelation)
+                elif source == "ICD-10":
+                    addValueToMappingRelationDict(Xref.ICD10, value, mappingRelation)
+
+            eDict = OrderedDict(sorted(map(lambda x: (x[0], sorted(x[1])), eDict.items())))
+            btntDict = OrderedDict(sorted(map(lambda x: (x[0], sorted(x[1])), btntDict.items())))
+            ntbtDict = OrderedDict(sorted(map(lambda x: (x[0], sorted(x[1])), ntbtDict.items())))
+            otherDict = OrderedDict(sorted(map(lambda x: (x[0], sorted(x[1])), otherDict.items())))
+
+            orphanetXrefSet.add(OrphanetXrefRow(orpha, eDict, btntDict, ntbtDict, otherDict, diseaseName))
 
         return orphanetXrefSet

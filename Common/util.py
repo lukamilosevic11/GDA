@@ -20,7 +20,7 @@ from nltk.tokenize import word_tokenize
 
 
 def CheckEmpty(data):
-    return data.strip() if data else None
+    return data.strip() if data is not None and data.strip() else None
 
 
 def CheckNan(data, resultIfNan=None):
@@ -32,18 +32,20 @@ def PrintStructure(source):
         print(row)
 
 
-def WriteStructureToFile(filePath, source):
+def WriteStructureToFile(filePath, source, header=None):
     with open(filePath, "w") as file:
+        if header is not None:
+            file.write(header+'\n')
         for row in source:
             file.write(str(row) + "\n")
 
 
 def WriteDictToJsonlFile(filePath, dictionary, keyName, valueName):
-    with open(filePath, "w") as jsonlFile:
+    with open(filePath, 'w') as jsonlFile:
         for key, value in dictionary.items():
             jsonRow = {keyName: key, valueName: value}
             json.dump(jsonRow, jsonlFile)
-            jsonlFile.write("\n")
+            jsonlFile.write('\n')
 
 
 def RemovePunctuation(text):
@@ -51,7 +53,7 @@ def RemovePunctuation(text):
     return ''.join([c for c in text if c not in stringPunctuation])
 
 
-def PreprocessingDiseaseName(diseaseName):
+def PreprocessingDiseaseName(diseaseName, withoutList=False):
     if diseaseName is None:
         return None
 
@@ -73,6 +75,8 @@ def PreprocessingDiseaseName(diseaseName):
     stopwords.remove("i")
     stopwords.append("type")
     diseaseNameWithoutStopwords = [word for word in diseaseNameTokenized if word not in stopwords]
+    if not diseaseNameWithoutStopwords:
+        diseaseNameWithoutStopwords = diseaseNameTokenized
     # Stemming
     porterStemmer = PorterStemmer()
     diseaseNameStemmed = [porterStemmer.stem(word) for word in diseaseNameWithoutStopwords]
@@ -80,7 +84,7 @@ def PreprocessingDiseaseName(diseaseName):
     wordnetLemmatizer = WordNetLemmatizer()
     diseaseNameLemmatized = [wordnetLemmatizer.lemmatize(word) for word in diseaseNameStemmed]
 
-    return diseaseNameLemmatized
+    return ' '.join(diseaseNameLemmatized) if withoutList else diseaseNameLemmatized
 
 
 def PreprocessingDiseaseNameLight(diseaseName):

@@ -16,9 +16,9 @@
 from Classes.annotation_context import AnnotationContext
 from Classes.annotation_row import AnnotationRowOutput
 from Classes.db_context import DBContext
-from Common.constants import MAX_JACCARD_INDEX
+from Common.constants import DOID_SOURCE_DATABASE, ANNOTATION_FILE_HEADER, DOID_SOURCE_XREF_OMIM
 from Common.init import Source, partial, Thread, Lock, Attribute, permutations
-from Common.util import GetAttribute, WriteStructureToFile, JaccardSimilarity
+from Common.util import GetAttribute, WriteStructureToFile, JaccardSimilarity, PreprocessingDiseaseName
 
 
 class ParsingContextThread:
@@ -47,7 +47,9 @@ class ParsingContextThread:
             ensemblID = term.ensemblID
             doid = term.doid
             diseaseName = term.diseaseName
-            jaccardIndex = None if sourceName != "Diseases" else str(MAX_JACCARD_INDEX)
+            doidSource = DOID_SOURCE_DATABASE if source is Source.DISEASES and doid is not None else None
+            multipleHPORowsFlag = False
+            doidAndDiseaseNames = None
 
             noneAttributes = []
             entrezIDFlagNone = False
@@ -124,68 +126,146 @@ class ParsingContextThread:
                 if stopSearch:
                     break
 
-            # Disease Name for HPO
+            # Disease Name and DOID(only for OMIM) for HPO
             if source is Source.HPO:
                 if term.orpha is not None:
                     diseaseName = diseaseNameAttribute.GetByOrpha(term.orpha)
-                elif term.omim is not None:
-                    diseaseNames = diseaseNameAttribute.GetByOmim(term.omim)
-                    if len(diseaseNames) == 1:
-                        diseaseName = diseaseNames[0]
-                        # elif len(diseaseNames) > 1:
-                        #     print(term.omim, diseaseNames)  # TODO: remove
-                        # else:
+                elif term.omim is not None and doid is None:
+                    doidAndDiseaseNames = diseaseNameAttribute.GetByOmimDoidAndDiseaseName(term.omim)
+                    if len(doidAndDiseaseNames) == 1:
+                        doid, diseaseName = doidAndDiseaseNames[0]
+                        if doid is not None:
+                            doidSource = DOID_SOURCE_XREF_OMIM
+                    elif len(doidAndDiseaseNames) > 1:
+                        multipleHPORowsFlag = True
+
+                    if doid is None:
                         diseaseNameForSearch = "OMIM:" + term.omim
-                        # print(term.omim)  # TODO: remove
-                        # pass  # TODO: Notify which omim has different disease names
+                        doid, doidSource = doidAttribute.GetByDiseaseName(diseaseNameForSearch)
+                        diseaseName = diseaseNameAttribute.GetByDoid(doid)
+                        if diseaseName is not None and doid is not None:
+                            multipleHPORowsFlag = False
 
             # DOID
             # Get Doid using xref UMLS
             if (source is Source.DISGENET or source is Source.CLINVAR) and term.umls is not None and doid is None:
-                doid, jaccardIndex = doidAttribute.GetByUmls(term.umls)
+                doid, doidSource = doidAttribute.GetByUmls(term.umls)
 
             # Get Doid using xref OMIM
-            if (source is Source.HUMSAVAR or source is Source.HPO or source is Source.CLINVAR) \
-                    and term.omim is not None and doid is None:
-                doid, jaccardIndex = doidAttribute.GetByOmim(term.omim)
+            if (source is Source.HUMSAVAR or source is Source.CLINVAR) and term.omim is not None and doid is None:
+                doid, doidSource = doidAttribute.GetByOmim(term.omim)
                 if doid is None:
                     diseaseNameForSearch = "OMIM:" + term.omim
-                    doid, jaccardIndex = doidAttribute.GetByDiseaseName(diseaseNameForSearch)
+                    doid, doidSource = doidAttribute.GetByDiseaseName(diseaseNameForSearch)
 
             # Get Doid using xref ORPHA
             if (source is Source.ORPHANET or source is Source.HPO) and term.orpha is not None and doid is None:
                 # Exact xref search
                 exactXrefs = xrefsAttribute.GetByOrphaExact(term.orpha)
-                for xref, value in exactXrefs.items():
-                    doid, jaccardIndex = doidAttribute.GetByXref(xref, value)
+                for xref, values in exactXrefs.items():
+                    for value in values:
+                        doid, doidSource = doidAttribute.GetByXref(xref, value)
+                        if doid is not None:
+                            break
                     if doid is not None:
                         break
 
-                # Disease name without search engine and not exact xref search
+                # Disease name without search engine
                 if doid is None:
-                    # Disease name without search engine
-                    doid, jaccardIndex = doidAttribute.GetByDiseaseNameWithoutSearchEngine(diseaseName)
+                    doid, doidSource = doidAttribute.GetByDiseaseNameWithoutSearchEngine(diseaseName)
 
-                    # Not exact xref search
-                    if doid is None:
-                        notExactXrefs = xrefsAttribute.GetByOrphaNotExact(term.orpha)
-                        for xref, value in notExactXrefs.items():
-                            doid, jaccardIndex = doidAttribute.GetByXref(xref, value)
-                            if doid is not None:
-                                print(diseaseName + " *** " + diseaseNameAttribute.GetByDoid(doid), doid)
-                                print(JaccardSimilarity(diseaseName, diseaseNameAttribute.GetByDoid(doid)))  # TODO: REMOVE
+                preprocessedDiseaesName = PreprocessingDiseaseName(diseaseName, True)
+                # BTNT xref search
+                if doid is None:
+                    maxJaccardIndex = -1
+                    btntXrefs = xrefsAttribute.GetByOrphaBtnt(term.orpha)
+                    for xref, values in btntXrefs.items():
+                        for value in values:
+                            btntDoid, btntDoidSource = doidAttribute.GetByXref(xref, value)
+                            parentDoids = diseaseNameAttribute.GetParentDoidAndDiseaseNamesByDoid(btntDoid)
+                            if preprocessedDiseaesName is not None and btntDoid is not None:
+                                for parentDoid in parentDoids:
+                                    parentDiseaseName = PreprocessingDiseaseName(parentDoid[1], True)
+                                    currentJaccardIndex = JaccardSimilarity(parentDiseaseName, preprocessedDiseaesName)
+                                    if currentJaccardIndex > maxJaccardIndex:
+                                        maxJaccardIndex = currentJaccardIndex
+                                        doid = parentDoid[0]
+                                        doidSource = btntDoidSource
+                            elif preprocessedDiseaesName is None and btntDoid is not None:
+                                doid = parentDoids[0][0]
+                                doidSource = btntDoidSource
                                 break
+                        if preprocessedDiseaesName is None and doid is not None:
+                            break
+
+                # NTBT xref search
+                if doid is None:
+                    maxJaccardIndex = -1
+                    ntbtXrefs = xrefsAttribute.GetByOrphaNtbt(term.orpha)
+                    for xref, values in ntbtXrefs.items():
+                        for value in values:
+                            ntbtDoid, ntbtDoidSource = doidAttribute.GetByXref(xref, value)
+                            if preprocessedDiseaesName is not None and ntbtDoid is not None:
+                                ntbtDiseaseName = \
+                                    PreprocessingDiseaseName(diseaseNameAttribute.GetByDoid(ntbtDoid), True)
+                                if ntbtDiseaseName is not None:
+                                    currentJaccardIndex = JaccardSimilarity(ntbtDiseaseName, preprocessedDiseaesName)
+                                    if currentJaccardIndex > maxJaccardIndex:
+                                        maxJaccardIndex = currentJaccardIndex
+                                        doid = ntbtDoid
+                                        doidSource = ntbtDoidSource
+                                else:
+                                    doid = ntbtDoid
+                                    doidSource = ntbtDoidSource
+                            elif preprocessedDiseaesName is None and ntbtDoid is not None:
+                                doid = ntbtDoid
+                                doidSource = ntbtDoidSource
+                                break
+                        if preprocessedDiseaesName is None and doid is not None:
+                            break
+
+                # Other xref search
+                if doid is None:
+                    maxJaccardIndex = -1
+                    otherXrefs = xrefsAttribute.GetByOrphaOther(term.orpha)
+                    for xref, values in otherXrefs.items():
+                        for value in values:
+                            otherDoid, otherDoidSource = doidAttribute.GetByXref(xref, value)
+                            if preprocessedDiseaesName is not None and otherDoid is not None:
+                                otherDiseaseName = \
+                                    PreprocessingDiseaseName(diseaseNameAttribute.GetByDoid(otherDoid), True)
+                                if otherDiseaseName is not None:
+                                    currentJaccardIndex = JaccardSimilarity(otherDiseaseName, preprocessedDiseaesName)
+                                    if currentJaccardIndex > maxJaccardIndex:
+                                        maxJaccardIndex = currentJaccardIndex
+                                        doid = otherDoid
+                                        doidSource = otherDoidSource
+                                else:
+                                    doid = otherDoid
+                                    doidSource = otherDoidSource
+                            elif preprocessedDiseaesName is None and otherDoid is not None:
+                                doid = otherDoid
+                                doidSource = otherDoidSource
+                                break
+                        if preprocessedDiseaesName is None and doid is not None:
+                            break
 
             # Get Doid using disease name
             if doid is None:
-                doid, jaccardIndex = doidAttribute.GetByDiseaseName(diseaseName)
+                doid, doidSource = doidAttribute.GetByDiseaseName(diseaseName)
 
             # Disease Name
             if diseaseName is None and doid is not None:
                 diseaseName = diseaseNameAttribute.GetByDoid(doid)
 
-            sourceSet.add(AnnotationRowOutput(symbol, entrezID, uniprotID, ensemblID, doid, sourceName, diseaseName,
-                                              jaccardIndex))
+            if multipleHPORowsFlag and (doid is None or diseaseName is None) and doidAndDiseaseNames is not None:
+                doidSource = DOID_SOURCE_XREF_OMIM
+                for doid, diseaseName in doidAndDiseaseNames:
+                    sourceSet.add(AnnotationRowOutput(symbol, entrezID, uniprotID, ensemblID, doid, sourceName,
+                                                      diseaseName, doidSource))
+            else:
+                sourceSet.add(AnnotationRowOutput(symbol, entrezID, uniprotID, ensemblID, doid, sourceName, diseaseName,
+                                                  doidSource))
         with lock:
             self.__sourcesAnnotationSetDict[source] = sourceSet
 
@@ -226,4 +306,5 @@ class ParsingContextThread:
         return self.__sourcesAnnotationSetDict
 
     def CreateAnnotationFile(self, filePath):
-        WriteStructureToFile(filePath, sorted(self.__annotationSet, key=lambda term: term.source))
+        WriteStructureToFile(filePath, sorted(self.__annotationSet, key=lambda term: term.source),
+                             ANNOTATION_FILE_HEADER)

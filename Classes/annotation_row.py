@@ -51,22 +51,19 @@ class AnnotationRow:
 
 
 class AnnotationRowOutput(AnnotationRow):
-    def __init__(self, symbol, entrezID, uniprotID, ensemblID, doid, source, diseaseName, jaccardIndex):
+    def __init__(self, symbol, entrezID, uniprotID, ensemblID, doid, source, diseaseName, doidSource):
         super(AnnotationRowOutput, self).__init__(symbol, entrezID, uniprotID, ensemblID, doid, source, diseaseName)
-        self.jaccardIndex = jaccardIndex
+        self.doidSource = doidSource
 
     def __eq__(self, other):
-        return super(AnnotationRowOutput, self).__eq__(other) and self.jaccardIndex == other.jaccardIndex
+        return super(AnnotationRowOutput, self).__eq__(other) and self.doidSource == other.doidSource
 
     def __hash__(self):
         return hash((self.symbol, self.entrezID, self.uniprotID, self.ensemblID, self.doid, self.diseaseName,
-                     self.jaccardIndex))
+                     self.doidSource))
 
     def __str__(self):
-        if self.jaccardIndex is None:
-            return super(AnnotationRowOutput, self).__str__() + '\t' + str(self.jaccardIndex)
-        else:
-            return super(AnnotationRowOutput, self).__str__() + '\t' + str(int(float(self.jaccardIndex)*100)) + "%"
+        return super(AnnotationRowOutput, self).__str__() + '\t' + str(self.doidSource)
 
 
 class ClinVarRow(AnnotationRow):
@@ -157,57 +154,42 @@ class OrphanetRow(AnnotationRow):
 
 
 class OrphanetXrefRow:
-    def __init__(self, orpha, omim, umls, mesh, gard, medDra, icd10, diseaseName):
+    def __init__(self, orpha, eDict, btntDict, ntbtDict, otherDict, diseaseName):
         self.orpha = orpha
-        self.__omim = omim
-        self.__umls = umls
-        self.__mesh = mesh
-        self.__gard = gard
-        self.__medDra = medDra
-        self.__icd10 = icd10
+        self.__eDict = eDict
+        self.__btntDict = btntDict
+        self.__ntbtDict = ntbtDict
+        self.__otherDict = otherDict
         self.diseaseName = diseaseName
-        self.__xrefDict = {
-            Xref.UMLS: self.__umls,
-            Xref.MeSH: self.__mesh,
-            Xref.GARD: self.__gard,
-            Xref.MedDRA: self.__medDra,
-            Xref.OMIM: self.__omim,
-            Xref.ICD10: self.__icd10
-        }
 
     def __eq__(self, other):
-        return isinstance(other, self.__class__) and self.orpha == other.orpha and self.__omim == other.__omim and \
-               self.__umls == other.__umls and self.__mesh == other.__mesh and self.__gard == other.__gard and \
-               self.__medDra == other.__medDra and self.__icd10 == other.__icd10 and \
-               self.diseaseName == other.diseaseName
+        return isinstance(other, self.__class__) and self.orpha == other.orpha and self.__eDict == other.__eDict and \
+               self.__btntDict == other.__btntDict and self.__ntbtDict == other.__ntbtDict and \
+               self.__otherDict == other.__otherDict and self.diseaseName == other.diseaseName
 
     def __hash__(self):
-        return hash((self.orpha, self.__omim, self.__umls, self.__mesh, self.__gard, self.__medDra, self.__icd10,
-                     self.diseaseName))
+        return hash((self.orpha, self.diseaseName))
 
     def __str__(self):
-        return str(self.orpha) + '\t' + \
-               (str(self.__omim[0]) if self.__omim is not None else str(self.__omim)) + '\t' + \
-               (str(self.__umls[0]) if self.__umls is not None else str(self.__umls)) + '\t' + \
-               (str(self.__mesh[0]) if self.__mesh is not None else str(self.__mesh)) + '\t' + \
-               (str(self.__gard[0]) if self.__gard is not None else str(self.__gard)) + '\t' + \
-               (str(self.__medDra[0]) if self.__medDra is not None else str(self.__medDra)) + '\t' + \
-               (str(self.__icd10[0]) if self.__icd10 is not None else str(self.__icd10)) + '\t' + \
-               str(self.diseaseName)
+        return str(self.orpha) + '\t' + str(self.diseaseName)  # TODO: Add dicts to str method
 
     def GetExactXrefs(self):
-        return {key: value[0] for key, value in self.__xrefDict.items() if value is not None and value[1]}
+        return self.__eDict
 
-    def GetNotExactXrefs(self):
-        return {key: value[0] for key, value in self.__xrefDict.items() if value is not None and not value[1]}
+    def GetBtntXrefs(self):
+        return self.__btntDict
 
-    def GetXrefs(self):
-        return {key: value[0] for key, value in self.__xrefDict.items() if value is not None}
+    def GetNtbtXrefs(self):
+        return self.__ntbtDict
+
+    def GetOtherXrefs(self):
+        return self.__otherDict
 
 
 class OBORow(AnnotationRow):
-    def __init__(self, doid, diseaseName, synonyms, parentDoids, xrefs, altIds):
+    def __init__(self, doid, diseaseName, synonyms, parentDoids, xrefs, altIds, definition):
         super(OBORow, self).__init__(None, None, None, None, doid, "Obo", diseaseName)
+        self.definition = definition
         self.__synonyms = synonyms
         self.__parentDoids = parentDoids
         self.__xrefs = xrefs
@@ -223,7 +205,7 @@ class OBORow(AnnotationRow):
 
     def __str__(self):
         synonymsStr = '  '.join(self.GetSynonyms()).strip()
-        parentDoidsStr = '  '.join(self.GetParentDoids()).strip()
+        parentDoidsStr = '  '.join(self.GetParentDiseaseNames()).strip()
 
         if len(synonymsStr) != 0:
             synonymsStr = "\n\tSynonyms: " + synonymsStr
@@ -236,8 +218,11 @@ class OBORow(AnnotationRow):
     def GetSynonyms(self):
         return [synonym.description.strip() for synonym in self.__synonyms]
 
-    def GetParentDoids(self):
+    def GetParentDiseaseNames(self):
         return [parentDoid.name.strip() for parentDoid in self.__parentDoids]
+
+    def GetParentDiseaseNameAndDoids(self):
+        return [(parentDoid.id.strip(), parentDoid.name.strip()) for parentDoid in self.__parentDoids]
 
     def GetXrefs(self):
         return self.__xrefs

@@ -15,14 +15,15 @@
 
 from Classes.annotation_row import OBORow
 from Common.constants import OBO_PATH, RGD_OBO_PATH
-from Common.init import Ontology, multiprocessing
+from Common.init import Ontology, multiprocessing, OrderedSet
+from Common.util import CheckEmpty
 
 
 class OBO:
     @staticmethod
     def Read(filePathOBO=OBO_PATH, filePathRGD=RGD_OBO_PATH):
-        filePaths = [filePathOBO, filePathRGD]
-        oboSet = set()
+        filePaths = [filePathRGD, filePathOBO]
+        oboSet = OrderedSet()
 
         for filePath in filePaths:
             oboData = Ontology(filePath, threads=multiprocessing.cpu_count())
@@ -31,12 +32,13 @@ class OBO:
                 if term.obsolete:
                     continue
 
-                doid = term.id.strip()
-                diseaseName = term.name.strip()
+                doid = CheckEmpty(term.id)
+                diseaseName = CheckEmpty(term.name)
+                definition = CheckEmpty(term.definition)
                 synonyms = term.synonyms
-                parentDoids = term.superclasses().to_set()
+                parentDoids = list(term.superclasses(distance=1, with_self=False).to_set())
                 xrefs = term.xrefs
                 altIds = term.alternate_ids
-                oboSet.add(OBORow(doid, diseaseName, synonyms, parentDoids, xrefs, altIds))
+                oboSet.add(OBORow(doid, diseaseName, synonyms, parentDoids, xrefs, altIds, definition))
 
         return oboSet

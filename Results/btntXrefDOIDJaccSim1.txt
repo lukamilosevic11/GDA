@@ -1,0 +1,5148 @@
+DOID:1558
+100057
+Renin-angiotensin-aldosterone system-blocker-induced angioedema
+Angioedema
+0.14285714285714285
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:13810
+391665
+Homozygous familial hypercholesterolemia
+familial hypercholesterolemia
+0.6666666666666666
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3191
+171433
+Intermediate nemaline myopathy
+Nemaline myopathy
+0.6666666666666666
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:9001942
+178506
+Brain calcification, Rajab type
+Rajab Interstitial Lung Disease with Brain Calcifications
+0.42857142857142855
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0060655
+281122
+Self-improving collodion baby
+Autosomal recessive congenital ichthyosis
+0.0
+
+
+
+DOID:3191
+171433
+Intermediate nemaline myopathy
+Nemaline myopathy
+0.6666666666666666
+
+
+
+DOID:9005411
+169147
+Immunodeficiency due to a classical component pathway complement deficiency
+Complement Component C1r/C1s Deficiency
+0.3333333333333333
+
+
+
+DOID:0050594
+264580
+Glycogen storage disease due to liver phosphorylase kinase deficiency
+glycogen storage disease IX
+0.3333333333333333
+
+
+
+DOID:14669
+280651
+Acrodysostosis with multiple hormone resistance
+Acrodysostosis
+0.2
+
+
+
+DOID:219
+440437
+Familial colorectal cancer Type X
+colon cancer
+0.2
+
+
+
+DOID:0060283
+289586
+Exfoliative ichthyosis
+Peeling skin syndrome
+0.0
+
+
+
+DOID:0112375
+370980
+Congenital muscular dystrophy without intellectual disability
+muscular dystrophy-dystroglycanopathy type B
+0.25
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0060894
+391411
+Atypical juvenile parkinsonism
+early-onset Parkinson's disease
+0.16666666666666666
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:3191
+171433
+Intermediate nemaline myopathy
+Nemaline myopathy
+0.6666666666666666
+
+
+
+DOID:9009080
+508512
+Intrauterine growth restriction-congenital multiple café-au-lait macules-increased sister chromatid exchange syndrome
+Microcephaly, Growth Restriction, and Increased Sister Chromatid Exchange
+0.4
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:9003713
+275864
+Behavioral variant of frontotemporal dementia
+Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis
+0.2857142857142857
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3969
+319487
+Familial papillary or follicular thyroid carcinoma
+Thyroid gland papillary carcinoma
+0.5
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:9008741
+230857
+Ehlers-Danlos/osteogenesis imperfecta syndrome
+Combined Osteogenesis Imperfecta and Ehlers-Danlos Syndrome
+0.8333333333333334
+
+
+
+DOID:0050588
+370959
+Congenital muscular dystrophy with cerebellar involvement
+Muscular dystrophy-dystroglycanopathy
+0.2857142857142857
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3191
+171436
+Typical nemaline myopathy
+Nemaline myopathy
+0.6666666666666666
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:9003713
+275864
+Behavioral variant of frontotemporal dementia
+Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis
+0.2857142857142857
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:9006081
+371428
+Multicentric osteolysis-nodulosis-arthropathy spectrum
+Osteolysis
+0.2
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:9006081
+371428
+Multicentric osteolysis-nodulosis-arthropathy spectrum
+Osteolysis
+0.2
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050737
+293181
+Malignant migrating focal seizures of infancy
+autosomal recessive disease
+0.0
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:3191
+171436
+Typical nemaline myopathy
+Nemaline myopathy
+0.6666666666666666
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0050737
+70474
+Leigh syndrome with cardiomyopathy
+autosomal recessive disease
+0.0
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:3565
+263662
+Familial multiple meningioma
+Meningioma
+0.3333333333333333
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0050736
+1020
+Early-onset autosomal dominant Alzheimer disease
+autosomal dominant disease
+0.5
+
+
+
+DOID:92
+163721
+Rolandic epilepsy-speech dyspraxia syndrome
+Speech disorder
+0.16666666666666666
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:3191
+171430
+Severe congenital nemaline myopathy
+Nemaline myopathy
+0.5
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0080108
+99845
+Genetic recurrent myoglobinuria
+Myoglobinuria
+0.3333333333333333
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050737
+70474
+Leigh syndrome with cardiomyopathy
+autosomal recessive disease
+0.0
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0112375
+370980
+Congenital muscular dystrophy without intellectual disability
+muscular dystrophy-dystroglycanopathy type B
+0.25
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:9008578
+391408
+Primary microcephaly-mild intellectual disability-young-onset diabetes syndrome
+Microcephaly, Short Stature, and Impaired Glucose Metabolism
+0.07142857142857142
+
+
+
+DOID:3969
+319487
+Familial papillary or follicular thyroid carcinoma
+Thyroid gland papillary carcinoma
+0.5
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:3565
+263662
+Familial multiple meningioma
+Meningioma
+0.3333333333333333
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:627
+169160
+T-B+ severe combined immunodeficiency due to CD3delta/CD3epsilon/CD3zeta
+Severe combined immunodeficiency
+0.375
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050730
+255249
+Leigh syndrome with nephrotic syndrome
+Coenzyme Q10 deficiency disease
+0.0
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:4450
+319308
+MiT family translocation renal cell carcinoma
+Renal cell carcinoma
+0.5
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:9003713
+275864
+Behavioral variant of frontotemporal dementia
+Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis
+0.2857142857142857
+
+
+
+DOID:8533
+494547
+Squamous cell carcinoma of the hypopharynx
+Hypopharynx cancer
+0.2
+
+
+
+DOID:92
+163721
+Rolandic epilepsy-speech dyspraxia syndrome
+Speech disorder
+0.16666666666666666
+
+
+
+DOID:8778
+206
+NON RARE IN EUROPE: Crohn disease
+Crohn's disease
+0.4
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:14669
+280651
+Acrodysostosis with multiple hormone resistance
+Acrodysostosis
+0.2
+
+
+
+DOID:9003713
+275864
+Behavioral variant of frontotemporal dementia
+Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis
+0.2857142857142857
+
+
+
+DOID:0050737
+293181
+Malignant migrating focal seizures of infancy
+autosomal recessive disease
+0.0
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:3191
+171436
+Typical nemaline myopathy
+Nemaline myopathy
+0.6666666666666666
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0060894
+391411
+Atypical juvenile parkinsonism
+early-onset Parkinson's disease
+0.16666666666666666
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:9003713
+275864
+Behavioral variant of frontotemporal dementia
+Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis
+0.2857142857142857
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050736
+140957
+Autosomal dominant macrothrombocytopenia
+autosomal dominant disease
+0.5
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050737
+293181
+Malignant migrating focal seizures of infancy
+autosomal recessive disease
+0.0
+
+
+
+DOID:3191
+171433
+Intermediate nemaline myopathy
+Nemaline myopathy
+0.6666666666666666
+
+
+
+DOID:9003713
+275864
+Behavioral variant of frontotemporal dementia
+Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis
+0.2857142857142857
+
+
+
+DOID:0080655
+244305
+Dominant hypophosphatemia with nephrolithiasis or osteoporosis
+Hypophosphatemic nephrolithiasis/osteoporosis
+0.3333333333333333
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:9005850
+98673
+Autosomal dominant optic atrophy, classic form
+Hereditary Optic Atrophies
+0.2857142857142857
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060894
+391411
+Atypical juvenile parkinsonism
+early-onset Parkinson's disease
+0.16666666666666666
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:4450
+319308
+MiT family translocation renal cell carcinoma
+Renal cell carcinoma
+0.5
+
+
+
+DOID:0050737
+293181
+Malignant migrating focal seizures of infancy
+autosomal recessive disease
+0.0
+
+
+
+DOID:9007456
+488191
+Female infertility due to oocyte meiotic arrest
+Female Infertility
+0.3333333333333333
+
+
+
+DOID:0050736
+251380
+Hereditary persistence of fetal hemoglobin-sickle cell disease syndrome
+autosomal dominant disease
+0.1
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:13810
+391665
+Homozygous familial hypercholesterolemia
+familial hypercholesterolemia
+0.6666666666666666
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3191
+171430
+Severe congenital nemaline myopathy
+Nemaline myopathy
+0.5
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:12712
+84081
+Senior-Boichis syndrome
+Nephronophthisis
+0.0
+
+
+
+DOID:9004342
+163717
+Benign familial mesial temporal lobe epilepsy
+Familial Temporal Epilepsy
+0.5
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:9003713
+275864
+Behavioral variant of frontotemporal dementia
+Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis
+0.2857142857142857
+
+
+
+DOID:9005411
+169147
+Immunodeficiency due to a classical component pathway complement deficiency
+Complement Component C1r/C1s Deficiency
+0.3333333333333333
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:9003713
+275864
+Behavioral variant of frontotemporal dementia
+Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis
+0.2857142857142857
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:9000309
+220465
+Laron syndrome with immunodeficiency
+Growth Hormone Insensitivity with Immune Dysregulation
+0.1111111111111111
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050737
+70474
+Leigh syndrome with cardiomyopathy
+autosomal recessive disease
+0.0
+
+
+
+DOID:0112375
+370980
+Congenital muscular dystrophy without intellectual disability
+muscular dystrophy-dystroglycanopathy type B
+0.25
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:9008578
+391408
+Primary microcephaly-mild intellectual disability-young-onset diabetes syndrome
+Microcephaly, Short Stature, and Impaired Glucose Metabolism
+0.07142857142857142
+
+
+
+DOID:0060283
+289586
+Exfoliative ichthyosis
+Peeling skin syndrome
+0.0
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0111143
+254913
+Isolated ATP synthase deficiency
+Mitochondrial complex V (ATP synthase) deficiency
+0.42857142857142855
+
+
+
+DOID:13810
+391665
+Homozygous familial hypercholesterolemia
+familial hypercholesterolemia
+0.6666666666666666
+
+
+
+DOID:12241
+46532
+Hereditary persistence of fetal hemoglobin-beta-thalassemia syndrome
+Beta thalassemia
+0.2857142857142857
+
+
+
+DOID:3191
+171436
+Typical nemaline myopathy
+Nemaline myopathy
+0.6666666666666666
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:9001738
+2197
+Idiopathic hypercalciuria
+Hypercalciuria
+0.5
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0050736
+140957
+Autosomal dominant macrothrombocytopenia
+autosomal dominant disease
+0.5
+
+
+
+DOID:3390
+50942
+Striate palmoplantar keratoderma
+Palmoplantar keratosis
+0.25
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:219
+440437
+Familial colorectal cancer Type X
+colon cancer
+0.2
+
+
+
+DOID:0050737
+293181
+Malignant migrating focal seizures of infancy
+autosomal recessive disease
+0.0
+
+
+
+DOID:627
+169160
+T-B+ severe combined immunodeficiency due to CD3delta/CD3epsilon/CD3zeta
+Severe combined immunodeficiency
+0.375
+
+
+
+DOID:4450
+319308
+MiT family translocation renal cell carcinoma
+Renal cell carcinoma
+0.5
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050736
+1020
+Early-onset autosomal dominant Alzheimer disease
+autosomal dominant disease
+0.5
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:9006081
+371428
+Multicentric osteolysis-nodulosis-arthropathy spectrum
+Osteolysis
+0.2
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:9001738
+2197
+Idiopathic hypercalciuria
+Hypercalciuria
+0.5
+
+
+
+DOID:0060655
+281122
+Self-improving collodion baby
+Autosomal recessive congenital ichthyosis
+0.0
+
+
+
+DOID:627
+169160
+T-B+ severe combined immunodeficiency due to CD3delta/CD3epsilon/CD3zeta
+Severe combined immunodeficiency
+0.375
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0050736
+1020
+Early-onset autosomal dominant Alzheimer disease
+autosomal dominant disease
+0.5
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:8778
+206
+NON RARE IN EUROPE: Crohn disease
+Crohn's disease
+0.4
+
+
+
+DOID:9005411
+169147
+Immunodeficiency due to a classical component pathway complement deficiency
+Complement Component C1r/C1s Deficiency
+0.3333333333333333
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:9005850
+98673
+Autosomal dominant optic atrophy, classic form
+Hereditary Optic Atrophies
+0.2857142857142857
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:9008578
+391408
+Primary microcephaly-mild intellectual disability-young-onset diabetes syndrome
+Microcephaly, Short Stature, and Impaired Glucose Metabolism
+0.07142857142857142
+
+
+
+DOID:3191
+171436
+Typical nemaline myopathy
+Nemaline myopathy
+0.6666666666666666
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:9006807
+264675
+Hereditary pulmonary alveolar proteinosis
+Congenital Pulmonary Alveolar Proteinosis
+0.6
+
+
+
+DOID:9008578
+391408
+Primary microcephaly-mild intellectual disability-young-onset diabetes syndrome
+Microcephaly, Short Stature, and Impaired Glucose Metabolism
+0.07142857142857142
+
+
+
+DOID:0060863
+99001
+Butterfly-shaped pigment dystrophy
+patterned macular dystrophy
+0.16666666666666666
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0050736
+1020
+Early-onset autosomal dominant Alzheimer disease
+autosomal dominant disease
+0.5
+
+
+
+DOID:0050736
+1020
+Early-onset autosomal dominant Alzheimer disease
+autosomal dominant disease
+0.5
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050588
+370959
+Congenital muscular dystrophy with cerebellar involvement
+Muscular dystrophy-dystroglycanopathy
+0.2857142857142857
+
+
+
+DOID:0050730
+255249
+Leigh syndrome with nephrotic syndrome
+Coenzyme Q10 deficiency disease
+0.0
+
+
+
+DOID:0060178
+569
+Familial or sporadic hemiplegic migraine
+familial hemiplegic migraine
+0.75
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3191
+171430
+Severe congenital nemaline myopathy
+Nemaline myopathy
+0.5
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060863
+99001
+Butterfly-shaped pigment dystrophy
+patterned macular dystrophy
+0.16666666666666666
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:3191
+171436
+Typical nemaline myopathy
+Nemaline myopathy
+0.6666666666666666
+
+
+
+DOID:8778
+206
+NON RARE IN EUROPE: Crohn disease
+Crohn's disease
+0.4
+
+
+
+DOID:12241
+46532
+Hereditary persistence of fetal hemoglobin-beta-thalassemia syndrome
+Beta thalassemia
+0.2857142857142857
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:13810
+391665
+Homozygous familial hypercholesterolemia
+familial hypercholesterolemia
+0.6666666666666666
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0050736
+140957
+Autosomal dominant macrothrombocytopenia
+autosomal dominant disease
+0.5
+
+
+
+DOID:9005411
+169147
+Immunodeficiency due to a classical component pathway complement deficiency
+Complement Component C1r/C1s Deficiency
+0.3333333333333333
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:9003713
+275864
+Behavioral variant of frontotemporal dementia
+Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis
+0.2857142857142857
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:3565
+263662
+Familial multiple meningioma
+Meningioma
+0.3333333333333333
+
+
+
+DOID:13810
+391665
+Homozygous familial hypercholesterolemia
+familial hypercholesterolemia
+0.6666666666666666
+
+
+
+DOID:0050588
+370959
+Congenital muscular dystrophy with cerebellar involvement
+Muscular dystrophy-dystroglycanopathy
+0.2857142857142857
+
+
+
+DOID:9009080
+508512
+Intrauterine growth restriction-congenital multiple café-au-lait macules-increased sister chromatid exchange syndrome
+Microcephaly, Growth Restriction, and Increased Sister Chromatid Exchange
+0.4
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0050594
+264580
+Glycogen storage disease due to liver phosphorylase kinase deficiency
+glycogen storage disease IX
+0.3333333333333333
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:10970
+210141
+Inherited congenital spastic tetraplegia
+Spastic quadriplegia
+0.2
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:12712
+84081
+Senior-Boichis syndrome
+Nephronophthisis
+0.0
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0050588
+370959
+Congenital muscular dystrophy with cerebellar involvement
+Muscular dystrophy-dystroglycanopathy
+0.2857142857142857
+
+
+
+DOID:0050737
+293181
+Malignant migrating focal seizures of infancy
+autosomal recessive disease
+0.0
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:9005411
+169147
+Immunodeficiency due to a classical component pathway complement deficiency
+Complement Component C1r/C1s Deficiency
+0.3333333333333333
+
+
+
+DOID:0050736
+251380
+Hereditary persistence of fetal hemoglobin-sickle cell disease syndrome
+autosomal dominant disease
+0.1
+
+
+
+DOID:0111143
+254913
+Isolated ATP synthase deficiency
+Mitochondrial complex V (ATP synthase) deficiency
+0.42857142857142855
+
+
+
+DOID:10970
+210141
+Inherited congenital spastic tetraplegia
+Spastic quadriplegia
+0.2
+
+
+
+DOID:0060178
+569
+Familial or sporadic hemiplegic migraine
+familial hemiplegic migraine
+0.75
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:12241
+46532
+Hereditary persistence of fetal hemoglobin-beta-thalassemia syndrome
+Beta thalassemia
+0.2857142857142857
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0050736
+247511
+Autosomal dominant secondary polycythemia
+autosomal dominant disease
+0.4
+
+
+
+DOID:0050736
+140957
+Autosomal dominant macrothrombocytopenia
+autosomal dominant disease
+0.5
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:9000981
+397692
+Hereditary isolated aplastic anemia
+Autosomal Dominant Dyskeratosis Congenita
+0.0
+
+
+
+DOID:0050594
+264580
+Glycogen storage disease due to liver phosphorylase kinase deficiency
+glycogen storage disease IX
+0.3333333333333333
+
+
+
+DOID:0050737
+70474
+Leigh syndrome with cardiomyopathy
+autosomal recessive disease
+0.0
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050736
+1020
+Early-onset autosomal dominant Alzheimer disease
+autosomal dominant disease
+0.5
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:10970
+210141
+Inherited congenital spastic tetraplegia
+Spastic quadriplegia
+0.2
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:225
+556955
+Pancreatic agenesis-holoprosencephaly syndrome
+syndrome
+0.25
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050737
+70474
+Leigh syndrome with cardiomyopathy
+autosomal recessive disease
+0.0
+
+
+
+DOID:0050730
+255249
+Leigh syndrome with nephrotic syndrome
+Coenzyme Q10 deficiency disease
+0.0
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0060178
+569
+Familial or sporadic hemiplegic migraine
+familial hemiplegic migraine
+0.75
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:219
+440437
+Familial colorectal cancer Type X
+colon cancer
+0.2
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0080108
+99845
+Genetic recurrent myoglobinuria
+Myoglobinuria
+0.3333333333333333
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050737
+293181
+Malignant migrating focal seizures of infancy
+autosomal recessive disease
+0.0
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:3565
+263662
+Familial multiple meningioma
+Meningioma
+0.3333333333333333
+
+
+
+DOID:331
+263524
+Acute necrotizing encephalopathy of childhood
+Central nervous system disease
+0.0
+
+
+
+DOID:0050737
+70474
+Leigh syndrome with cardiomyopathy
+autosomal recessive disease
+0.0
+
+
+
+DOID:8778
+206
+NON RARE IN EUROPE: Crohn disease
+Crohn's disease
+0.4
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:225
+556955
+Pancreatic agenesis-holoprosencephaly syndrome
+syndrome
+0.25
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0060307
+436151
+Intellectual disability-expressive aphasia-facial dysmorphism syndrome
+autosomal dominant intellectual developmental disorder
+0.3
+
+
+
+DOID:9007456
+488191
+Female infertility due to oocyte meiotic arrest
+Female Infertility
+0.3333333333333333
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0050737
+247198
+Progressive cerebello-cerebral atrophy
+autosomal recessive disease
+0.0
+
+
+
+DOID:13810
+391665
+Homozygous familial hypercholesterolemia
+familial hypercholesterolemia
+0.6666666666666666
+
+
+
+DOID:0050737
+70474
+Leigh syndrome with cardiomyopathy
+autosomal recessive disease
+0.0
+
+
+
+DOID:9003713
+275864
+Behavioral variant of frontotemporal dementia
+Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis
+0.2857142857142857
+
+
+
+DOID:0050594
+264580
+Glycogen storage disease due to liver phosphorylase kinase deficiency
+glycogen storage disease IX
+0.3333333333333333
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3191
+171430
+Severe congenital nemaline myopathy
+Nemaline myopathy
+0.5
+
+
+
+DOID:3191
+171430
+Severe congenital nemaline myopathy
+Nemaline myopathy
+0.5
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:8533
+494547
+Squamous cell carcinoma of the hypopharynx
+Hypopharynx cancer
+0.2
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:10124
+263347
+MRCS syndrome
+Corneal disease
+0.0
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:3390
+50942
+Striate palmoplantar keratoderma
+Palmoplantar keratosis
+0.25
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0050588
+370959
+Congenital muscular dystrophy with cerebellar involvement
+Muscular dystrophy-dystroglycanopathy
+0.2857142857142857
+
+
+
+DOID:627
+169160
+T-B+ severe combined immunodeficiency due to CD3delta/CD3epsilon/CD3zeta
+Severe combined immunodeficiency
+0.375
+
+
+
+DOID:0050736
+251380
+Hereditary persistence of fetal hemoglobin-sickle cell disease syndrome
+autosomal dominant disease
+0.1
+
+
+
+DOID:0060894
+391411
+Atypical juvenile parkinsonism
+early-onset Parkinson's disease
+0.16666666666666666
+
+
+
+DOID:9000981
+397692
+Hereditary isolated aplastic anemia
+Autosomal Dominant Dyskeratosis Congenita
+0.0
+
+
+
+DOID:92
+163721
+Rolandic epilepsy-speech dyspraxia syndrome
+Speech disorder
+0.16666666666666666
+
+
+
+DOID:4450
+319308
+MiT family translocation renal cell carcinoma
+Renal cell carcinoma
+0.5
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:13810
+391665
+Homozygous familial hypercholesterolemia
+familial hypercholesterolemia
+0.6666666666666666
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:12241
+46532
+Hereditary persistence of fetal hemoglobin-beta-thalassemia syndrome
+Beta thalassemia
+0.2857142857142857
+
+
+
+DOID:9005850
+98676
+Autosomal recessive isolated optic atrophy
+Hereditary Optic Atrophies
+0.3333333333333333
+
+
+
+DOID:0060655
+281122
+Self-improving collodion baby
+Autosomal recessive congenital ichthyosis
+0.0
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050736
+140957
+Autosomal dominant macrothrombocytopenia
+autosomal dominant disease
+0.5
+
+
+
+DOID:13810
+391665
+Homozygous familial hypercholesterolemia
+familial hypercholesterolemia
+0.6666666666666666
+
+
+
+DOID:0060178
+569
+Familial or sporadic hemiplegic migraine
+familial hemiplegic migraine
+0.75
+
+
+
+DOID:219
+440437
+Familial colorectal cancer Type X
+colon cancer
+0.2
+
+
+
+DOID:0050736
+140957
+Autosomal dominant macrothrombocytopenia
+autosomal dominant disease
+0.5
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:13810
+391665
+Homozygous familial hypercholesterolemia
+familial hypercholesterolemia
+0.6666666666666666
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:12712
+84081
+Senior-Boichis syndrome
+Nephronophthisis
+0.0
+
+
+
+DOID:92
+163721
+Rolandic epilepsy-speech dyspraxia syndrome
+Speech disorder
+0.16666666666666666
+
+
+
+DOID:8778
+206
+NON RARE IN EUROPE: Crohn disease
+Crohn's disease
+0.4
+
+
+
+DOID:8778
+206
+NON RARE IN EUROPE: Crohn disease
+Crohn's disease
+0.4
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050736
+1020
+Early-onset autosomal dominant Alzheimer disease
+autosomal dominant disease
+0.5
+
+
+
+DOID:0060894
+391411
+Atypical juvenile parkinsonism
+early-onset Parkinson's disease
+0.16666666666666666
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:3969
+319487
+Familial papillary or follicular thyroid carcinoma
+Thyroid gland papillary carcinoma
+0.5
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:14669
+280651
+Acrodysostosis with multiple hormone resistance
+Acrodysostosis
+0.2
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:219
+440437
+Familial colorectal cancer Type X
+colon cancer
+0.2
+
+
+
+DOID:0060308
+488635
+Early-onset epilepsy-intellectual disability-brain anomalies syndrome
+Autosomal recessive non-syndromic intellectual disability
+0.2727272727272727
+
+
+
+DOID:0050736
+1020
+Early-onset autosomal dominant Alzheimer disease
+autosomal dominant disease
+0.5
+
+
+
+DOID:9005850
+98676
+Autosomal recessive isolated optic atrophy
+Hereditary Optic Atrophies
+0.3333333333333333
+
+
+
+DOID:0050737
+247198
+Progressive cerebello-cerebral atrophy
+autosomal recessive disease
+0.0
+
+
+
+DOID:0080108
+99845
+Genetic recurrent myoglobinuria
+Myoglobinuria
+0.3333333333333333
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:9006081
+371428
+Multicentric osteolysis-nodulosis-arthropathy spectrum
+Osteolysis
+0.2
+
+
+
+DOID:0080108
+99845
+Genetic recurrent myoglobinuria
+Myoglobinuria
+0.3333333333333333
+
+
+
+DOID:219
+440437
+Familial colorectal cancer Type X
+colon cancer
+0.2
+
+
+
+DOID:12241
+46532
+Hereditary persistence of fetal hemoglobin-beta-thalassemia syndrome
+Beta thalassemia
+0.2857142857142857
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050588
+370959
+Congenital muscular dystrophy with cerebellar involvement
+Muscular dystrophy-dystroglycanopathy
+0.2857142857142857
+
+
+
+DOID:627
+169160
+T-B+ severe combined immunodeficiency due to CD3delta/CD3epsilon/CD3zeta
+Severe combined immunodeficiency
+0.375
+
+
+
+DOID:0060178
+569
+Familial or sporadic hemiplegic migraine
+familial hemiplegic migraine
+0.75
+
+
+
+DOID:331
+263524
+Acute necrotizing encephalopathy of childhood
+Central nervous system disease
+0.0
+
+
+
+DOID:0112375
+370980
+Congenital muscular dystrophy without intellectual disability
+muscular dystrophy-dystroglycanopathy type B
+0.25
+
+
+
+DOID:0060894
+391411
+Atypical juvenile parkinsonism
+early-onset Parkinson's disease
+0.16666666666666666
+
+
+
+DOID:12712
+84081
+Senior-Boichis syndrome
+Nephronophthisis
+0.0
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:9003713
+275864
+Behavioral variant of frontotemporal dementia
+Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis
+0.2857142857142857
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:9003713
+275864
+Behavioral variant of frontotemporal dementia
+Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis
+0.2857142857142857
+
+
+
+DOID:12241
+46532
+Hereditary persistence of fetal hemoglobin-beta-thalassemia syndrome
+Beta thalassemia
+0.2857142857142857
+
+
+
+DOID:3191
+171436
+Typical nemaline myopathy
+Nemaline myopathy
+0.6666666666666666
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:9002791
+306558
+Primary microcephaly-epilepsy-permanent neonatal diabetes syndrome
+Microcephaly, Epilepsy, and Diabetes Syndrome
+0.5714285714285714
+
+
+
+DOID:0050736
+247511
+Autosomal dominant secondary polycythemia
+autosomal dominant disease
+0.4
+
+
+
+DOID:0050737
+70474
+Leigh syndrome with cardiomyopathy
+autosomal recessive disease
+0.0
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:9003713
+275864
+Behavioral variant of frontotemporal dementia
+Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis
+0.2857142857142857
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3191
+171433
+Intermediate nemaline myopathy
+Nemaline myopathy
+0.6666666666666666
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0060308
+488635
+Early-onset epilepsy-intellectual disability-brain anomalies syndrome
+Autosomal recessive non-syndromic intellectual disability
+0.2727272727272727
+
+
+
+DOID:9007456
+488191
+Female infertility due to oocyte meiotic arrest
+Female Infertility
+0.3333333333333333
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:3565
+263662
+Familial multiple meningioma
+Meningioma
+0.3333333333333333
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0060178
+569
+Familial or sporadic hemiplegic migraine
+familial hemiplegic migraine
+0.75
+
+
+
+DOID:9007456
+488191
+Female infertility due to oocyte meiotic arrest
+Female Infertility
+0.3333333333333333
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:8778
+206
+NON RARE IN EUROPE: Crohn disease
+Crohn's disease
+0.4
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:9006807
+264675
+Hereditary pulmonary alveolar proteinosis
+Congenital Pulmonary Alveolar Proteinosis
+0.6
+
+
+
+DOID:0050737
+70474
+Leigh syndrome with cardiomyopathy
+autosomal recessive disease
+0.0
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:13810
+391665
+Homozygous familial hypercholesterolemia
+familial hypercholesterolemia
+0.6666666666666666
+
+
+
+DOID:0050736
+251380
+Hereditary persistence of fetal hemoglobin-sickle cell disease syndrome
+autosomal dominant disease
+0.1
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:3191
+171430
+Severe congenital nemaline myopathy
+Nemaline myopathy
+0.5
+
+
+
+DOID:12241
+46532
+Hereditary persistence of fetal hemoglobin-beta-thalassemia syndrome
+Beta thalassemia
+0.2857142857142857
+
+
+
+DOID:0050588
+370959
+Congenital muscular dystrophy with cerebellar involvement
+Muscular dystrophy-dystroglycanopathy
+0.2857142857142857
+
+
+
+DOID:0111297
+165805
+Familial mesial temporal lobe epilepsy with febrile seizures
+Familial febrile seizures
+0.375
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050588
+370959
+Congenital muscular dystrophy with cerebellar involvement
+Muscular dystrophy-dystroglycanopathy
+0.2857142857142857
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0112375
+370980
+Congenital muscular dystrophy without intellectual disability
+muscular dystrophy-dystroglycanopathy type B
+0.25
+
+
+
+DOID:3191
+171430
+Severe congenital nemaline myopathy
+Nemaline myopathy
+0.5
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:9007456
+488191
+Female infertility due to oocyte meiotic arrest
+Female Infertility
+0.3333333333333333
+
+
+
+DOID:3191
+171436
+Typical nemaline myopathy
+Nemaline myopathy
+0.6666666666666666
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:9003713
+275864
+Behavioral variant of frontotemporal dementia
+Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis
+0.2857142857142857
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050588
+370959
+Congenital muscular dystrophy with cerebellar involvement
+Muscular dystrophy-dystroglycanopathy
+0.2857142857142857
+
+
+
+DOID:3390
+50942
+Striate palmoplantar keratoderma
+Palmoplantar keratosis
+0.25
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:9007456
+488191
+Female infertility due to oocyte meiotic arrest
+Female Infertility
+0.3333333333333333
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3191
+171430
+Severe congenital nemaline myopathy
+Nemaline myopathy
+0.5
+
+
+
+DOID:0111143
+254913
+Isolated ATP synthase deficiency
+Mitochondrial complex V (ATP synthase) deficiency
+0.42857142857142855
+
+
+
+DOID:0050737
+293181
+Malignant migrating focal seizures of infancy
+autosomal recessive disease
+0.0
+
+
+
+DOID:3191
+171433
+Intermediate nemaline myopathy
+Nemaline myopathy
+0.6666666666666666
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0080108
+99845
+Genetic recurrent myoglobinuria
+Myoglobinuria
+0.3333333333333333
+
+
+
+DOID:13810
+391665
+Homozygous familial hypercholesterolemia
+familial hypercholesterolemia
+0.6666666666666666
+
+
+
+DOID:9005411
+169147
+Immunodeficiency due to a classical component pathway complement deficiency
+Complement Component C1r/C1s Deficiency
+0.3333333333333333
+
+
+
+DOID:9003713
+275864
+Behavioral variant of frontotemporal dementia
+Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis
+0.2857142857142857
+
+
+
+DOID:3969
+319487
+Familial papillary or follicular thyroid carcinoma
+Thyroid gland papillary carcinoma
+0.5
+
+
+
+DOID:0060178
+569
+Familial or sporadic hemiplegic migraine
+familial hemiplegic migraine
+0.75
+
+
+
+DOID:0050736
+1020
+Early-onset autosomal dominant Alzheimer disease
+autosomal dominant disease
+0.5
+
+
+
+DOID:0060655
+281122
+Self-improving collodion baby
+Autosomal recessive congenital ichthyosis
+0.0
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:13810
+391665
+Homozygous familial hypercholesterolemia
+familial hypercholesterolemia
+0.6666666666666666
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:14669
+280651
+Acrodysostosis with multiple hormone resistance
+Acrodysostosis
+0.2
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060655
+281122
+Self-improving collodion baby
+Autosomal recessive congenital ichthyosis
+0.0
+
+
+
+DOID:3191
+171433
+Intermediate nemaline myopathy
+Nemaline myopathy
+0.6666666666666666
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050736
+1020
+Early-onset autosomal dominant Alzheimer disease
+autosomal dominant disease
+0.5
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050736
+140957
+Autosomal dominant macrothrombocytopenia
+autosomal dominant disease
+0.5
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:3191
+171436
+Typical nemaline myopathy
+Nemaline myopathy
+0.6666666666666666
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050736
+247511
+Autosomal dominant secondary polycythemia
+autosomal dominant disease
+0.4
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:3969
+319487
+Familial papillary or follicular thyroid carcinoma
+Thyroid gland papillary carcinoma
+0.5
+
+
+
+DOID:9007456
+488191
+Female infertility due to oocyte meiotic arrest
+Female Infertility
+0.3333333333333333
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050737
+70474
+Leigh syndrome with cardiomyopathy
+autosomal recessive disease
+0.0
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0111143
+254913
+Isolated ATP synthase deficiency
+Mitochondrial complex V (ATP synthase) deficiency
+0.42857142857142855
+
+
+
+DOID:9003713
+275864
+Behavioral variant of frontotemporal dementia
+Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis
+0.2857142857142857
+
+
+
+DOID:9004171
+486811
+Prenatal-onset spinal muscular atrophy with congenital bone fractures
+Spinal Muscular Atrophy with Congenital Bone Fractures
+0.7777777777777778
+
+
+
+DOID:627
+169160
+T-B+ severe combined immunodeficiency due to CD3delta/CD3epsilon/CD3zeta
+Severe combined immunodeficiency
+0.375
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0112375
+370980
+Congenital muscular dystrophy without intellectual disability
+muscular dystrophy-dystroglycanopathy type B
+0.25
+
+
+
+DOID:9003713
+275864
+Behavioral variant of frontotemporal dementia
+Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis
+0.2857142857142857
+
+
+
+DOID:9005411
+169147
+Immunodeficiency due to a classical component pathway complement deficiency
+Complement Component C1r/C1s Deficiency
+0.3333333333333333
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3191
+171430
+Severe congenital nemaline myopathy
+Nemaline myopathy
+0.5
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050736
+247511
+Autosomal dominant secondary polycythemia
+autosomal dominant disease
+0.4
+
+
+
+DOID:0111199
+139589
+Distal hereditary motor neuropathy type 7
+distal hereditary motor neuronopathy type 7
+0.6666666666666666
+
+
+
+DOID:0050736
+247511
+Autosomal dominant secondary polycythemia
+autosomal dominant disease
+0.4
+
+
+
+DOID:0050730
+255249
+Leigh syndrome with nephrotic syndrome
+Coenzyme Q10 deficiency disease
+0.0
+
+
+
+DOID:0050736
+247511
+Autosomal dominant secondary polycythemia
+autosomal dominant disease
+0.4
+
+
+
+DOID:3969
+319487
+Familial papillary or follicular thyroid carcinoma
+Thyroid gland papillary carcinoma
+0.5
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050736
+1020
+Early-onset autosomal dominant Alzheimer disease
+autosomal dominant disease
+0.5
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0050736
+140957
+Autosomal dominant macrothrombocytopenia
+autosomal dominant disease
+0.5
+
+
+
+DOID:9005850
+98676
+Autosomal recessive isolated optic atrophy
+Hereditary Optic Atrophies
+0.3333333333333333
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:1558
+100057
+Renin-angiotensin-aldosterone system-blocker-induced angioedema
+Angioedema
+0.14285714285714285
+
+
+
+DOID:3191
+171436
+Typical nemaline myopathy
+Nemaline myopathy
+0.6666666666666666
+
+
+
+DOID:9002791
+306558
+Primary microcephaly-epilepsy-permanent neonatal diabetes syndrome
+Microcephaly, Epilepsy, and Diabetes Syndrome
+0.5714285714285714
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060178
+569
+Familial or sporadic hemiplegic migraine
+familial hemiplegic migraine
+0.75
+
+
+
+DOID:3191
+171430
+Severe congenital nemaline myopathy
+Nemaline myopathy
+0.5
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0111143
+254913
+Isolated ATP synthase deficiency
+Mitochondrial complex V (ATP synthase) deficiency
+0.42857142857142855
+
+
+
+DOID:2226
+86830
+Chronic myeloproliferative disease, unclassifiable
+Myeloproliferative neoplasm
+0.2
+
+
+
+DOID:4450
+319308
+MiT family translocation renal cell carcinoma
+Renal cell carcinoma
+0.5
+
+
+
+DOID:9000981
+397692
+Hereditary isolated aplastic anemia
+Autosomal Dominant Dyskeratosis Congenita
+0.0
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:9008741
+230857
+Ehlers-Danlos/osteogenesis imperfecta syndrome
+Combined Osteogenesis Imperfecta and Ehlers-Danlos Syndrome
+0.8333333333333334
+
+
+
+DOID:8533
+494547
+Squamous cell carcinoma of the hypopharynx
+Hypopharynx cancer
+0.2
+
+
+
+DOID:9006807
+264675
+Hereditary pulmonary alveolar proteinosis
+Congenital Pulmonary Alveolar Proteinosis
+0.6
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0050588
+370959
+Congenital muscular dystrophy with cerebellar involvement
+Muscular dystrophy-dystroglycanopathy
+0.2857142857142857
+
+
+
+DOID:0080655
+244305
+Dominant hypophosphatemia with nephrolithiasis or osteoporosis
+Hypophosphatemic nephrolithiasis/osteoporosis
+0.3333333333333333
+
+
+
+DOID:9007456
+488191
+Female infertility due to oocyte meiotic arrest
+Female Infertility
+0.3333333333333333
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0050736
+1020
+Early-onset autosomal dominant Alzheimer disease
+autosomal dominant disease
+0.5
+
+
+
+DOID:9003713
+275864
+Behavioral variant of frontotemporal dementia
+Frontotemporal Dementia and/or Amyotrophic Lateral Sclerosis
+0.2857142857142857
+
+
+
+DOID:0050736
+1020
+Early-onset autosomal dominant Alzheimer disease
+autosomal dominant disease
+0.5
+
+
+
+DOID:0060307
+436151
+Intellectual disability-expressive aphasia-facial dysmorphism syndrome
+autosomal dominant intellectual developmental disorder
+0.3
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0050169
+481662
+Familial Chilblain lupus
+Cutaneous lupus erythematosus
+0.2
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050736
+1020
+Early-onset autosomal dominant Alzheimer disease
+autosomal dominant disease
+0.5
+
+
+
+DOID:4450
+319308
+MiT family translocation renal cell carcinoma
+Renal cell carcinoma
+0.5
+
+
+
+DOID:3390
+50942
+Striate palmoplantar keratoderma
+Palmoplantar keratosis
+0.25
+
+
+
+DOID:4450
+319308
+MiT family translocation renal cell carcinoma
+Renal cell carcinoma
+0.5
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0112375
+370980
+Congenital muscular dystrophy without intellectual disability
+muscular dystrophy-dystroglycanopathy type B
+0.25
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:3191
+171436
+Typical nemaline myopathy
+Nemaline myopathy
+0.6666666666666666
+
+
+
+DOID:9005850
+98676
+Autosomal recessive isolated optic atrophy
+Hereditary Optic Atrophies
+0.3333333333333333
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:9005411
+169147
+Immunodeficiency due to a classical component pathway complement deficiency
+Complement Component C1r/C1s Deficiency
+0.3333333333333333
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0050588
+370959
+Congenital muscular dystrophy with cerebellar involvement
+Muscular dystrophy-dystroglycanopathy
+0.2857142857142857
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050169
+481662
+Familial Chilblain lupus
+Cutaneous lupus erythematosus
+0.2
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:9005850
+98673
+Autosomal dominant optic atrophy, classic form
+Hereditary Optic Atrophies
+0.2857142857142857
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:9005850
+98673
+Autosomal dominant optic atrophy, classic form
+Hereditary Optic Atrophies
+0.2857142857142857
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0080108
+99845
+Genetic recurrent myoglobinuria
+Myoglobinuria
+0.3333333333333333
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050736
+140957
+Autosomal dominant macrothrombocytopenia
+autosomal dominant disease
+0.5
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:3390
+50942
+Striate palmoplantar keratoderma
+Palmoplantar keratosis
+0.25
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0060655
+281122
+Self-improving collodion baby
+Autosomal recessive congenital ichthyosis
+0.0
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0060863
+99001
+Butterfly-shaped pigment dystrophy
+patterned macular dystrophy
+0.16666666666666666
+
+
+
+DOID:9004171
+486811
+Prenatal-onset spinal muscular atrophy with congenital bone fractures
+Spinal Muscular Atrophy with Congenital Bone Fractures
+0.7777777777777778
+
+
+
+DOID:0111199
+139589
+Distal hereditary motor neuropathy type 7
+distal hereditary motor neuronopathy type 7
+0.6666666666666666
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050709
+442835
+Non-specific early-onset epileptic encephalopathy
+early infantile epileptic encephalopathy
+0.42857142857142855
+
+
+
+DOID:0111143
+254913
+Isolated ATP synthase deficiency
+Mitochondrial complex V (ATP synthase) deficiency
+0.42857142857142855
+
+
+
+DOID:8778
+206
+NON RARE IN EUROPE: Crohn disease
+Crohn's disease
+0.4
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:0111143
+254913
+Isolated ATP synthase deficiency
+Mitochondrial complex V (ATP synthase) deficiency
+0.42857142857142855
+
+
+
+DOID:0050169
+481662
+Familial Chilblain lupus
+Cutaneous lupus erythematosus
+0.2
+
+
+
+DOID:0112375
+370980
+Congenital muscular dystrophy without intellectual disability
+muscular dystrophy-dystroglycanopathy type B
+0.25
+
+
+
+DOID:0050736
+251380
+Hereditary persistence of fetal hemoglobin-sickle cell disease syndrome
+autosomal dominant disease
+0.1
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:9006807
+264675
+Hereditary pulmonary alveolar proteinosis
+Congenital Pulmonary Alveolar Proteinosis
+0.6
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:3191
+171433
+Intermediate nemaline myopathy
+Nemaline myopathy
+0.6666666666666666
+
+
+
+DOID:2590
+656
+Genetic steroid-resistant nephrotic syndrome
+familial nephrotic syndrome
+0.3333333333333333
+
+
+
+DOID:12241
+46532
+Hereditary persistence of fetal hemoglobin-beta-thalassemia syndrome
+Beta thalassemia
+0.2857142857142857
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0111143
+254913
+Isolated ATP synthase deficiency
+Mitochondrial complex V (ATP synthase) deficiency
+0.42857142857142855
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050737
+293181
+Malignant migrating focal seizures of infancy
+autosomal recessive disease
+0.0
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:0050588
+370959
+Congenital muscular dystrophy with cerebellar involvement
+Muscular dystrophy-dystroglycanopathy
+0.2857142857142857
+
+
+
+DOID:3652
+255241
+Leigh syndrome with leukodystrophy
+Leigh disease
+0.2
+
+
+
+DOID:0060307
+528084
+Non-specific syndromic intellectual disability
+autosomal dominant intellectual developmental disorder
+0.5714285714285714
+
+
+
+DOID:3390
+50942
+Striate palmoplantar keratoderma
+Palmoplantar keratosis
+0.25
+
+
+
+DOID:3191
+171436
+Typical nemaline myopathy
+Nemaline myopathy
+0.6666666666666666
+
+
+
+Time processing parsing context: 99.88505220413208
+Time processing Final annotation file: 1.7881393432617188e-05
+Time processing writing final annotatiton file: 0.6566190719604492
+Total time: 100.54168915748596

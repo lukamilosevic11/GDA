@@ -17,16 +17,26 @@ from Classes.parsing_context_obsolete import ParsingContext
 from Classes.parsing_context_thread import ParsingContextThread
 from Common.init import time
 from Sources.hpo import HPO
-from Common.util import WriteStructureToFile, PrintStructure
+from Common.util import WriteStructureToFile, PrintStructure, PreprocessingDiseaseName, JaccardSimilarity
 from Mapping.obo import OBO
 from Sources.orphanet import Orphanet
 from Sources.humsavar import HumsaVar
 from Mapping.orphanet_xref import OrphanetXref
+from Other.measurements import DoidAccuracy
 
 
 def main():
+    # a = JaccardSimilarity(PreprocessingDiseaseName("syndromic X-linked intellectual disability Raymond type", True), PreprocessingDiseaseName("Severe intellectual disability-progressive postnatal microcephaly-midline stereotypic hand movements syndrome", True))
+    # b = JaccardSimilarity(PreprocessingDiseaseName("non-syndromic X-linked intellectual disability 1", True), PreprocessingDiseaseName("Severe intellectual disability-progressive postnatal microcephaly-midline stereotypic hand movements syndrome", True))
+    # if a > b:
+    #     print("da", a, b)
+    # else:
+    #     print("ne", a, b)
+    # DoidAccuracy("./Results/annotationFile1.txt")
     # oboSet = OBO.Read()
     # for row in oboSet:
+    #     parentDoids = row.GetParentDiseaseNameAndDoids()
+    #     print(row.doid, parentDoids)
     #     altIds = row.GetAlternateIds()
     #     if altIds:
     #         # for altid in altIds:
@@ -72,10 +82,10 @@ def main():
 
     # *********************************************************************************************************
     startTime = time.time()
-    parsingContext = ParsingContextThread()
+    parsingContext = ParsingContextThread(True)
     parsingContextEndTime = time.time()
     print("Time processing parsing context: {}".format(parsingContextEndTime - startTime))
-    tmpFilePath = "./Results/annotationFile.txt"
+    tmpFilePath = "./Results/annotationFile2.txt"
     startTimeAnnotationFile = time.time()
     print("Time processing Final annotation file: {}".format(startTimeAnnotationFile - parsingContextEndTime))
     parsingContext.CreateAnnotationFile(tmpFilePath)
@@ -83,6 +93,7 @@ def main():
     print("Time processing writing final annotatiton file: {}"
           .format(AnnotationFileWritingEndTime - startTimeAnnotationFile))
     print("Total time: {}".format(AnnotationFileWritingEndTime - startTime))
+    DoidAccuracy(tmpFilePath)
     # *********************************************************************************************************
 
     # startTime = time.time()

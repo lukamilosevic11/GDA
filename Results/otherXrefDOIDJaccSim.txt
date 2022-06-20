@@ -1,0 +1,12 @@
+DOID:11476
+391330
+X-linked osteoporosis with fractures
+Osteoporosis
+0.2
+
+
+
+Time processing parsing context: 98.16507816314697
+Time processing Final annotation file: 1.5974044799804688e-05
+Time processing writing final annotatiton file: 0.6765668392181396
+Total time: 98.84166097640991

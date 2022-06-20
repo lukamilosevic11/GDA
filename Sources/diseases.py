@@ -15,8 +15,8 @@
 
 from Classes.annotation_row import DiseasesRow
 from Common.constants import DISEASES_PATH
-from Common.init import pd
-from Common.util import CheckNan
+from Common.init import pd, OrderedSet
+from Common.util import CheckNan, CheckEmpty
 
 
 class Diseases:
@@ -25,11 +25,11 @@ class Diseases:
         diseasesData = pd.read_csv(filePath, sep='\t', header=None, usecols=[1, 2, 3], dtype=str)
         diseasesData = diseasesData.to_numpy()
 
-        diseasesSet = set()
+        diseasesSet = OrderedSet()
         for row in diseasesData:
-            symbol = CheckNan(row[0])
-            doid = CheckNan(row[1])
-            diseaseName = CheckNan(row[2])
+            symbol = CheckEmpty(CheckNan(row[0]))
+            doid = CheckEmpty(CheckNan(row[1]))
+            diseaseName = CheckEmpty(CheckNan(row[2]))
             diseasesSet.add(DiseasesRow(symbol, doid, diseaseName))
 
         return diseasesSet

@@ -50,7 +50,7 @@ ORPHANET_XREF_PATH = __DATA_DIRECTORY + __ORPHANET_XREF_FILE
 # Search Engine
 API_KEY = "1"  # TODO: implement guid api key creation
 COLLECTION_NAME_DOID = "DOID"
-QUERY_BY_DOID = "diseaseName"
+QUERY_BY_DOID = "diseaseName, definition"
 
 # Storage
 __STORAGE_DIRECTORY = "./Storage/"
@@ -58,3 +58,19 @@ __DISEASE_NAME_DOID_JSONL_FILE = "diseaseNameDoid.jsonl"
 DISEASE_NAME_DOID_JSONL_PATH = __STORAGE_DIRECTORY + __DISEASE_NAME_DOID_JSONL_FILE
 
 MAX_JACCARD_INDEX = 1.0
+
+# DOID Sources
+# Xref sources
+DOID_SOURCE_XREF_OMIM = "Xref -> OMIM"
+DOID_SOURCE_XREF_UMLS = "Xref -> UMLS"
+DOID_SOURCE_XREF_MESH = "Xref -> MeSH"
+DOID_SOURCE_XREF_GARD = "Xref -> GARD"
+DOID_SOURCE_XREF_MEDDRA = "Xref -> MedDRA"
+DOID_SOURCE_XREF_ICD10 = "Xref -> ICD-10"
+
+DOID_SOURCE_SEARCH_ENGINE = "DiseaseName -> Typesense"
+DOID_SOURCE_FROZEN_SET = "DiseaseName -> Frozenset"
+DOID_SOURCE_DATABASE = "Database"
+
+# Annotation file header
+ANNOTATION_FILE_HEADER = "Gene Symbol\tEntrez ID\tUniprot ID\tEnsembl ID\tDOID\tSource\tDisease Name\tDOID Source"

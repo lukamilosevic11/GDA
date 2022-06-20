@@ -41,7 +41,7 @@ class DBContext:
         self.__hugo = Hugo.Read()
         self.__orphanetXref = OrphanetXref.Read()
         self.__totalLength = len(self.__disGeNet) + len(self.__cosmic) + len(self.__clinvar) + len(self.__humsavar) + \
-                             len(self.__orphanet) + len(self.__hpo) + len(self.__diseases)
+            len(self.__orphanet) + len(self.__hpo) + len(self.__diseases)
 
     def GetDatabaseBySource(self, source):
         if source is Source.DISGENET:

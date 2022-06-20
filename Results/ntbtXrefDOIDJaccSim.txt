@@ -1,0 +1,3220 @@
+DOID:0090014
+169157
+T-B+ severe combined immunodeficiency due to CD45 deficiency
+Severe combined immunodeficiency, autosomal recessive, T cell-negative, B cell-positive, Nk cell-positive
+0.3076923076923077
+
+
+
+DOID:0110164
+280598
+Hereditary sensorimotor neuropathy with hyperelastic skin
+Charcot-Marie-Tooth disease type 2D
+0.0
+
+
+
+DOID:2018
+276556
+Hyperinsulinism due to UCP2 deficiency
+Hyperinsulinism
+0.25
+
+
+
+DOID:0110732
+314632
+ATP13A2-related juvenile neuronal ceroid lipofuscinosis
+Neuronal ceroid lipofuscinosis 11
+0.42857142857142855
+
+
+
+DOID:0050632
+352723
+Attenuated Chédiak-Higashi syndrome
+Oculocutaneous albinism
+0.0
+
+
+
+DOID:0070135
+436274
+Pseudoxanthoma elasticum-like skin manifestations with retinitis pigmentosa
+autosomal recessive cutis laxa type IA
+0.0
+
+
+
+DOID:0112374
+97240
+Zebra body myopathy
+muscular dystrophy-dystroglycanopathy
+0.0
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:9003890
+67044
+Thrombocytopenia with congenital dyserythropoietic anemia
+X-Linked Thrombocytopenia, with or without Dyserythropoietic Anemia
+0.5
+
+
+
+DOID:9005669
+370968
+Congenital muscular dystrophy with intellectual disability
+Muscular Dystrophy-Dystroglycanopathy (congenital with mental retardation), Type B, 2
+0.36363636363636365
+
+
+
+DOID:3911
+79474
+Atypical Werner syndrome
+Progeria
+0.0
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:2018
+276580
+Autosomal dominant hyperinsulinism due to Kir6.2 deficiency
+Hyperinsulinism
+0.16666666666666666
+
+
+
+DOID:0070125
+226307
+Hypothyroidism due to deficient transcription factors involved in pituitary development or function
+congenital nongoitrous hypothyroidism 5
+0.08333333333333333
+
+
+
+DOID:1612
+227535
+Hereditary breast cancer
+Breast cancer
+0.6666666666666666
+
+
+
+DOID:6148
+500464
+Squamous cell carcinoma of the nasal cavity and paranasal sinuses
+nasal cavity carcinoma in situ
+0.375
+
+
+
+DOID:9953
+98835
+Acute undifferentiated leukemia
+acute biphenotypic leukemia
+0.5
+
+
+
+DOID:0060858
+163693
+2p21 microdeletion syndrome
+hypotonia-cystinuria syndrome
+0.2
+
+
+
+DOID:11991
+99646
+Metaphyseal chondromatosis with D-2-hydroxyglutaric aciduria
+Osteopoikilosis
+0.0
+
+
+
+DOID:0110280
+466921
+Childhood-onset progressive contractures-limb-girdle weakness-muscle dystrophy syndrome
+autosomal recessive limb-girdle muscular dystrophy type 2F
+0.21428571428571427
+
+
+
+DOID:9119
+319480
+Acute myeloid leukemia with CEBPA somatic mutations
+Acute myeloid leukemia
+0.42857142857142855
+
+
+
+DOID:5520
+502366
+Squamous cell carcinoma of the lip
+head and neck squamous cell carcinoma
+0.5
+
+
+
+DOID:2018
+276575
+Autosomal dominant hyperinsulinism due to SUR1 deficiency
+Hyperinsulinism
+0.16666666666666666
+
+
+
+DOID:0110164
+521411
+Autosomal recessive axonal Charcot-Marie-Tooth disease due to copper metabolism defect
+Charcot-Marie-Tooth disease type 2D
+0.3333333333333333
+
+
+
+DOID:0110197
+228179
+Autosomal dominant Charcot-Marie-Tooth disease type 2M
+Charcot-Marie-Tooth disease dominant intermediate B
+0.5555555555555556
+
+
+
+DOID:9005669
+370968
+Congenital muscular dystrophy with intellectual disability
+Muscular Dystrophy-Dystroglycanopathy (congenital with mental retardation), Type B, 2
+0.36363636363636365
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:0070151
+476093
+Autosomal dominant distal axonal motor neuropathy-myofibrillar myopathy syndrome
+Hereditary sensory and autonomic neuropathy type 6
+0.07692307692307693
+
+
+
+DOID:14497
+565612
+Triglyceride deposit cardiomyovasculopathy
+Wolman disease
+0.0
+
+
+
+DOID:653
+423479
+X-linked intellectual disability-limb spasticity-retinal dystrophy-diabetes insipidus syndrome
+purine-pyrimidine metabolic disorder
+0.0
+
+
+
+DOID:0110781
+329475
+Spastic paraplegia-Paget disease of bone syndrome
+Hereditary spastic paraplegia 30
+0.25
+
+
+
+DOID:6148
+500464
+Squamous cell carcinoma of the nasal cavity and paranasal sinuses
+nasal cavity carcinoma in situ
+0.375
+
+
+
+DOID:3911
+363618
+LMNA-related cardiocutaneous progeria syndrome
+Progeria
+0.2
+
+
+
+DOID:0110781
+401835
+Autosomal recessive spastic paraplegia type 70
+Hereditary spastic paraplegia 30
+0.2857142857142857
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:0060884
+564178
+Primary hypomagnesemia-refractory seizures-intellectual disability syndrome
+renal hypomagnesemia 6
+0.1111111111111111
+
+
+
+DOID:0060395
+171829
+6q16 microdeletion syndrome
+Chromosome 15q24 deletion syndrome
+0.16666666666666666
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:0060728
+370930
+XYLT1-CDG
+NGLY1-deficiency
+0.0
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:0090016
+98827
+Unclassified myelodysplastic syndrome
+Chromosome 5q deletion syndrome
+0.16666666666666666
+
+
+
+DOID:9119
+370026
+Acute myeloid leukemia with t(8;16)(p11;p13) translocation
+Acute myeloid leukemia
+0.5
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:0111135
+280365
+Autosomal semi-dominant severe lipodystrophic laminopathy
+congenital generalized lipodystrophy type 1
+0.0
+
+
+
+DOID:9074
+93552
+Pediatric systemic lupus erythematosus
+Systemic lupus erythematosus
+0.75
+
+
+
+DOID:0110362
+364055
+Severe early-childhood-onset retinal dystrophy
+Retinitis pigmentosa 58
+0.125
+
+
+
+DOID:2926
+90308
+Klippel-Trénaunay syndrome
+Klippel-Trenaunay syndrome
+0.5
+
+
+
+DOID:0112374
+424107
+Congenital myopathy with myasthenic-like onset
+muscular dystrophy-dystroglycanopathy
+0.0
+
+
+
+DOID:0060694
+512260
+Congenital cerebellar ataxia due to RNU12 mutation
+Cayman type cerebellar ataxia
+0.2857142857142857
+
+
+
+DOID:9119
+402020
+Acute myeloid leukemia with inv(3)(q21q26.2) or t(3;3)(q21;q26.2)
+Acute myeloid leukemia
+0.5
+
+
+
+DOID:0070151
+485418
+EMILIN-1-related connective tissue disease
+Hereditary sensory and autonomic neuropathy type 6
+0.0
+
+
+
+DOID:0110160
+497757
+MME-related autosomal dominant Charcot Marie Tooth disease type 2
+Charcot-Marie-Tooth disease axonal type 2T
+0.36363636363636365
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:0090014
+169154
+T-B+ severe combined immunodeficiency due to IL-7Ralpha deficiency
+Severe combined immunodeficiency, autosomal recessive, T cell-negative, B cell-positive, Nk cell-positive
+0.2857142857142857
+
+
+
+DOID:0110280
+399081
+KLHL9-related early-onset distal myopathy
+autosomal recessive limb-girdle muscular dystrophy type 2F
+0.0
+
+
+
+DOID:0110362
+364055
+Severe early-childhood-onset retinal dystrophy
+Retinitis pigmentosa 58
+0.125
+
+
+
+DOID:0060474
+247378
+Autosomal recessive secondary polycythemia not associated with VHL gene
+familial erythrocytosis 2
+0.0
+
+
+
+DOID:0070135
+369999
+Diffuse palmoplantar keratoderma with painful fissures
+autosomal recessive cutis laxa type IA
+0.0
+
+
+
+DOID:0110280
+370997
+Muscle-eye-brain disease with bilateral multicystic leucodystrophy
+autosomal recessive limb-girdle muscular dystrophy type 2F
+0.0
+
+
+
+DOID:9006683
+90796
+46,XY disorder of sex development due to isolated 17,20-lyase deficiency
+Congenital Adrenal Hyperplasia, Type 5
+0.0
+
+
+
+DOID:0110513
+228012
+Progressive sensorineural hearing loss-hypertrophic cardiomyopathy syndrome
+Autosomal recessive nonsyndromic deafness 61
+0.0
+
+
+
+DOID:9446
+480556
+Isolated neonatal sclerosing cholangitis
+Cholangitis
+0.25
+
+
+
+DOID:0110164
+324585
+Autosomal dominant intermediate Charcot-Marie-Tooth disease with neuropathic pain
+Charcot-Marie-Tooth disease type 2D
+0.36363636363636365
+
+
+
+DOID:9119
+319465
+Inherited acute myeloid leukemia
+Acute myeloid leukemia
+0.75
+
+
+
+DOID:0111029
+139498
+NON RARE IN EUROPE: Hemochromatosis type 1
+Hemochromatosis type 1
+0.4
+
+
+
+DOID:5520
+502366
+Squamous cell carcinoma of the lip
+head and neck squamous cell carcinoma
+0.5
+
+
+
+DOID:0110362
+364055
+Severe early-childhood-onset retinal dystrophy
+Retinitis pigmentosa 58
+0.125
+
+
+
+DOID:0110362
+364055
+Severe early-childhood-onset retinal dystrophy
+Retinitis pigmentosa 58
+0.125
+
+
+
+DOID:0110164
+521411
+Autosomal recessive axonal Charcot-Marie-Tooth disease due to copper metabolism defect
+Charcot-Marie-Tooth disease type 2D
+0.3333333333333333
+
+
+
+DOID:2913
+64740
+NON RARE IN EUROPE: Recurrent acute pancreatitis
+Acute pancreatitis
+0.3333333333333333
+
+
+
+DOID:0060733
+79406
+Late-onset junctional epidermolysis bullosa
+junctional epidermolysis bullosa with pyloric atresia
+0.375
+
+
+
+DOID:12859
+369847
+Intellectual disability-hyperkinetic movement-truncal ataxia syndrome
+Choreatic disease
+0.0
+
+
+
+DOID:3265
+447740
+Susceptibility to localized juvenile periodontitis
+Chronic granulomatous disease
+0.0
+
+
+
+DOID:0050629
+1648
+NON RARE IN EUROPE: Dementia with Lewy body
+Aicardi-Goutieres syndrome
+0.0
+
+
+
+DOID:0111373
+280628
+Familial progressive hyper- and hypopigmentation
+Familial progressive hyperpigmentation with or without hypopigmentation
+0.42857142857142855
+
+
+
+DOID:9119
+102724
+Acute myeloid leukemia with t(8;21)(q22;q22) translocation
+Acute myeloid leukemia
+0.5
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:9000689
+293978
+Deficiency in anterior pituitary function-variable immunodeficiency syndrome
+Common Variable Immunodeficiency 10
+0.2222222222222222
+
+
+
+DOID:0110781
+401830
+Autosomal recessive spastic paraplegia type 69
+Hereditary spastic paraplegia 30
+0.2857142857142857
+
+
+
+DOID:9005669
+370968
+Congenital muscular dystrophy with intellectual disability
+Muscular Dystrophy-Dystroglycanopathy (congenital with mental retardation), Type B, 2
+0.36363636363636365
+
+
+
+DOID:0070125
+226307
+Hypothyroidism due to deficient transcription factors involved in pituitary development or function
+congenital nongoitrous hypothyroidism 5
+0.08333333333333333
+
+
+
+DOID:11245
+464370
+Neonatal alloimmune neutropenia
+transient neonatal neutropenia
+0.5
+
+
+
+DOID:8545
+466650
+Exercise-induced malignant hyperthermia
+Malignant hyperthermia
+0.5
+
+
+
+DOID:0060858
+163693
+2p21 microdeletion syndrome
+hypotonia-cystinuria syndrome
+0.2
+
+
+
+DOID:2859
+231242
+Hemoglobin C-beta-thalassemia syndrome
+Hemoglobin C disease
+0.3333333333333333
+
+
+
+DOID:2007
+279
+NON RARE IN EUROPE: Age-related macular degeneration
+degeneration of macula and posterior pole
+0.1
+
+
+
+DOID:9002789
+457260
+X-linked intellectual disability-hypotonia-movement disorder syndrome
+Mental Retardation, X-Linked 102
+0.18181818181818182
+
+
+
+DOID:0110164
+435819
+Autosomal dominant Charcot-Marie-Tooth disease type 2 due to TFG mutation
+Charcot-Marie-Tooth disease type 2D
+0.36363636363636365
+
+
+
+DOID:0080388
+357008
+Hemolytic uremic syndrome with DGKE deficiency
+Nephrotic syndrome type 7
+0.125
+
+
+
+DOID:0110280
+399081
+KLHL9-related early-onset distal myopathy
+autosomal recessive limb-girdle muscular dystrophy type 2F
+0.0
+
+
+
+DOID:2018
+276598
+Diazoxide-resistant focal hyperinsulinism due to SUR1 deficiency
+Hyperinsulinism
+0.14285714285714285
+
+
+
+DOID:1029
+397750
+Periodic paralysis with later-onset distal motor neuropathy
+familial periodic paralysis
+0.2222222222222222
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:0080361
+468726
+Severe primary trimethylaminuria
+Trimethylaminuria
+0.3333333333333333
+
+
+
+DOID:0111135
+280365
+Autosomal semi-dominant severe lipodystrophic laminopathy
+congenital generalized lipodystrophy type 1
+0.0
+
+
+
+DOID:11042
+284130
+NON RARE IN EUROPE: Rheumatoid arthritis
+Felty's syndrome
+0.0
+
+
+
+DOID:0060738
+79402
+Intermediate generalized junctional epidermolysis bullosa
+junctional epidermolysis bullosa non-Herlitz type
+0.42857142857142855
+
+
+
+DOID:0110781
+401800
+Autosomal recessive spastic paraplegia type 60
+Hereditary spastic paraplegia 30
+0.2857142857142857
+
+
+
+DOID:0060738
+79402
+Intermediate generalized junctional epidermolysis bullosa
+junctional epidermolysis bullosa non-Herlitz type
+0.42857142857142855
+
+
+
+DOID:9000689
+293978
+Deficiency in anterior pituitary function-variable immunodeficiency syndrome
+Common Variable Immunodeficiency 10
+0.2222222222222222
+
+
+
+DOID:0110362
+99003
+Multifocal pattern dystrophy simulating fundus flavimaculatus
+Retinitis pigmentosa 58
+0.0
+
+
+
+DOID:0060858
+163693
+2p21 microdeletion syndrome
+hypotonia-cystinuria syndrome
+0.2
+
+
+
+DOID:9074
+93552
+Pediatric systemic lupus erythematosus
+Systemic lupus erythematosus
+0.75
+
+
+
+DOID:0080719
+363677
+Childhood-onset autosomal recessive myopathy with external ophthalmoplegia
+proximal myopathy and ophthalmoplegia
+0.2222222222222222
+
+
+
+DOID:3911
+79474
+Atypical Werner syndrome
+Progeria
+0.0
+
+
+
+DOID:14500
+812
+Sialidosis type 1
+Fucosidosis
+0.0
+
+
+
+DOID:9005669
+370968
+Congenital muscular dystrophy with intellectual disability
+Muscular Dystrophy-Dystroglycanopathy (congenital with mental retardation), Type B, 2
+0.36363636363636365
+
+
+
+DOID:9119
+102724
+Acute myeloid leukemia with t(8;21)(q22;q22) translocation
+Acute myeloid leukemia
+0.5
+
+
+
+DOID:0050812
+93282
+Spondyloepimetaphyseal dysplasia, PAPSS2 type
+Spondyloepimetaphyseal dysplasia, Pakistani type
+0.5
+
+
+
+DOID:0110781
+447757
+Autosomal dominant spastic paraplegia type 9B
+Hereditary spastic paraplegia 30
+0.2857142857142857
+
+
+
+DOID:483
+464293
+NON RARE IN EUROPE: Infantile capillary hemangioma
+Cavernous hemangioma
+0.14285714285714285
+
+
+
+DOID:2007
+279
+NON RARE IN EUROPE: Age-related macular degeneration
+degeneration of macula and posterior pole
+0.1
+
+
+
+DOID:9119
+102724
+Acute myeloid leukemia with t(8;21)(q22;q22) translocation
+Acute myeloid leukemia
+0.5
+
+
+
+DOID:1391
+426
+NON RARE IN EUROPE: Familial hypobetalipoproteinemia
+Norum disease
+0.0
+
+
+
+DOID:0070135
+436274
+Pseudoxanthoma elasticum-like skin manifestations with retinitis pigmentosa
+autosomal recessive cutis laxa type IA
+0.0
+
+
+
+DOID:9005669
+370968
+Congenital muscular dystrophy with intellectual disability
+Muscular Dystrophy-Dystroglycanopathy (congenital with mental retardation), Type B, 2
+0.36363636363636365
+
+
+
+DOID:0070151
+453510
+Congenital insensitivity to pain with severe intellectual disability
+Hereditary sensory and autonomic neuropathy type 6
+0.0
+
+
+
+DOID:0112374
+324581
+Benign Samaritan congenital myopathy
+muscular dystrophy-dystroglycanopathy
+0.0
+
+
+
+DOID:0060738
+251393
+Localized junctional epidermolysis bullosa
+junctional epidermolysis bullosa non-Herlitz type
+0.5
+
+
+
+DOID:9119
+319465
+Inherited acute myeloid leukemia
+Acute myeloid leukemia
+0.75
+
+
+
+DOID:0060733
+79406
+Late-onset junctional epidermolysis bullosa
+junctional epidermolysis bullosa with pyloric atresia
+0.375
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:0070125
+226307
+Hypothyroidism due to deficient transcription factors involved in pituitary development or function
+congenital nongoitrous hypothyroidism 5
+0.08333333333333333
+
+
+
+DOID:0070125
+226307
+Hypothyroidism due to deficient transcription factors involved in pituitary development or function
+congenital nongoitrous hypothyroidism 5
+0.08333333333333333
+
+
+
+DOID:2007
+279
+NON RARE IN EUROPE: Age-related macular degeneration
+degeneration of macula and posterior pole
+0.1
+
+
+
+DOID:1612
+227535
+Hereditary breast cancer
+Breast cancer
+0.6666666666666666
+
+
+
+DOID:1612
+227535
+Hereditary breast cancer
+Breast cancer
+0.6666666666666666
+
+
+
+DOID:1612
+227535
+Hereditary breast cancer
+Breast cancer
+0.6666666666666666
+
+
+
+DOID:5520
+500478
+Squamous cell carcinoma of the oropharynx
+head and neck squamous cell carcinoma
+0.5
+
+
+
+DOID:0060334
+99989
+Intermediate DEND syndrome
+Transient neonatal diabetes mellitus
+0.0
+
+
+
+DOID:0090010
+574957
+Autosomal recessive mendelian susceptibility to mycobacterial diseases due to partial JAK1 deficiency
+immunodeficiency-centromeric instability-facial anomalies syndrome 3
+0.0
+
+
+
+DOID:4959
+89842
+Autosomal recessive generalized dystrophic epidermolysis bullosa, intermediate form
+Epidermolysis bullosa dystrophica
+0.2222222222222222
+
+
+
+DOID:2018
+324575
+Hyperinsulinism due to HNF1A deficiency
+Hyperinsulinism
+0.25
+
+
+
+DOID:9005669
+370968
+Congenital muscular dystrophy with intellectual disability
+Muscular Dystrophy-Dystroglycanopathy (congenital with mental retardation), Type B, 2
+0.36363636363636365
+
+
+
+DOID:0050638
+85451
+ATTRV122I amyloidosis
+Transthyretin amyloidosis
+0.3333333333333333
+
+
+
+DOID:0070125
+226307
+Hypothyroidism due to deficient transcription factors involved in pituitary development or function
+congenital nongoitrous hypothyroidism 5
+0.08333333333333333
+
+
+
+DOID:0060586
+436144
+Intrauterine growth restriction-short stature-early adult-onset diabetes syndrome
+Noonan syndrome 8
+0.08333333333333333
+
+
+
+DOID:2018
+276575
+Autosomal dominant hyperinsulinism due to SUR1 deficiency
+Hyperinsulinism
+0.16666666666666666
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:1700
+281090
+Syndromic recessive X-linked ichthyosis
+X-linked ichthyosis
+0.6
+
+
+
+DOID:9002510
+725
+Continuous spikes and waves during sleep
+Focal Epilepsy with Speech Disorder and with or without Mental Retardation
+0.0
+
+
+
+DOID:8761
+402023
+Megakaryoblastic acute myeloid leukemia with t(1;22)(p13;q13)
+Megakaryocytic leukemia
+0.14285714285714285
+
+
+
+DOID:9003890
+67044
+Thrombocytopenia with congenital dyserythropoietic anemia
+X-Linked Thrombocytopenia, with or without Dyserythropoietic Anemia
+0.5
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:10923
+251375
+Sickle cell-hemoglobin E disease syndrome
+Sickle cell anemia
+0.2857142857142857
+
+
+
+DOID:0060858
+163693
+2p21 microdeletion syndrome
+hypotonia-cystinuria syndrome
+0.2
+
+
+
+DOID:9005669
+370968
+Congenital muscular dystrophy with intellectual disability
+Muscular Dystrophy-Dystroglycanopathy (congenital with mental retardation), Type B, 2
+0.36363636363636365
+
+
+
+DOID:0060738
+79402
+Intermediate generalized junctional epidermolysis bullosa
+junctional epidermolysis bullosa non-Herlitz type
+0.42857142857142855
+
+
+
+DOID:0110164
+487814
+Autosomal dominant Charcot-Marie-Tooth disease type 2 due to DGAT2 mutation
+Charcot-Marie-Tooth disease type 2D
+0.36363636363636365
+
+
+
+DOID:1391
+426
+NON RARE IN EUROPE: Familial hypobetalipoproteinemia
+Norum disease
+0.0
+
+
+
+DOID:9119
+370026
+Acute myeloid leukemia with t(8;16)(p11;p13) translocation
+Acute myeloid leukemia
+0.5
+
+
+
+DOID:5520
+500478
+Squamous cell carcinoma of the oropharynx
+head and neck squamous cell carcinoma
+0.5
+
+
+
+DOID:0110781
+401815
+Autosomal recessive spastic paraplegia type 66
+Hereditary spastic paraplegia 30
+0.2857142857142857
+
+
+
+DOID:0060331
+2596
+Myopathy and diabetes mellitus
+mitochondrial complex V (ATP synthase) deficiency nuclear type 2
+0.0
+
+
+
+DOID:0110280
+399103
+Distal nebulin myopathy
+autosomal recessive limb-girdle muscular dystrophy type 2F
+0.0
+
+
+
+DOID:9006683
+90796
+46,XY disorder of sex development due to isolated 17,20-lyase deficiency
+Congenital Adrenal Hyperplasia, Type 5
+0.0
+
+
+
+DOID:0080111
+254902
+Renal tubulopathy-encephalopathy-liver failure syndrome
+mitochondrial complex III deficiency nuclear type 1
+0.0
+
+
+
+DOID:9119
+102724
+Acute myeloid leukemia with t(8;21)(q22;q22) translocation
+Acute myeloid leukemia
+0.5
+
+
+
+DOID:483
+464293
+NON RARE IN EUROPE: Infantile capillary hemangioma
+Cavernous hemangioma
+0.14285714285714285
+
+
+
+DOID:10923
+251359
+Sickle cell-beta-thalassemia disease syndrome
+Sickle cell anemia
+0.2857142857142857
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:0060333
+35056
+NON RARE IN EUROPE: Trimethylaminuria
+mitochondrial complex V (ATP synthase) deficiency nuclear type 4
+0.0
+
+
+
+DOID:0050453
+352587
+Focal epilepsy-intellectual disability-cerebro-cerebellar malformation
+Lissencephaly
+0.0
+
+
+
+DOID:0090014
+169154
+T-B+ severe combined immunodeficiency due to IL-7Ralpha deficiency
+Severe combined immunodeficiency, autosomal recessive, T cell-negative, B cell-positive, Nk cell-positive
+0.2857142857142857
+
+
+
+DOID:8761
+402023
+Megakaryoblastic acute myeloid leukemia with t(1;22)(p13;q13)
+Megakaryocytic leukemia
+0.14285714285714285
+
+
+
+DOID:0110781
+496689
+Kyphoscoliosis-lateral tongue atrophy-hereditary spastic paraplegia syndrome
+Hereditary spastic paraplegia 30
+0.3333333333333333
+
+
+
+DOID:0070125
+226307
+Hypothyroidism due to deficient transcription factors involved in pituitary development or function
+congenital nongoitrous hypothyroidism 5
+0.08333333333333333
+
+
+
+DOID:2394
+370396
+Small cell carcinoma of the ovary
+Ovarian cancer
+0.0
+
+
+
+DOID:0110781
+329475
+Spastic paraplegia-Paget disease of bone syndrome
+Hereditary spastic paraplegia 30
+0.25
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:9002510
+725
+Continuous spikes and waves during sleep
+Focal Epilepsy with Speech Disorder and with or without Mental Retardation
+0.0
+
+
+
+DOID:1391
+426
+NON RARE IN EUROPE: Familial hypobetalipoproteinemia
+Norum disease
+0.0
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:0060738
+251393
+Localized junctional epidermolysis bullosa
+junctional epidermolysis bullosa non-Herlitz type
+0.5
+
+
+
+DOID:0060858
+163693
+2p21 microdeletion syndrome
+hypotonia-cystinuria syndrome
+0.2
+
+
+
+DOID:12120
+440392
+Interstitial lung disease due to SP-C deficiency
+Pulmonary alveolar proteinosis
+0.0
+
+
+
+DOID:0112374
+324581
+Benign Samaritan congenital myopathy
+muscular dystrophy-dystroglycanopathy
+0.0
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:0050629
+412066
+PRKAR1B-related neurodegenerative dementia with intermediate filaments
+Aicardi-Goutieres syndrome
+0.0
+
+
+
+DOID:1067
+529819
+NON RARE IN EUROPE: Exfoliation syndrome
+open-angle glaucoma
+0.0
+
+
+
+DOID:0060333
+324525
+Hypertrophic cardiomyopathy with kidney anomalies due to mitochondrial DNA mutation
+mitochondrial complex V (ATP synthase) deficiency nuclear type 4
+0.0625
+
+
+
+DOID:9119
+102724
+Acute myeloid leukemia with t(8;21)(q22;q22) translocation
+Acute myeloid leukemia
+0.5
+
+
+
+DOID:0050629
+1648
+NON RARE IN EUROPE: Dementia with Lewy body
+Aicardi-Goutieres syndrome
+0.0
+
+
+
+DOID:2862
+466026
+Class I glucose-6-phosphate dehydrogenase deficiency
+Glucosephosphate dehydrogenase deficiency
+0.25
+
+
+
+DOID:0110781
+401795
+Autosomal recessive spastic paraplegia type 59
+Hereditary spastic paraplegia 30
+0.2857142857142857
+
+
+
+DOID:0110164
+538574
+Palmoplantar keratoderma-hereditary motor and sensory neuropathy syndrome
+Charcot-Marie-Tooth disease type 2D
+0.0
+
+
+
+DOID:2859
+231249
+Hemoglobin E-beta-thalassemia syndrome
+Hemoglobin C disease
+0.14285714285714285
+
+
+
+DOID:0110164
+538574
+Palmoplantar keratoderma-hereditary motor and sensory neuropathy syndrome
+Charcot-Marie-Tooth disease type 2D
+0.0
+
+
+
+DOID:1391
+426
+NON RARE IN EUROPE: Familial hypobetalipoproteinemia
+Norum disease
+0.0
+
+
+
+DOID:0090060
+544628
+Atypical Fanconi syndrome-neonatal hyperinsulinism syndrome
+Wolcott-Rallison syndrome
+0.14285714285714285
+
+
+
+DOID:9119
+319465
+Inherited acute myeloid leukemia
+Acute myeloid leukemia
+0.75
+
+
+
+DOID:0070125
+226307
+Hypothyroidism due to deficient transcription factors involved in pituitary development or function
+congenital nongoitrous hypothyroidism 5
+0.08333333333333333
+
+
+
+DOID:0060738
+79402
+Intermediate generalized junctional epidermolysis bullosa
+junctional epidermolysis bullosa non-Herlitz type
+0.42857142857142855
+
+
+
+DOID:0110781
+401820
+Autosomal recessive spastic paraplegia type 67
+Hereditary spastic paraplegia 30
+0.2857142857142857
+
+
+
+DOID:1612
+227535
+Hereditary breast cancer
+Breast cancer
+0.6666666666666666
+
+
+
+DOID:2018
+79643
+Autosomal recessive hyperinsulinism due to SUR1 deficiency
+Hyperinsulinism
+0.16666666666666666
+
+
+
+DOID:0110160
+495274
+Charcot-Marie-Tooth disease type 2T
+Charcot-Marie-Tooth disease axonal type 2T
+0.8333333333333334
+
+
+
+DOID:0110781
+401815
+Autosomal recessive spastic paraplegia type 66
+Hereditary spastic paraplegia 30
+0.2857142857142857
+
+
+
+DOID:2394
+213524
+Hereditary site-specific ovarian cancer syndrome
+Ovarian cancer
+0.3333333333333333
+
+
+
+DOID:1612
+227535
+Hereditary breast cancer
+Breast cancer
+0.6666666666666666
+
+
+
+DOID:1029
+397750
+Periodic paralysis with later-onset distal motor neuropathy
+familial periodic paralysis
+0.2222222222222222
+
+
+
+DOID:0060738
+79402
+Intermediate generalized junctional epidermolysis bullosa
+junctional epidermolysis bullosa non-Herlitz type
+0.42857142857142855
+
+
+
+DOID:5520
+500478
+Squamous cell carcinoma of the oropharynx
+head and neck squamous cell carcinoma
+0.5
+
+
+
+DOID:2394
+213524
+Hereditary site-specific ovarian cancer syndrome
+Ovarian cancer
+0.3333333333333333
+
+
+
+DOID:0111135
+79085
+AKT2-related familial partial lipodystrophy
+congenital generalized lipodystrophy type 1
+0.125
+
+
+
+DOID:9005618
+370002
+Focal palmoplantar keratoderma with joint keratoses
+Keratosis Palmoplantaris Striata 1
+0.0
+
+
+
+DOID:0090016
+98827
+Unclassified myelodysplastic syndrome
+Chromosome 5q deletion syndrome
+0.16666666666666666
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:0060717
+281127
+Acral self-healing collodion baby
+autosomal recessive congenital ichthyosis 8
+0.0
+
+
+
+DOID:0060738
+251393
+Localized junctional epidermolysis bullosa
+junctional epidermolysis bullosa non-Herlitz type
+0.5
+
+
+
+DOID:9074
+93552
+Pediatric systemic lupus erythematosus
+Systemic lupus erythematosus
+0.75
+
+
+
+DOID:0050629
+556985
+Early-onset calcifying leukoencephalopathy-skeletal dysplasia
+Aicardi-Goutieres syndrome
+0.0
+
+
+
+DOID:9005884
+99736
+Acetazolamide-responsive myotonia
+Potassium Aggravated Myotonia
+0.2
+
+
+
+DOID:0070112
+99852
+Ravine syndrome
+Niemann-Pick disease type B
+0.0
+
+
+
+DOID:2018
+276603
+Diazoxide-resistant focal hyperinsulinism due to Kir6.2 deficiency
+Hyperinsulinism
+0.14285714285714285
+
+
+
+DOID:9119
+402020
+Acute myeloid leukemia with inv(3)(q21q26.2) or t(3;3)(q21;q26.2)
+Acute myeloid leukemia
+0.5
+
+
+
+DOID:9002510
+725
+Continuous spikes and waves during sleep
+Focal Epilepsy with Speech Disorder and with or without Mental Retardation
+0.0
+
+
+
+DOID:0090104
+401901
+Huntington disease-like syndrome due to C9ORF72 expansions
+Huntington's disease-like 2
+0.375
+
+
+
+DOID:0060586
+398079
+SIM1-related Prader-Willi-like syndrome
+Noonan syndrome 8
+0.125
+
+
+
+DOID:0060694
+512260
+Congenital cerebellar ataxia due to RNU12 mutation
+Cayman type cerebellar ataxia
+0.2857142857142857
+
+
+
+DOID:0110781
+320360
+MT-ATP6-related mitochondrial spastic paraplegia
+Hereditary spastic paraplegia 30
+0.25
+
+
+
+DOID:0111039
+289266
+Early-onset epileptic encephalopathy and intellectual disability due to GRIN2A mutation
+hypermethioninemia with deficiency of S-adenosylhomocysteine hydrolase
+0.0
+
+
+
+DOID:0060858
+238523
+Atypical hypotonia-cystinuria syndrome
+hypotonia-cystinuria syndrome
+0.75
+
+
+
+DOID:9005377
+200421
+Immunodeficiency with factor H anomaly
+Complement Factor H Deficiency
+0.2857142857142857
+
+
+
+DOID:0050638
+85451
+ATTRV122I amyloidosis
+Transthyretin amyloidosis
+0.3333333333333333
+
+
+
+DOID:0060395
+171829
+6q16 microdeletion syndrome
+Chromosome 15q24 deletion syndrome
+0.16666666666666666
+
+
+
+DOID:9005669
+370968
+Congenital muscular dystrophy with intellectual disability
+Muscular Dystrophy-Dystroglycanopathy (congenital with mental retardation), Type B, 2
+0.36363636363636365
+
+
+
+DOID:0060212
+600
+Vocal cord and pharyngeal distal myopathy
+Amyotrophic lateral sclerosis type 21
+0.0
+
+
+
+DOID:0110781
+401820
+Autosomal recessive spastic paraplegia type 67
+Hereditary spastic paraplegia 30
+0.2857142857142857
+
+
+
+DOID:2926
+90308
+Klippel-Trénaunay syndrome
+Klippel-Trenaunay syndrome
+0.5
+
+
+
+DOID:0110781
+401840
+Autosomal recessive spastic paraplegia type 71
+Hereditary spastic paraplegia 30
+0.2857142857142857
+
+
+
+DOID:0112374
+97240
+Zebra body myopathy
+muscular dystrophy-dystroglycanopathy
+0.0
+
+
+
+DOID:2377
+477738
+Pediatric multiple sclerosis
+Multiple sclerosis
+0.6666666666666666
+
+
+
+DOID:4959
+79409
+Recessive dystrophic epidermolysis bullosa inversa
+Epidermolysis bullosa dystrophica
+0.3333333333333333
+
+
+
+DOID:0111135
+79085
+AKT2-related familial partial lipodystrophy
+congenital generalized lipodystrophy type 1
+0.125
+
+
+
+DOID:0060728
+370930
+XYLT1-CDG
+NGLY1-deficiency
+0.0
+
+
+
+DOID:0110781
+401795
+Autosomal recessive spastic paraplegia type 59
+Hereditary spastic paraplegia 30
+0.2857142857142857
+
+
+
+DOID:0110781
+401830
+Autosomal recessive spastic paraplegia type 69
+Hereditary spastic paraplegia 30
+0.2857142857142857
+
+
+
+DOID:0060333
+557056
+Spastic ataxia-dysarthria due to glutaminase deficiency
+mitochondrial complex V (ATP synthase) deficiency nuclear type 4
+0.07692307692307693
+
+
+
+DOID:0050629
+363969
+Autosomal recessive cerebral atrophy
+Aicardi-Goutieres syndrome
+0.0
+
+
+
+DOID:0110781
+320360
+MT-ATP6-related mitochondrial spastic paraplegia
+Hereditary spastic paraplegia 30
+0.25
+
+
+
+DOID:0070133
+314718
+Lethal arteriopathy syndrome due to fibulin-4 deficiency
+autosomal recessive cutis laxa type IB
+0.0
+
+
+
+DOID:0060738
+251393
+Localized junctional epidermolysis bullosa
+junctional epidermolysis bullosa non-Herlitz type
+0.5
+
+
+
+DOID:0070125
+226307
+Hypothyroidism due to deficient transcription factors involved in pituitary development or function
+congenital nongoitrous hypothyroidism 5
+0.08333333333333333
+
+
+
+DOID:0090104
+401901
+Huntington disease-like syndrome due to C9ORF72 expansions
+Huntington's disease-like 2
+0.375
+
+
+
+DOID:0060170
+352596
+Progressive myoclonic epilepsy with dystonia
+generalized epilepsy with febrile seizures plus
+0.2222222222222222
+
+
+
+DOID:0090105
+209902
+Hypercholesterolemia due to cholesterol 7alpha-hydroxylase deficiency
+Autosomal recessive hypercholesterolemia
+0.125
+
+
+
+DOID:9002789
+457260
+X-linked intellectual disability-hypotonia-movement disorder syndrome
+Mental Retardation, X-Linked 102
+0.18181818181818182
+
+
+
+DOID:0050632
+352723
+Attenuated Chédiak-Higashi syndrome
+Oculocutaneous albinism
+0.0
+
+
+
+DOID:0060858
+163693
+2p21 microdeletion syndrome
+hypotonia-cystinuria syndrome
+0.2
+
+
+
+DOID:14261
+449291
+Symptomatic form of fragile X syndrome in female carriers
+Fragile X syndrome
+0.42857142857142855
+
+
+
+DOID:3911
+363618
+LMNA-related cardiocutaneous progeria syndrome
+Progeria
+0.2
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:9005884
+99736
+Acetazolamide-responsive myotonia
+Potassium Aggravated Myotonia
+0.2
+
+
+
+DOID:0110732
+314632
+ATP13A2-related juvenile neuronal ceroid lipofuscinosis
+Neuronal ceroid lipofuscinosis 11
+0.42857142857142855
+
+
+
+DOID:9074
+93552
+Pediatric systemic lupus erythematosus
+Systemic lupus erythematosus
+0.75
+
+
+
+DOID:11991
+99646
+Metaphyseal chondromatosis with D-2-hydroxyglutaric aciduria
+Osteopoikilosis
+0.0
+
+
+
+DOID:2007
+279
+NON RARE IN EUROPE: Age-related macular degeneration
+degeneration of macula and posterior pole
+0.1
+
+
+
+DOID:0060738
+79402
+Intermediate generalized junctional epidermolysis bullosa
+junctional epidermolysis bullosa non-Herlitz type
+0.42857142857142855
+
+
+
+DOID:0070151
+397606
+PrP systemic amyloidosis
+Hereditary sensory and autonomic neuropathy type 6
+0.0
+
+
+
+DOID:1391
+426
+NON RARE IN EUROPE: Familial hypobetalipoproteinemia
+Norum disease
+0.0
+
+
+
+DOID:0060170
+352596
+Progressive myoclonic epilepsy with dystonia
+generalized epilepsy with febrile seizures plus
+0.2222222222222222
+
+
+
+DOID:2007
+279
+NON RARE IN EUROPE: Age-related macular degeneration
+degeneration of macula and posterior pole
+0.1
+
+
+
+DOID:4959
+79409
+Recessive dystrophic epidermolysis bullosa inversa
+Epidermolysis bullosa dystrophica
+0.3333333333333333
+
+
+
+DOID:8545
+466650
+Exercise-induced malignant hyperthermia
+Malignant hyperthermia
+0.5
+
+
+
+DOID:0110164
+228374
+Charcot-Marie-Tooth disease type 2B5
+Charcot-Marie-Tooth disease type 2D
+0.6666666666666666
+
+
+
+DOID:2007
+279
+NON RARE IN EUROPE: Age-related macular degeneration
+degeneration of macula and posterior pole
+0.1
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:0070125
+226307
+Hypothyroidism due to deficient transcription factors involved in pituitary development or function
+congenital nongoitrous hypothyroidism 5
+0.08333333333333333
+
+
+
+DOID:9006683
+90796
+46,XY disorder of sex development due to isolated 17,20-lyase deficiency
+Congenital Adrenal Hyperplasia, Type 5
+0.0
+
+
+
+DOID:13087
+907
+NON RARE IN EUROPE: Wolff-Parkinson-White syndrome
+Lown-Ganong-Levine syndrome
+0.1
+
+
+
+DOID:10923
+251370
+Sickle cell-hemoglobin D disease syndrome
+Sickle cell anemia
+0.3333333333333333
+
+
+
+DOID:0090010
+319589
+Autosomal dominant mendelian susceptibility to mycobacterial diseases due to partial IFNgammaR2 deficiency
+immunodeficiency-centromeric instability-facial anomalies syndrome 3
+0.0
+
+
+
+DOID:9119
+402017
+Acute myeloid leukemia with t(9;11)(p22;q23)
+Acute myeloid leukemia
+0.6
+
+
+
+DOID:9005669
+370968
+Congenital muscular dystrophy with intellectual disability
+Muscular Dystrophy-Dystroglycanopathy (congenital with mental retardation), Type B, 2
+0.36363636363636365
+
+
+
+DOID:5520
+502363
+Squamous cell carcinoma of the oral cavity
+head and neck squamous cell carcinoma
+0.42857142857142855
+
+
+
+DOID:2907
+2250
+Hyposmia-nasal and ocular hypoplasia-hypogonadotropic hypogonadism syndrome
+Goldenhar syndrome
+0.125
+
+
+
+DOID:0110280
+329478
+Adult-onset distal myopathy due to VCP mutation
+autosomal recessive limb-girdle muscular dystrophy type 2F
+0.0
+
+
+
+DOID:0110362
+364055
+Severe early-childhood-onset retinal dystrophy
+Retinitis pigmentosa 58
+0.125
+
+
+
+DOID:0110280
+329478
+Adult-onset distal myopathy due to VCP mutation
+autosomal recessive limb-girdle muscular dystrophy type 2F
+0.0
+
+
+
+DOID:0110362
+364055
+Severe early-childhood-onset retinal dystrophy
+Retinitis pigmentosa 58
+0.125
+
+
+
+DOID:9006683
+90796
+46,XY disorder of sex development due to isolated 17,20-lyase deficiency
+Congenital Adrenal Hyperplasia, Type 5
+0.0
+
+
+
+DOID:0060586
+398079
+SIM1-related Prader-Willi-like syndrome
+Noonan syndrome 8
+0.125
+
+
+
+DOID:5520
+502363
+Squamous cell carcinoma of the oral cavity
+head and neck squamous cell carcinoma
+0.42857142857142855
+
+
+
+DOID:0060884
+199326
+Isolated autosomal dominant hypomagnesemia, Glaudemans type
+renal hypomagnesemia 6
+0.14285714285714285
+
+
+
+DOID:0110781
+401835
+Autosomal recessive spastic paraplegia type 70
+Hereditary spastic paraplegia 30
+0.2857142857142857
+
+
+
+DOID:2018
+79644
+Autosomal recessive hyperinsulinism due to Kir6.2 deficiency
+Hyperinsulinism
+0.16666666666666666
+
+
+
+DOID:0110164
+423894
+Microcephaly-complex motor and sensory axonal neuropathy syndrome
+Charcot-Marie-Tooth disease type 2D
+0.0
+
+
+
+DOID:0111039
+289266
+Early-onset epileptic encephalopathy and intellectual disability due to GRIN2A mutation
+hypermethioninemia with deficiency of S-adenosylhomocysteine hydrolase
+0.0
+
+
+
+DOID:12987
+420699
+Autosomal recessive severe congenital neutropenia due to CXCR2 deficiency
+agranulocytosis
+0.0
+
+
+
+DOID:0090051
+589618
+Dystonia 28
+Dystonia 23
+0.3333333333333333
+
+
+
+DOID:1612
+227535
+Hereditary breast cancer
+Breast cancer
+0.6666666666666666
+
+
+
+DOID:9005669
+370968
+Congenital muscular dystrophy with intellectual disability
+Muscular Dystrophy-Dystroglycanopathy (congenital with mental retardation), Type B, 2
+0.36363636363636365
+
+
+
+DOID:0090102
+566192
+Congenital autosomal recessive small-platelet thrombocytopenia
+autosomal dominant macrothrombocytopenia TUBB1-related
+0.1
+
+
+
+DOID:0110736
+397922
+Ferro-cerebro-cutaneous syndrome
+Neurodegeneration with brain iron accumulation 2b
+0.0
+
+
+
+DOID:9074
+93552
+Pediatric systemic lupus erythematosus
+Systemic lupus erythematosus
+0.75
+
+
+
+DOID:0112374
+476406
+Congenital generalized hypercontractile muscle stiffness syndrome
+muscular dystrophy-dystroglycanopathy
+0.0
+
+
+
+DOID:0110781
+401800
+Autosomal recessive spastic paraplegia type 60
+Hereditary spastic paraplegia 30
+0.2857142857142857
+
+
+
+DOID:0110280
+206546
+Symptomatic form of muscular dystrophy of Duchenne and Becker in female carriers
+autosomal recessive limb-girdle muscular dystrophy type 2F
+0.15384615384615385
+
+
+
+DOID:2007
+279
+NON RARE IN EUROPE: Age-related macular degeneration
+degeneration of macula and posterior pole
+0.1
+
+
+
+DOID:1391
+426
+NON RARE IN EUROPE: Familial hypobetalipoproteinemia
+Norum disease
+0.0
+
+
+
+DOID:1700
+281090
+Syndromic recessive X-linked ichthyosis
+X-linked ichthyosis
+0.6
+
+
+
+DOID:14679
+329319
+Thrombocythemia with distal limb defects
+VACTERL association
+0.0
+
+
+
+DOID:0110781
+401840
+Autosomal recessive spastic paraplegia type 71
+Hereditary spastic paraplegia 30
+0.2857142857142857
+
+
+
+DOID:0080361
+468726
+Severe primary trimethylaminuria
+Trimethylaminuria
+0.3333333333333333
+
+
+
+DOID:0050674
+276066
+Bile acid CoA ligase deficiency and defective amidation
+Congenital bile acid synthesis defect
+0.3333333333333333
+
+
+
+DOID:0060738
+79402
+Intermediate generalized junctional epidermolysis bullosa
+junctional epidermolysis bullosa non-Herlitz type
+0.42857142857142855
+
+
+
+DOID:2018
+324575
+Hyperinsulinism due to HNF1A deficiency
+Hyperinsulinism
+0.25
+
+
+
+DOID:0060738
+79402
+Intermediate generalized junctional epidermolysis bullosa
+junctional epidermolysis bullosa non-Herlitz type
+0.42857142857142855
+
+
+
+DOID:0060804
+397933
+Severe intellectual disability-progressive postnatal microcephaly-midline stereotypic hand movements syndrome
+syndromic X-linked intellectual disability 12
+0.21428571428571427
+
+
+
+DOID:12120
+217566
+Chronic respiratory distress with surfactant metabolism deficiency
+Pulmonary alveolar proteinosis
+0.0
+
+
+
+DOID:2725
+166286
+Porokeratotic eccrine ostial and dermal duct nevus
+Capillary hemangioma
+0.0
+
+
+
+DOID:0110781
+447757
+Autosomal dominant spastic paraplegia type 9B
+Hereditary spastic paraplegia 30
+0.2857142857142857
+
+
+
+DOID:13774
+289548
+Inherited isolated adrenal insufficiency due to partial CYP11A1 deficiency
+Addison's disease
+0.0
+
+
+
+DOID:9003654
+363494
+Non-seminomatous germ cell tumor of testis
+Testicular Germ Cell Tumor
+0.42857142857142855
+
+
+
+DOID:14261
+449291
+Symptomatic form of fragile X syndrome in female carriers
+Fragile X syndrome
+0.42857142857142855
+
+
+
+DOID:13399
+319698
+NON RARE IN EUROPE: Partial color blindness, deutan type
+Color blindness
+0.2857142857142857
+
+
+
+DOID:0070151
+139512
+Neuropathy with hearing impairment
+Hereditary sensory and autonomic neuropathy type 6
+0.125
+
+
+
+DOID:2913
+64740
+NON RARE IN EUROPE: Recurrent acute pancreatitis
+Acute pancreatitis
+0.3333333333333333
+
+
+
+DOID:0050629
+412066
+PRKAR1B-related neurodegenerative dementia with intermediate filaments
+Aicardi-Goutieres syndrome
+0.0
+
+
+
+DOID:0110336
+314029
+High bone mass osteogenesis imperfecta
+Osteogenesis imperfecta type 8
+0.3333333333333333
+
+
+
+DOID:2007
+279
+NON RARE IN EUROPE: Age-related macular degeneration
+degeneration of macula and posterior pole
+0.1
+
+
+
+DOID:0090010
+574918
+Predisposition to severe viral infection due to IRF7 deficiency
+immunodeficiency-centromeric instability-facial anomalies syndrome 3
+0.0
+
+
+
+DOID:14500
+812
+Sialidosis type 1
+Fucosidosis
+0.0
+
+
+
+DOID:1612
+227535
+Hereditary breast cancer
+Breast cancer
+0.6666666666666666
+
+
+
+DOID:0060804
+397933
+Severe intellectual disability-progressive postnatal microcephaly-midline stereotypic hand movements syndrome
+syndromic X-linked intellectual disability 12
+0.21428571428571427
+
+
+
+DOID:1612
+227535
+Hereditary breast cancer
+Breast cancer
+0.6666666666666666
+
+
+
+DOID:0060738
+79402
+Intermediate generalized junctional epidermolysis bullosa
+junctional epidermolysis bullosa non-Herlitz type
+0.42857142857142855
+
+
+
+DOID:0060884
+564178
+Primary hypomagnesemia-refractory seizures-intellectual disability syndrome
+renal hypomagnesemia 6
+0.1111111111111111
+
+
+
+DOID:2018
+276556
+Hyperinsulinism due to UCP2 deficiency
+Hyperinsulinism
+0.25
+
+
+
+DOID:0110362
+364055
+Severe early-childhood-onset retinal dystrophy
+Retinitis pigmentosa 58
+0.125
+
+
+
+DOID:0112374
+199329
+Congenital myopathy, Paradas type
+muscular dystrophy-dystroglycanopathy
+0.0
+
+
+
+DOID:2377
+477738
+Pediatric multiple sclerosis
+Multiple sclerosis
+0.6666666666666666
+
+
+
+DOID:9007616
+329173
+Autoinflammatory syndrome with pyogenic bacterial infection and amylopectinosis
+Polyglucosan Body Myopathy 1 with or without Immunodeficiency
+0.07692307692307693
+
+
+
+DOID:0060586
+436144
+Intrauterine growth restriction-short stature-early adult-onset diabetes syndrome
+Noonan syndrome 8
+0.08333333333333333
+
+
+
+DOID:2007
+279
+NON RARE IN EUROPE: Age-related macular degeneration
+degeneration of macula and posterior pole
+0.1
+
+
+
+DOID:0090105
+209902
+Hypercholesterolemia due to cholesterol 7alpha-hydroxylase deficiency
+Autosomal recessive hypercholesterolemia
+0.125
+
+
+
+DOID:0080079
+280654
+Autosomal recessive nail dysplasia
+Nonsyndromic congenital nail disorder 1
+0.125
+
+
+
+DOID:0060212
+600
+Vocal cord and pharyngeal distal myopathy
+Amyotrophic lateral sclerosis type 21
+0.0
+
+
+
+DOID:1391
+426
+NON RARE IN EUROPE: Familial hypobetalipoproteinemia
+Norum disease
+0.0
+
+
+
+DOID:0111995
+319574
+Autosomal recessive mendelian susceptibility to mycobacterial diseases due to partial IFNgammaR2 deficiency
+immunodeficiency 28
+0.0
+
+
+
+DOID:4959
+89842
+Autosomal recessive generalized dystrophic epidermolysis bullosa, intermediate form
+Epidermolysis bullosa dystrophica
+0.2222222222222222
+
+
+
+DOID:0070151
+453510
+Congenital insensitivity to pain with severe intellectual disability
+Hereditary sensory and autonomic neuropathy type 6
+0.0
+
+
+
+DOID:0060457
+98975
+Congenital hereditary endothelial dystrophy type I
+Posterior polymorphous corneal dystrophy
+0.125
+
+
+
+DOID:483
+464293
+NON RARE IN EUROPE: Infantile capillary hemangioma
+Cavernous hemangioma
+0.14285714285714285
+
+
+
+DOID:9119
+402026
+Acute myeloid leukemia with NPM1 somatic mutations
+Acute myeloid leukemia
+0.42857142857142855
+
+
+
+DOID:0060738
+79402
+Intermediate generalized junctional epidermolysis bullosa
+junctional epidermolysis bullosa non-Herlitz type
+0.42857142857142855
+
+
+
+DOID:5520
+502366
+Squamous cell carcinoma of the lip
+head and neck squamous cell carcinoma
+0.5
+
+
+
+DOID:5520
+502363
+Squamous cell carcinoma of the oral cavity
+head and neck squamous cell carcinoma
+0.42857142857142855
+
+
+
+DOID:2018
+276580
+Autosomal dominant hyperinsulinism due to Kir6.2 deficiency
+Hyperinsulinism
+0.16666666666666666
+
+
+
+DOID:0060858
+238523
+Atypical hypotonia-cystinuria syndrome
+hypotonia-cystinuria syndrome
+0.75
+
+
+
+DOID:9003654
+363494
+Non-seminomatous germ cell tumor of testis
+Testicular Germ Cell Tumor
+0.42857142857142855
+
+
+
+DOID:0110336
+314029
+High bone mass osteogenesis imperfecta
+Osteogenesis imperfecta type 8
+0.3333333333333333
+
+
+
+DOID:0060331
+2596
+Myopathy and diabetes mellitus
+mitochondrial complex V (ATP synthase) deficiency nuclear type 2
+0.0
+
+
+
+DOID:0110280
+370997
+Muscle-eye-brain disease with bilateral multicystic leucodystrophy
+autosomal recessive limb-girdle muscular dystrophy type 2F
+0.0
+
+
+
+DOID:0060193
+404521
+Spinal muscular atrophy with respiratory distress type 2
+Amyotrophic lateral sclerosis type 1
+0.0
+
+
+
+DOID:1029
+397755
+Periodic paralysis with transient compartment-like syndrome
+familial periodic paralysis
+0.25
+
+
+
+DOID:9007616
+329173
+Autoinflammatory syndrome with pyogenic bacterial infection and amylopectinosis
+Polyglucosan Body Myopathy 1 with or without Immunodeficiency
+0.07692307692307693
+
+
+
+DOID:0060717
+281127
+Acral self-healing collodion baby
+autosomal recessive congenital ichthyosis 8
+0.0
+
+
+
+DOID:2007
+279
+NON RARE IN EUROPE: Age-related macular degeneration
+degeneration of macula and posterior pole
+0.1
+
+
+
+DOID:0112374
+424107
+Congenital myopathy with myasthenic-like onset
+muscular dystrophy-dystroglycanopathy
+0.0
+
+
+
+DOID:4960
+168953
+Myeloid/lymphoid neoplasm associated with FGFR1 rearrangement
+bone marrow cancer
+0.0
+
+
+
+DOID:0110362
+364055
+Severe early-childhood-onset retinal dystrophy
+Retinitis pigmentosa 58
+0.125
+
+
+
+DOID:2007
+279
+NON RARE IN EUROPE: Age-related macular degeneration
+degeneration of macula and posterior pole
+0.1
+
+
+
+DOID:2018
+79644
+Autosomal recessive hyperinsulinism due to Kir6.2 deficiency
+Hyperinsulinism
+0.16666666666666666
+
+
+
+DOID:0050629
+1648
+NON RARE IN EUROPE: Dementia with Lewy body
+Aicardi-Goutieres syndrome
+0.0
+
+
+
+DOID:9119
+402017
+Acute myeloid leukemia with t(9;11)(p22;q23)
+Acute myeloid leukemia
+0.6
+
+
+
+DOID:2859
+231249
+Hemoglobin E-beta-thalassemia syndrome
+Hemoglobin C disease
+0.14285714285714285
+
+
+
+DOID:2913
+64740
+NON RARE IN EUROPE: Recurrent acute pancreatitis
+Acute pancreatitis
+0.3333333333333333
+
+
+
+DOID:0110280
+206546
+Symptomatic form of muscular dystrophy of Duchenne and Becker in female carriers
+autosomal recessive limb-girdle muscular dystrophy type 2F
+0.15384615384615385
+
+
+
+DOID:9119
+86845
+Acute myeloid leukaemia with myelodysplasia-related features
+Acute myeloid leukemia
+0.25
+
+
+
+DOID:653
+423479
+X-linked intellectual disability-limb spasticity-retinal dystrophy-diabetes insipidus syndrome
+purine-pyrimidine metabolic disorder
+0.0
+
+
+
+DOID:0110781
+496689
+Kyphoscoliosis-lateral tongue atrophy-hereditary spastic paraplegia syndrome
+Hereditary spastic paraplegia 30
+0.3333333333333333
+
+
+
+DOID:0060858
+163693
+2p21 microdeletion syndrome
+hypotonia-cystinuria syndrome
+0.2
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:9074
+93552
+Pediatric systemic lupus erythematosus
+Systemic lupus erythematosus
+0.75
+
+
+
+DOID:0110164
+443950
+DNAJB2-related Charcot-Marie-Tooth disease type 2
+Charcot-Marie-Tooth disease type 2D
+0.5
+
+
+
+DOID:6148
+500464
+Squamous cell carcinoma of the nasal cavity and paranasal sinuses
+nasal cavity carcinoma in situ
+0.375
+
+
+
+DOID:0060474
+324299
+Multiple paragangliomas associated with polycythemia
+familial erythrocytosis 2
+0.0
+
+
+
+DOID:0111044
+248340
+Isolated delta-storage pool disease
+Gray platelet syndrome
+0.0
+
+
+
+DOID:0110164
+324611
+Autosomal dominant Charcot-Marie-Tooth disease type 2 due to KIF5A mutation
+Charcot-Marie-Tooth disease type 2D
+0.36363636363636365
+
+
+
+DOID:3652
+255210
+Mitochondrial DNA-associated Leigh syndrome
+Leigh disease
+0.16666666666666666
+
+
+
+DOID:13580
+521432
+Congenital cataract-severe neonatal hepatopathy-global developmental delay syndrome
+Cholestasis
+0.0
+
+
+
+DOID:13774
+289548
+Inherited isolated adrenal insufficiency due to partial CYP11A1 deficiency
+Addison's disease
+0.0
+
+
+
+DOID:12859
+369847
+Intellectual disability-hyperkinetic movement-truncal ataxia syndrome
+Choreatic disease
+0.0
+
+
+
+DOID:11245
+464370
+Neonatal alloimmune neutropenia
+transient neonatal neutropenia
+0.5
+
+
+
+DOID:649
+586130
+Sporadic fatal insomnia
+Prion disease
+0.0
+
+
+
+DOID:0060010
+447731
+NIK deficiency
+Omenn syndrome
+0.0
+
+
+
+DOID:0060858
+238523
+Atypical hypotonia-cystinuria syndrome
+hypotonia-cystinuria syndrome
+0.75
+
+
+
+DOID:2007
+279
+NON RARE IN EUROPE: Age-related macular degeneration
+degeneration of macula and posterior pole
+0.1
+
+
+
+DOID:2907
+2250
+Hyposmia-nasal and ocular hypoplasia-hypogonadotropic hypogonadism syndrome
+Goldenhar syndrome
+0.125
+
+
+
+DOID:0060858
+163693
+2p21 microdeletion syndrome
+hypotonia-cystinuria syndrome
+0.2
+
+
+
+DOID:14497
+565612
+Triglyceride deposit cardiomyovasculopathy
+Wolman disease
+0.0
+
+
+
+DOID:9119
+319465
+Inherited acute myeloid leukemia
+Acute myeloid leukemia
+0.75
+
+
+
+DOID:0110280
+399103
+Distal nebulin myopathy
+autosomal recessive limb-girdle muscular dystrophy type 2F
+0.0
+
+
+
+DOID:0070125
+226307
+Hypothyroidism due to deficient transcription factors involved in pituitary development or function
+congenital nongoitrous hypothyroidism 5
+0.08333333333333333
+
+
+
+DOID:2859
+280615
+Hemoglobinopathy Toms River
+Hemoglobin C disease
+0.0
+
+
+
+DOID:2859
+231242
+Hemoglobin C-beta-thalassemia syndrome
+Hemoglobin C disease
+0.3333333333333333
+
+
+
+DOID:0050629
+1648
+NON RARE IN EUROPE: Dementia with Lewy body
+Aicardi-Goutieres syndrome
+0.0
+
+
+
+DOID:13399
+319691
+NON RARE IN EUROPE: Partial color blindness, protan type
+Color blindness
+0.2857142857142857
+
+
+
+DOID:0110336
+314029
+High bone mass osteogenesis imperfecta
+Osteogenesis imperfecta type 8
+0.3333333333333333
+
+
+
+DOID:9002510
+725
+Continuous spikes and waves during sleep
+Focal Epilepsy with Speech Disorder and with or without Mental Retardation
+0.0
+
+
+
+Time processing parsing context: 98.75825309753418
+Time processing Final annotation file: 2.288818359375e-05
+Time processing writing final annotatiton file: 0.6697812080383301
+Total time: 99.4280571937561

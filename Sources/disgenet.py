@@ -15,7 +15,7 @@
 
 from Classes.annotation_row import DisGeNetRow
 from Common.constants import DISGENET_PATH
-from Common.init import pd
+from Common.init import pd, OrderedSet
 from Common.util import CheckNan
 
 
@@ -26,7 +26,7 @@ class DisGeNet:
         disGeNetData = disGeNetData[["geneId", "geneSymbol", "diseaseId", "diseaseName"]]
         disGeNetData = disGeNetData.to_numpy()
 
-        disGeNetSet = set()
+        disGeNetSet = OrderedSet()
         for row in disGeNetData:
             symbol = CheckNan(row[1])
             entrezID = CheckNan(row[0])

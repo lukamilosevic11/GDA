@@ -15,13 +15,14 @@
 
 from Classes.annotation_row import HPORow
 from Common.constants import HPO_PATH
+from Common.init import OrderedSet
 from Common.util import CheckEmpty
 
 
 class HPO:
     @staticmethod
     def Read(filePath=HPO_PATH):
-        hpoSet = set()
+        hpoSet = OrderedSet()
         with open(filePath, 'r') as hpoFile:
             hpoLines = hpoFile.readlines()
             for line in hpoLines[1:]:

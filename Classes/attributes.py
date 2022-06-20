@@ -13,7 +13,9 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Common.constants import COLLECTION_NAME_DOID, QUERY_BY_DOID, MAX_JACCARD_INDEX
+from Common.constants import COLLECTION_NAME_DOID, QUERY_BY_DOID, DOID_SOURCE_XREF_OMIM, DOID_SOURCE_XREF_UMLS, \
+    DOID_SOURCE_XREF_MESH, DOID_SOURCE_XREF_GARD, DOID_SOURCE_XREF_MEDDRA, DOID_SOURCE_XREF_ICD10, \
+    DOID_SOURCE_SEARCH_ENGINE, DOID_SOURCE_FROZEN_SET
 from Common.init import Xref
 from Common.util import PreprocessingDiseaseName, JaccardSimilarity
 
@@ -87,22 +89,22 @@ class DOID:
         self.__icd10Dict = icd10Dict
 
     def GetByOmim(self, omim):
-        return (self.__omimDict[omim], MAX_JACCARD_INDEX) if omim in self.__omimDict else (None, None)
+        return (self.__omimDict[omim], DOID_SOURCE_XREF_OMIM) if omim in self.__omimDict else (None, None)
 
     def GetByUmls(self, umls):
-        return (self.__umlsDict[umls], MAX_JACCARD_INDEX) if umls in self.__umlsDict else (None, None)
+        return (self.__umlsDict[umls], DOID_SOURCE_XREF_UMLS) if umls in self.__umlsDict else (None, None)
 
     def GetByGard(self, gard):
-        return (self.__gardDict[gard], MAX_JACCARD_INDEX) if gard in self.__gardDict else (None, None)
+        return (self.__gardDict[gard], DOID_SOURCE_XREF_GARD) if gard in self.__gardDict else (None, None)
 
     def GetByMesh(self, mesh):
-        return (self.__meshDict[mesh], MAX_JACCARD_INDEX) if mesh in self.__meshDict else (None, None)
+        return (self.__meshDict[mesh], DOID_SOURCE_XREF_MESH) if mesh in self.__meshDict else (None, None)
 
     def GetByMedDra(self, medDra):
-        return (self.__medDraDict[medDra], MAX_JACCARD_INDEX) if medDra in self.__medDraDict else (None, None)
+        return (self.__medDraDict[medDra], DOID_SOURCE_XREF_MEDDRA) if medDra in self.__medDraDict else (None, None)
 
     def GetByIcd10(self, icd10):
-        return (self.__icd10Dict[icd10], MAX_JACCARD_INDEX) if icd10 in self.__icd10Dict else (None, None)
+        return (self.__icd10Dict[icd10], DOID_SOURCE_XREF_ICD10) if icd10 in self.__icd10Dict else (None, None)
 
     def GetByXref(self, xref, value):
         if xref == Xref.OMIM:
@@ -124,7 +126,7 @@ class DOID:
 
         preprocessedDiseaseName = frozenset(PreprocessingDiseaseName(diseaseName))
         if preprocessedDiseaseName in self.__diseaseNameFrozenSetDict:
-            return self.__diseaseNameFrozenSetDict[preprocessedDiseaseName], MAX_JACCARD_INDEX
+            return self.__diseaseNameFrozenSetDict[preprocessedDiseaseName], DOID_SOURCE_FROZEN_SET
 
         return None, None
 
@@ -135,11 +137,10 @@ class DOID:
         preprocessedDiseaseName = PreprocessingDiseaseName(diseaseName)
         preprocessedDiseaseNameFrozenSet = frozenset(preprocessedDiseaseName)
         if preprocessedDiseaseNameFrozenSet in self.__diseaseNameFrozenSetDict:
-            return self.__diseaseNameFrozenSetDict[preprocessedDiseaseNameFrozenSet], MAX_JACCARD_INDEX
+            return self.__diseaseNameFrozenSetDict[preprocessedDiseaseNameFrozenSet], DOID_SOURCE_FROZEN_SET
         else:
             return self.__SearchWithSearchEngine(preprocessedDiseaseName)
 
-    # TODO: add check if we have more than one hit then we can compare results with Jaccard index or some other measure
     def __SearchWithSearchEngine(self, preprocessedDiseaseNameTokens):
         preprocessedDiseaseName = ' '.join(preprocessedDiseaseNameTokens)
         searchResult = self.__searchEngineClient. \
@@ -148,8 +149,9 @@ class DOID:
             foundDiseaseName = searchResult["hits"][0]["document"]["diseaseName"]
             jaccSimilarity = JaccardSimilarity(foundDiseaseName, preprocessedDiseaseName)
             doid = searchResult["hits"][0]["document"]["doid"]
-            # self.__diseaseNameFrozenSetDict[frozenset(preprocessedDiseaseNameTokens)] = doid
-            return doid, jaccSimilarity
+            doidSource = DOID_SOURCE_SEARCH_ENGINE + ", " + str(int(round(jaccSimilarity*100, 0))) + '%'
+
+            return doid, doidSource
         elif " due " in preprocessedDiseaseName:
             return self.GetByDiseaseName(preprocessedDiseaseName.split(" due ")[0])
         elif " with without " in preprocessedDiseaseName:
@@ -165,10 +167,12 @@ class DOID:
 # DiseaseName is part of: DisGeNet, Cosmic, HumsaVar, Orphanet, ClinVar, Diseases, OBO
 # DiseaseName can be found using DOID (OBO and Diseases), Omim and Orpha
 class DiseaseName:
-    def __init__(self, doidDict, orphaDict, omimDict):
+    def __init__(self, doidDict, orphaDict, omimDiseaseNameDict, omimDoidAndDiseaseNameDict, doidParentDict):
         self.__doidDict = doidDict
         self.__orphaDict = orphaDict
-        self.__omimDict = omimDict
+        self.__omimDiseaseNameDict = omimDiseaseNameDict
+        self.__omimDoidAndDiseaseNameDict = omimDoidAndDiseaseNameDict
+        self.__doidParentDict = doidParentDict
 
     def GetByDoid(self, doid):
         return self.__doidDict[doid] if doid in self.__doidDict else None
@@ -177,22 +181,31 @@ class DiseaseName:
         return self.__orphaDict[orpha] if orpha in self.__orphaDict else None
 
     def GetByOmim(self, omim):
-        return self.__omimDict[omim] if omim in self.__omimDict else []
+        return self.__omimDiseaseNameDict[omim] if omim in self.__omimDiseaseNameDict else []
+
+    def GetByOmimDoidAndDiseaseName(self, omim):
+        return self.__omimDoidAndDiseaseNameDict[omim] if omim in self.__omimDoidAndDiseaseNameDict else []
+
+    def GetParentDoidAndDiseaseNamesByDoid(self, doid):
+        return self.__doidParentDict[doid] if doid in self.__doidParentDict else []
 
 
 # Xrefs can be found by Orpha and can be returned only exact xref values, not exact xref values or all xref values
 class Xrefs:
-    def __init__(self, orphaExactDict, orphaNotExactDict, orphaDict):
+    def __init__(self, orphaExactDict, orphaBtntDict, orphaNtbtDict, orphaOtherDict):
         self.__orphaExactDict = orphaExactDict
-        self.__orphaNotExactDict = orphaNotExactDict
-        self.__orphaDict = orphaDict
-
-    def GetByOrpha(self, orpha):
-        return self.__orphaDict[orpha] if orpha in self.__orphaDict else {}
+        self.__orphaBtntDict = orphaBtntDict
+        self.__orphaNtbtDict = orphaNtbtDict
+        self.__orphaOtherDict = orphaOtherDict
 
     def GetByOrphaExact(self, orpha):
         return self.__orphaExactDict[orpha] if orpha in self.__orphaExactDict else {}
 
-    def GetByOrphaNotExact(self, orpha):
-        return self.__orphaNotExactDict[orpha] if orpha in self.__orphaNotExactDict else {}
+    def GetByOrphaBtnt(self, orpha):
+        return self.__orphaBtntDict[orpha] if orpha in self.__orphaBtntDict else {}
 
+    def GetByOrphaNtbt(self, orpha):
+        return self.__orphaNtbtDict[orpha] if orpha in self.__orphaNtbtDict else {}
+
+    def GetByOrphaOther(self, orpha):
+        return self.__orphaOtherDict[orpha] if orpha in self.__orphaOtherDict else {}

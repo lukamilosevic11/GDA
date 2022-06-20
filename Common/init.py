@@ -14,6 +14,7 @@
 #  all copies or substantial portions of the Software.
 
 import concurrent.futures
+import copy
 import json
 import multiprocessing
 import nltk
@@ -28,7 +29,10 @@ import string
 import time
 import typesense
 import xml.etree.ElementTree as et
-from enum import Enum
+from collections import OrderedDict
+from tabulate import tabulate
+from ordered_set import OrderedSet
+from enum import Enum, IntEnum
 from functools import partial
 from itertools import permutations
 from pronto import Ontology
@@ -36,12 +40,12 @@ from threading import Thread, Lock
 from time import perf_counter
 
 
-class Xref(Enum):
-    OMIM = 1
-    UMLS = 2
-    MeSH = 3
-    GARD = 4
-    MedDRA = 5
+class Xref(IntEnum):
+    UMLS = 1
+    MeSH = 2
+    GARD = 3
+    MedDRA = 4
+    OMIM = 5
     ICD10 = 6
 
 

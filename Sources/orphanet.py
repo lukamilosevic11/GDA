@@ -15,13 +15,13 @@
 
 from Classes.annotation_row import OrphanetRow
 from Common.constants import ORPHANET_PATH
-from Common.init import et
+from Common.init import et, OrderedSet
 
 
 class Orphanet:
     @staticmethod
     def Read(filePath=ORPHANET_PATH):
-        orphanetSet = set()
+        orphanetSet = OrderedSet()
         tree = et.parse(filePath)
         root = tree.getroot()
         disorderList = root.find("DisorderList")

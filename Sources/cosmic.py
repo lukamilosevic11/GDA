@@ -15,7 +15,7 @@
 
 from Classes.annotation_row import CosmicRow
 from Common.constants import COSMIC_PATH
-from Common.init import pd
+from Common.init import pd, OrderedSet
 from Common.util import CheckNan
 
 
@@ -26,7 +26,7 @@ class Cosmic:
         cosmicData = cosmicData[["Gene Symbol", "Entrez GeneId", "Tumour Types(Somatic)", "Tumour Types(Germline)"]]
         cosmicData = cosmicData.to_numpy()
 
-        cosmicSet = set()
+        cosmicSet = OrderedSet()
         for row in cosmicData:
             symbol = CheckNan(row[0])
             entrezID = CheckNan(row[1])

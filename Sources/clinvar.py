@@ -15,7 +15,7 @@
 
 from Classes.annotation_row import ClinVarRow
 from Common.constants import CLINVAR_PATH
-from Common.init import pd
+from Common.init import pd, OrderedSet
 from Common.util import CheckNan
 
 
@@ -27,7 +27,7 @@ class ClinVar:
                                    "DiseaseMIM"]]
         clinVarData = clinVarData.to_numpy()
 
-        clinVarSet = set()
+        clinVarSet = OrderedSet()
         for row in clinVarData:
             associatedGeneSymbol = CheckNan(row[1])
             relatedGeneSymbol = CheckNan(row[2])
