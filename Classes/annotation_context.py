@@ -17,7 +17,7 @@ from Classes.attributes import EntrezID, UniprotID, EnsemblID, DOID, DiseaseName
 from Classes.search_engine_client import SearchEngineClient
 from Common.constants import COLLECTION_NAME_DOID, DISEASE_NAME_DOID_JSONL_PATH
 from Common.init import Source, Xref, XREFS_SOURCE, json
-from Common.util import PreprocessingDiseaseName, WriteDictToJsonlFile
+from Common.util import PreprocessingDiseaseName
 
 
 class AnnotationContext:
@@ -238,8 +238,8 @@ class AnnotationContext:
 
                             # Search Engine Set
                             preprocessedDiseaseNameSynonym = ' '.join(preprocessedDiseaseNameSynonym)
-                            definition = (PreprocessingDiseaseName(term.definition, True)
-                                          if term.definition is not None else "") if source is Source.OBO else ""
+                            definition = PreprocessingDiseaseName(term.definition, True) \
+                                if term.definition is not None else ""
                             self.__searchEngineSet.add((preprocessedDiseaseNameSynonym, definition, term.doid))
 
                     # xrefs -> DOID
