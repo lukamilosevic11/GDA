@@ -13,7 +13,6 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Classes.parsing_context_obsolete import ParsingContext
 from Classes.parsing_context_thread import ParsingContextThread
 from Common.init import time
 from Sources.hpo import HPO
@@ -85,7 +84,7 @@ def main():
     parsingContext = ParsingContextThread(True)
     parsingContextEndTime = time.time()
     print("Time processing parsing context: {}".format(parsingContextEndTime - startTime))
-    tmpFilePath = "./Results/annotationFile2.txt"
+    tmpFilePath = "./Results/annotationFile3.txt"
     startTimeAnnotationFile = time.time()
     print("Time processing Final annotation file: {}".format(startTimeAnnotationFile - parsingContextEndTime))
     parsingContext.CreateAnnotationFile(tmpFilePath)

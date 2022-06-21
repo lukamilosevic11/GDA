@@ -124,7 +124,7 @@ class HPORow(AnnotationRow):
 
 
 class HumsaVarRow(AnnotationRow):
-    def __init__(self, symbol, diseaseName, omim):
+    def __init__(self, symbol, uniprot, diseaseName, omim):
         super(HumsaVarRow, self).__init__(symbol, None, None, None, None, "HumsaVar", diseaseName)
         self.omim = omim
 

@@ -1,0 +1,15 @@
+{
+  "DATA_DIRECTORY": "./Data",
+  "CLINVAR": "clinvar.txt",
+  "COSMIC": "cosmic.csv",
+  "DISEASES": "diseases.tsv",
+  "DISGENET": "disgenet.tsv",
+  "HPO": "hpo.txt",
+  "HUMSAVAR": "humsavar.txt",
+  "ORPHANET": "orphanet.xml",
+  "RGD_OBO": "rgd.txt",
+  "OBO": "obo.txt",
+  "UNIPROT": "uniprot.dat",
+  "HUGO": "hugo.txt",
+  "ORPHANET_XREF": "orphanet_xref.xml"
+}

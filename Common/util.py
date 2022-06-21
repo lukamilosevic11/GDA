@@ -13,7 +13,7 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Common.init import Attribute, Source, pd, json, string, nltk, re
+from Common.init import Attribute, Source, pd, json, string, nltk, re, os
 from nltk.stem import WordNetLemmatizer
 from nltk.stem.porter import PorterStemmer
 from nltk.tokenize import word_tokenize
@@ -129,5 +129,13 @@ def GetAttribute(getMethods):
         attribute = getMethod()
         if attribute is not None:
             return attribute
+
+    return None
+
+
+def ImportDataFilenamesJson(filePath):
+    if os.path.exists(filePath):
+        with open(filePath) as dataFile:
+            return json.load(dataFile)
 
     return None
