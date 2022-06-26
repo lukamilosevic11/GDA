@@ -21,7 +21,7 @@ from Common.util import PreprocessingDiseaseName
 
 
 class AnnotationContext:
-    def __init__(self, dbContext, dropCollection):
+    def __init__(self, dbContext, createCollection):
         self.__dbContext = dbContext
         self.__searchEngineClient = SearchEngineClient()
         self.__sources = Source.GetAllSources()
@@ -76,7 +76,7 @@ class AnnotationContext:
         self.__searchEngineSet = set()
 
         self.__InitializeDictionaries()
-        self.__InitializeSearchEngineClient(dropCollection)
+        self.__InitializeSearchEngineClient(createCollection)
         self.__InitializeAttributes()
 
     def __InitializeOrphanetXrefDictionaries(self):

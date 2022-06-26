@@ -57,13 +57,3 @@ class SearchEngineClient:
         }
 
         return self.client.collections[name].documents.search(searchParameters)
-
-    @staticmethod
-    def SearchResultToString(searchResult):
-        res = ""
-        if len(searchResult["hits"]) > 0:
-            res += "*************************************************************************************************\n"
-            res += json.dumps(searchResult["hits"][0]["document"], indent=2, sort_keys=True)
-            res += "*************************************************************************************************"
-
-        return res

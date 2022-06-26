@@ -22,10 +22,10 @@ from Common.util import GetAttribute, WriteStructureToFile, JaccardSimilarity, P
 
 
 class ParsingContextThread:
-    def __init__(self, dropCollection=False):
+    def __init__(self, createCollection=False):
         self.dbContext = DBContext()
         self.__totalLength = self.dbContext.GetTotalLength()
-        self.annotationContext = AnnotationContext(self.dbContext, dropCollection)
+        self.annotationContext = AnnotationContext(self.dbContext, createCollection)
         self.__sources = Source.GetSourcesForParsing()
         self.__sourcesAnnotationSetDict = {}
         self.__annotationSet = set()

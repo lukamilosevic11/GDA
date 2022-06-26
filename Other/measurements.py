@@ -19,8 +19,8 @@ from Common.constants import DOID_SOURCE_XREF_OMIM, DOID_SOURCE_XREF_UMLS, DOID_
 from Common.init import pd, tabulate, copy
 
 
-def DoidAccuracy(filePath):
-    annotationData = pd.read_csv(filePath, sep='\t', dtype=str)
+def DoidAccuracy(annotationFilePath, doidAccuracyFilePath):
+    annotationData = pd.read_csv(annotationFilePath, sep='\t', dtype=str)
     annotationData = annotationData[["Source", "DOID Source"]]
     annotationData = annotationData.groupby("Source", as_index=False).agg(list)
     annotationData = annotationData.to_numpy()
@@ -155,13 +155,13 @@ def DoidAccuracy(filePath):
             row[i+1] = int(round((x / rowCount) * 100, 0)) if int(round((x / rowCount) * 100, 0)) >= 1 or x == 0 else \
                 round((x / rowCount) * 100, 3)
 
-    # Accuracy Table
-    print("Accuracy table\n")
-    print(tabulate(tableAccuracy, HEADER_ACCURACY, tablefmt="pretty") + '\n')
-    # Accuracy Table Percentage
-    print("Accuracy percentage table\n")
-    print(tabulate(tableAccuracyPercentage, HEADER_ACCURACY, tablefmt="pretty") + '\n')
-    # Source Table
-    print("Source table\n")
-    print(tabulate(tableSource, HEADER_SOURCE, tablefmt="pretty") + '\n')
-    print("Total number of rows: " + str(totalCount))
+    with open(doidAccuracyFilePath, "w") as file:
+        file.write("Accuracy table\n\n")
+        file.write(tabulate(tableAccuracy, HEADER_ACCURACY, tablefmt="pretty") + '\n\n')
+        # Accuracy Table Percentage
+        file.write("Accuracy percentage table\n\n")
+        file.write(tabulate(tableAccuracyPercentage, HEADER_ACCURACY, tablefmt="pretty") + '\n\n')
+        # Source Table
+        file.write("Source table\n\n")
+        file.write(tabulate(tableSource, HEADER_SOURCE, tablefmt="pretty") + '\n\n')
+        file.write("Total number of rows: " + str(totalCount))
