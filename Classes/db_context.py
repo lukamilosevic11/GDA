@@ -67,5 +67,32 @@ class DBContext:
         elif source is Source.ORPHANET_XREF:
             return self.__orphanetXref
 
-    def GetTotalLength(self):
+    def GetDatabaseLengthBySource(self, source):
+        if source is Source.DISGENET:
+            return len(self.__disGeNet)
+        elif source is Source.COSMIC:
+            return len(self.__cosmic)
+        elif source is Source.CLINVAR:
+            return len(self.__clinvar)
+        elif source is Source.HUMSAVAR:
+            return len(self.__humsavar)
+        elif source is Source.ORPHANET:
+            return len(self.__orphanet)
+        elif source is Source.HPO:
+            return len(self.__hpo)
+        elif source is Source.DISEASES:
+            return len(self.__diseases)
+        elif source is Source.OBO:
+            return len(self.__obo)
+        elif source is Source.UNIPROT:
+            return len(self.__uniprot)
+        elif source is Source.HUGO:
+            return len(self.__hugo)
+        elif source is Source.ORPHANET_XREF:
+            return len(self.__orphanetXref)
+
+    def GetTotalParsingLength(self):
         return self.__totalLength
+
+    def GetAllSourcesLength(self):
+        return sum(list(map(self.GetDatabaseLengthBySource, Source.GetAllSources())))

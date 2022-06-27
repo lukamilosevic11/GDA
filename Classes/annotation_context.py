@@ -16,7 +16,8 @@
 from Classes.attributes import EntrezID, UniprotID, EnsemblID, DOID, DiseaseName, Xrefs
 from Classes.search_engine_client import SearchEngineClient
 from Common.constants import COLLECTION_NAME_DOID, DISEASE_NAME_DOID_JSONL_PATH
-from Common.init import Source, Xref, XREFS_SOURCE, json
+from Common.init import Source, Xref, XREFS_SOURCE, json, Progress, SpinnerColumn, TimeElapsedColumn, TextColumn, \
+    BarColumn, TaskProgressColumn, TimeRemainingColumn, MofNCompleteColumn
 from Common.util import PreprocessingDiseaseName
 
 
@@ -79,9 +80,10 @@ class AnnotationContext:
         self.__InitializeSearchEngineClient(createCollection)
         self.__InitializeAttributes()
 
-    def __InitializeOrphanetXrefDictionaries(self):
+    def __InitializeOrphanetXrefDictionaries(self, progress, progressTask):
         sourceSet = self.__dbContext.GetDatabaseBySource(Source.ORPHANET_XREF)
         for term in sourceSet:
+            progress.update(progressTask, advance=1)
             if term.orpha is not None:
                 # Orpha -> Xrefs
                 exactXrefs = term.GetExactXrefs()
@@ -105,163 +107,168 @@ class AnnotationContext:
                     self.__orphaToDiseaseName[term.orpha] = term.diseaseName
 
     def __InitializeDictionaries(self):
-        self.__InitializeOrphanetXrefDictionaries()
-        for source in self.__sources:
-            if source is Source.ORPHANET_XREF:
-                continue
+        with Progress(SpinnerColumn(), TextColumn("[progress.description]{task.description}"), BarColumn(),
+                      TaskProgressColumn(), MofNCompleteColumn(),
+                      TimeElapsedColumn(), TimeRemainingColumn()) as progress:
+            progressTask = progress.add_task("Preparing for parsing", total=self.__dbContext.GetAllSourcesLength())
+            self.__InitializeOrphanetXrefDictionaries(progress, progressTask)
+            for source in self.__sources:
+                if source is Source.ORPHANET_XREF:
+                    continue
 
-            sourceSet = self.__dbContext.GetDatabaseBySource(source)
-            for term in sourceSet:
-                # Symbol
-                if term.symbol is not None:
-                    # Symbol -> EntrezID
-                    if term.symbol not in self.__symbolToEntrezID and term.entrezID is not None:
-                        self.__symbolToEntrezID[term.symbol] = term.entrezID
-                    # Symbol -> UniprotID
-                    if term.symbol not in self.__symbolToUniprotID and term.uniprotID is not None:
-                        self.__symbolToUniprotID[term.symbol] = term.uniprotID
-                    # Symbol -> EnsemblID
-                    if term.symbol not in self.__symbolToEnsemblID and term.ensemblID is not None:
-                        self.__symbolToEnsemblID[term.symbol] = term.ensemblID
-
-                # Symbol (for additional Uniprot symbol synonyms)
-                if source is Source.UNIPROT:
-                    symbolSynonyms = term.getSymbolSynonyms()
-                    if symbolSynonyms:
-                        for symbol in symbolSynonyms:
-                            # Symbol -> EntrezID
-                            if symbol not in self.__symbolToEntrezID and term.entrezID is not None:
-                                self.__symbolToEntrezID[symbol] = term.entrezID
-                            # Symbol -> UniprotID
-                            if symbol not in self.__symbolToUniprotID and term.uniprotID is not None:
-                                self.__symbolToUniprotID[symbol] = term.uniprotID
-                            # Symbol -> EnsemblID
-                            if symbol not in self.__symbolToEnsemblID and term.ensemblID is not None:
-                                self.__symbolToEnsemblID[symbol] = term.ensemblID
-
-                # EntrezID
-                if term.entrezID is not None:
-                    # EntrezID -> UniprotID
-                    if term.entrezID not in self.__entrezIDToUniprotID and term.uniprotID is not None:
-                        self.__entrezIDToUniprotID[term.entrezID] = term.uniprotID
-                    # EntrezID -> EnsemblID
-                    if term.entrezID not in self.__entrezIDToEnsemblID and term.ensemblID is not None:
-                        self.__entrezIDToEnsemblID[term.entrezID] = term.ensemblID
-
-                # UniprotID
-                if term.uniprotID is not None:
-                    # UniprotID -> EntrezID
-                    if term.uniprotID not in self.__uniprotIDToEntrezID and term.entrezID is not None:
-                        self.__uniprotIDToEntrezID[term.uniprotID] = term.entrezID
-                    # UniprotID -> EnsemblID
-                    if term.uniprotID not in self.__uniprotIDToEnsemblID and term.ensemblID is not None:
-                        self.__uniprotIDToEnsemblID[term.uniprotID] = term.ensemblID
-
-                # UniprotID (additional UniprotIDs from Hugo)
-                if source is Source.HUGO:
-                    uniprotIDs = term.getUniprotIDs()
-                    for uniprotID in uniprotIDs:
+                sourceSet = self.__dbContext.GetDatabaseBySource(source)
+                for term in sourceSet:
+                    progress.update(progressTask, advance=1)
+                    # Symbol
+                    if term.symbol is not None:
+                        # Symbol -> EntrezID
+                        if term.symbol not in self.__symbolToEntrezID and term.entrezID is not None:
+                            self.__symbolToEntrezID[term.symbol] = term.entrezID
                         # Symbol -> UniprotID
-                        if term.symbol not in self.__symbolToUniprotID and term.symbol is not None:
-                            self.__symbolToUniprotID[term.symbol] = uniprotID
+                        if term.symbol not in self.__symbolToUniprotID and term.uniprotID is not None:
+                            self.__symbolToUniprotID[term.symbol] = term.uniprotID
+                        # Symbol -> EnsemblID
+                        if term.symbol not in self.__symbolToEnsemblID and term.ensemblID is not None:
+                            self.__symbolToEnsemblID[term.symbol] = term.ensemblID
 
+                    # Symbol (for additional Uniprot symbol synonyms)
+                    if source is Source.UNIPROT:
+                        symbolSynonyms = term.getSymbolSynonyms()
+                        if symbolSynonyms:
+                            for symbol in symbolSynonyms:
+                                # Symbol -> EntrezID
+                                if symbol not in self.__symbolToEntrezID and term.entrezID is not None:
+                                    self.__symbolToEntrezID[symbol] = term.entrezID
+                                # Symbol -> UniprotID
+                                if symbol not in self.__symbolToUniprotID and term.uniprotID is not None:
+                                    self.__symbolToUniprotID[symbol] = term.uniprotID
+                                # Symbol -> EnsemblID
+                                if symbol not in self.__symbolToEnsemblID and term.ensemblID is not None:
+                                    self.__symbolToEnsemblID[symbol] = term.ensemblID
+
+                    # EntrezID
+                    if term.entrezID is not None:
                         # EntrezID -> UniprotID
-                        if term.entrezID not in self.__entrezIDToUniprotID and term.entrezID is not None:
-                            self.__entrezIDToUniprotID[term.entrezID] = uniprotID
+                        if term.entrezID not in self.__entrezIDToUniprotID and term.uniprotID is not None:
+                            self.__entrezIDToUniprotID[term.entrezID] = term.uniprotID
+                        # EntrezID -> EnsemblID
+                        if term.entrezID not in self.__entrezIDToEnsemblID and term.ensemblID is not None:
+                            self.__entrezIDToEnsemblID[term.entrezID] = term.ensemblID
 
-                        # EnsemblID -> UniprotID
-                        if term.ensemblID not in self.__ensemblIDToUniprotID and term.ensemblID is not None:
-                            self.__ensemblIDToUniprotID[term.ensemblID] = uniprotID
-
+                    # UniprotID
+                    if term.uniprotID is not None:
                         # UniprotID -> EntrezID
-                        if uniprotID not in self.__uniprotIDToEntrezID and term.entrezID is not None:
-                            self.__uniprotIDToEntrezID[uniprotID] = term.entrezID
-
+                        if term.uniprotID not in self.__uniprotIDToEntrezID and term.entrezID is not None:
+                            self.__uniprotIDToEntrezID[term.uniprotID] = term.entrezID
                         # UniprotID -> EnsemblID
-                        if uniprotID not in self.__uniprotIDToEnsemblID and term.ensemblID is not None:
-                            self.__uniprotIDToEnsemblID[uniprotID] = term.ensemblID
+                        if term.uniprotID not in self.__uniprotIDToEnsemblID and term.ensemblID is not None:
+                            self.__uniprotIDToEnsemblID[term.uniprotID] = term.ensemblID
 
-                # EnsemblID
-                if term.ensemblID is not None:
-                    # EnsemblID -> EntrezID
-                    if term.ensemblID not in self.__ensemblIDToEntrezID and term.entrezID is not None:
-                        self.__ensemblIDToEntrezID[term.ensemblID] = term.entrezID
-                    # EnsemblID -> UniprotID
-                    if term.ensemblID not in self.__ensemblIDToUniprotID and term.uniprotID is not None:
-                        self.__ensemblIDToUniprotID[term.ensemblID] = term.uniprotID
+                    # UniprotID (additional UniprotIDs from Hugo)
+                    if source is Source.HUGO:
+                        uniprotIDs = term.getUniprotIDs()
+                        for uniprotID in uniprotIDs:
+                            # Symbol -> UniprotID
+                            if term.symbol not in self.__symbolToUniprotID and term.symbol is not None:
+                                self.__symbolToUniprotID[term.symbol] = uniprotID
 
-                # DOID
-                if term.doid is not None:
-                    # DOID -> DiseaseName
-                    if term.doid not in self.__doidToDiseaseName and term.diseaseName is not None:
-                        self.__doidToDiseaseName[term.doid] = term.diseaseName
+                            # EntrezID -> UniprotID
+                            if term.entrezID not in self.__entrezIDToUniprotID and term.entrezID is not None:
+                                self.__entrezIDToUniprotID[term.entrezID] = uniprotID
 
-                    # DOID -> Synonym(additional disease name synonyms from OBO)
-                    if source is Source.OBO and term.doid not in self.__doidToDiseaseName:
+                            # EnsemblID -> UniprotID
+                            if term.ensemblID not in self.__ensemblIDToUniprotID and term.ensemblID is not None:
+                                self.__ensemblIDToUniprotID[term.ensemblID] = uniprotID
+
+                            # UniprotID -> EntrezID
+                            if uniprotID not in self.__uniprotIDToEntrezID and term.entrezID is not None:
+                                self.__uniprotIDToEntrezID[uniprotID] = term.entrezID
+
+                            # UniprotID -> EnsemblID
+                            if uniprotID not in self.__uniprotIDToEnsemblID and term.ensemblID is not None:
+                                self.__uniprotIDToEnsemblID[uniprotID] = term.ensemblID
+
+                    # EnsemblID
+                    if term.ensemblID is not None:
+                        # EnsemblID -> EntrezID
+                        if term.ensemblID not in self.__ensemblIDToEntrezID and term.entrezID is not None:
+                            self.__ensemblIDToEntrezID[term.ensemblID] = term.entrezID
+                        # EnsemblID -> UniprotID
+                        if term.ensemblID not in self.__ensemblIDToUniprotID and term.uniprotID is not None:
+                            self.__ensemblIDToUniprotID[term.ensemblID] = term.uniprotID
+
+                    # DOID
+                    if term.doid is not None:
+                        # DOID -> DiseaseName
+                        if term.doid not in self.__doidToDiseaseName and term.diseaseName is not None:
+                            self.__doidToDiseaseName[term.doid] = term.diseaseName
+
+                        # DOID -> Synonym(additional disease name synonyms from OBO)
+                        if source is Source.OBO and term.doid not in self.__doidToDiseaseName:
+                            diseaseNameSynonyms = term.GetSynonyms()
+                            if diseaseNameSynonyms:
+                                self.__doidToDiseaseName[term.doid] = diseaseNameSynonyms[0]
+
+                    # DiseaseName
+                    if term.diseaseName is not None:
+                        # DiseaseName -> DOID
+                        if source is Source.DISEASES or source is Source.OBO:
+                            if term.doid is not None:
+                                preprocessedDiseaseName = PreprocessingDiseaseName(term.diseaseName)
+                                preprocessedDiseaseNameFrozenSet = frozenset(preprocessedDiseaseName)
+                                if preprocessedDiseaseNameFrozenSet not in self.__diseaseNameFrozenSetToDOID:
+                                    self.__diseaseNameFrozenSetToDOID[preprocessedDiseaseNameFrozenSet] = term.doid
+
+                                # Search Engine Set
+                                preprocessedDiseaseName = ' '.join(preprocessedDiseaseName)
+                                definition = (PreprocessingDiseaseName(term.definition, True)
+                                              if term.definition is not None else "") if source is Source.OBO else ""
+                                self.__searchEngineSet.add((preprocessedDiseaseName, definition, term.doid))
+
+                    # DiseaseName -> DOID (OBO synonyms) and xrefs -> DOID and DOID -> ParentDoidAndDiseaseName
+                    if source is Source.OBO:
+                        # DOID -> ParentDoidAndDiseaseName
+                        parentDoidAndDiseaseNames = term.GetParentDiseaseNameAndDoids()
+                        if parentDoidAndDiseaseNames and term.doid is not None:
+                            self.__doidToParentDoidAndDiseaseName[term.doid] = parentDoidAndDiseaseNames
+
+                        # DiseaseName -> DOID (OBO synonyms)
                         diseaseNameSynonyms = term.GetSynonyms()
-                        if diseaseNameSynonyms:
-                            self.__doidToDiseaseName[term.doid] = diseaseNameSynonyms[0]
+                        if diseaseNameSynonyms and term.doid is not None:
+                            for diseaseNameSynonym in diseaseNameSynonyms:
+                                preprocessedDiseaseNameSynonym = PreprocessingDiseaseName(diseaseNameSynonym)
+                                preprocessedDiseaseNameSynonymFrozenSet = \
+                                    frozenset(preprocessedDiseaseNameSynonym)
+                                if preprocessedDiseaseNameSynonymFrozenSet not in self.__diseaseNameFrozenSetToDOID:
+                                    self.__diseaseNameFrozenSetToDOID[preprocessedDiseaseNameSynonymFrozenSet] = \
+                                        term.doid
 
-                # DiseaseName
-                if term.diseaseName is not None:
-                    # DiseaseName -> DOID
-                    if source is Source.DISEASES or source is Source.OBO:
-                        if term.doid is not None:
-                            preprocessedDiseaseName = PreprocessingDiseaseName(term.diseaseName)
-                            preprocessedDiseaseNameFrozenSet = frozenset(preprocessedDiseaseName)
-                            if preprocessedDiseaseNameFrozenSet not in self.__diseaseNameFrozenSetToDOID:
-                                self.__diseaseNameFrozenSetToDOID[preprocessedDiseaseNameFrozenSet] = term.doid
+                                # Search Engine Set
+                                preprocessedDiseaseNameSynonym = ' '.join(preprocessedDiseaseNameSynonym)
+                                definition = PreprocessingDiseaseName(term.definition, True) \
+                                    if term.definition is not None else ""
+                                self.__searchEngineSet.add((preprocessedDiseaseNameSynonym, definition, term.doid))
 
-                            # Search Engine Set
-                            preprocessedDiseaseName = ' '.join(preprocessedDiseaseName)
-                            definition = (PreprocessingDiseaseName(term.definition, True)
-                                          if term.definition is not None else "") if source is Source.OBO else ""
-                            self.__searchEngineSet.add((preprocessedDiseaseName, definition, term.doid))
+                        # xrefs -> DOID
+                        xrefs = term.GetXrefs()
+                        for xref in xrefs:
+                            xrefSplitted = xref.id.split(':')
+                            if len(xrefSplitted) != 2:
+                                continue
 
-                # DiseaseName -> DOID (OBO synonyms) and xrefs -> DOID and DOID -> ParentDoidAndDiseaseName
-                if source is Source.OBO:
-                    # DOID -> ParentDoidAndDiseaseName
-                    parentDoidAndDiseaseNames = term.GetParentDiseaseNameAndDoids()
-                    if parentDoidAndDiseaseNames and term.doid is not None:
-                        self.__doidToParentDoidAndDiseaseName[term.doid] = parentDoidAndDiseaseNames
+                            xref = xrefSplitted[0].strip()
+                            value = xrefSplitted[1].strip()
+                            self.__AddXrefValue(xref, value, term.doid, term.diseaseName)
 
-                    # DiseaseName -> DOID (OBO synonyms)
-                    diseaseNameSynonyms = term.GetSynonyms()
-                    if diseaseNameSynonyms and term.doid is not None:
-                        for diseaseNameSynonym in diseaseNameSynonyms:
-                            preprocessedDiseaseNameSynonym = PreprocessingDiseaseName(diseaseNameSynonym)
-                            preprocessedDiseaseNameSynonymFrozenSet = \
-                                frozenset(preprocessedDiseaseNameSynonym)
-                            if preprocessedDiseaseNameSynonymFrozenSet not in self.__diseaseNameFrozenSetToDOID:
-                                self.__diseaseNameFrozenSetToDOID[preprocessedDiseaseNameSynonymFrozenSet] = \
-                                    term.doid
+                        alternateIds = term.GetAlternateIds()
+                        for alternateId in alternateIds:
+                            alternateIdSplitted = alternateId.split(':')
+                            if len(alternateIdSplitted) != 2:
+                                continue
 
-                            # Search Engine Set
-                            preprocessedDiseaseNameSynonym = ' '.join(preprocessedDiseaseNameSynonym)
-                            definition = PreprocessingDiseaseName(term.definition, True) \
-                                if term.definition is not None else ""
-                            self.__searchEngineSet.add((preprocessedDiseaseNameSynonym, definition, term.doid))
-
-                    # xrefs -> DOID
-                    xrefs = term.GetXrefs()
-                    for xref in xrefs:
-                        xrefSplitted = xref.id.split(':')
-                        if len(xrefSplitted) != 2:
-                            continue
-
-                        xref = xrefSplitted[0].strip()
-                        value = xrefSplitted[1].strip()
-                        self.__AddXrefValue(xref, value, term.doid, term.diseaseName)
-
-                    alternateIds = term.GetAlternateIds()
-                    for alternateId in alternateIds:
-                        alternateIdSplitted = alternateId.split(':')
-                        if len(alternateIdSplitted) != 2:
-                            continue
-
-                        xref = alternateIdSplitted[0].strip()
-                        value = alternateIdSplitted[1].strip()
-                        self.__AddXrefValue(xref, value, term.doid, term.diseaseName)
+                            xref = alternateIdSplitted[0].strip()
+                            value = alternateIdSplitted[1].strip()
+                            self.__AddXrefValue(xref, value, term.doid, term.diseaseName)
 
     def __AddXrefValue(self, xref, value, doid, diseaseName):
         if xref in XREFS_SOURCE:

@@ -13,14 +13,18 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
+from Classes.event import Subject, Observer
 from Classes.parsing_context_thread import ParsingContextThread
-from Common.init import time
+from Common.init import time, Lock
 from Other.measurements import DoidAccuracy
 
 
 def main():
+    progressSubject = Subject(Lock())
+    observer = Observer()
+    progressSubject.attach(observer)
     startTime = time.time()
-    parsingContext = ParsingContextThread()
+    parsingContext = ParsingContextThread(progressSubject)
     parsingContextEndTime = time.time()
     print("Time processing parsing context: {}".format(parsingContextEndTime - startTime))
     tmpFilePath = "./Storage/annotation_file.txt"

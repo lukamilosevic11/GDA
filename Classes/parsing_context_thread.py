@@ -17,30 +17,30 @@ from Classes.annotation_context import AnnotationContext
 from Classes.annotation_row import AnnotationRowOutput
 from Classes.db_context import DBContext
 from Common.constants import DOID_SOURCE_DATABASE, ANNOTATION_FILE_HEADER, DOID_SOURCE_XREF_OMIM
-from Common.init import Source, partial, Thread, Lock, Attribute, permutations
+from Common.init import Source, partial, Attribute, permutations, ThreadPoolExecutor, Progress, SpinnerColumn, \
+    TimeElapsedColumn, TextColumn, BarColumn, TaskProgressColumn, TimeRemainingColumn, MofNCompleteColumn
 from Common.util import GetAttribute, WriteStructureToFile, JaccardSimilarity, PreprocessingDiseaseName
 
 
 class ParsingContextThread:
-    def __init__(self, createCollection=False):
+    def __init__(self, progress, createCollection=False):
         self.dbContext = DBContext()
-        self.__totalLength = self.dbContext.GetTotalLength()
+        self.__totalLength = self.dbContext.GetTotalParsingLength()
         self.annotationContext = AnnotationContext(self.dbContext, createCollection)
         self.__sources = Source.GetSourcesForParsing()
         self.__sourcesAnnotationSetDict = {}
         self.__annotationSet = set()
-        self.__ParseSources()
+        self.__ParseSources(progress)
         self.__CreateFullAnnotationSet()
 
-    def __ParseSource(self, source, sourceName, sourceDB, lock,
-                      entrezIDAttribute,
-                      uniprotIDAttribute,
-                      ensemblIDAttribute,
-                      doidAttribute,
-                      diseaseNameAttribute,
-                      xrefsAttribute):
+    def __ParseSource(self, source, progress, progressBar, parsingTask):
         sourceSet = set()
+        sourceName = Source.GetSourceName(source)
+        sourceDB = self.dbContext.GetDatabaseBySource(source)
+        sourceTask = progressBar.add_task(sourceName, total=len(sourceDB))
         for term in sourceDB:
+            progressBar.update(parsingTask, advance=1)
+            progressBar.update(sourceTask, advance=1)
             symbol = term.symbol
             entrezID = term.entrezID
             uniprotID = term.uniprotID
@@ -72,32 +72,32 @@ class ParsingContextThread:
             }
 
             def partialGetMethodsEntrezID(symbolP, uniprotIDP, ensemblIDP):
-                partialMethods = [partial(entrezIDAttribute.GetBySymbol, symbolP)]
+                partialMethods = [partial(self.annotationContext.entrezID.GetBySymbol, symbolP)]
                 if uniprotIDP is not None:
-                    partialMethods.append(partial(entrezIDAttribute.GetByUniprotID, uniprotIDP))
+                    partialMethods.append(partial(self.annotationContext.entrezID.GetByUniprotID, uniprotIDP))
 
                 if ensemblIDP is not None:
-                    partialMethods.append(partial(entrezIDAttribute.GetByEnsemblID, ensemblIDP))
+                    partialMethods.append(partial(self.annotationContext.entrezID.GetByEnsemblID, ensemblIDP))
 
                 return partialMethods
 
             def partialGetMethodsUniprotID(symbolP, entrezIDP, ensemblIDP):
-                partialMethods = [partial(uniprotIDAttribute.GetBySymbol, symbolP)]
+                partialMethods = [partial(self.annotationContext.uniprotID.GetBySymbol, symbolP)]
                 if entrezIDP is not None:
-                    partialMethods.append(partial(uniprotIDAttribute.GetByEntrezID, entrezIDP))
+                    partialMethods.append(partial(self.annotationContext.uniprotID.GetByEntrezID, entrezIDP))
 
                 if ensemblIDP is not None:
-                    partialMethods.append(partial(uniprotIDAttribute.GetByEnsemblID, ensemblIDP))
+                    partialMethods.append(partial(self.annotationContext.uniprotID.GetByEnsemblID, ensemblIDP))
 
                 return partialMethods
 
             def partialGetMethodsEnsemblID(symbolP, entrezIDP, uniprotIDP):
-                partialMethods = [partial(ensemblIDAttribute.GetBySymbol, symbolP)]
+                partialMethods = [partial(self.annotationContext.ensemblID.GetBySymbol, symbolP)]
                 if entrezIDP is not None:
-                    partialMethods.append(partial(ensemblIDAttribute.GetByEntrezID, entrezIDP))
+                    partialMethods.append(partial(self.annotationContext.ensemblID.GetByEntrezID, entrezIDP))
 
                 if uniprotIDP is not None:
-                    partialMethods.append(partial(ensemblIDAttribute.GetByUniprotID, uniprotIDP))
+                    partialMethods.append(partial(self.annotationContext.ensemblID.GetByUniprotID, uniprotIDP))
 
                 return partialMethods
 
@@ -129,9 +129,9 @@ class ParsingContextThread:
             # Disease Name and DOID(only for OMIM) for HPO
             if source is Source.HPO:
                 if term.orpha is not None:
-                    diseaseName = diseaseNameAttribute.GetByOrpha(term.orpha)
+                    diseaseName = self.annotationContext.diseaseName.GetByOrpha(term.orpha)
                 elif term.omim is not None and doid is None:
-                    doidAndDiseaseNames = diseaseNameAttribute.GetByOmimDoidAndDiseaseName(term.omim)
+                    doidAndDiseaseNames = self.annotationContext.diseaseName.GetByOmimDoidAndDiseaseName(term.omim)
                     if len(doidAndDiseaseNames) == 1:
                         doid, diseaseName = doidAndDiseaseNames[0]
                         if doid is not None:
@@ -141,30 +141,30 @@ class ParsingContextThread:
 
                     if doid is None:
                         diseaseNameForSearch = "OMIM:" + term.omim
-                        doid, doidSource = doidAttribute.GetByDiseaseName(diseaseNameForSearch)
-                        diseaseName = diseaseNameAttribute.GetByDoid(doid)
+                        doid, doidSource = self.annotationContext.doid.GetByDiseaseName(diseaseNameForSearch)
+                        diseaseName = self.annotationContext.diseaseName.GetByDoid(doid)
                         if diseaseName is not None and doid is not None:
                             multipleHPORowsFlag = False
 
             # DOID
             # Get Doid using xref UMLS
             if (source is Source.DISGENET or source is Source.CLINVAR) and term.umls is not None and doid is None:
-                doid, doidSource = doidAttribute.GetByUmls(term.umls)
+                doid, doidSource = self.annotationContext.doid.GetByUmls(term.umls)
 
             # Get Doid using xref OMIM
             if (source is Source.HUMSAVAR or source is Source.CLINVAR) and term.omim is not None and doid is None:
-                doid, doidSource = doidAttribute.GetByOmim(term.omim)
+                doid, doidSource = self.annotationContext.doid.GetByOmim(term.omim)
                 if doid is None:
                     diseaseNameForSearch = "OMIM:" + term.omim
-                    doid, doidSource = doidAttribute.GetByDiseaseName(diseaseNameForSearch)
+                    doid, doidSource = self.annotationContext.doid.GetByDiseaseName(diseaseNameForSearch)
 
             # Get Doid using xref ORPHA
             if (source is Source.ORPHANET or source is Source.HPO) and term.orpha is not None and doid is None:
                 # Exact xref search
-                exactXrefs = xrefsAttribute.GetByOrphaExact(term.orpha)
+                exactXrefs = self.annotationContext.xrefs.GetByOrphaExact(term.orpha)
                 for xref, values in exactXrefs.items():
                     for value in values:
-                        doid, doidSource = doidAttribute.GetByXref(xref, value)
+                        doid, doidSource = self.annotationContext.doid.GetByXref(xref, value)
                         if doid is not None:
                             break
                     if doid is not None:
@@ -172,17 +172,17 @@ class ParsingContextThread:
 
                 # Disease name without search engine
                 if doid is None:
-                    doid, doidSource = doidAttribute.GetByDiseaseNameWithoutSearchEngine(diseaseName)
+                    doid, doidSource = self.annotationContext.doid.GetByDiseaseNameWithoutSearchEngine(diseaseName)
 
                 preprocessedDiseaesName = PreprocessingDiseaseName(diseaseName, True)
                 # BTNT xref search
                 if doid is None:
                     maxJaccardIndex = -1
-                    btntXrefs = xrefsAttribute.GetByOrphaBtnt(term.orpha)
+                    btntXrefs = self.annotationContext.xrefs.GetByOrphaBtnt(term.orpha)
                     for xref, values in btntXrefs.items():
                         for value in values:
-                            btntDoid, btntDoidSource = doidAttribute.GetByXref(xref, value)
-                            parentDoids = diseaseNameAttribute.GetParentDoidAndDiseaseNamesByDoid(btntDoid)
+                            btntDoid, btntDoidSource = self.annotationContext.doid.GetByXref(xref, value)
+                            parentDoids = self.annotationContext.diseaseName.GetParentDoidAndDiseaseNamesByDoid(btntDoid)
                             if preprocessedDiseaesName is not None and btntDoid is not None:
                                 for parentDoid in parentDoids:
                                     parentDiseaseName = PreprocessingDiseaseName(parentDoid[1], True)
@@ -201,13 +201,13 @@ class ParsingContextThread:
                 # NTBT xref search
                 if doid is None:
                     maxJaccardIndex = -1
-                    ntbtXrefs = xrefsAttribute.GetByOrphaNtbt(term.orpha)
+                    ntbtXrefs = self.annotationContext.xrefs.GetByOrphaNtbt(term.orpha)
                     for xref, values in ntbtXrefs.items():
                         for value in values:
-                            ntbtDoid, ntbtDoidSource = doidAttribute.GetByXref(xref, value)
+                            ntbtDoid, ntbtDoidSource = self.annotationContext.doid.GetByXref(xref, value)
                             if preprocessedDiseaesName is not None and ntbtDoid is not None:
                                 ntbtDiseaseName = \
-                                    PreprocessingDiseaseName(diseaseNameAttribute.GetByDoid(ntbtDoid), True)
+                                    PreprocessingDiseaseName(self.annotationContext.diseaseName.GetByDoid(ntbtDoid), True)
                                 if ntbtDiseaseName is not None:
                                     currentJaccardIndex = JaccardSimilarity(ntbtDiseaseName, preprocessedDiseaesName)
                                     if currentJaccardIndex > maxJaccardIndex:
@@ -227,13 +227,14 @@ class ParsingContextThread:
                 # Other xref search
                 if doid is None:
                     maxJaccardIndex = -1
-                    otherXrefs = xrefsAttribute.GetByOrphaOther(term.orpha)
+                    otherXrefs = self.annotationContext.xrefs.GetByOrphaOther(term.orpha)
                     for xref, values in otherXrefs.items():
                         for value in values:
-                            otherDoid, otherDoidSource = doidAttribute.GetByXref(xref, value)
+                            otherDoid, otherDoidSource = self.annotationContext.doid.GetByXref(xref, value)
                             if preprocessedDiseaesName is not None and otherDoid is not None:
                                 otherDiseaseName = \
-                                    PreprocessingDiseaseName(diseaseNameAttribute.GetByDoid(otherDoid), True)
+                                    PreprocessingDiseaseName(self.annotationContext.diseaseName.GetByDoid(otherDoid),
+                                                             True)
                                 if otherDiseaseName is not None:
                                     currentJaccardIndex = JaccardSimilarity(otherDiseaseName, preprocessedDiseaesName)
                                     if currentJaccardIndex > maxJaccardIndex:
@@ -252,11 +253,11 @@ class ParsingContextThread:
 
             # Get Doid using disease name
             if doid is None:
-                doid, doidSource = doidAttribute.GetByDiseaseName(diseaseName)
+                doid, doidSource = self.annotationContext.doid.GetByDiseaseName(diseaseName)
 
             # Disease Name
             if diseaseName is None and doid is not None:
-                diseaseName = diseaseNameAttribute.GetByDoid(doid)
+                diseaseName = self.annotationContext.diseaseName.GetByDoid(doid)
 
             if multipleHPORowsFlag and (doid is None or diseaseName is None) and doidAndDiseaseNames is not None:
                 doidSource = DOID_SOURCE_XREF_OMIM
@@ -266,34 +267,21 @@ class ParsingContextThread:
             else:
                 sourceSet.add(AnnotationRowOutput(symbol, entrezID, uniprotID, ensemblID, doid, sourceName, diseaseName,
                                                   doidSource))
-        with lock:
-            self.__sourcesAnnotationSetDict[source] = sourceSet
 
-    def __ParseSources(self):
-        threads = []
-        lock = Lock()
-        entrezIDAttribute = self.annotationContext.entrezID
-        uniprotIDAttribute = self.annotationContext.uniprotID
-        ensemblIDAttribute = self.annotationContext.ensemblID
-        doidAttribute = self.annotationContext.doid
-        diseaseNameAttribute = self.annotationContext.diseaseName
-        xrefsAttribute = self.annotationContext.xrefs
+            progress.increase_step()
 
-        for source in self.__sources:
-            sourceName = Source.GetSourceName(source)
-            sourceDB = self.dbContext.GetDatabaseBySource(source)
-            t = Thread(target=self.__ParseSource, args=(source, sourceName, sourceDB, lock,
-                                                        entrezIDAttribute,
-                                                        uniprotIDAttribute,
-                                                        ensemblIDAttribute,
-                                                        doidAttribute,
-                                                        diseaseNameAttribute,
-                                                        xrefsAttribute))
-            threads.append(t)
-            t.start()
+        return source, sourceSet
 
-        for th in threads:
-            th.join()
+    def __ParseSources(self, progress):
+        with Progress(SpinnerColumn(), TextColumn("[progress.description]{task.description}"), BarColumn(),
+                      TaskProgressColumn(), MofNCompleteColumn(),
+                      TimeElapsedColumn(), TimeRemainingColumn()) as progressBar:
+            with ThreadPoolExecutor() as executor:
+                progressTask = progressBar.add_task("Parsing", total=self.dbContext.GetTotalParsingLength())
+                for source, sourceSet in executor.map(lambda args: self.__ParseSource(*args),
+                                                      [(source, progress, progressBar, progressTask)
+                                                       for source in self.__sources]):
+                    self.__sourcesAnnotationSetDict[source] = sourceSet
 
     def __CreateFullAnnotationSet(self):
         for source in self.__sources:

@@ -13,15 +13,14 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-import concurrent.futures
 import copy
 import json
 import multiprocessing
 import nltk
-nltk.download('omw-1.4')
-nltk.download('punkt')
-nltk.download('stopwords')
-nltk.download('wordnet')
+nltk.download('omw-1.4', quiet=True)
+nltk.download('punkt', quiet=True)
+nltk.download('stopwords', quiet=True)
+nltk.download('wordnet', quiet=True)
 import numpy as np
 import pandas as pd
 import re
@@ -39,6 +38,11 @@ from itertools import permutations
 from pronto import Ontology
 from threading import Thread, Lock
 from time import perf_counter
+from tqdm import tqdm
+from alive_progress import alive_bar
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from rich.progress import Progress, SpinnerColumn, TimeElapsedColumn, TextColumn, BarColumn, TaskProgressColumn, \
+    TimeRemainingColumn, MofNCompleteColumn
 
 
 class Xref(IntEnum):
