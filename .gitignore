@@ -130,7 +130,7 @@ dmypy.json
 .pyre/
 
 #Databases
-Data/
+GDA_backend/Data/
 
 #Other
 .DS_Store

@@ -1,0 +1,116 @@
+{% load i18n static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>GDA</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/simptip-mini.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "DataTables/datatables.min.css" %}"/>
+
+    <link rel="stylesheet" href="{% static "css/demo.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/templatemo-style.css" %}">
+
+    <script type="text/javascript" src="{% static "js/modernizr.custom.86080.js" %}"></script>
+    <script type="text/javascript" src="{% static "DataTables/datatables.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/jquery.cookie.min.js" %}"></script>
+</head>
+
+<body>
+<div id="particles-js"></div>
+
+<ul class="cb-slideshow">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+
+<div class="container-fluid">
+    <div class="row cb-slideshow-text-container ">
+        <div class="tm-content col-xl-4 col-sm-8 col-xs-8 ml-auto section">
+            <div class="alert alert-danger" role="alert" id="parsingFailed" style="display: none;">
+                <strong>Parsing failed!</strong> Please try again.
+            </div>
+            <header class="mb-2 gradient-text"><h1>GDA</h1></header>
+            <p class="mb-3 gradient-text">Gene disease association</p>
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group mr-2" role="group" aria-label="Parsing group">
+                    <button class="btn btn-dark btn-lg" id="parseButton" {% if parsing %} disabled {% endif %}>
+                        <i class="fa fa-terminal gradient-text"></i>
+                        <span class="gradient-text">| Parse</span>
+                    </button>
+                </div>
+                <div class="btn-group" role="group" aria-label="Annotation group" id="seeAnnotationFile">
+                    <a id="seeAnnotationFileButton"  href="{% url 'annotation_file' %}" role="button" {% if parsing %}
+                       class="btn btn-dark btn-lg disabled" {% else %} class="btn btn-dark btn-lg" {% endif %}>
+                        <i class="fa fa-table gradient-text"></i>
+                        <span class="gradient-text">| See annotation file</span>
+                    </a>
+                </div>
+            </div>
+            <div class="btn-toolbar mt-0" role="toolbar" aria-label="Toolbar with checkbox and progress bar">
+                <div class="form-check mt-3 mb-2" style="font-size: 15px;">
+                    <input class="form-check-input pl-0" type="checkbox" value="" id="initializeSearchEngine" checked
+                            {% if parsing %} disabled {% endif %}>
+                    <label class="form-check-label gradient-text" for="initializeSearchEngine">Initialize search
+                        engine</label>
+                </div>
+            </div>
+            <div class="container mt-4 mr-5 mb-lg-5 pl-0 pr-lg-5" id="progressBar" {% if not parsing %}
+                 style="display: none;" {% endif %} >
+                <div class="progress" style="background-color: #292b2c; height: 5px;">
+                    <div id="progressBarPercentage" class="progress-bar bg-warning" role="progressbar"
+                         aria-valuenow=""
+                         aria-valuemin="0" aria-valuemax="100">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-link">
+            <p class="gradient-text">Luka Milosevic ©
+                <a href="https://www.bg.ac.rs/en/" target="_blank">University of Belgrade</a>,
+                <a href="http://www.matf.bg.ac.rs/eng/" target="_blank">Faculty of Mathematics</a>
+                <script type="text/javascript">
+                    let dt = new Date();
+                    document.write("" + dt.getFullYear());
+                </script>
+            </p>
+            <div class="tm-social-icons-container text-center">
+                <a id="github" href="https://github.com/lukamilosevic11" target="_blank" class="tm-social-link">
+                    <i class="fa fa-github gradient-text"></i>
+                </a>
+                <a id="linkedin" href="https://www.linkedin.com/in/lukamilosevic11/" target="_blank"
+                   class="tm-social-link">
+                    <i class="fa fa-linkedin gradient-text"></i>
+                </a>
+                <a id="phoneNumber" href="#" class="tm-social-link">
+                    <i class="fa fa-whatsapp gradient-text"></i>
+                </a>
+                <a id="website" href="https://alas.matf.bg.ac.rs/~mi15167/" target="_blank" class="tm-social-link">
+                    <i class="fa fa-globe gradient-text"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    let parsing = {% if parsing %} true; {% else %} false; {% endif %}
+</script>
+<script type="text/javascript" src="{% static "js/particles.js" %}"></script>
+<script type="text/javascript" src="{% static "js/app.js" %}"></script>
+<script type="text/javascript" src="{% static "js/indexSettings.js" %}"></script>
+</html>
