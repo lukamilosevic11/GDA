@@ -22,10 +22,11 @@ class Migration(migrations.Migration):
                 ('doid', models.CharField(default='None', max_length=30, verbose_name='doid')),
                 ('source', models.CharField(default='None', max_length=30, verbose_name='source')),
                 ('diseaseName', models.TextField(default='None', verbose_name='diseaseName')),
-                ('jaccardIndex', models.CharField(default='None', max_length=10, verbose_name='jaccardIndex')),
+                ('doidSource', models.CharField(default='None', max_length=10, verbose_name='doidSource')),
             ],
             options={
-                'unique_together': {('symbol', 'entrezID', 'uniprotID', 'ensemblID', 'doid', 'source', 'diseaseName', 'jaccardIndex')},
+                'unique_together': {('symbol', 'entrezID', 'uniprotID', 'ensemblID', 'doid', 'source', 'diseaseName',
+                                     'doidSource')},
             },
         ),
     ]

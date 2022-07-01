@@ -10,11 +10,11 @@ class AnnotationRowModel(models.Model):
     doid = models.CharField('doid', max_length=30, default='None')
     source = models.CharField('source', max_length=30, default='None')
     diseaseName = models.TextField('diseaseName', default='None')
-    jaccardIndex = models.CharField('jaccardIndex', max_length=10, default='None')
+    doidSource = models.CharField('doidSource', max_length=50, default='None')
 
     class Meta:
         unique_together = ['symbol', 'entrezID', 'uniprotID', 'ensemblID', 'doid', 'source', 'diseaseName',
-                           'jaccardIndex']
+                           'doidSource']
 
     def __str__(self):
         return str(self.symbol) + '\t' + \
@@ -24,4 +24,4 @@ class AnnotationRowModel(models.Model):
                str(self.doid) + '\t' + \
                str(self.source) + '\t' + \
                str(self.diseaseName) + '\t' + \
-               str(self.jaccardIndex) + '%' if self.jaccardIndex == "None" else str(self.jaccardIndex)
+               str(self.doidSource)

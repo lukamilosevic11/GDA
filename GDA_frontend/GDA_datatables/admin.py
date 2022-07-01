@@ -6,4 +6,4 @@ from GDA_datatables.models import AnnotationRowModel
 
 @admin.register(AnnotationRowModel)
 class AnnotationRowModelAdmin(admin.ModelAdmin):
-    list_display = ('symbol', 'entrezID', 'uniprotID', 'ensemblID', 'doid', 'source', 'diseaseName', 'jaccardIndex')
+    list_display = ('symbol', 'entrezID', 'uniprotID', 'ensemblID', 'doid', 'source', 'diseaseName', 'doidSource')

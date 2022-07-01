@@ -1,10 +1,23 @@
 $(document).ready(function () {
-    function Error() {
+
+    function AfterParsing() {
+        $("#parseButton").prop('disabled', false);
+        $("#seeAnnotationFileButton").removeClass("disabled");
+        $("#initializeSearchEngine").prop('disabled', false);
+        $("#progressBar").hide();
+        $("#spinner").hide();
+        location.reload();
+    }
+
+    function Error(msg, callAfterParsing=true) {
         $('#parsingFailed').show();
+        console.error(msg);
         setTimeout(function () {
             $('#parsingFailed').hide();
-        }, 2000);
-        $('#progressBar').hide();
+            if(callAfterParsing) {
+                AfterParsing();
+            }
+        }, 1500);
     }
 
     function update() {
@@ -12,14 +25,27 @@ $(document).ready(function () {
             $.ajax({
                 type: 'POST',
                 url: 'update_data/',
-                headers: {"X-CSRFToken": $.cookie("csrftoken")},
+                headers: {"X-CSRFToken": csrfToken},
                 success: function (resp) {
-                    console.log(resp.progress);
                     $('#progressBarPercentage').width(resp.progress + '%');
+                    if (resp.spinner) {
+                        $("#spinner").show();
+                    }else {
+                        $("#spinner").hide();
+                    }
+
+                    if (resp.showError) {
+                        Error("", false);
+                        $("#progressBar").hide()
+                    }
+
                     if (!resp.parsing) {
-                        location.reload();
+                        AfterParsing();
                         clearInterval(updateIntervalId);
                     }
+                },
+                error: function () {
+                    Error("Update parsing AJAX failed!");
                 }
             });
         }, 500);
@@ -33,28 +59,26 @@ $(document).ready(function () {
         $("#parseButton").prop('disabled', true);
         $("#seeAnnotationFileButton").addClass("disabled");
         $("#initializeSearchEngine").prop('disabled', true);
+        $("#spinner").hide();
         $("#progressBar").show();
         let initializeSearchEngine = $('#initializeSearchEngine').prop('checked');
         $.ajax({
             type: 'POST',
             url: 'initialize_parsing/',
-            headers: {"X-CSRFToken": $.cookie("csrftoken")},
-            error: Error
+            headers: {"X-CSRFToken": csrfToken},
+            error: function () {
+                Error("Initialize parsing AJAX failed!");
+            }
         }).done(function () {
-            console.log("done");
             update();
             $.ajax({
                 type: "POST",
                 url: 'parsing/',
-                headers: {"X-CSRFToken": $.cookie("csrftoken")},
+                headers: {"X-CSRFToken": csrfToken},
                 data: {"initializeSearchEngine": initializeSearchEngine},
-                error: Error
-            }).done(function () {
-                $("#parseButton").prop('disabled', false);
-                $("#seeAnnotationFileButton").removeClass("disabled");
-                $("#initializeSearchEngine").prop('disabled', false);
-                $("#progressBar").hide();
-                location.reload();
+                error: function () {
+                    Error("Parsing AJAX failed!");
+                }
             });
         });
     });

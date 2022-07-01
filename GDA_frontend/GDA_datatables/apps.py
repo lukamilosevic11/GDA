@@ -1,5 +1,4 @@
 from django.apps import AppConfig
-import os
 
 
 class SingletonMetaclass(type):
@@ -19,6 +18,8 @@ class FrontendTracker(metaclass=SingletonMetaclass):
         self.parsing = False
         self.progress = 0
         self.parsingStarted = False
+        self.spinner = False
+        self.showError = False
 
     def __call__(self):
         return self
@@ -27,7 +28,3 @@ class FrontendTracker(metaclass=SingletonMetaclass):
 class GdaDatatablesConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'GDA_datatables'
-
-    def ready(self):
-        if os.environ.get('RUN_MAIN', None) != 'true':
-            frontendTracker = FrontendTracker()

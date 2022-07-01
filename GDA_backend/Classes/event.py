@@ -15,9 +15,11 @@
 
 
 class Observer:
+    def __init__(self, frontendTracker):
+        self.frontendTracker = frontendTracker
+
     def update(self, subject):
-        # print(subject.step)
-        pass
+        self.frontendTracker.progress = int((subject.step/subject.total)*100)
 
 
 class Subject:
@@ -25,6 +27,7 @@ class Subject:
         self.step = 0
         self._observers = []
         self.lock = lock
+        self.total = 1
 
     def attach(self, observer):
         self._observers.append(observer)
@@ -41,21 +44,5 @@ class Subject:
             self.step += 1
             self.notify()
 
-
-# if __name__ == "__main__":
-#     # The client code.
-#
-#     subject = ConcreteSubject()
-#
-#     observer_a = ConcreteObserverA()
-#     subject.attach(observer_a)
-#
-#     observer_b = ConcreteObserverB()
-#     subject.attach(observer_b)
-#
-#     subject.some_business_logic()
-#     subject.some_business_logic()
-#
-#     subject.detach(observer_a)
-#
-#     subject.some_business_logic()
+    def set_total(self, total):
+        self.total = total

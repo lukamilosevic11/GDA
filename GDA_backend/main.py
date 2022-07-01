@@ -13,20 +13,16 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from Classes.event import Subject, Observer
 from Classes.parsing_context_thread import ParsingContextThread
 from Common.constants import ANNOTATION_PATH, DOID_ACCURACY_PATH
-from Common.init import time, Lock
+from Common.init import time
 from Common.util import PrintElapsedTime
 from Other.measurements import DoidAccuracy
 
 
 def main():
     startTime = time.time()
-    progressSubject = Subject(Lock())
-    observer = Observer()
-    progressSubject.attach(observer)
-    parsingContext = ParsingContextThread(progressSubject)
+    parsingContext = ParsingContextThread(None, False)
     parsingContext.CreateAnnotationFile(ANNOTATION_PATH)
     DoidAccuracy(ANNOTATION_PATH, DOID_ACCURACY_PATH)
     PrintElapsedTime(startTime, time.time(), "Total elapsed time")

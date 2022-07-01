@@ -92,7 +92,7 @@ $(document).ready(function() {
                 targets: [6]
             },
             {
-                data: 'jaccardIndex',
+                data: 'doidSource',
                 targets: [7]
             }
         ],

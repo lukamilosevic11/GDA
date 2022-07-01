@@ -22,10 +22,11 @@ from GDA_backend.Common.util import PreprocessingDiseaseName
 
 
 class AnnotationContext:
-    def __init__(self, dbContext, createCollection):
+    def __init__(self, dbContext, createCollection, totalProgress):
         self.__dbContext = dbContext
         self.__searchEngineClient = SearchEngineClient()
         self.__sources = Source.GetAllSources()
+        self.totalProgress = totalProgress
 
         # Attributes
         self.entrezID = None
@@ -84,6 +85,9 @@ class AnnotationContext:
         sourceSet = self.__dbContext.GetDatabaseBySource(Source.ORPHANET_XREF)
         for term in sourceSet:
             progress.update(progressTask, advance=1)
+            if self.totalProgress is not None:
+                self.totalProgress.increase_step()
+
             if term.orpha is not None:
                 # Orpha -> Xrefs
                 exactXrefs = term.GetExactXrefs()
@@ -119,6 +123,9 @@ class AnnotationContext:
                 sourceSet = self.__dbContext.GetDatabaseBySource(source)
                 for term in sourceSet:
                     progress.update(progressTask, advance=1)
+                    if self.totalProgress is not None:
+                        self.totalProgress.increase_step()
+
                     # Symbol
                     if term.symbol is not None:
                         # Symbol -> EntrezID

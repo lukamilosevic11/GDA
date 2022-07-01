@@ -24,12 +24,14 @@ from GDA_backend.Common.util import GetAttribute, WriteStructureToFile, JaccardS
 
 
 class ParsingContextThread:
-    def __init__(self, progress, createCollection=False):
+    def __init__(self, progress, createCollection):
         dbContextStartTime = time.time()
         self.dbContext = DBContext()
         PrintElapsedTime(dbContextStartTime, time.time(), "Reading sources elapsed time")
         annotationContextStartTime = time.time()
-        self.annotationContext = AnnotationContext(self.dbContext, createCollection)
+        if progress is not None:
+            progress.set_total(self.dbContext.GetTotalParsingLength() + self.dbContext.GetAllSourcesLength())
+        self.annotationContext = AnnotationContext(self.dbContext, createCollection, progress)
         PrintElapsedTime(annotationContextStartTime, time.time(), "Preparing parsing elapsed time")
         self.__sources = Source.GetSourcesForParsing()
         self.__sourcesAnnotationSetDict = {}
@@ -274,7 +276,8 @@ class ParsingContextThread:
                 sourceSet.add(AnnotationRowOutput(symbol, entrezID, uniprotID, ensemblID, doid, sourceName, diseaseName,
                                                   doidSource))
 
-            progress.increase_step()
+            if progress is not None:
+                progress.increase_step()
 
         return source, sourceSet
 

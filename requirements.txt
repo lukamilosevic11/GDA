@@ -1,0 +1,16 @@
+Django==4.0.4
+django-datatables-view==1.20.0
+fastjsonschema==2.15.3
+fastobo==0.11.1
+jsonschema==4.6.0
+nltk==3.7
+numpy==1.22.3
+ordered-set==4.1.0
+pandas==1.4.2
+pronto==2.4.4
+pyparsing==3.0.9
+regex==2022.3.15
+rich==12.4.4
+tabulate==0.8.9
+typesense==0.13.1
+virtualenv==20.14.1
