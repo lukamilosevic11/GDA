@@ -758,4 +758,13 @@ section {
   justify-content: space-between;
 }
 
+.prz {
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.plz {
+  padding-left: 0;
+  margin-left: 0;
+}
 

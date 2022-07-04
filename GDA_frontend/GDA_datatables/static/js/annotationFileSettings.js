@@ -1,40 +1,35 @@
 $(document).ready(function () {
     $('.ui.dropdown').dropdown();
 
+    function ProcessTooltip(element, name) {
+        element.hover(function () {
+            element.attr('data-tooltip', name);
+            element.addClass("simptip-position-top").addClass("simptip-smooth").addClass("simptip-fade");
+        }, function () {
+            element.removeClass("simptip-position-top").removeClass("simptip-smooth").removeClass("simptip-fade");
+            element.attr('data-tooltip', '');
+        });
+    }
 
-    // function ProcessTooltip(element, name) {
-    //     element.hover(function () {
-    //         element.attr('data-tooltip', name);
-    //         element.addClass("simptip-position-top").addClass("simptip-smooth").addClass("simptip-fade");
-    //     }, function () {
-    //         element.removeClass("simptip-position-top").removeClass("simptip-smooth").removeClass("simptip-fade");
-    //         element.attr('data-tooltip', '');
-    //     });
-    // }
-    //
-    // $('#phoneNumber').click(function () {
-    //     navigator.clipboard.writeText("0038162216560").then();
-    //     let phoneNumberElement = $('#phoneNumber');
-    //     phoneNumberElement.attr('data-tooltip', 'Copied phone number!');
-    //     phoneNumberElement.addClass("simptip-position-top").addClass("simptip-smooth").addClass("simptip-fade");
-    //     setTimeout(function () {
-    //         phoneNumberElement.removeClass("simptip-position-top").removeClass("simptip-smooth").removeClass("simptip-fade");
-    //         phoneNumberElement.attr('data-tooltip', '');
-    //     }, 1500);
-    //
-    //     return false;
-    // });
-    //
-    // $('.social-tooltip').click(function () {
-    //     let socialElement = $('.social-tooltip');
-    //     socialElement.removeClass("simptip-position-top").removeClass("simptip-smooth").removeClass("simptip-fade");
-    //     socialElement.attr('data-tooltip', '');
-    // });
-    //
-    // ProcessTooltip($("#github"), "Github");
-    // ProcessTooltip($("#linkedin"), "Linkedin");
-    // ProcessTooltip($("#phoneNumber"),"Copy phone number!")
-    // ProcessTooltip($("#website"),"Personal Website")
+    $('#phoneNumber').click(function () {
+        navigator.clipboard.writeText("0038162216560").then();
+        let phoneNumberElement = $('#phoneNumber');
+        phoneNumberElement.attr('data-tooltip', 'Copied phone number!');
+        phoneNumberElement.addClass("simptip-position-top").addClass("simptip-smooth").addClass("simptip-fade");
+
+        return false;
+    });
+
+    $('.social-tooltip').click(function () {
+        let socialElement = $('.social-tooltip');
+        socialElement.removeClass("simptip-position-top").removeClass("simptip-smooth").removeClass("simptip-fade");
+        socialElement.attr('data-tooltip', '');
+    });
+
+    ProcessTooltip($("#github"), "Github");
+    ProcessTooltip($("#linkedin"), "Linkedin");
+    ProcessTooltip($("#phoneNumber"),"Copy phone number!")
+    ProcessTooltip($("#website"),"Personal Website")
 
     // Initialization of datatable
 
@@ -42,12 +37,11 @@ $(document).ready(function () {
     let table = $('#annotationTable').DataTable({
         language: DT_LANGUAGE,
         order: [[0, "desc"]],
-        lengthMenu: [[25, 50, 100], [25, 50, 100]],
+        lengthMenu: [[10, 25, 50, 100], [10, 25, 50, 100]],
         columnDefs: [
             {
                 orderable: true,
                 searchable: true,
-                className: "center",
                 targets: [0, 1, 2, 3, 4, 5, 6, 7]
             },
             {
@@ -83,26 +77,47 @@ $(document).ready(function () {
                 targets: [7]
             }
         ],
-        dom: 'Blfrtip',
+        dom:'<"ui grid pb-3" <"eight wide column" B> <"four wide column ml-0 pl-0 pt-0 mt-0" r>  <"four wide column">' +
+            '<"four wide column ml-0 pl-0" l> <"eight wide column"> <"four wide column " f>>t' +
+            '<"ui grid stackable pt-3" <"eight wide column mr-0 pr-0" p> <"four wide column"> <"four wide column" i>> ',
         buttons:
-            [{
-                extend: 'collection',
-                text: 'Extract data',
-                buttons: [
-                    {
-                        extend: 'copy',
-                        text: 'Copy',
-                        key: {
-                            key: 'c',
-                            altKey: true
-                        }
-                    }, 'colvis', 'csv', 'excel', 'pdf'
-                ]
-            },
+            [
+                'colvis',
                 {
-                    extend: 'print',
-                    text: 'Print selected',
-                }, 'selectAll', 'selectNone'],
+                    extend: 'collection',
+                    text: 'Extract data',
+                    buttons: [
+                        {
+                            extend: 'csvHtml5',
+                            filename: 'GDA_annotation_file'
+                        },
+                        {
+                            extend: 'excelHtml5',
+                            filename: 'GDA_annotation_file',
+                            title: 'Annotation File'
+                        },
+                        {
+                            extend: 'pdfHtml5',
+                            filename: 'GDA_annotation_file',
+                            title: 'Annotation File'
+                        },
+                        {
+                            extend: 'print',
+                            title: 'Annotation File'
+                        }
+                    ]
+                },
+                {
+                    extend: 'copyHtml5',
+                    text: 'Copy',
+                    key: {
+                        key: 'c',
+                        altKey: true
+                    }
+                },
+                'selectAll',
+                'selectNone'
+            ],
         searching: true,
         processing: true,
         serverSide: true,
@@ -111,13 +126,12 @@ $(document).ready(function () {
         select: true,
         ajax: ANNOTATION_LIST_JSON_URL
     });
+    // $.fn.DataTable.ext.pager.numbers_length = 5; //paging numbers
 
     let inputElements = $(".input-search");
-
     inputElements.on("keyup", "input", function () {
         table.column($(this)[0].id).search(this.value).draw();
     });
-
     inputElements.click(function (event) {
         event.stopPropagation();
     });
@@ -191,60 +205,4 @@ $(document).ready(function () {
     } else {
         localStorage.setItem('table-size', 'small');
     }
-
-
-    // *** Tooltip settings social icons ***
-
-    // $('#phoneNumber').click(function () {
-    //     navigator.clipboard.writeText("0038162216560");
-    //     $('#phoneNumber').attr('data-tooltip', 'Copied phone number!');
-    //     $('#phoneNumber').addClass("simptip-position-top").addClass("simptip-smooth").addClass("simptip-fade");
-    //     setTimeout(function () {
-    //         $('#phoneNumber').removeClass("simptip-position-top").removeClass("simptip-smooth").removeClass("simptip-fade");
-    //         $('#phoneNumber').attr('data-tooltip', '');
-    //     }, 1500);
-    //
-    //     return false;
-    // });
-    //
-    // $('.social-tooltip').click(function () {
-    //     $('.tm-social-link').removeClass("simptip-position-top").removeClass("simptip-smooth").removeClass("simptip-fade");
-    //     $('.tm-social-link').attr('data-tooltip', '');
-    // });
-    //
-    // let githubElement = $('#github');
-    // githubElement.hover(function () {
-    //     githubElement.attr('data-tooltip', 'Github');
-    //     githubElement.addClass("simptip-position-top").addClass("simptip-smooth").addClass("simptip-fade");
-    // }, function () {
-    //     githubElement.removeClass("simptip-position-top").removeClass("simptip-smooth").removeClass("simptip-fade");
-    //     githubElement.attr('data-tooltip', '');
-    // });
-    //
-    // let linkedinElement = $('#linkedin');
-    // linkedinElement.hover(function () {
-    //     linkedinElement.attr('data-tooltip', 'Linkedin');
-    //     linkedinElement.addClass("simptip-position-top").addClass("simptip-smooth").addClass("simptip-fade");
-    // }, function () {
-    //     linkedinElement.removeClass("simptip-position-top").removeClass("simptip-smooth").removeClass("simptip-fade");
-    //     linkedinElement.attr('data-tooltip', '');
-    // });
-    //
-    // let phoneNumberElement = $('#phoneNumber');
-    // phoneNumberElement.hover(function () {
-    //     phoneNumberElement.attr('data-tooltip', 'Copy phone number!');
-    //     phoneNumberElement.addClass("simptip-position-top").addClass("simptip-smooth").addClass("simptip-fade");
-    // }, function () {
-    //     phoneNumberElement.removeClass("simptip-position-top").removeClass("simptip-smooth").removeClass("simptip-fade");
-    //     phoneNumberElement.attr('data-tooltip', '');
-    // });
-    //
-    // let websiteElement = $('#website');
-    // websiteElement.hover(function () {
-    //     websiteElement.attr('data-tooltip', 'Personal Website');
-    //     websiteElement.addClass("simptip-position-top").addClass("simptip-smooth").addClass("simptip-fade");
-    // }, function () {
-    //     websiteElement.removeClass("simptip-position-top").removeClass("simptip-smooth").removeClass("simptip-fade");
-    //     websiteElement.attr('data-tooltip', '');
-    // });
 });

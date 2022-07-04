@@ -90,10 +90,6 @@ $(document).ready(function () {
         navigator.clipboard.writeText("0038162216560");
         $('#phoneNumber').attr('data-tooltip', 'Copied phone number!');
         $('#phoneNumber').addClass("simptip-position-top").addClass("simptip-smooth").addClass("simptip-fade");
-        setTimeout(function () {
-            $('#phoneNumber').removeClass("simptip-position-top").removeClass("simptip-smooth").removeClass("simptip-fade");
-            $('#phoneNumber').attr('data-tooltip', '');
-        }, 1500);
 
         return false;
     });

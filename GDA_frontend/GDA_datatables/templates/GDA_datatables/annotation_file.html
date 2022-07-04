@@ -1,190 +1,4 @@
 {% load i18n static %}
-{#<!doctype html>#}
-{##}
-{#<html lang="en">#}
-{#<head>#}
-{#    <meta charset="utf-8">#}
-{#    <meta name="viewport" content="width=device-width, initial-scale=1">#}
-{##}
-{#    <title>GDA</title>#}
-{#    <meta name="description" content="GDA - gene disease annotation file">#}
-{#    <meta name="author" content="lukamilosevic11">#}
-{##}
-{#    <meta property="og:title" content="GDA">#}
-{#    <meta property="og:type" content="website">#}
-{#    <meta property="og:url" content="https://github.com/lukamilosevic11/GDA">#}
-{#    <meta property="og:description" content="GDA - gene disease annotation file">#}
-{#    <!--  <meta property="og:image" content="image.png">-->#}
-{##}
-{#    <!--  <link rel="icon" href="/favicon.ico">-->#}
-{#    <!--  <link rel="icon" href="/favicon.svg" type="image/svg+xml">-->#}
-{#    <!--  <link rel="apple-touch-icon" href="/apple-touch-icon.png">-->#}
-{##}
-{#    <link rel="preconnect" href="https://fonts.googleapis.com">#}
-{#    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>#}
-{#    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap"#}
-{#          rel="stylesheet">#}
-{##}
-{#    <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap-icons.css" %}"/>#}
-{#    <link rel="stylesheet" type="text/css" href="{% static "css/aos.css" %}"/>#}
-{#    <link rel="stylesheet" type="text/css" href="{% static "css/glightbox.min.css" %}"/>#}
-{#    <link rel="stylesheet" type="text/css" href="{% static "css/swiper-bundle.min.css" %}"/>#}
-{#    <link rel="stylesheet" type="text/css" href="{% static "css/dataTables.semanticui.min.css" %}"/>#}
-{##}
-{#    <link rel="stylesheet" type="text/css" href="{% static "css/simptip-mini.css" %}"/>#}
-{#    <link rel="stylesheet" type="text/css" href="{% static "DataTablesFomantic/datatables.min.css" %}"/>#}
-{#    <link rel="stylesheet" type="text/css" href="{% static "css/semantic.min.css" %}"/>#}
-{#    <link rel="stylesheet" type="text/css" href="{% static "css/ionicons-2.0.1/css/ionicons.min.css" %}"/>#}
-{#    <link rel="stylesheet" type="text/css" href="{% static "css/variables.css" %}"/>#}
-{#    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}"/>#}
-{##}
-{#    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}"/>#}
-{##}
-{#    <script type="text/javascript" src="{% static "DataTablesFomantic/datatables.min.js" %}"></script>#}
-{#    <script type="text/javascript" src="{% static "js/annotationFileSettings.js" %}"></script>#}
-{#</head>#}
-{#<body>#}
-{#<div id="particles-js"></div>#}
-{#<main id="main" style="width: 100%;">#}
-{##}
-{#    <section id="hero-animated" class="hero-animated" style="width: 100%;">#}
-{#        <div class="container flex-column justify-content-center align-items-center position-relative"#}
-{#             data-aos="zoom-out">#}
-{#            <table id="annotationTable" class="ui padded selectable striped yellow sortable table"#}
-{#                   style="width: 100%; text-align: center;">#}
-{#<thead>#}
-{#<tr>#}
-{#    <th>#}
-{#        <div class="ui input" style="width: 100%;">#}
-{#            <input id="0" type="text" placeholder="Search Gene Symbol">#}
-{#        </div>#}
-{#    </th>#}
-{#    <th>#}
-{#        <div class="ui input" style="width: 100%;">#}
-{#            <input id="1" type="text" placeholder="Search Entrez ID">#}
-{#        </div>#}
-{#    </th>#}
-{#    <th>#}
-{#        <div class="ui input" style="width: 100%;">#}
-{#            <input id="2" type="text" placeholder="Search Uniprot ID">#}
-{#        </div>#}
-{#    </th>#}
-{#    <th>#}
-{#        <div class="ui input" style="width: 100%;">#}
-{#            <input id="3" type="text" placeholder="Search Ensembl ID">#}
-{#        </div>#}
-{#    </th>#}
-{#    <th>#}
-{#        <div class="ui input" style="width: 100%;">#}
-{#            <input id="4" type="text" placeholder="Search DOID">#}
-{#        </div>#}
-{#    </th>#}
-{#    <th>#}
-{#        <div class="ui input" style="width: 100%;">#}
-{#            <input id="4" type="text" placeholder="Search Disease Name">#}
-{#        </div>#}
-{#    </th>#}
-{#    <th>#}
-{#        <div class="ui input" style="width: 100%;">#}
-{#            <input id="4" type="text" placeholder="Search DOID Source">#}
-{#        </div>#}
-{#    </th>#}
-{#</tr>#}
-{#<tr>#}
-{#    <th>Gene Symbol</th>#}
-{#    <th>Entrez ID</th>#}
-{#    <th>Uniprot ID</th>#}
-{#    <th>Ensembl ID</th>#}
-{#    <th>DOID</th>#}
-{#    <th>Sources</th>#}
-{#    <th>Disease Name</th>#}
-{#    <th>DOID Source</th>#}
-{#</tr>#}
-{##}
-{#</thead>#}
-{#                <tfoot>#}
-{#                <tr>#}
-{#                    <th>Gene Symbol</th>#}
-{#                    <th>Entrez ID</th>#}
-{#                    <th>Uniprot ID</th>#}
-{#                    <th>Ensembl ID</th>#}
-{#                    <th>DOID</th>#}
-{#                    <th>Sources</th>#}
-{#                    <th>Disease Name</th>#}
-{#                    <th>DOID Source</th>#}
-{#                </tr>#}
-{#                </tfoot>#}
-{#            </table>#}
-{#        </div>#}
-{#    </section>#}
-{##}
-{#</main>#}
-{#<footer id="footer" class="footer">#}
-{#    <div class="footer-legal text-center">#}
-{#        <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">#}
-{##}
-{#            <div class="d-flex flex-column align-items-center align-items-lg-start">#}
-{#                <div class="copyright">#}
-{#                    &copy; Copyright <strong><span>GDA</span></strong>. All Rights Reserved#}
-{#                </div>#}
-{#                <div class="credits">#}
-{#                    Designed by Luka Milosevic <a href="https://bootstrapmade.com/">University of Belgrade</a>, <a#}
-{#                        href="https://bootstrapmade.com/">Faculty of Mathematics</a> and <a#}
-{#                        href="https://bootstrapmade.com/">BootstrapMade</a>#}
-{#                </div>#}
-{#            </div>#}
-{##}
-{#            <div class="social-links order-first order-lg-last mb-3 mb-lg-0">#}
-{#                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>#}
-{#                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>#}
-{#                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>#}
-{#                <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>#}
-{#                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>#}
-{#            </div>#}
-{##}
-{#        </div>#}
-{#    </div>#}
-{##}
-{#</footer><!-- End Footer -->#}
-{##}
-{#<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>#}
-{##}
-{#<div id="preloader"></div>#}
-{#<div class="footer-basic container">#}
-{#    <footer>#}
-{#        <div class="social">#}
-{#            <a id="github" href="https://github.com/lukamilosevic11" target="_blank" class="social-tooltip">#}
-{#                <i class="icon ion-social-github"></i>#}
-{#            </a>#}
-{#            <a id="linkedin" href="https://www.linkedin.com/in/lukamilosevic11/" target="_blank" class="social-tooltip">#}
-{#                <i class="icon ion-social-linkedin"></i>#}
-{#            </a>#}
-{#            <a id="phoneNumber" href="#">#}
-{#                <i class="icon ion-social-whatsapp"></i>#}
-{#            </a>#}
-{#            <a id="website" href="https://alas.matf.bg.ac.rs/~mi15167/" target="_blank" class="social-tooltip">#}
-{#                <i class="icon ion-earth"></i>#}
-{#            </a>#}
-{#        </div>#}
-{#        <p class="copyright">Luka Milosevic <br>#}
-{#            <a href="https://www.bg.ac.rs/en/" target="_blank">University of Belgrade</a>,#}
-{#            <a href="http://www.matf.bg.ac.rs/eng/">Faculty of Mathematics</a> ©#}
-{#            <script type="text/javascript">#}
-{#                let dt = new Date();#}
-{#                document.write("" + dt.getFullYear());#}
-{#            </script>#}
-{#        </p>#}
-{#    </footer>#}
-{#</div>#}
-{#<script type="text/javascript" src="{% static "js/particles.js" %}"></script>#}
-{#<script type="text/javascript" src="{% static "js/app.js" %}"></script>#}
-{#<script type="text/javascript" src="{% static "js/aos.js" %}"></script>#}
-{#<script type="text/javascript" src="{% static "js/glightbox.min.js" %}"></script>#}
-{#<script type="text/javascript" src="{% static "js/swiper-bundle.min.js" %}"></script>#}
-{#<script type="text/javascript" src="{% static "js/main.js" %}"></script>#}
-{#</body>#}
-{#</html>#}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -199,37 +13,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap"
           rel="stylesheet">
 
-    <link href="{% static "css/bootstrapAnnotation.min.css" %}" rel="stylesheet">
-    <link href="{% static "css/bootstrap-icons.css" %}" rel="stylesheet">
-    <link href="{% static "css/aos.css" %}" rel="stylesheet">
-    <link href="{% static "css/glightbox.min.css" %}" rel="stylesheet">
-    <link href="{% static "css/swiper-bundle.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/bootstrapAnnotation.min.css" %}" rel="stylesheet"/>
+    <link href="{% static "css/bootstrap-icons.css" %}" rel="stylesheet"/>
+    <link href="{% static "css/aos.css" %}" rel="stylesheet"/>
+    <link href="{% static "css/glightbox.min.css" %}" rel="stylesheet"/>
+    <link href="{% static "css/swiper-bundle.min.css" %}" rel="stylesheet"/>
 
-    {#    <link rel="stylesheet" type="text/css" href="{% static "css/semantic.min.css" %}">#}
-    {#    <link rel="stylesheet" type="text/css" href="{% static "css/dataTables.semanticui.min.css" %}">#}
-    {#    <link rel="stylesheet" type="text/css"#}
-    {#          href="{% static "DataTables/Responsive-2.3.0/css/responsive.semanticui.min.css" %}">#}
-    <link rel="stylesheet" type="text/css"
-          href="https://cdn.datatables.net/v/se/jq-3.6.0/jszip-2.5.0/dt-1.12.1/af-2.4.0/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/cr-1.5.6/date-1.1.2/fc-4.1.0/fh-3.2.4/kt-2.7.0/r-2.3.0/rg-1.2.0/rr-1.2.8/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/sr-1.1.1/datatables.min.css"/>
-    <link rel="stylesheet" type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static "css/datatables.min.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/semantic.min.css" %}"/>
 
-    <link href="{% static "css/variables.css" %}" rel="stylesheet">
-    <link href="{% static "css/main.css" %}" rel="stylesheet">
+    <link href="{% static "css/variables.css" %}" rel="stylesheet"/>
+    <link href="{% static "css/main.css" %}" rel="stylesheet"/>
 
-    {#    <script type="text/javascript" src="{% static "DataTables/jQuery-3.6.0/jquery-3.6.0.min.js" %}"></script>#}
-    {#    <script type="text/javascript" src="{% static "js/semantic.min.js" %}"></script>#}
-    {#    <script type="text/javascript" src="{% static "js/jquery.dataTables.min.js" %}"></script>#}
-    {#    <script type="text/javascript" src="{% static "js/dataTables.semanticui.min.js" %}"></script>#}
-    {#    <script type="text/javascript"#}
-    {#            src="{% static "DataTables/Responsive-2.3.0/js/dataTables.responsive.js" %}"></script>#}
-    {#    <script type="text/javascript"#}
-    {#            src="{% static "DataTables/Responsive-2.3.0/js/responsive.semanticui.js" %}"></script>#}
-    <script type="text/javascript"
-            src="https://cdn.datatables.net/v/se/jq-3.6.0/jszip-2.5.0/dt-1.12.1/af-2.4.0/b-2.2.3/b-colvis-2.2.3/b-html5-2.2.3/b-print-2.2.3/cr-1.5.6/date-1.1.2/fc-4.1.0/fh-3.2.4/kt-2.7.0/r-2.3.0/rg-1.2.0/rr-1.2.8/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/sr-1.1.1/datatables.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.8/semantic.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="{% static "js/datatables.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/semantic.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/pdfmake.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/vfs_fonts.js" %}"></script>
 
     <script type="text/javascript">
         const ANNOTATION_LIST_JSON_URL = '{% url "annotation_list_json" %}';
@@ -284,8 +83,8 @@
         <div class="container-fluid d-flex align-items-center justify-content-between">
             <a class="btn-getstarted" href="{% url "index" %}">Home</a>
             <div class="container-fluid d-flex align-items-center justify-content-between">
-                <div class="ui tiny compact selection icon dropdown table-size pl-3">
-                    <i class="world icon"></i>
+                <div class="ui small compact selection icon dropdown table-size pl-3">
+                    <i class="teal expand icon"></i>
                     <input name="table- size" type="hidden" value="default">
                     <i class="dropdown icon table-size"></i>
                     <div class="text" id="table-size-text">Table size</div>
@@ -299,7 +98,6 @@
                     <h1>Annotation file<span>.</span></h1>
                 </a>
             </div>
-
         </div>
     </header>
 
@@ -345,7 +143,6 @@
                                 <span>Uniprot ID</span>
                             </div>
                         </div>
-
                     </th>
                     <th>
                         <div class="ui items justify-content-start">
@@ -370,7 +167,6 @@
                                 <span>DOID</span>
                             </div>
                         </div>
-
                     </th>
                     <th>
                         <div class="ui items justify-content-start">
@@ -383,7 +179,6 @@
                                 <span>Source</span>
                             </div>
                         </div>
-
                     </th>
                     <th>
                         <div class="ui items justify-content-sm-start">
@@ -396,7 +191,6 @@
                                 <span>Disease Name</span>
                             </div>
                         </div>
-
                     </th>
                     <th>
                         <div class="ui items justify-content-sm-start">
@@ -411,20 +205,7 @@
                         </div>
                     </th>
                 </tr>
-                {#            <tr>#}
-                {#                <th>Gene Symbol</th>#}
-                {#                <th>Entrez ID</th>#}
-                {#                <th>Uniprot ID</th>#}
-                {#                <th>Ensembl ID</th>#}
-                {#                <th>DOID</th>#}
-                {#                <th>Source</th>#}
-                {#                <th>Disease Name</th>#}
-                {#                <th>DOID Source</th>#}
-                {#            </tr>#}
-
                 </thead>
-
-
                 <tfoot>
                 <tr>
                     <th>Gene Symbol</th>
@@ -438,8 +219,6 @@
                 </tr>
                 </tfoot>
             </table>
-            {#            </div>#}
-            {#            </div>#}
         </section>
     </main>
 
@@ -451,20 +230,29 @@
                         &copy; Copyright <strong><span>GDA</span></strong>. All Rights Reserved
                     </div>
                     <div class="credits">
-                        Luka Milosevic <a href="https://bootstrapmade.com/">University of Belgrade</a>, <a
-                            href="https://bootstrapmade.com/">Faculty of Mathematics</a>
+                        Luka Milosevic <a href="https://www.bg.ac.rs/en/">University of Belgrade</a>, <a
+                            href="http://www.matf.bg.ac.rs/eng/">Faculty of Mathematics</a>
                         {#                    and <a href="https://bootstrapmade.com/">BootstrapMade</a>#}
                     </div>
                 </div>
 
                 <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
-                    <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-                    <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                    <a id="github" href="https://github.com/lukamilosevic11" target="_blank"
+                       >
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <a id="linkedin" href="https://www.linkedin.com/in/lukamilosevic11/" target="_blank"
+                       >
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <a id="phoneNumber" href="#" >
+                        <i class="bi bi-whatsapp"></i>
+                    </a>
+                    <a id="website" href="https://alas.matf.bg.ac.rs/~mi15167/" target="_blank"
+                       >
+                        <i class="bi bi-globe"></i>
+                    </a>
                 </div>
-
             </div>
         </div>
     </footer>
