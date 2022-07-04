@@ -13,9 +13,9 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from GDA_backend.Common.constants import COLLECTION_NAME_DOID, QUERY_BY_DOID, DOID_SOURCE_XREF_OMIM, DOID_SOURCE_XREF_UMLS, \
-    DOID_SOURCE_XREF_MESH, DOID_SOURCE_XREF_GARD, DOID_SOURCE_XREF_MEDDRA, DOID_SOURCE_XREF_ICD10, \
-    DOID_SOURCE_SEARCH_ENGINE, DOID_SOURCE_FROZEN_SET
+from GDA_backend.Common.constants import COLLECTION_NAME_DOID, QUERY_BY_DOID, DOID_SOURCE_XREF_OMIM, \
+    DOID_SOURCE_XREF_UMLS, DOID_SOURCE_XREF_MESH, DOID_SOURCE_XREF_GARD, DOID_SOURCE_XREF_MEDDRA, \
+    DOID_SOURCE_XREF_ICD10, DOID_SOURCE_SEARCH_ENGINE, DOID_SOURCE_FROZEN_SET
 from GDA_backend.Common.init import Xref
 from GDA_backend.Common.util import PreprocessingDiseaseName, JaccardSimilarity
 

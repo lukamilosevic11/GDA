@@ -87,24 +87,6 @@ def PreprocessingDiseaseName(diseaseName, withoutList=False):
     return ' '.join(diseaseNameLemmatized) if withoutList else diseaseNameLemmatized
 
 
-def PreprocessingDiseaseNameLight(diseaseName):
-    if diseaseName is None:
-        return None
-
-    # Replacing dash with space
-    diseaseNameWithoutDash = diseaseName.replace('-', ' ')
-    # Replacing slash with space
-    diseaseNameWithoutSlash = diseaseNameWithoutDash.replace('/', ' ')
-    # Remove multiple spaces
-    diseaseNameWithoutMultipleSpaces = re.sub(' +', ' ', diseaseNameWithoutSlash)
-    # Punctuation Removal
-    diseaseNameWithoutPunctuation = RemovePunctuation(diseaseNameWithoutMultipleSpaces)
-    # Lowering the text
-    diseaseNameLower = diseaseNameWithoutPunctuation.lower()
-
-    return diseaseNameLower
-
-
 def JaccardSimilarity(doc1, doc2):
     if doc1 is None or doc2 is None:
         return None
