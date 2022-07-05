@@ -108,8 +108,6 @@ class AnnotationContext:
                     if term.uniprotID not in self.__uniprotIDToEnsemblID and term.ensemblID is not None:
                         self.__uniprotIDToEnsemblID[term.uniprotID] = term.ensemblID
 
-                # TODO: implement early out of the loop using break if we have
-                # TODO: term.symbol in self.__symbolToUniprotID and term.entrezID in self.__entrezIDToUniprotID and ...
                 # UniprotID (additional UniprotIDs from Hugo)
                 if source is Source.HUGO:
                     uniprotIDs = term.getUniprotIDs()
@@ -291,13 +289,10 @@ class DOID:
         else:
             return self.__SearchWithSearchEngine(' '.join(preprocessedDiseaseName))
 
-    # TODO: add check if we have more than one hit then we can compare results with Jaccard index or some other measure
     def __SearchWithSearchEngine(self, preprocessedDiseaseName):
         searchResult = self.__searchEngineClient. \
             SearchByQuery(COLLECTION_NAME_DOID, preprocessedDiseaseName, QUERY_BY_DOID)
         if len(searchResult["hits"]) > 0:
-            # foundDiseaseName = searchResult["hits"][0]["document"]["diseaseName"]
-            # jaccSimiliarity = jaccardSimilarity(foundDiseaseName, preprocessedDiseaseName)
             return searchResult["hits"][0]["document"]["doid"]
         elif " due " in preprocessedDiseaseName:
             return self.__SearchWithSearchEngine(preprocessedDiseaseName.split(" due ")[0])

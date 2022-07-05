@@ -169,7 +169,7 @@ class OrphanetXrefRow:
         return hash((self.orpha, self.diseaseName))
 
     def __str__(self):
-        return str(self.orpha) + '\t' + str(self.diseaseName)  # TODO: Add dicts to str method
+        return str(self.orpha) + '\t' + str(self.diseaseName)
 
     def GetExactXrefs(self):
         return self.__eDict

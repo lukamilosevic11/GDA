@@ -60,7 +60,11 @@ ORPHANET_XREF_PATH = os.path.join(__DATA_DIRECTORY_STORAGE, __FILENAMES_JSON["OR
     if "ORPHANET_XREF" in __FILENAMES_JSON else os.path.join(__DATA_DIRECTORY, "orphanet_xref.xml")
 
 # Search Engine
-API_KEY = "1"  # TODO: implement guid api key creation
+if os.path.exists("api_key.txt"):
+    with open("api_key.txt", "r") as file:
+        API_KEY = file.readline()
+else:
+    API_KEY = ""
 COLLECTION_NAME_DOID = "DOID"
 QUERY_BY_DOID = "diseaseName, definition"
 

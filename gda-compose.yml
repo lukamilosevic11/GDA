@@ -8,13 +8,15 @@ services:
     ports:
       - "8108:8108"
     environment:
-      TYPESENSE_API_KEY: "1"
+      TYPESENSE_API_KEY: ${API_KEY}
       TYPESENSE_DATA_DIR: /data/typesense
     volumes:
       - typesense:/data/typesense
   gda:
     image: gda:1.0
     container_name: gda
+    environment:
+      API_KEY: ${API_KEY}
     volumes:
       - gda:/Storage
     ports:

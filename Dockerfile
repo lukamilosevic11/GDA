@@ -2,6 +2,7 @@ FROM python:3.9
 
 WORKDIR /GDA
 
+ENV API_KEY ""
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
@@ -17,14 +18,11 @@ COPY GDA_frontend/GDA_frontend ./GDA_frontend/GDA_frontend
 COPY GDA_frontend/manage.py ./GDA_frontend
 
 COPY requirements.txt .
-COPY docker-entrypoint.sh .
 
 RUN ["mkdir", "-p", "./GDA_backend/Storage"]
 RUN ["pip3", "install", "-r", "./requirements.txt"]
-RUN ["chmod", "+x", "./docker-entrypoint.sh"]
 
 ENV PYTHONPATH "${PYTHONPATH}:../"
-
 RUN ["python", "./GDA_frontend/manage.py", "migrate"]
 
-ENTRYPOINT ["./docker-entrypoint.sh"]
+CMD python ./GDA_frontend/manage.py gda_start $API_KEY
