@@ -31,6 +31,7 @@ class ParsingContextThread:
         annotationContextStartTime = time.time()
         if progress is not None:
             progress.set_total(self.dbContext.GetTotalParsingLength() + self.dbContext.GetAllSourcesLength())
+
         self.annotationContext = AnnotationContext(self.dbContext, createCollection, progress)
         PrintElapsedTime(annotationContextStartTime, time.time(), "Preparing parsing elapsed time")
         self.__sources = Source.GetSourcesForParsing()

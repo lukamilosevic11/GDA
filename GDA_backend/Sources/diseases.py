@@ -30,6 +30,9 @@ class Diseases:
             symbol = CheckEmpty(CheckNan(row[0]))
             doid = CheckEmpty(CheckNan(row[1]))
             diseaseName = CheckEmpty(CheckNan(row[2]))
+            if "DOID:" in diseaseName:
+                diseaseName = None
+
             diseasesSet.add(DiseasesRow(symbol, doid, diseaseName))
 
         return diseasesSet
