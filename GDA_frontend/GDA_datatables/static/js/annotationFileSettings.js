@@ -28,12 +28,12 @@ $(document).ready(function () {
 
     ProcessTooltip($("#github"), "Github");
     ProcessTooltip($("#linkedin"), "Linkedin");
-    ProcessTooltip($("#phoneNumber"),"Copy phone number!")
-    ProcessTooltip($("#website"),"Personal Website")
+    ProcessTooltip($("#phoneNumber"), "Copy phone number!")
+    ProcessTooltip($("#website"), "Personal Website")
+
+    $.fn.DataTable.ext.pager.numbers_length = 5; //paging numbers
 
     // Initialization of datatable
-
-
     let table = $('#annotationTable').DataTable({
         language: DT_LANGUAGE,
         order: [[0, "desc"]],
@@ -77,9 +77,10 @@ $(document).ready(function () {
                 targets: [7]
             }
         ],
-        dom:'<"ui grid pb-3" <"eight wide column" B> <"four wide column ml-0 pl-0 pt-0 mt-0" r>  <"four wide column">' +
+        dom: '<"ui grid pb-3" <"eight wide column" B> <"four wide column ml-0 pl-0 pt-0 mt-0" r>  <"four wide column">' +
             '<"four wide column ml-0 pl-0" l> <"eight wide column"> <"four wide column " f>>t' +
-            '<"ui grid stackable pt-3" <"eight wide column mr-0 pr-0" p> <"four wide column"> <"four wide column" i>> ',
+            '<"ui grid stackable pt-3" <"sixteen wide column" i>>' +
+            '<"container pt-1 text-center bottomGrid" <"inline-block-child" p> <"inline-block-child pageNumber">>',
         buttons:
             [
                 'colvis',
@@ -94,16 +95,16 @@ $(document).ready(function () {
                         {
                             extend: 'excelHtml5',
                             filename: 'GDA_annotation_file',
-                            title: 'Annotation File'
+                            title: 'GDA Annotation File'
                         },
                         {
                             extend: 'pdfHtml5',
                             filename: 'GDA_annotation_file',
-                            title: 'Annotation File'
+                            title: 'GDA Annotation File'
                         },
                         {
                             extend: 'print',
-                            title: 'Annotation File'
+                            title: 'GDA Annotation File'
                         }
                     ]
                 },
@@ -126,7 +127,35 @@ $(document).ready(function () {
         select: true,
         ajax: ANNOTATION_LIST_JSON_URL
     });
-    // $.fn.DataTable.ext.pager.numbers_length = 5; //paging numbers
+
+    $(".pageNumber").append(
+        '<div class="ui icon input small" style="width: 130px; margin-left: 10px;">' +
+        '   <input id="pageNumber" type="number" min="1" placeholder="Page number">' +
+        '   <i class="list ol large icon"></i>' +
+        '</div>'
+    );
+
+
+    let pageNumber = $('#pageNumber');
+
+    function ChangePage(refreshEmpty = false) {
+        let p = pageNumber.val();
+        if (p) {
+            p = parseInt(p);
+            let numberOfPages = table.page.info().pages;
+            if (p && p >= 0 && p <= numberOfPages) {
+                table.page(p - 1).draw('page');
+            }
+        } else if (refreshEmpty) {
+            let pageNum = table.page();
+            table.draw();
+            table.page(pageNum).draw('page');
+        }
+    }
+
+    pageNumber.on('change keydown paste input propertychange click keyup blur', function () {
+        ChangePage();
+    });
 
     let inputElements = $(".input-search");
     inputElements.on("keyup", "input", function () {
@@ -184,7 +213,7 @@ $(document).ready(function () {
             text.text("Large");
             tableSizing.addClass("large");
         }
-        table.draw();
+        ChangePage(true);
     }
 
     $('.table-size').click(function (element) {
@@ -198,7 +227,6 @@ $(document).ready(function () {
     });
 
     let currentSize = localStorage.getItem('table-size');
-    console.log(currentSize);
     if (currentSize !== null) {
         ResizeTable(currentSize);
 
