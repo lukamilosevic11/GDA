@@ -50,6 +50,7 @@ def parsing_triggered(request):
             frontendTracker.parsingStarted = True
             frontendTracker.parsing = True
             frontendTracker.progress = 0
+            frontendTracker.spinner = False
             progressSubject = Subject(Lock())
             observer = Observer(frontendTracker)
             progressSubject.attach(observer)

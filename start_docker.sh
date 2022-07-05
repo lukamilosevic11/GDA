@@ -15,31 +15,4 @@
 # all copies or substantial portions of the Software.
 #
 
-version: "3.9"
-services:
-  typesense:
-    image: typesense/typesense:0.22.2
-    container_name: typesense
-    logging:
-      driver: none
-    ports:
-      - "8108:8108"
-    environment:
-      TYPESENSE_API_KEY: ${API_KEY}
-      TYPESENSE_DATA_DIR: /data/typesense
-    volumes:
-      - typesense:/data/typesense
-  gda:
-    image: gda:1.0
-    container_name: gda
-    environment:
-      API_KEY: ${API_KEY}
-    volumes:
-      - ~/Desktop/master/Storage:/GDA/GDA_backend/Storage
-    ports:
-      - "8000:8000"
-volumes:
-  typesense:
-    driver: local
-  gda:
-    driver: local
+API_KEY="$(uuidgen)" docker-compose -f gda-compose.yml start

@@ -16,7 +16,6 @@
 from GDA_backend.Common.init import os
 from GDA_backend.Common.util import ImportDataFilenamesJson
 
-
 __STORAGE_DIRECTORY = os.path.abspath("./GDA_backend/Storage") if os.getcwd().split('/')[-1] == "GDA" \
     else os.path.abspath("../GDA_backend/Storage")
 
@@ -31,33 +30,29 @@ __DATA_DIRECTORY = os.path.abspath("./GDA_backend/Data") \
 __DATA_DIRECTORY_STORAGE = os.path.join(__STORAGE_DIRECTORY, __FILENAMES_JSON["DATA_DIRECTORY"]) \
     if "DATA_DIRECTORY" in __FILENAMES_JSON else __STORAGE_DIRECTORY
 
+
+def GetPath(sourceName, fileName):
+    if sourceName in __FILENAMES_JSON and os.path.exists(
+            os.path.join(__DATA_DIRECTORY_STORAGE, __FILENAMES_JSON[sourceName])):
+        return os.path.join(__DATA_DIRECTORY_STORAGE, __FILENAMES_JSON[sourceName])
+    return os.path.join(__DATA_DIRECTORY, fileName)
+
+
 # Sources
-CLINVAR_PATH = os.path.join(__DATA_DIRECTORY_STORAGE, __FILENAMES_JSON["CLINVAR"]) \
-    if "CLINVAR" in __FILENAMES_JSON else os.path.join(__DATA_DIRECTORY, "clinvar.txt")
-COSMIC_PATH = os.path.join(__DATA_DIRECTORY_STORAGE, __FILENAMES_JSON["COSMIC"]) \
-    if "COSMIC" in __FILENAMES_JSON else os.path.join(__DATA_DIRECTORY, "cosmic.csv")
-DISEASES_PATH = os.path.join(__DATA_DIRECTORY_STORAGE, __FILENAMES_JSON["DISEASES"]) \
-    if "DISEASES" in __FILENAMES_JSON else os.path.join(__DATA_DIRECTORY, "diseases.tsv")
-DISGENET_PATH = os.path.join(__DATA_DIRECTORY_STORAGE, __FILENAMES_JSON["DISGENET"]) \
-    if "DISGENET" in __FILENAMES_JSON else os.path.join(__DATA_DIRECTORY, "disgenet.tsv")
-HPO_PATH = os.path.join(__DATA_DIRECTORY_STORAGE, __FILENAMES_JSON["HPO"]) \
-    if "HPO" in __FILENAMES_JSON else os.path.join(__DATA_DIRECTORY, "hpo.txt")
-HUMSAVAR_PATH = os.path.join(__DATA_DIRECTORY_STORAGE, __FILENAMES_JSON["HUMSAVAR"]) \
-    if "HUMSAVAR" in __FILENAMES_JSON else os.path.join(__DATA_DIRECTORY, "humsavar.txt")
-ORPHANET_PATH = os.path.join(__DATA_DIRECTORY_STORAGE, __FILENAMES_JSON["ORPHANET"]) \
-    if "ORPHANET" in __FILENAMES_JSON else os.path.join(__DATA_DIRECTORY, "orphanet.xml")
+CLINVAR_PATH = GetPath("CLINVAR", "clinvar.txt")
+COSMIC_PATH = GetPath("COSMIC", "cosmic.csv")
+DISEASES_PATH = GetPath("DISEASES", "diseases.tsv")
+DISGENET_PATH = GetPath("DISGENET", "disgenet.tsv")
+HPO_PATH = GetPath("HPO", "hpo.txt")
+HUMSAVAR_PATH = GetPath("HUMSAVAR", "humsavar.txt")
+ORPHANET_PATH = GetPath("ORPHANET", "orphanet.xml")
 
 # Mapping
-RGD_OBO_PATH = os.path.join(__DATA_DIRECTORY_STORAGE, __FILENAMES_JSON["RGD_OBO"]) \
-    if "RGD_OBO" in __FILENAMES_JSON else os.path.join(__DATA_DIRECTORY, "rgd.txt")
-OBO_PATH = os.path.join(__DATA_DIRECTORY_STORAGE, __FILENAMES_JSON["OBO"]) \
-    if "OBO" in __FILENAMES_JSON else os.path.join(__DATA_DIRECTORY, "obo.txt")
-UNIPROT_PATH = os.path.join(__DATA_DIRECTORY_STORAGE, __FILENAMES_JSON["UNIPROT"]) \
-    if "UNIPROT" in __FILENAMES_JSON else os.path.join(__DATA_DIRECTORY, "uniprot.dat")
-HUGO_PATH = os.path.join(__DATA_DIRECTORY_STORAGE, __FILENAMES_JSON["HUGO"]) \
-    if "HUGO" in __FILENAMES_JSON else os.path.join(__DATA_DIRECTORY, "hugo.txt")
-ORPHANET_XREF_PATH = os.path.join(__DATA_DIRECTORY_STORAGE, __FILENAMES_JSON["ORPHANET_XREF"]) \
-    if "ORPHANET_XREF" in __FILENAMES_JSON else os.path.join(__DATA_DIRECTORY, "orphanet_xref.xml")
+RGD_OBO_PATH = GetPath("RGD_OBO", "rgd.txt")
+OBO_PATH = GetPath("OBO", "obo.txt")
+UNIPROT_PATH = GetPath("UNIPROT", "uniprot.dat")
+HUGO_PATH = GetPath("HUGO", "hugo.txt")
+ORPHANET_XREF_PATH = GetPath("ORPHANET_XREF", "orphanet_xref.xml")
 
 # Search Engine
 if os.path.exists("api_key.txt"):
@@ -65,6 +60,7 @@ if os.path.exists("api_key.txt"):
         API_KEY = file.readline()
 else:
     API_KEY = ""
+
 COLLECTION_NAME_DOID = "DOID"
 QUERY_BY_DOID = "diseaseName, definition"
 
