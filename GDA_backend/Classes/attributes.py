@@ -149,7 +149,7 @@ class DOID:
             foundDiseaseName = searchResult["hits"][0]["document"]["diseaseName"]
             jaccSimilarity = JaccardSimilarity(foundDiseaseName, preprocessedDiseaseName)
             doid = searchResult["hits"][0]["document"]["doid"]
-            doidSource = DOID_SOURCE_SEARCH_ENGINE + ", " + str(int(round(jaccSimilarity*100, 0))) + '%'
+            doidSource = DOID_SOURCE_SEARCH_ENGINE + ", " + str(int(round(jaccSimilarity * 100, 0))) + '%'
 
             return doid, doidSource
         elif " due " in preprocessedDiseaseName:

@@ -35,7 +35,7 @@ def PrintStructure(source):
 def WriteStructureToFile(filePath, source, header=None):
     with open(filePath, "w") as file:
         if header is not None:
-            file.write(header+'\n')
+            file.write(header + '\n')
         for row in source:
             file.write(str(row) + "\n")
 
@@ -124,4 +124,4 @@ def ImportDataFilenamesJson(filePath):
 
 
 def PrintElapsedTime(startTime, endTime, msg):
-    print("{} -> {}".format(msg, endTime-startTime))
+    print("{} -> {}".format(msg, endTime - startTime))

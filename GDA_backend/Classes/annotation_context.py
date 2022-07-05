@@ -16,8 +16,8 @@
 from GDA_backend.Classes.attributes import EntrezID, UniprotID, EnsemblID, DOID, DiseaseName, Xrefs
 from GDA_backend.Classes.search_engine_client import SearchEngineClient
 from GDA_backend.Common.constants import COLLECTION_NAME_DOID, DISEASE_NAME_DOID_JSONL_PATH
-from GDA_backend.Common.init import Source, Xref, XREFS_SOURCE, json, Progress, SpinnerColumn, TimeElapsedColumn, TextColumn, \
-    BarColumn, TaskProgressColumn, TimeRemainingColumn, MofNCompleteColumn
+from GDA_backend.Common.init import Source, Xref, XREFS_SOURCE, json, Progress, SpinnerColumn, TimeElapsedColumn, \
+    TextColumn, BarColumn, TaskProgressColumn, TimeRemainingColumn, MofNCompleteColumn
 from GDA_backend.Common.util import PreprocessingDiseaseName
 
 

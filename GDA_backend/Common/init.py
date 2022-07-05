@@ -17,6 +17,7 @@ import copy
 import json
 import multiprocessing
 import nltk
+
 nltk.download('omw-1.4', quiet=True)
 nltk.download('punkt', quiet=True)
 nltk.download('stopwords', quiet=True)

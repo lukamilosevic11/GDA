@@ -150,9 +150,9 @@ def DoidAccuracy(annotationFilePath, doidAccuracyFilePath):
         row = tableAccuracyPercentage[j]
         rowLen = len(row)
         for i in range(rowLen - 2):
-            x = row[i+1]
-            rowCount = row[rowLen-1]
-            row[i+1] = int(round((x / rowCount) * 100, 0)) if int(round((x / rowCount) * 100, 0)) >= 1 or x == 0 else \
+            x = row[i + 1]
+            rowCount = row[rowLen - 1]
+            row[i + 1] = int(round((x / rowCount) * 100, 0)) if int(round((x / rowCount) * 100, 0)) >= 1 or x == 0 else \
                 round((x / rowCount) * 100, 3)
 
     with open(doidAccuracyFilePath, "w") as file:

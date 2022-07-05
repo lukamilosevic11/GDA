@@ -19,7 +19,7 @@ class Observer:
         self.frontendTracker = frontendTracker
 
     def update(self, subject):
-        self.frontendTracker.progress = int((subject.step/subject.total)*100)
+        self.frontendTracker.progress = int((subject.step / subject.total) * 100)
 
 
 class Subject:
