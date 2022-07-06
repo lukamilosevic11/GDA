@@ -9,12 +9,12 @@ $(document).ready(function () {
         location.reload();
     }
 
-    function Error(msg, callAfterParsing=true) {
+    function Error(msg, callAfterParsing = true) {
         $('#parsingFailed').show();
         console.error(msg);
         setTimeout(function () {
             $('#parsingFailed').hide();
-            if(callAfterParsing) {
+            if (callAfterParsing) {
                 AfterParsing();
             }
         }, 1500);
@@ -30,7 +30,7 @@ $(document).ready(function () {
                     $('#progressBarPercentage').width(resp.progress + '%');
                     if (resp.spinner) {
                         $("#spinner").show();
-                    }else {
+                    } else {
                         $("#spinner").hide();
                     }
 

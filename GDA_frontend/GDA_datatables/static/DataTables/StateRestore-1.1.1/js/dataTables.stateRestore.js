@@ -6,15 +6,25 @@
 
     var $$1;
     var dataTable$1;
+
     function setJQuery$1(jq) {
         $$1 = jq;
         dataTable$1 = jq.fn.dataTable;
     }
+
     var StateRestore = /** @class */ (function () {
         function StateRestore(settings, opts, identifier, state, isPreDefined, successCallback) {
-            if (state === void 0) { state = undefined; }
-            if (isPreDefined === void 0) { isPreDefined = false; }
-            if (successCallback === void 0) { successCallback = function () { return null; }; }
+            if (state === void 0) {
+                state = undefined;
+            }
+            if (isPreDefined === void 0) {
+                isPreDefined = false;
+            }
+            if (successCallback === void 0) {
+                successCallback = function () {
+                    return null;
+                };
+            }
             // Check that the required version of DataTables is included
             if (!dataTable$1 || !dataTable$1.versionCheck || !dataTable$1.versionCheck('1.10.0')) {
                 throw new Error('StateRestore requires DataTables 1.10 or newer');
@@ -74,6 +84,7 @@
             // When a StateRestore instance is created the current state of the table should also be saved.
             this.save(state, successCallback);
         }
+
         /**
          * Removes a state from storage and then triggers the dtsr-remove event
          * so that the StateRestoreCollection class can remove it's references as well.
@@ -83,7 +94,9 @@
         StateRestore.prototype.remove = function (skipModal) {
             var _a;
             var _this = this;
-            if (skipModal === void 0) { skipModal = false; }
+            if (skipModal === void 0) {
+                skipModal = false;
+            }
             // Check if removal of states is allowed
             if (!this.c.remove) {
                 return false;
@@ -100,7 +113,9 @@
                 $$1(_this.s.dt.table().node()).trigger('stateRestore-change');
                 _this.dom.background.click();
                 _this.dom.confirmation.remove();
-                $$1(document).unbind('keyup', function (e) { return _this._keyupFunction(e); });
+                $$1(document).unbind('keyup', function (e) {
+                    return _this._keyupFunction(e);
+                });
                 _this.dom.confirmationButton.off('click');
             };
             // If the remove is not happening over ajax remove it from local storage and then trigger the event
@@ -110,8 +125,7 @@
                         localStorage.removeItem('DataTables_stateRestore_' + _this.s.identifier + '_' + location.pathname +
                             (_this.s.tableId ? '_' + _this.s.tableId : ''));
                         successCallback();
-                    }
-                    catch (e) {
+                    } catch (e) {
                         _this.dom.confirmation.children('.' + _this.classes.modalError).remove();
                         _this.dom.confirmation.append(_this.dom.removeError);
                         return 'remove';
@@ -119,7 +133,7 @@
                     return true;
                 };
             }
-            // Ajax property has to be a string, not just true
+                // Ajax property has to be a string, not just true
             // Also only want to save if the table has been initialised and the states have been loaded in
             else if (typeof this.c.ajax === 'string' && this.s.dt.settings()[0]._bInitComplete) {
                 removeFunction = function () {
@@ -131,8 +145,7 @@
                     });
                     return true;
                 };
-            }
-            else if (typeof this.c.ajax === 'function') {
+            } else if (typeof this.c.ajax === 'function') {
                 removeFunction = function () {
                     if (typeof _this.c.ajax === 'function') {
                         _this.c.ajax.call(_this.s.dt, ajaxData, successCallback);
@@ -180,8 +193,7 @@
                         state.columns[i].search = undefined;
                     }
                 }
-            }
-            else if (!this.c.saveState.columns) {
+            } else if (!this.c.saveState.columns) {
                 state.columns = undefined;
             }
             // Paging
@@ -232,7 +244,9 @@
          * Removes all of the dom elements from the document
          */
         StateRestore.prototype.destroy = function () {
-            Object.values(this.dom).forEach(function (node) { return node.off().remove(); });
+            Object.values(this.dom).forEach(function (node) {
+                return node.off().remove();
+            });
         };
         /**
          * Loads the state referenced by the identifier from storage
@@ -275,7 +289,9 @@
          */
         StateRestore.prototype.rename = function (newIdentifier, currentIdentifiers) {
             var _this = this;
-            if (newIdentifier === void 0) { newIdentifier = null; }
+            if (newIdentifier === void 0) {
+                newIdentifier = null;
+            }
             // Check if renaming of states is allowed
             if (!this.c.rename) {
                 return;
@@ -288,13 +304,11 @@
                         _this.dom.confirmation.children('.' + _this.classes.modalError).remove();
                         _this.dom.confirmation.append(_this.dom.emptyError);
                         return 'empty';
-                    }
-                    else if (currentIdentifiers.includes(tempIdentifier)) {
+                    } else if (currentIdentifiers.includes(tempIdentifier)) {
                         _this.dom.confirmation.children('.' + _this.classes.modalError).remove();
                         _this.dom.confirmation.append(_this.dom.duplicateError);
                         return 'duplicate';
-                    }
-                    else {
+                    } else {
                         newIdentifier = tempIdentifier;
                     }
                 }
@@ -306,7 +320,9 @@
                 };
                 var successCallback = function () {
                     _this.s.identifier = newIdentifier;
-                    _this.save(_this.s.savedState, function () { return null; }, false);
+                    _this.save(_this.s.savedState, function () {
+                        return null;
+                    }, false);
                     _this.dom.removeContents = $$1('<div class="' + _this.classes.confirmationText + '"><span>' +
                         _this.s.dt
                             .i18n('stateRestore.removeConfirm', _this.c.i18n.removeConfirm)
@@ -315,7 +331,9 @@
                     _this.dom.confirmation.trigger('dtsr-rename');
                     _this.dom.background.click();
                     _this.dom.confirmation.remove();
-                    $$1(document).unbind('keyup', function (e) { return _this._keyupFunction(e); });
+                    $$1(document).unbind('keyup', function (e) {
+                        return _this._keyupFunction(e);
+                    });
                     _this.dom.confirmationButton.off('click');
                 };
                 if (!_this.c.ajax) {
@@ -323,22 +341,19 @@
                         localStorage.removeItem('DataTables_stateRestore_' + _this.s.identifier + '_' + location.pathname +
                             (_this.s.tableId ? '_' + _this.s.tableId : ''));
                         successCallback();
-                    }
-                    catch (e) {
+                    } catch (e) {
                         _this.dom.confirmation.children('.' + _this.classes.modalError).remove();
                         _this.dom.confirmation.append(_this.dom.removeError);
                         return false;
                     }
-                }
-                else if (typeof _this.c.ajax === 'string' && _this.s.dt.settings()[0]._bInitComplete) {
+                } else if (typeof _this.c.ajax === 'string' && _this.s.dt.settings()[0]._bInitComplete) {
                     $$1.ajax({
                         data: ajaxData,
                         success: successCallback,
                         type: 'POST',
                         url: _this.c.ajax
                     });
-                }
-                else if (typeof _this.c.ajax === 'function') {
+                } else if (typeof _this.c.ajax === 'function') {
                     _this.c.ajax.call(_this.s.dt, ajaxData, successCallback);
                 }
                 return true;
@@ -347,18 +362,15 @@
             if (newIdentifier !== null) {
                 if (currentIdentifiers.includes(newIdentifier)) {
                     throw new Error(this.s.dt.i18n('stateRestore.duplicateError', this.c.i18n.duplicateError));
-                }
-                else if (newIdentifier.length === 0) {
+                } else if (newIdentifier.length === 0) {
                     throw new Error(this.s.dt.i18n('stateRestore.emptyError', this.c.i18n.emptyError));
-                }
-                else {
+                } else {
                     this.dom.confirmation.appendTo(this.dom.dtContainer);
                     $$1(this.s.dt.table().node()).trigger('dtsr-modal-inserted');
                     renameFunction();
                     this.dom.confirmation.remove();
                 }
-            }
-            else {
+            } else {
                 this.dom.renameInput.val(this.s.identifier);
                 this.dom.renameContents.append(this.dom.renameInput);
                 this._newModal(this.dom.renameTitle, this.s.dt.i18n('stateRestore.renameButton', this.c.i18n.renameButton), renameFunction, this.dom.renameContents);
@@ -372,7 +384,9 @@
         StateRestore.prototype.save = function (state, passedSuccessCallback, callAjax) {
             var _a;
             var _this = this;
-            if (callAjax === void 0) { callAjax = true; }
+            if (callAjax === void 0) {
+                callAjax = true;
+            }
             // Check if saving states is allowed
             if (!this.c.save) {
                 if (passedSuccessCallback) {
@@ -386,19 +400,16 @@
             this.s.dt.state.save();
             if (state === undefined) {
                 savedState = this.s.dt.state();
-            }
-            else if (typeof state !== 'object') {
+            } else if (typeof state !== 'object') {
                 return;
-            }
-            else {
+            } else {
                 savedState = state;
             }
             if (savedState.stateRestore) {
                 savedState.stateRestore.isPreDefined = this.s.isPreDefined;
                 savedState.stateRestore.state = this.s.identifier;
                 savedState.stateRestore.tableId = this.s.tableId;
-            }
-            else {
+            } else {
                 savedState.stateRestore = {
                     isPreDefined: this.s.isPreDefined,
                     state: this.s.identifier,
@@ -426,8 +437,7 @@
                         this.s.savedState.columns[i].search = undefined;
                     }
                 }
-            }
-            else if (!this.c.saveState.columns) {
+            } else if (!this.c.saveState.columns) {
                 this.s.savedState.columns = undefined;
             }
             // SearchBuilder
@@ -496,8 +506,7 @@
                 localStorage.setItem('DataTables_stateRestore_' + this.s.identifier + '_' + location.pathname +
                     (this.s.tableId ? '_' + this.s.tableId : ''), JSON.stringify(this.s.savedState));
                 successCallback();
-            }
-            else if (typeof this.c.ajax === 'string' && callAjax) {
+            } else if (typeof this.c.ajax === 'string' && callAjax) {
                 if (this.s.dt.settings()[0]._bInitComplete) {
                     $$1.ajax({
                         data: ajaxData,
@@ -505,8 +514,7 @@
                         type: 'POST',
                         url: this.c.ajax
                     });
-                }
-                else {
+                } else {
                     this.s.dt.one('init', function () {
                         $$1.ajax({
                             data: ajaxData,
@@ -516,8 +524,7 @@
                         });
                     });
                 }
-            }
-            else if (typeof this.c.ajax === 'function' && callAjax) {
+            } else if (typeof this.c.ajax === 'function' && callAjax) {
                 this.c.ajax.call(this.s.dt, ajaxData, successCallback);
             }
         };
@@ -607,8 +614,7 @@
                     if (!this._deepCompare(states[0][keys[0][i]], states[1][keys[1][i]])) {
                         return false;
                     }
-                }
-                else if (typeof states[0][keys[0][i]] === 'number' && typeof states[1][keys[1][i]] === 'number') {
+                } else if (typeof states[0][keys[0][i]] === 'number' && typeof states[1][keys[1][i]] === 'number') {
                     if (Math.round(states[0][keys[0][i]]) !== Math.round(states[1][keys[1][i]])) {
                         return false;
                     }
@@ -649,7 +655,7 @@
                 .append(this.dom.confirmationTitleRow)
                 .append(modalContents)
                 .append($$1('<div class="' + this.classes.confirmationButtons + '"></div>')
-                .append(this.dom.confirmationButton))
+                    .append(this.dom.confirmationButton))
                 .appendTo(this.dom.dtContainer);
             $$1(this.s.dt.table().node()).trigger('dtsr-modal-inserted');
             var inputs = modalContents.children('input');
@@ -664,11 +670,15 @@
             var background = $$1('div.' + this.classes.background.replace(/ /g, '.'));
             if (this.c.modalCloseButton) {
                 this.dom.confirmation.append(this.dom.closeButton);
-                this.dom.closeButton.on('click', function () { return background.click(); });
+                this.dom.closeButton.on('click', function () {
+                    return background.click();
+                });
             }
             // When the button is clicked, call the appropriate action,
             // remove the background and modal from the screen and unbind the keyup event.
-            this.dom.confirmationButton.on('click', function () { return buttonAction(); });
+            this.dom.confirmationButton.on('click', function () {
+                return buttonAction();
+            });
             this.dom.confirmation.on('click', function (e) {
                 e.stopPropagation();
             });
@@ -676,9 +686,13 @@
             background.one('click', function () {
                 _this.dom.background.remove();
                 _this.dom.confirmation.remove();
-                $$1(document).unbind('keyup', function (e) { return _this._keyupFunction(e); });
+                $$1(document).unbind('keyup', function (e) {
+                    return _this._keyupFunction(e);
+                });
             });
-            $$1(document).on('keyup', function (e) { return _this._keyupFunction(e); });
+            $$1(document).on('keyup', function (e) {
+                return _this._keyupFunction(e);
+            });
         };
         /**
          * Convert from camelCase notation to the internal Hungarian.
@@ -794,10 +808,12 @@
 
     var $;
     var dataTable;
+
     function setJQuery(jq) {
         $ = jq;
         dataTable = jq.fn.dataTable;
     }
+
     var StateRestoreCollection = /** @class */ (function () {
         function StateRestoreCollection(settings, opts) {
             var _this = this;
@@ -982,11 +998,12 @@
             if (typeof this.c.ajax === 'function') {
                 ajaxFunction = function () {
                     if (typeof _this.c.ajax === 'function') {
-                        _this.c.ajax.call(_this.s.dt, ajaxData, function (s) { return _this._addPreDefined(s); });
+                        _this.c.ajax.call(_this.s.dt, ajaxData, function (s) {
+                            return _this._addPreDefined(s);
+                        });
                     }
                 };
-            }
-            else if (typeof this.c.ajax === 'string') {
+            } else if (typeof this.c.ajax === 'string') {
                 ajaxFunction = function () {
                     $.ajax({
                         data: ajaxData,
@@ -1001,8 +1018,7 @@
             if (typeof ajaxFunction === 'function') {
                 if (this.s.dt.settings()[0]._bInitComplete) {
                     ajaxFunction();
-                }
-                else {
+                } else {
                     this.s.dt.one('preInit.dtsr', function () {
                         ajaxFunction();
                     });
@@ -1011,9 +1027,12 @@
             this.s.dt.on('destroy.dtsr', function () {
                 _this.destroy();
             });
-            this.s.dt.on('draw.dtsr buttons-action.dtsr', function () { return _this.findActive(); });
+            this.s.dt.on('draw.dtsr buttons-action.dtsr', function () {
+                return _this.findActive();
+            });
             return this;
         }
+
         /**
          * Adds a new StateRestore instance to the collection based on the current properties of the table
          *
@@ -1031,8 +1050,7 @@
             var createFunction = function (id, toggles) {
                 if (id.length === 0) {
                     return 'empty';
-                }
-                else if (currentIdentifiers.includes(id)) {
+                } else if (currentIdentifiers.includes(id)) {
                     return 'duplicate';
                 }
                 _this.s.dt.state.save();
@@ -1060,9 +1078,15 @@
                 }
                 var newState = new StateRestore(_this.s.dt.settings()[0], $.extend(true, {}, _this.c, options), id, currState, false, successCallback);
                 $(_this.s.dt.table().node()).on('dtsr-modal-inserted', function () {
-                    newState.dom.confirmation.one('dtsr-remove', function () { return _this._removeCallback(newState.s.identifier); });
-                    newState.dom.confirmation.one('dtsr-rename', function () { return _this._collectionRebuild(); });
-                    newState.dom.confirmation.one('dtsr-save', function () { return _this._collectionRebuild(); });
+                    newState.dom.confirmation.one('dtsr-remove', function () {
+                        return _this._removeCallback(newState.s.identifier);
+                    });
+                    newState.dom.confirmation.one('dtsr-rename', function () {
+                        return _this._collectionRebuild();
+                    });
+                    newState.dom.confirmation.one('dtsr-save', function () {
+                        return _this._collectionRebuild();
+                    });
                 });
                 return true;
             };
@@ -1070,18 +1094,15 @@
             if (state === null) {
                 if (this.c.creationModal || options !== undefined && options.creationModal) {
                     this._creationModal(createFunction, identifier, options);
-                }
-                else {
+                } else {
                     var success = createFunction(identifier, {});
                     if (success === 'empty') {
                         throw new Error(this.s.dt.i18n('stateRestore.emptyError', this.c.i18n.emptyError));
-                    }
-                    else if (success === 'duplicate') {
+                    } else if (success === 'duplicate') {
                         throw new Error(this.s.dt.i18n('stateRestore.duplicateError', this.c.i18n.duplicateError));
                     }
                 }
-            }
-            else {
+            } else {
                 throw new Error(this.s.dt.i18n('stateRestore.duplicateError', this.c.i18n.duplicateError));
             }
         };
@@ -1095,7 +1116,9 @@
             if (this.s.states.length === 0) {
                 return;
             }
-            var ids = this.s.states.map(function (state) { return state.s.identifier; });
+            var ids = this.s.states.map(function (state) {
+                return state.s.identifier;
+            });
             var replacementString = ids[0];
             if (ids.length > 1) {
                 replacementString = ids.slice(0, -1).join(', ') +
@@ -1186,8 +1209,7 @@
         StateRestoreCollection.prototype.getStates = function (ids) {
             if (ids === undefined) {
                 return this.s.states;
-            }
-            else {
+            } else {
                 var states = [];
                 for (var _i = 0, ids_1 = ids; _i < ids_1.length; _i++) {
                     var id = ids_1[_i];
@@ -1217,7 +1239,9 @@
             // There is a potential issue here if sorting where the string parts of the name are the same,
             // only the number differs and there are many states - but this wouldn't be usfeul naming so
             // more of a priority to sort alphabetically
-            var states = Object.keys(preDefined).sort(function (a, b) { return a > b ? 1 : a < b ? -1 : 0; });
+            var states = Object.keys(preDefined).sort(function (a, b) {
+                return a > b ? 1 : a < b ? -1 : 0;
+            });
             var _loop_1 = function (state) {
                 for (var i = 0; i < this_1.s.states.length; i++) {
                     if (this_1.s.states[i].s.identifier === state) {
@@ -1231,13 +1255,19 @@
                 };
                 var loadedState = preDefined[state];
                 var newState = new StateRestore(this_1.s.dt, $.extend(true, {}, this_1.c, loadedState.c !== undefined ?
-                    { saveState: loadedState.c.saveState } :
+                    {saveState: loadedState.c.saveState} :
                     undefined, true), state, loadedState, true, successCallback);
                 newState.s.savedState = loadedState;
                 $(this_1.s.dt.table().node()).on('dtsr-modal-inserted', function () {
-                    newState.dom.confirmation.one('dtsr-remove', function () { return _this._removeCallback(newState.s.identifier); });
-                    newState.dom.confirmation.one('dtsr-rename', function () { return _this._collectionRebuild(); });
-                    newState.dom.confirmation.one('dtsr-save', function () { return _this._collectionRebuild(); });
+                    newState.dom.confirmation.one('dtsr-remove', function () {
+                        return _this._removeCallback(newState.s.identifier);
+                    });
+                    newState.dom.confirmation.one('dtsr-rename', function () {
+                        return _this._collectionRebuild();
+                    });
+                    newState.dom.confirmation.one('dtsr-save', function () {
+                        return _this._collectionRebuild();
+                    });
                 });
             };
             var this_1 = this;
@@ -1273,8 +1303,7 @@
                 if (!stateButtons.includes(emptyText)) {
                     stateButtons.push(emptyText);
                 }
-            }
-            else {
+            } else {
                 // There are states to add so there shouldn't be any empty text left!
                 while (stateButtons.includes(emptyText)) {
                     stateButtons.splice(stateButtons.indexOf(emptyText), 1);
@@ -1330,8 +1359,7 @@
                 if ($(butt.node).hasClass('dtsr-removeAllStates')) {
                     if (this.s.states.length === 0) {
                         this.s.dt.button(butt.node).disable();
-                    }
-                    else {
+                    } else {
                         this.s.dt.button(butt.node).enable();
                     }
                 }
@@ -1354,28 +1382,28 @@
             var toggleDefined = options !== undefined && options.toggle !== undefined;
             // Order toggle - check toggle and saving enabled
             if (((!toggleDefined || options.toggle.order === undefined) && this.c.toggle.order ||
-                toggleDefined && options.toggle.order) &&
+                    toggleDefined && options.toggle.order) &&
                 this.c.saveState.order &&
                 (tableConfig.ordering === undefined || tableConfig.ordering)) {
                 togglesToInsert.push(this.dom.orderToggle);
             }
             // Search toggle - check toggle and saving enabled
             if (((!toggleDefined || options.toggle.search === undefined) && this.c.toggle.search ||
-                toggleDefined && options.toggle.search) &&
+                    toggleDefined && options.toggle.search) &&
                 this.c.saveState.search &&
                 (tableConfig.searching === undefined || tableConfig.searching)) {
                 togglesToInsert.push(this.dom.searchToggle);
             }
             // Paging toggle - check toggle and saving enabled
             if (((!toggleDefined || options.toggle.paging === undefined) && this.c.toggle.paging ||
-                toggleDefined && options.toggle.paging) &&
+                    toggleDefined && options.toggle.paging) &&
                 this.c.saveState.paging &&
                 (tableConfig.paging === undefined || tableConfig.paging)) {
                 togglesToInsert.push(this.dom.pagingToggle);
             }
             // Page Length toggle - check toggle and saving enabled
             if (((!toggleDefined || options.toggle.length === undefined) && this.c.toggle.length ||
-                toggleDefined && options.toggle.length) &&
+                    toggleDefined && options.toggle.length) &&
                 this.c.saveState.length &&
                 (tableConfig.length === undefined || tableConfig.length)) {
                 togglesToInsert.push(this.dom.lengthToggle);
@@ -1422,21 +1450,20 @@
                 this.c.saveState.columns) {
                 togglesToInsert.push(this.dom.columnsSearchToggle);
                 togglesToInsert.push(this.dom.columnsVisibleToggle);
-            }
-            else if ((!toggleDefined || options.toggle.columns === undefined) && typeof this.c.toggle.columns !== 'boolean' ||
+            } else if ((!toggleDefined || options.toggle.columns === undefined) && typeof this.c.toggle.columns !== 'boolean' ||
                 typeof options.toggle.order !== 'boolean') {
                 if (typeof this.c.saveState.columns !== 'boolean' && this.c.saveState.columns) {
                     // Column search toggle - check toggle and saving enabled
                     if ((
-                    // columns.search is defined when passed in
-                    toggleDefined &&
-                        options.toggle.columns !== undefined &&
-                        typeof options.toggle.columns !== 'boolean' &&
-                        options.toggle.columns.search ||
-                        // Columns search is not defined when passed in but is in defaults
-                        (!toggleDefined ||
-                            options.toggle.columns === undefined ||
-                            typeof options.toggle.columns !== 'boolean' && options.toggle.columns.search === undefined) &&
+                            // columns.search is defined when passed in
+                            toggleDefined &&
+                            options.toggle.columns !== undefined &&
+                            typeof options.toggle.columns !== 'boolean' &&
+                            options.toggle.columns.search ||
+                            // Columns search is not defined when passed in but is in defaults
+                            (!toggleDefined ||
+                                options.toggle.columns === undefined ||
+                                typeof options.toggle.columns !== 'boolean' && options.toggle.columns.search === undefined) &&
                             typeof this.c.toggle.columns !== 'boolean' &&
                             this.c.toggle.columns.search) &&
                         this.c.saveState.columns.search) {
@@ -1444,22 +1471,21 @@
                     }
                     // Column visiblity toggle - check toggle and saving enabled
                     if ((
-                    // columns.visible is defined when passed in
-                    toggleDefined &&
-                        options.toggle.columns !== undefined &&
-                        typeof options.toggle.columns !== 'boolean' &&
-                        options.toggle.columns.visible ||
-                        // Columns visible is not defined when passed in but is in defaults
-                        (!toggleDefined ||
-                            options.toggle.columns === undefined ||
-                            typeof options.toggle.columns !== 'boolean' && options.toggle.columns.visible === undefined) &&
+                            // columns.visible is defined when passed in
+                            toggleDefined &&
+                            options.toggle.columns !== undefined &&
+                            typeof options.toggle.columns !== 'boolean' &&
+                            options.toggle.columns.visible ||
+                            // Columns visible is not defined when passed in but is in defaults
+                            (!toggleDefined ||
+                                options.toggle.columns === undefined ||
+                                typeof options.toggle.columns !== 'boolean' && options.toggle.columns.visible === undefined) &&
                             typeof this.c.toggle.columns !== 'boolean' &&
                             this.c.toggle.columns.visible) &&
                         this.c.saveState.columns.visible) {
                         togglesToInsert.push(this.dom.columnsVisibleToggle);
                     }
-                }
-                else if (this.c.saveState.columns) {
+                } else if (this.c.saveState.columns) {
                     togglesToInsert.push(this.dom.columnsSearchToggle);
                     togglesToInsert.push(this.dom.columnsVisibleToggle);
                 }
@@ -1470,11 +1496,9 @@
                 var bVal = b.children('label.dtsr-check-label')[0].innerHTML;
                 if (aVal < bVal) {
                     return -1;
-                }
-                else if (aVal > bVal) {
+                } else if (aVal > bVal) {
                     return 1;
-                }
-                else {
+                } else {
                     return 0;
                 }
             });
@@ -1517,14 +1541,15 @@
             var keyupFunction = function (e) {
                 if (e.key === 'Enter') {
                     creationButton.click();
-                }
-                else if (e.key === 'Escape') {
+                } else if (e.key === 'Escape') {
                     background.click();
                 }
             };
             if (this.c.modalCloseButton) {
                 this.dom.creation.append(this.dom.closeButton);
-                this.dom.closeButton.on('click', function () { return background.click(); });
+                this.dom.closeButton.on('click', function () {
+                    return background.click();
+                });
             }
             creationButton.on('click', function () {
                 // Get the values of the checkBoxes
@@ -1544,15 +1569,14 @@
                     select: _this.dom.selectToggle.children('input').is(':checked')
                 };
                 // Call the buttons functionality passing in the identifier and what should be saved
-                var success = buttonAction($('input.' + _this.classes.nameInput.replace(/ /g, '.')).val(), { saveState: saveState });
+                var success = buttonAction($('input.' + _this.classes.nameInput.replace(/ /g, '.')).val(), {saveState: saveState});
                 if (success === true) {
                     // Remove the dom elements as operation has completed
                     _this.dom.background.remove();
                     _this.dom.creation.remove();
                     // Unbind the keyup function  - don't want it to run unnecessarily on every keypress that occurs
                     $(document).unbind('keyup', keyupFunction);
-                }
-                else {
+                } else {
                     _this.dom.creation.children('.' + _this.classes.modalError).remove();
                     _this.dom.creation.append(_this.dom[success + 'Error']);
                 }
@@ -1607,7 +1631,7 @@
                 .append(this.dom.confirmationTitleRow)
                 .append(modalContents)
                 .append($('<div class="' + this.classes.confirmationButtons + '"></div>')
-                .append(confirmationButton))
+                    .append(confirmationButton))
                 .appendTo(this.dom.dtContainer);
             $(this.s.dt.table().node()).trigger('dtsr-modal-inserted');
             var inputs = modalContents.children('input');
@@ -1639,8 +1663,7 @@
                     _this.dom.confirmation.remove();
                     $(document).unbind('keyup', keyupFunction);
                     confirmationButton.off('click');
-                }
-                else {
+                } else {
                     _this.dom.confirmation.children('.' + _this.classes.modalError).remove();
                     _this.dom.confirmation.append(_this.dom[success + 'Error']);
                 }
@@ -1679,11 +1702,17 @@
                         that_1.s.states.push(this);
                         that_1._collectionRebuild();
                     };
-                    var newState_1 = new StateRestore(this_2.s.dt, $.extend(true, {}, this_2.c, { saveState: loadedState_1.c.saveState }), loadedState_1.stateRestore.state, loadedState_1, false, successCallback);
+                    var newState_1 = new StateRestore(this_2.s.dt, $.extend(true, {}, this_2.c, {saveState: loadedState_1.c.saveState}), loadedState_1.stateRestore.state, loadedState_1, false, successCallback);
                     $(this_2.s.dt.table().node()).on('dtsr-modal-inserted', function () {
-                        newState_1.dom.confirmation.one('dtsr-remove', function () { return _this._removeCallback(newState_1.s.identifier); });
-                        newState_1.dom.confirmation.one('dtsr-rename', function () { return _this._collectionRebuild(); });
-                        newState_1.dom.confirmation.one('dtsr-save', function () { return _this._collectionRebuild(); });
+                        newState_1.dom.confirmation.one('dtsr-remove', function () {
+                            return _this._removeCallback(newState_1.s.identifier);
+                        });
+                        newState_1.dom.confirmation.one('dtsr-rename', function () {
+                            return _this._collectionRebuild();
+                        });
+                        newState_1.dom.confirmation.one('dtsr-save', function () {
+                            return _this._collectionRebuild();
+                        });
                     });
                 }
             };
@@ -1827,8 +1856,7 @@
             define(['jquery', 'datatables.net'], function ($) {
                 return factory($, window, document);
             });
-        }
-        else if (typeof exports === 'object') {
+        } else if (typeof exports === 'object') {
             // CommonJS
             module.exports = function (root, $) {
                 if (!root) {
@@ -1840,8 +1868,7 @@
                 }
                 return factory($, root, root.document);
             };
-        }
-        else {
+        } else {
             // Browser - assume jQuery has already been loaded
             factory(window.jQuery, window, document);
         }
@@ -1946,12 +1973,10 @@
                         var tempSuccess = set.remove(skipModalIn);
                         if (tempSuccess !== true) {
                             success = tempSuccess;
-                        }
-                        else {
+                        } else {
                             that.splice(0, 1);
                         }
-                    }
-                    else {
+                    } else {
                         break;
                     }
                 }
@@ -1960,8 +1985,7 @@
             if (this.context[0]._stateRestore.c.remove) {
                 if (skipModal) {
                     removeAllCallBack(skipModal);
-                }
-                else {
+                } else {
                     this.context[0]._stateRestore.removeAll(removeAllCallBack);
                 }
             }
@@ -2054,8 +2078,7 @@
                 var replaceRegex;
                 if (defaultString.indexOf('%d') === defaultString.length - 3) {
                     replaceRegex = new RegExp(defaultString.replace(/%d/g, ''));
-                }
-                else {
+                } else {
                     var splitString = defaultString.split('%d');
                     replaceRegex = [];
                     for (var _i = 0, splitString_1 = splitString; _i < splitString_1.length; _i++) {
@@ -2071,8 +2094,7 @@
                             var reg = replaceRegex_1[_i];
                             id = id.replace(reg, '');
                         }
-                    }
-                    else {
+                    } else {
                         id = identifier.replace(replaceRegex, '');
                     }
                     // If the id after replacement is not a number, or the length is the same as before,
@@ -2087,12 +2109,16 @@
                 };
                 // Extract the numbers from the identifiers that use the standard naming convention
                 var identifiers = prevStates
-                    .map(function (state) { return getId(state.s.identifier); })
-                    .sort(function (a, b) { return +a < +b ?
-                    1 :
-                    +a > +b ?
-                        -1 :
-                        0; });
+                    .map(function (state) {
+                        return getId(state.s.identifier);
+                    })
+                    .sort(function (a, b) {
+                        return +a < +b ?
+                            1 :
+                            +a > +b ?
+                                -1 :
+                                0;
+                    });
                 var lastNumber = identifiers[0];
                 dt.stateRestore.state.add(dt.i18n('buttons.stateRestore', 'State %d', lastNumber !== undefined ? lastNumber + 1 : 1), config.config);
                 var states = dt.stateRestore.states().sort(function (a, b) {
@@ -2157,8 +2183,7 @@
                     if ($(butt.node).hasClass('dtsr-removeAllStates')) {
                         if (states.length === 0) {
                             dt.button(butt.node).disable();
-                        }
-                        else {
+                        } else {
                             dt.button(butt.node).enable();
                         }
                     }
@@ -2212,8 +2237,11 @@
                 return dt.i18n('buttons.renameState', 'Rename');
             }
         };
+
         function _init(settings, options) {
-            if (options === void 0) { options = null; }
+            if (options === void 0) {
+                options = null;
+            }
             var api = new dataTable.Api(settings);
             var opts = options
                 ? options
@@ -2222,6 +2250,7 @@
             _stateRegen(api, stateRestore);
             return stateRestore;
         }
+
         /**
          * Initialisation function if initialising using a button
          *
@@ -2232,6 +2261,7 @@
             var SRC = new $.fn.dataTable.StateRestoreCollection(dt, config.config);
             _stateRegen(dt, SRC);
         }
+
         function _stateRegen(dt, src) {
             var states = dt.stateRestore.states();
             var button = dt.button('SaveStateRestore:name');
@@ -2253,8 +2283,7 @@
                 stateButtons.push('<span class="' + src.classes.emptyStates + '">' +
                     dt.i18n('stateRestore.emptyStates', src.c.i18n.emptyStates) +
                     '</span>');
-            }
-            else {
+            } else {
                 for (var _i = 0, states_5 = states; _i < states_5.length; _i++) {
                     var state = states_5[_i];
                     var split = Object.assign([], stateRestoreOpts.splitSecondaries);
@@ -2293,13 +2322,13 @@
                 if ($(butt.node).hasClass('dtsr-removeAllStates')) {
                     if (states.length === 0) {
                         dt.button(butt.node).disable();
-                    }
-                    else {
+                    } else {
                         dt.button(butt.node).enable();
                     }
                 }
             }
         }
+
         // Attach a listener to the document which listens for DataTables initialisation
         // events so we can automatically initialise
         $(document).on('preInit.dt.dtsr', function (e, settings) {
