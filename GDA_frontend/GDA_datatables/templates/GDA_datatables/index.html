@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>GDA</title>
+    <link rel="icon" type="image/x-icon" href="{% static "img/favicon.png" %}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +40,10 @@
 <div class="container-fluid">
     <div class="row cb-slideshow-text-container ">
         <div class="tm-content col-xl-4 col-sm-8 col-xs-8 ml-auto section">
-            <header class="mb-2 gradient-text"><h1>GDA</h1></header>
+            <header class="mb-2" style="display: inline-block;">
+                <h1 class="gradient-text" style="float: left;">GDA</h1>
+                <img src="{% static "img/logo.png" %}" alt="logo" style="width: 100px; height: 100px; overflow: hidden;">
+            </header>
             <p class="mb-3 gradient-text">Gene Disease Annotation</p>
             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                 <div class="btn-group mr-2" role="group" aria-label="Parsing group">
