@@ -30,6 +30,16 @@ class OrphanetXref:
             if disorderType != "Disease":
                 continue
 
+            skipDisorder = False
+            disorderFlagList = disorder.find("DisorderFlagList")
+            for disorderFlag in disorderFlagList:
+                label = disorderFlag.find("Label").text
+                if label is not None and label.strip() != "Head of classification":
+                    skipDisorder = True
+
+            if skipDisorder:
+                continue
+
             orpha = disorder.find("OrphaCode").text.strip()
             diseaseName = disorder.find("Name").text.strip()
             eDict = {}
