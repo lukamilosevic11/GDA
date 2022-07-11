@@ -37,10 +37,10 @@ class HumsaVar:
                     lineSplitted = ' '.join(line.strip().split()).split(" ", 6)
                     if len(lineSplitted) >= 7 and lineSplitted[4].strip() != "US" and lineSplitted[6].strip() != "-":
                         symbol = CheckEmpty(lineSplitted[0])
-                        uniprot = CheckEmpty(lineSplitted[1])
+                        uniprotID = CheckEmpty(lineSplitted[1])
                         diseaseNameAndOmim = lineSplitted[6].strip().rsplit(" ", 2)
                         diseaseName = diseaseNameAndOmim[0].strip()
                         omim = diseaseNameAndOmim[2].strip().split(":")[1][:-1].strip()
-                        humsavarSet.add(HumsaVarRow(symbol, uniprot, diseaseName, omim))
+                        humsavarSet.add(HumsaVarRow(symbol, uniprotID, diseaseName, omim))
 
         return humsavarSet

@@ -122,30 +122,30 @@ class HPORow(AnnotationRow):
 
 
 class HumsaVarRow(AnnotationRow):
-    def __init__(self, symbol, uniprot, diseaseName, omim):
-        super(HumsaVarRow, self).__init__(symbol, None, None, None, None, "HumsaVar", diseaseName)
+    def __init__(self, symbol, uniprotID, diseaseName, omim):
+        super(HumsaVarRow, self).__init__(symbol, None, uniprotID, None, None, "HumsaVar", diseaseName)
         self.omim = omim
 
     def __eq__(self, other):
         return super(HumsaVarRow, self).__eq__(other) and self.omim == other.omim
 
     def __hash__(self):
-        return hash((self.symbol, self.diseaseName, self.omim))
+        return hash((self.symbol, self.uniprotID, self.diseaseName, self.omim))
 
     def __str__(self):
         return super(HumsaVarRow, self).__str__() + '\t' + str(self.omim)
 
 
 class OrphanetRow(AnnotationRow):
-    def __init__(self, symbol, ensemblID, diseaseName, orpha):
-        super(OrphanetRow, self).__init__(symbol, None, None, ensemblID, None, "Orphanet", diseaseName)
+    def __init__(self, symbol, uniprotID, ensemblID, diseaseName, orpha):
+        super(OrphanetRow, self).__init__(symbol, None, uniprotID, ensemblID, None, "Orphanet", diseaseName)
         self.orpha = orpha
 
     def __eq__(self, other):
         return super(OrphanetRow, self).__eq__(other) and self.orpha == other.orpha
 
     def __hash__(self):
-        return hash((self.symbol, self.ensemblID, self.diseaseName, self.orpha))
+        return hash((self.symbol, self.uniprotID, self.ensemblID, self.diseaseName, self.orpha))
 
     def __str__(self):
         return super(OrphanetRow, self).__str__() + '\t' + str(self.orpha)

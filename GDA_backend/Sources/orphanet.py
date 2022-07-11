@@ -38,13 +38,15 @@ class Orphanet:
                 symbol = gene.find("Symbol").text.strip()
 
                 externalReferenceList = gene.find("ExternalReferenceList")
+                ensemblID = None
+                uniprotID = None
                 for externalReference in externalReferenceList:
                     source = externalReference.find("Source").text.strip()
-                    if source != "Ensembl":
-                        continue
+                    if source == "Ensembl":
+                        ensemblID = externalReference.find("Reference").text.strip()
+                    elif source == "SwissProt":
+                        uniprotID = externalReference.find("Reference").text.strip()
 
-                    ensemblID = externalReference.find("Reference").text.strip()
-
-                    orphanetSet.add(OrphanetRow(symbol, ensemblID, diseaseName, orpha))
+                orphanetSet.add(OrphanetRow(symbol, uniprotID, ensemblID, diseaseName, orpha))
 
         return orphanetSet
