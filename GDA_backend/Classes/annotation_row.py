@@ -253,23 +253,32 @@ class UniprotRow(AnnotationRow):
 
 
 class HugoRow(AnnotationRow):
-    def __init__(self, symbol, entrezID, uniprotID, ensemblID, uniprotIDs):
+    def __init__(self, symbol, entrezID, uniprotID, ensemblID, uniprotIDs, aliasSymbols):
         super(HugoRow, self).__init__(symbol, entrezID, uniprotID, ensemblID, None, "Hugo", None)
         self.__uniprotIDs = uniprotIDs
+        self.__aliasSymbols = aliasSymbols
 
     def __eq__(self, other):
-        return super(HugoRow, self).__eq__(other) and self.__uniprotIDs == other.__uniprotIDs
+        return super(HugoRow, self).__eq__(
+            other) and self.__uniprotIDs == other.__uniprotIDs and self.__aliasSymbols == other.__aliasSymbols
 
     def __hash__(self):
         return hash((self.symbol, self.entrezID, self.uniprotID, self.ensemblID))
 
     def __str__(self):
         uniprotIDsStr = '  '.join(self.getUniprotIDs()).strip()
+        aliasSymbolsStr = '  '.join(self.getSymbolSynonyms()).strip()
 
         if len(uniprotIDsStr) != 0:
             uniprotIDsStr = "\n\tUniprot IDs: " + uniprotIDsStr
 
-        return super(HugoRow, self).__str__() + uniprotIDsStr
+        if len(aliasSymbolsStr) != 0:
+            aliasSymbolsStr = "\n\tAlias Symbols IDs: " + aliasSymbolsStr
+
+        return super(HugoRow, self).__str__() + uniprotIDsStr + aliasSymbolsStr
 
     def getUniprotIDs(self):
         return [uniprotID for uniprotID in self.__uniprotIDs]
+
+    def getSymbolSynonyms(self):
+        return [symbolSynonym for symbolSynonym in self.__aliasSymbols]

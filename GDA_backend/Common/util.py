@@ -24,7 +24,7 @@ def CheckEmpty(data):
 
 
 def CheckNan(data, resultIfNan=None):
-    return resultIfNan if pd.isnull(data) else data.strip()
+    return resultIfNan if pd.isnull(data) else CheckEmpty(data)
 
 
 def PrintStructure(source):

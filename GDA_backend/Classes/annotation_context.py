@@ -138,8 +138,8 @@ class AnnotationContext:
                         if term.symbol not in self.__symbolToEnsemblID and term.ensemblID is not None:
                             self.__symbolToEnsemblID[term.symbol] = term.ensemblID
 
-                    # Symbol (for additional Uniprot symbol synonyms)
-                    if source is Source.UNIPROT:
+                    # Symbol (for additional Uniprot and HUGO symbol synonyms)
+                    if source is Source.UNIPROT or source is Source.HUGO:
                         symbolSynonyms = term.getSymbolSynonyms()
                         if symbolSynonyms:
                             for symbol in symbolSynonyms:

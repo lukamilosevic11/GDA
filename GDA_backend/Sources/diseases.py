@@ -21,15 +21,18 @@ from GDA_backend.Common.util import CheckNan, CheckEmpty
 
 class Diseases:
     @staticmethod
-    def Read(filePath=DISEASES_PATH):
+    def Read(obsoleteDOIDs, filePath=DISEASES_PATH):
         diseasesData = pd.read_csv(filePath, sep='\t', header=None, usecols=[1, 2, 3], dtype=str)
         diseasesData = diseasesData.to_numpy()
 
         diseasesSet = OrderedSet()
         for row in diseasesData:
-            symbol = CheckEmpty(CheckNan(row[0]))
-            doid = CheckEmpty(CheckNan(row[1]))
-            diseaseName = CheckEmpty(CheckNan(row[2]))
+            symbol = CheckNan(row[0])
+            doid = CheckNan(row[1])
+            if doid in obsoleteDOIDs:
+                continue
+
+            diseaseName = CheckNan(row[2])
             if "DOID:" in diseaseName:
                 diseaseName = None
 

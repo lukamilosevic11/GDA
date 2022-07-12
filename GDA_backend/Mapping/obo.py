@@ -21,15 +21,18 @@ from GDA_backend.Common.util import CheckEmpty
 
 class OBO:
     @staticmethod
-    def Read(filePathOBO=OBO_PATH, filePathRGD=RGD_OBO_PATH):
+    def Read(returnObsoleteDOIDs=False, filePathOBO=OBO_PATH, filePathRGD=RGD_OBO_PATH):
         filePaths = [filePathRGD, filePathOBO]
         oboSet = OrderedSet()
+        obsoleteSet = OrderedSet()
 
         for filePath in filePaths:
             oboData = Ontology(filePath, threads=multiprocessing.cpu_count())
-
             for term in oboData.terms():
                 if term.obsolete:
+                    doid = CheckEmpty(term.id)
+                    if doid is not None:
+                        obsoleteSet.add(doid)
                     continue
 
                 doid = CheckEmpty(term.id)
@@ -41,4 +44,4 @@ class OBO:
                 altIds = term.alternate_ids
                 oboSet.add(OBORow(doid, diseaseName, synonyms, parentDoids, xrefs, altIds, definition))
 
-        return oboSet
+        return (oboSet, obsoleteSet) if returnObsoleteDOIDs else oboSet
