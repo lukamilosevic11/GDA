@@ -37,6 +37,7 @@ class ClinVar:
             omim = CheckNan(row[5])
             if associatedGeneSymbol is not None:
                 clinVarSet.add(ClinVarRow(associatedGeneSymbol, entrezID, diseaseName, umls, omim))
+
             if relatedGeneSymbol is not None:
                 clinVarSet.add(ClinVarRow(relatedGeneSymbol, entrezID, diseaseName, umls, omim))
 
