@@ -27,11 +27,11 @@ class Diseases:
 
         diseasesSet = OrderedSet()
         for row in diseasesData:
-            symbol = CheckNan(row[0])
             doid = CheckNan(row[1])
             if doid in obsoleteDOIDs:
                 continue
 
+            symbol = CheckNan(row[0])
             diseaseName = CheckNan(row[2])
             if "DOID:" in diseaseName:
                 diseaseName = None

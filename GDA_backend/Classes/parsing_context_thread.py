@@ -21,7 +21,7 @@ from GDA_backend.Common.init import Source, partial, Attribute, permutations, ti
     SpinnerColumn, \
     TimeElapsedColumn, TextColumn, BarColumn, TaskProgressColumn, TimeRemainingColumn, MofNCompleteColumn
 from GDA_backend.Common.util import GetAttribute, WriteStructureToFile, JaccardSimilarity, PreprocessingDiseaseName, \
-    PrintElapsedTime
+    PrintElapsedTime, PreprocessAttribute
 
 
 class ParsingContextThread:
@@ -117,15 +117,21 @@ class ParsingContextThread:
             for order in ordersOfSearch:
                 for attribute in order:
                     if entrezID is None and attribute is Attribute.ENTREZ_ID:
-                        entrezID = GetAttribute(partialGetMethodsEntrezID(symbol, ensemblID, uniprotID))
+                        entrezID = GetAttribute(
+                            partialGetMethodsEntrezID(PreprocessAttribute(symbol), PreprocessAttribute(ensemblID),
+                                                      PreprocessAttribute(uniprotID)))
                         if entrezID is not None:
                             foundAttributes[attribute] = True
                     elif uniprotID is None and attribute is Attribute.UNIPROT_ID:
-                        uniprotID = GetAttribute(partialGetMethodsUniprotID(symbol, entrezID, ensemblID))
+                        uniprotID = GetAttribute(
+                            partialGetMethodsUniprotID(PreprocessAttribute(symbol), PreprocessAttribute(entrezID),
+                                                       PreprocessAttribute(ensemblID)))
                         if uniprotID is not None:
                             foundAttributes[attribute] = True
                     elif ensemblID is None and attribute is Attribute.ENSEMBL_ID:
-                        ensemblID = GetAttribute(partialGetMethodsEnsemblID(symbol, entrezID, uniprotID))
+                        ensemblID = GetAttribute(
+                            partialGetMethodsEnsemblID(PreprocessAttribute(symbol), PreprocessAttribute(entrezID),
+                                                       PreprocessAttribute(uniprotID)))
                         if ensemblID is not None:
                             foundAttributes[attribute] = True
 

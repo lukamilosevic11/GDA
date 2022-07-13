@@ -59,7 +59,7 @@ if os.path.exists("api_key.txt"):
     with open("api_key.txt", "r") as file:
         API_KEY = file.readline()
 else:
-    API_KEY = ""
+    API_KEY = "CjRuG4L-G0yv30cj8YlntQ"
 
 COLLECTION_NAME_DOID = "DOID"
 QUERY_BY_DOID = "diseaseName, definition"

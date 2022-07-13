@@ -48,6 +48,10 @@ def WriteDictToJsonlFile(filePath, dictionary, keyName, valueName):
             jsonlFile.write('\n')
 
 
+def PreprocessAttribute(attribute):
+    return attribute.strip().lower() if attribute is not None else None
+
+
 def RemovePunctuation(text):
     stringPunctuation = string.punctuation
     return ''.join([c for c in text if c not in stringPunctuation])

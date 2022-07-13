@@ -18,7 +18,7 @@ from GDA_backend.Classes.search_engine_client import SearchEngineClient
 from GDA_backend.Common.constants import COLLECTION_NAME_DOID, DISEASE_NAME_DOID_JSONL_PATH
 from GDA_backend.Common.init import Source, Xref, XREFS_SOURCE, json, Progress, SpinnerColumn, TimeElapsedColumn, \
     TextColumn, BarColumn, TaskProgressColumn, TimeRemainingColumn, MofNCompleteColumn
-from GDA_backend.Common.util import PreprocessingDiseaseName
+from GDA_backend.Common.util import PreprocessingDiseaseName, PreprocessAttribute
 
 
 class AnnotationContext:
@@ -128,65 +128,80 @@ class AnnotationContext:
 
                     # Symbol
                     if term.symbol is not None:
+                        symbol = PreprocessAttribute(term.symbol)
                         # Symbol -> EntrezID
-                        if term.symbol not in self.__symbolToEntrezID and term.entrezID is not None:
-                            self.__symbolToEntrezID[term.symbol] = term.entrezID
+                        if symbol not in self.__symbolToEntrezID and term.entrezID is not None:
+                            self.__symbolToEntrezID[symbol] = term.entrezID
                         # Symbol -> UniprotID
-                        if term.symbol not in self.__symbolToUniprotID and term.uniprotID is not None:
-                            self.__symbolToUniprotID[term.symbol] = term.uniprotID
+                        if symbol not in self.__symbolToUniprotID and term.uniprotID is not None:
+                            self.__symbolToUniprotID[symbol] = term.uniprotID
                         # Symbol -> EnsemblID
-                        if term.symbol not in self.__symbolToEnsemblID and term.ensemblID is not None:
-                            self.__symbolToEnsemblID[term.symbol] = term.ensemblID
+                        if symbol not in self.__symbolToEnsemblID and term.ensemblID is not None:
+                            self.__symbolToEnsemblID[symbol] = term.ensemblID
 
                     # Symbol (for additional Uniprot and HUGO symbol synonyms)
                     if source is Source.UNIPROT or source is Source.HUGO:
                         symbolSynonyms = term.getSymbolSynonyms()
-                        if symbolSynonyms:
-                            for symbol in symbolSynonyms:
-                                # Symbol -> EntrezID
-                                if symbol not in self.__symbolToEntrezID and term.entrezID is not None:
-                                    self.__symbolToEntrezID[symbol] = term.entrezID
-                                # Symbol -> UniprotID
-                                if symbol not in self.__symbolToUniprotID and term.uniprotID is not None:
-                                    self.__symbolToUniprotID[symbol] = term.uniprotID
-                                # Symbol -> EnsemblID
-                                if symbol not in self.__symbolToEnsemblID and term.ensemblID is not None:
-                                    self.__symbolToEnsemblID[symbol] = term.ensemblID
+                        for symbol in symbolSynonyms:
+                            symbol = PreprocessAttribute(symbol)
+                            # Symbol -> EntrezID
+                            if symbol not in self.__symbolToEntrezID and term.entrezID is not None:
+                                self.__symbolToEntrezID[symbol] = term.entrezID
+                            # Symbol -> UniprotID
+                            if symbol not in self.__symbolToUniprotID and term.uniprotID is not None:
+                                self.__symbolToUniprotID[symbol] = term.uniprotID
+                            # Symbol -> EnsemblID
+                            if symbol not in self.__symbolToEnsemblID and term.ensemblID is not None:
+                                self.__symbolToEnsemblID[symbol] = term.ensemblID
 
                     # EntrezID
                     if term.entrezID is not None:
+                        entrezID = PreprocessAttribute(term.entrezID)
                         # EntrezID -> UniprotID
-                        if term.entrezID not in self.__entrezIDToUniprotID and term.uniprotID is not None:
-                            self.__entrezIDToUniprotID[term.entrezID] = term.uniprotID
+                        if entrezID not in self.__entrezIDToUniprotID and term.uniprotID is not None:
+                            self.__entrezIDToUniprotID[entrezID] = term.uniprotID
                         # EntrezID -> EnsemblID
-                        if term.entrezID not in self.__entrezIDToEnsemblID and term.ensemblID is not None:
-                            self.__entrezIDToEnsemblID[term.entrezID] = term.ensemblID
+                        if entrezID not in self.__entrezIDToEnsemblID and term.ensemblID is not None:
+                            self.__entrezIDToEnsemblID[entrezID] = term.ensemblID
 
                     # UniprotID
                     if term.uniprotID is not None:
+                        uniprotID = PreprocessAttribute(term.uniprotID)
                         # UniprotID -> EntrezID
-                        if term.uniprotID not in self.__uniprotIDToEntrezID and term.entrezID is not None:
-                            self.__uniprotIDToEntrezID[term.uniprotID] = term.entrezID
+                        if uniprotID not in self.__uniprotIDToEntrezID and term.entrezID is not None:
+                            self.__uniprotIDToEntrezID[uniprotID] = term.entrezID
                         # UniprotID -> EnsemblID
-                        if term.uniprotID not in self.__uniprotIDToEnsemblID and term.ensemblID is not None:
-                            self.__uniprotIDToEnsemblID[term.uniprotID] = term.ensemblID
+                        if uniprotID not in self.__uniprotIDToEnsemblID and term.ensemblID is not None:
+                            self.__uniprotIDToEnsemblID[uniprotID] = term.ensemblID
 
                     # UniprotID (additional UniprotIDs from Hugo)
                     if source is Source.HUGO:
                         uniprotIDs = term.getUniprotIDs()
                         for uniprotID in uniprotIDs:
+                            symbol = PreprocessAttribute(term.symbol)
                             # Symbol -> UniprotID
-                            if term.symbol not in self.__symbolToUniprotID and term.symbol is not None:
-                                self.__symbolToUniprotID[term.symbol] = uniprotID
+                            if symbol not in self.__symbolToUniprotID and symbol is not None:
+                                self.__symbolToUniprotID[symbol] = uniprotID
 
+                            # Symbol Synonyms -> UniprotID
+                            symbolSynonyms = term.getSymbolSynonyms()
+                            for symbol in symbolSynonyms:
+                                symbol = PreprocessAttribute(symbol)
+                                # Symbol -> UniprotID
+                                if symbol not in self.__symbolToUniprotID and symbol is not None:
+                                    self.__symbolToUniprotID[symbol] = uniprotID
+
+                            entrezID = PreprocessAttribute(term.entrezID)
                             # EntrezID -> UniprotID
-                            if term.entrezID not in self.__entrezIDToUniprotID and term.entrezID is not None:
-                                self.__entrezIDToUniprotID[term.entrezID] = uniprotID
+                            if entrezID not in self.__entrezIDToUniprotID and entrezID is not None:
+                                self.__entrezIDToUniprotID[entrezID] = uniprotID
 
+                            ensemblID = PreprocessAttribute(term.ensemblID)
                             # EnsemblID -> UniprotID
-                            if term.ensemblID not in self.__ensemblIDToUniprotID and term.ensemblID is not None:
-                                self.__ensemblIDToUniprotID[term.ensemblID] = uniprotID
+                            if ensemblID not in self.__ensemblIDToUniprotID and ensemblID is not None:
+                                self.__ensemblIDToUniprotID[ensemblID] = uniprotID
 
+                            uniprotID = PreprocessAttribute(uniprotID)
                             # UniprotID -> EntrezID
                             if uniprotID not in self.__uniprotIDToEntrezID and term.entrezID is not None:
                                 self.__uniprotIDToEntrezID[uniprotID] = term.entrezID
@@ -197,12 +212,13 @@ class AnnotationContext:
 
                     # EnsemblID
                     if term.ensemblID is not None:
+                        ensemblID = PreprocessAttribute(term.ensemblID)
                         # EnsemblID -> EntrezID
-                        if term.ensemblID not in self.__ensemblIDToEntrezID and term.entrezID is not None:
-                            self.__ensemblIDToEntrezID[term.ensemblID] = term.entrezID
+                        if ensemblID not in self.__ensemblIDToEntrezID and term.entrezID is not None:
+                            self.__ensemblIDToEntrezID[ensemblID] = term.entrezID
                         # EnsemblID -> UniprotID
-                        if term.ensemblID not in self.__ensemblIDToUniprotID and term.uniprotID is not None:
-                            self.__ensemblIDToUniprotID[term.ensemblID] = term.uniprotID
+                        if ensemblID not in self.__ensemblIDToUniprotID and term.uniprotID is not None:
+                            self.__ensemblIDToUniprotID[ensemblID] = term.uniprotID
 
                     # DOID
                     if term.doid is not None:
