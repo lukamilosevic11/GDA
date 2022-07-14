@@ -47,11 +47,13 @@ class AnnotationContext:
         self.__symbolToEntrezID = {}
         self.__ensemblIDToEntrezID = {}
         self.__uniprotIDToEntrezID = {}
+        self.__ensemblProteinIDToEntrezID = {}
 
         # UniprotID
         self.__symbolToUniprotID = {}
         self.__entrezIDToUniprotID = {}
         self.__ensemblIDToUniprotID = {}
+        self.__ensemblProteinIDToUniprotID = {}
 
         # EnsemblID
         self.__symbolToEnsemblID = {}
@@ -241,8 +243,14 @@ class AnnotationContext:
                             self.__ensemblIDToUniprotID[ensemblID] = term.uniprotID
 
                     # EnsemblProteinID
-                    if source is Source.ENSEMBL and term.ensemblProteinID is not None:
+                    if source is Source.ENSEMBL or source is Source.UNIPROT and term.ensemblProteinID is not None:
                         ensemblProteinID = PreprocessAttribute(term.ensemblProteinID)
+                        # EnsemblProteinID -> EntrezID
+                        if ensemblProteinID not in self.__ensemblProteinIDToEntrezID and term.entrezID is not None:
+                            self.__ensemblProteinIDToEntrezID[ensemblProteinID] = term.entrezID
+                        # EnsemblProteinID -> UniprotID
+                        if ensemblProteinID not in self.__ensemblProteinIDToUniprotID and term.uniprotID is not None:
+                            self.__ensemblProteinIDToUniprotID[ensemblProteinID] = term.uniprotID
                         # EnsemblProteinID -> EnsemblID
                         if ensemblProteinID not in self.__ensemblProteinIDToEnsemblID and term.ensemblID is not None:
                             self.__ensemblProteinIDToEnsemblID[ensemblProteinID] = term.ensemblID
@@ -364,8 +372,10 @@ class AnnotationContext:
 
     def __InitializeAttributes(self):
         self.symbol = Symbol(self.__entrezIDToSymbol, self.__ensemblIDToSymbol, self.__uniprotIDToSymbol)
-        self.entrezID = EntrezID(self.__symbolToEntrezID, self.__ensemblIDToEntrezID, self.__uniprotIDToEntrezID)
-        self.uniprotID = UniprotID(self.__symbolToUniprotID, self.__entrezIDToUniprotID, self.__ensemblIDToUniprotID)
+        self.entrezID = EntrezID(self.__symbolToEntrezID, self.__ensemblIDToEntrezID, self.__uniprotIDToEntrezID,
+                                 self.__ensemblProteinIDToEntrezID)
+        self.uniprotID = UniprotID(self.__symbolToUniprotID, self.__entrezIDToUniprotID, self.__ensemblIDToUniprotID,
+                                   self.__ensemblProteinIDToUniprotID)
         self.ensemblID = EnsemblID(self.__symbolToEnsemblID, self.__entrezIDToEnsemblID, self.__uniprotIDToEnsemblID,
                                    self.__ensemblProteinIDToEnsemblID)
         self.doid = DOID(self.__searchEngineClient, self.__diseaseNameFrozenSetToDOID, self.__omimToDOID,

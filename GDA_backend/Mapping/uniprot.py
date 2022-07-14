@@ -25,11 +25,12 @@ class Uniprot:
         with open(filePath, 'r') as uniprotFile:
             uniprotLines = uniprotFile.readlines()
             filteredLines = list(filter(lambda row: "Gene_Name" in row or "GeneID" in row or "UniProtKB-ID" in row
-                                                    or "Gene_Synonym" in row or ("Ensembl" in row and "ENSG" in row),
-                                        uniprotLines))
+                                                    or "STRING" in row or "Gene_Synonym" in row
+                                                    or ("Ensembl" in row and "ENSG" in row), uniprotLines))
             filteredLines.append("x\tUniProtKB-ID\ty")  # Added to force parsing last UniProtKB-ID term
 
             currentUniprotID = None
+            ensemblProteinID = None
             symbols = []
             symbolSynonymsDict = {}
             entrezIDs = []
@@ -43,15 +44,20 @@ class Uniprot:
                         symbolSynonyms = symbolSynonymsDict[symbol]
                         entrezID = entrezIDs[0] if entrezIDs else None
                         ensemblID = ensemblIDs[0] if ensemblIDs else None
-                        uniprotSet.add(UniprotRow(symbol, symbolSynonyms, entrezID, ensemblID, uniprotID))
-                    else:
+                        uniprotSet.add(
+                            UniprotRow(symbol, symbolSynonyms, entrezID, ensemblID, uniprotID, ensemblProteinID))
+                    elif len(symbols) > 1:
                         for symbol in symbols:
                             symbolSynonyms = symbolSynonymsDict[symbol]
-                            uniprotSet.add(UniprotRow(symbol, symbolSynonyms, None, None, uniprotID))
+                            uniprotSet.add(UniprotRow(symbol, symbolSynonyms, None, None, uniprotID, ensemblProteinID))
                     symbols = []
                     symbolSynonymsDict = {}
                     entrezIDs = []
                     ensemblIDs = []
+                elif valueType == "UniProtKB-ID" and ensemblProteinID is not None:
+                    uniprotSet.add(UniprotRow(None, [], None, None, uniprotID, ensemblProteinID))
+                elif valueType == "STRING":
+                    ensemblProteinID = value.split(".")[1]
                 elif valueType == "Gene_Name":
                     symbols.append(value)
                     symbolSynonymsDict[value] = []

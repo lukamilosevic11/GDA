@@ -21,7 +21,7 @@ from GDA_backend.Common.util import PreprocessingDiseaseName, JaccardSimilarity
 
 
 # Symbol is part of all sources
-# Symbol can be found using entrezID, ensemblID and unirptoID
+# Symbol can be found using entrezID, ensemblID and uniprotID
 class Symbol:
     def __init__(self, entrezIDDict, ensemblIDDict, uniprotIDDict):
         self.__entrezIDDict = entrezIDDict
@@ -38,13 +38,14 @@ class Symbol:
         return self.__uniprotIDDict[uniprotID] if uniprotID in self.__uniprotIDDict else None
 
 
-# EntrezID is part of: DisGeNet, Cosmic, ClinVar, HPO, Uniprot, Hugo
-# EntrezID can be found using symbol, ensemblID and uniprotID
+# EntrezID is part of: DisGeNet, Cosmic, ClinVar, HPO, Uniprot, Hugo, Ensembl
+# EntrezID can be found using symbol, ensemblID, uniprotID, ensemblProteinID
 class EntrezID:
-    def __init__(self, symbolDict, ensemblIDDict, uniprotIDDict):
+    def __init__(self, symbolDict, ensemblIDDict, uniprotIDDict, ensemblProteinIDDict):
         self.__symbolDict = symbolDict
         self.__ensemblIDDict = ensemblIDDict
         self.__uniprotIDDict = uniprotIDDict
+        self.__ensemblProteinIDDict = ensemblProteinIDDict
 
     def GetBySymbol(self, symbol):
         return self.__symbolDict[symbol] if symbol in self.__symbolDict else None
@@ -55,14 +56,19 @@ class EntrezID:
     def GetByUniprotID(self, uniprotID):
         return self.__uniprotIDDict[uniprotID] if uniprotID in self.__uniprotIDDict else None
 
+    def GetByEnsemblProteinID(self, ensemblProteinID):
+        return self.__ensemblProteinIDDict[
+            ensemblProteinID] if ensemblProteinID in self.__ensemblProteinIDDict else None
 
-# UniprotID is part of: Uniprot, Hugo
-# UniprotID can be found using symbol, entrezID and ensemblID
+
+# UniprotID is part of: Uniprot, Hugo, Ensembl
+# UniprotID can be found using symbol, entrezID, ensemblID, ensemblProteinID
 class UniprotID:
-    def __init__(self, symbolDict, entrezIDDict, ensemblIDDict):
+    def __init__(self, symbolDict, entrezIDDict, ensemblIDDict, ensemblProteinIDDict):
         self.__symbolDict = symbolDict
         self.__entrezIDDict = entrezIDDict
         self.__ensemblIDDict = ensemblIDDict
+        self.__ensemblProteinIDDict = ensemblProteinIDDict
 
     def GetBySymbol(self, symbol):
         return self.__symbolDict[symbol] if symbol in self.__symbolDict else None
@@ -73,9 +79,13 @@ class UniprotID:
     def GetByEnsemblID(self, ensemblID):
         return self.__ensemblIDDict[ensemblID] if ensemblID in self.__ensemblIDDict else None
 
+    def GetByEnsemblProteinID(self, ensemblProteinID):
+        return self.__ensemblProteinIDDict[
+            ensemblProteinID] if ensemblProteinID in self.__ensemblProteinIDDict else None
+
 
 # EnsemblID is part of: Orphanet ,Uniprot, Hugo, Ensembl
-# EnsemblID can be found using symbol, entrezID, uniprotID and ensemblProteinID
+# EnsemblID can be found using symbol, entrezID, uniprotID, ensemblProteinID
 class EnsemblID:
     def __init__(self, symbolDict, entrezIDDict, uniprotIDDict, ensemblProteinIDDict):
         self.__symbolDict = symbolDict

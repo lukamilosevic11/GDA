@@ -138,12 +138,21 @@ class ParsingContextThread:
 
                 return partialMethods
 
-            # Only for Diseases find EnsemblID by EnsemblProteinID
-            if term.ensemblID is None and source is Source.DISEASES and term.ensemblProteinID is not None:
-                ensemblID = self.annotationContext.ensemblID.GetByEnsemblProteinID(
-                    PreprocessAttribute(term.ensemblProteinID))
+            # Only for Diseases to find EntrezID, UniprotID and EnsemblID by EnsemblProteinID
+            if source is Source.DISEASES and term.ensemblProteinID is not None:
+                if term.entrezID is None:
+                    entrezID = self.annotationContext.entrezID.GetByEnsemblProteinID(
+                        PreprocessAttribute(term.ensemblProteinID))
 
-            # EntrezID, UniprotID, EnsemblID
+                if term.uniprotID is None:
+                    uniprotID = self.annotationContext.uniprotID.GetByEnsemblProteinID(
+                        PreprocessAttribute(term.ensemblProteinID))
+
+                if term.ensemblID is None:
+                    ensemblID = self.annotationContext.ensemblID.GetByEnsemblProteinID(
+                        PreprocessAttribute(term.ensemblProteinID))
+
+            # Symbol, EntrezID, UniprotID, EnsemblID
             ordersOfSearch = list(permutations(noneAttributes))
             stopSearch = False
             for orderOfSearch in ordersOfSearch:

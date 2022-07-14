@@ -240,15 +240,17 @@ class OBORow(AnnotationRow):
 
 
 class UniprotRow(AnnotationRow):
-    def __init__(self, symbol, symbolSynonyms, entrezID, ensemblID, uniprotID):
+    def __init__(self, symbol, symbolSynonyms, entrezID, ensemblID, uniprotID, ensemblProteinID):
         super(UniprotRow, self).__init__(symbol, entrezID, uniprotID, ensemblID, None, "Uniprot", None)
         self.__symbolSynonyms = symbolSynonyms
+        self.ensemblProteinID = ensemblProteinID
 
     def __eq__(self, other):
-        return super(UniprotRow, self).__eq__(other) and self.__symbolSynonyms == other.__symbolSynonyms
+        return super(UniprotRow, self).__eq__(other) and self.__symbolSynonyms == other.__symbolSynonyms \
+               and self.ensemblProteinID == other.ensemblProteinID
 
     def __hash__(self):
-        return hash((self.symbol, self.entrezID, self.ensemblID, self.uniprotID))
+        return hash((self.symbol, self.entrezID, self.ensemblID, self.uniprotID, self.ensemblProteinID))
 
     def __str__(self):
         symbolSynonymsStr = '  '.join(self.getSymbolSynonyms()).strip()
@@ -256,7 +258,7 @@ class UniprotRow(AnnotationRow):
         if len(symbolSynonymsStr) != 0:
             symbolSynonymsStr = "\n\tSymbol Synonyms: " + symbolSynonymsStr
 
-        return super(UniprotRow, self).__str__() + symbolSynonymsStr
+        return super(UniprotRow, self).__str__() + '\t' + self.ensemblProteinID + symbolSynonymsStr
 
     def getSymbolSynonyms(self):
         return [symbolSynonym for symbolSynonym in self.__symbolSynonyms]
