@@ -25,7 +25,7 @@ from GDA_backend.Common.util import GetAttribute, WriteStructureToFile, JaccardS
 
 
 class ParsingContextThread:
-    def __init__(self, progress, createCollection):
+    def __init__(self, progress, createCollection, searchEngineHostName="typesense"):
         dbContextStartTime = time.time()
         self.dbContext = DBContext()
         PrintElapsedTime(dbContextStartTime, time.time(), "Reading sources elapsed time")
@@ -33,7 +33,7 @@ class ParsingContextThread:
         if progress is not None:
             progress.set_total(self.dbContext.GetTotalParsingLength() + self.dbContext.GetAllSourcesLength())
 
-        self.annotationContext = AnnotationContext(self.dbContext, createCollection, progress)
+        self.annotationContext = AnnotationContext(self.dbContext, createCollection, progress, searchEngineHostName)
         PrintElapsedTime(annotationContextStartTime, time.time(), "Preparing parsing elapsed time")
         self.__sources = Source.GetSourcesForParsing()
         self.__sourcesAnnotationSetDict = {}
@@ -62,9 +62,13 @@ class ParsingContextThread:
             doidAndDiseaseNames = None
 
             noneAttributes = []
+            symbolFlagNone = False
             entrezIDFlagNone = False
             uniprotIDFlagNone = False
             ensemblIDFlagNone = False
+            if symbolFlagNone is None:
+                noneAttributes.append(Attribute.SYMBOL)
+                symbolFlagNone = True
             if entrezID is None:
                 noneAttributes.append(Attribute.ENTREZ_ID)
                 entrezIDFlagNone = True
@@ -76,13 +80,30 @@ class ParsingContextThread:
                 ensemblIDFlagNone = True
 
             foundAttributes = {
+                Attribute.SYMBOL: not symbolFlagNone,
                 Attribute.ENTREZ_ID: not entrezIDFlagNone,
                 Attribute.UNIPROT_ID: not uniprotIDFlagNone,
                 Attribute.ENSEMBL_ID: not ensemblIDFlagNone
             }
 
+            def partialGetMethodsSymbol(entrezIDP, uniprotIDP, ensemblIDP):
+                partialMethods = []
+                if entrezIDP is not None:
+                    partialMethods.append(partial(self.annotationContext.symbol.GetByEntrezID, entrezIDP))
+
+                if uniprotIDP is not None:
+                    partialMethods.append(partial(self.annotationContext.symbol.GetByUniprotID, uniprotIDP))
+
+                if ensemblIDP is not None:
+                    partialMethods.append(partial(self.annotationContext.symbol.GetByEnsemblID, ensemblIDP))
+
+                return partialMethods
+
             def partialGetMethodsEntrezID(symbolP, uniprotIDP, ensemblIDP):
-                partialMethods = [partial(self.annotationContext.entrezID.GetBySymbol, symbolP)]
+                partialMethods = []
+                if symbolP is not None:
+                    partialMethods.append(partial(self.annotationContext.entrezID.GetBySymbol, symbolP))
+
                 if uniprotIDP is not None:
                     partialMethods.append(partial(self.annotationContext.entrezID.GetByUniprotID, uniprotIDP))
 
@@ -92,7 +113,10 @@ class ParsingContextThread:
                 return partialMethods
 
             def partialGetMethodsUniprotID(symbolP, entrezIDP, ensemblIDP):
-                partialMethods = [partial(self.annotationContext.uniprotID.GetBySymbol, symbolP)]
+                partialMethods = []
+                if symbolP is not None:
+                    partialMethods.append(partial(self.annotationContext.uniprotID.GetBySymbol, symbolP))
+
                 if entrezIDP is not None:
                     partialMethods.append(partial(self.annotationContext.uniprotID.GetByEntrezID, entrezIDP))
 
@@ -102,7 +126,10 @@ class ParsingContextThread:
                 return partialMethods
 
             def partialGetMethodsEnsemblID(symbolP, entrezIDP, uniprotIDP):
-                partialMethods = [partial(self.annotationContext.ensemblID.GetBySymbol, symbolP)]
+                partialMethods = []
+                if symbolP is not None:
+                    partialMethods.append(partial(self.annotationContext.ensemblID.GetBySymbol, symbolP))
+
                 if entrezIDP is not None:
                     partialMethods.append(partial(self.annotationContext.ensemblID.GetByEntrezID, entrezIDP))
 
@@ -111,15 +138,26 @@ class ParsingContextThread:
 
                 return partialMethods
 
+            # Only for Diseases find EnsemblID by EnsemblProteinID
+            if term.ensemblID is None and source is Source.DISEASES and term.ensemblProteinID is not None:
+                ensemblID = self.annotationContext.ensemblID.GetByEnsemblProteinID(
+                    PreprocessAttribute(term.ensemblProteinID))
+
             # EntrezID, UniprotID, EnsemblID
             ordersOfSearch = list(permutations(noneAttributes))
             stopSearch = False
-            for order in ordersOfSearch:
-                for attribute in order:
-                    if entrezID is None and attribute is Attribute.ENTREZ_ID:
+            for orderOfSearch in ordersOfSearch:
+                for attribute in orderOfSearch:
+                    if symbol is None and attribute is Attribute.SYMBOL:
+                        symbol = GetAttribute(
+                            partialGetMethodsSymbol(PreprocessAttribute(entrezID), PreprocessAttribute(uniprotID),
+                                                    PreprocessAttribute(ensemblID)))
+                        if symbol is not None:
+                            foundAttributes[attribute] = True
+                    elif entrezID is None and attribute is Attribute.ENTREZ_ID:
                         entrezID = GetAttribute(
-                            partialGetMethodsEntrezID(PreprocessAttribute(symbol), PreprocessAttribute(ensemblID),
-                                                      PreprocessAttribute(uniprotID)))
+                            partialGetMethodsEntrezID(PreprocessAttribute(symbol), PreprocessAttribute(uniprotID),
+                                                      PreprocessAttribute(ensemblID)))
                         if entrezID is not None:
                             foundAttributes[attribute] = True
                     elif uniprotID is None and attribute is Attribute.UNIPROT_ID:
@@ -136,7 +174,7 @@ class ParsingContextThread:
                             foundAttributes[attribute] = True
 
                     if foundAttributes[Attribute.ENTREZ_ID] and foundAttributes[Attribute.UNIPROT_ID] and \
-                            foundAttributes[Attribute.ENSEMBL_ID]:
+                            foundAttributes[Attribute.ENSEMBL_ID] and foundAttributes[Attribute.SYMBOL]:
                         stopSearch = True
                         break
                 if stopSearch:

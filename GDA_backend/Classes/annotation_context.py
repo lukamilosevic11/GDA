@@ -13,7 +13,7 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from GDA_backend.Classes.attributes import EntrezID, UniprotID, EnsemblID, DOID, DiseaseName, Xrefs
+from GDA_backend.Classes.attributes import Symbol, EntrezID, UniprotID, EnsemblID, DOID, DiseaseName, Xrefs
 from GDA_backend.Classes.search_engine_client import SearchEngineClient
 from GDA_backend.Common.constants import COLLECTION_NAME_DOID, DISEASE_NAME_DOID_JSONL_PATH
 from GDA_backend.Common.init import Source, Xref, XREFS_SOURCE, json, Progress, SpinnerColumn, TimeElapsedColumn, \
@@ -22,13 +22,14 @@ from GDA_backend.Common.util import PreprocessingDiseaseName, PreprocessAttribut
 
 
 class AnnotationContext:
-    def __init__(self, dbContext, createCollection, totalProgress):
+    def __init__(self, dbContext, createCollection, totalProgress, searchEngineHostName):
         self.__dbContext = dbContext
-        self.__searchEngineClient = SearchEngineClient()
+        self.__searchEngineClient = SearchEngineClient(searchEngineHostName)
         self.__sources = Source.GetAllSources()
         self.totalProgress = totalProgress
 
         # Attributes
+        self.symbol = None
         self.entrezID = None
         self.uniprotID = None
         self.ensemblID = None
@@ -37,6 +38,11 @@ class AnnotationContext:
         self.xrefs = None
 
         # Dictionaries
+        # Symbol
+        self.__entrezIDToSymbol = {}
+        self.__ensemblIDToSymbol = {}
+        self.__uniprotIDToSymbol = {}
+
         # EntrezID
         self.__symbolToEntrezID = {}
         self.__ensemblIDToEntrezID = {}
@@ -51,6 +57,7 @@ class AnnotationContext:
         self.__symbolToEnsemblID = {}
         self.__entrezIDToEnsemblID = {}
         self.__uniprotIDToEnsemblID = {}
+        self.__ensemblProteinIDToEnsemblID = {}
 
         # DOID
         self.__diseaseNameFrozenSetToDOID = {}
@@ -157,6 +164,9 @@ class AnnotationContext:
                     # EntrezID
                     if term.entrezID is not None:
                         entrezID = PreprocessAttribute(term.entrezID)
+                        # EntrezID -> Symbol
+                        if entrezID not in self.__entrezIDToSymbol and term.symbol is not None:
+                            self.__entrezIDToSymbol[entrezID] = term.symbol
                         # EntrezID -> UniprotID
                         if entrezID not in self.__entrezIDToUniprotID and term.uniprotID is not None:
                             self.__entrezIDToUniprotID[entrezID] = term.uniprotID
@@ -167,6 +177,9 @@ class AnnotationContext:
                     # UniprotID
                     if term.uniprotID is not None:
                         uniprotID = PreprocessAttribute(term.uniprotID)
+                        # UniprotID -> Symbol
+                        if uniprotID not in self.__uniprotIDToSymbol and term.symbol is not None:
+                            self.__uniprotIDToSymbol[uniprotID] = term.symbol
                         # UniprotID -> EntrezID
                         if uniprotID not in self.__uniprotIDToEntrezID and term.entrezID is not None:
                             self.__uniprotIDToEntrezID[uniprotID] = term.entrezID
@@ -202,6 +215,10 @@ class AnnotationContext:
                                 self.__ensemblIDToUniprotID[ensemblID] = uniprotID
 
                             uniprotID = PreprocessAttribute(uniprotID)
+                            # UniprotID -> Symbol
+                            if uniprotID not in self.__uniprotIDToSymbol and term.symbol is not None:
+                                self.__uniprotIDToSymbol[uniprotID] = term.symbol
+
                             # UniprotID -> EntrezID
                             if uniprotID not in self.__uniprotIDToEntrezID and term.entrezID is not None:
                                 self.__uniprotIDToEntrezID[uniprotID] = term.entrezID
@@ -213,12 +230,22 @@ class AnnotationContext:
                     # EnsemblID
                     if term.ensemblID is not None:
                         ensemblID = PreprocessAttribute(term.ensemblID)
+                        # EnsemblID -> Symbol
+                        if ensemblID not in self.__ensemblIDToSymbol and term.symbol is not None:
+                            self.__ensemblIDToSymbol[ensemblID] = term.symbol
                         # EnsemblID -> EntrezID
                         if ensemblID not in self.__ensemblIDToEntrezID and term.entrezID is not None:
                             self.__ensemblIDToEntrezID[ensemblID] = term.entrezID
                         # EnsemblID -> UniprotID
                         if ensemblID not in self.__ensemblIDToUniprotID and term.uniprotID is not None:
                             self.__ensemblIDToUniprotID[ensemblID] = term.uniprotID
+
+                    # EnsemblProteinID
+                    if source is Source.ENSEMBL and term.ensemblProteinID is not None:
+                        ensemblProteinID = PreprocessAttribute(term.ensemblProteinID)
+                        # EnsemblProteinID -> EnsemblID
+                        if ensemblProteinID not in self.__ensemblProteinIDToEnsemblID and term.ensemblID is not None:
+                            self.__ensemblProteinIDToEnsemblID[ensemblProteinID] = term.ensemblID
 
                     # DOID
                     if term.doid is not None:
@@ -336,9 +363,11 @@ class AnnotationContext:
                 self.__icd10ToDOID[value] = doid
 
     def __InitializeAttributes(self):
+        self.symbol = Symbol(self.__entrezIDToSymbol, self.__ensemblIDToSymbol, self.__uniprotIDToSymbol)
         self.entrezID = EntrezID(self.__symbolToEntrezID, self.__ensemblIDToEntrezID, self.__uniprotIDToEntrezID)
         self.uniprotID = UniprotID(self.__symbolToUniprotID, self.__entrezIDToUniprotID, self.__ensemblIDToUniprotID)
-        self.ensemblID = EnsemblID(self.__symbolToEnsemblID, self.__entrezIDToEnsemblID, self.__uniprotIDToEnsemblID)
+        self.ensemblID = EnsemblID(self.__symbolToEnsemblID, self.__entrezIDToEnsemblID, self.__uniprotIDToEnsemblID,
+                                   self.__ensemblProteinIDToEnsemblID)
         self.doid = DOID(self.__searchEngineClient, self.__diseaseNameFrozenSetToDOID, self.__omimToDOID,
                          self.__umlsToDOID, self.__meshToDOID, self.__gardToDOID, self.__medDraToDOID,
                          self.__icd10ToDOID)

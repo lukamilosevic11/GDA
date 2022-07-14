@@ -22,7 +22,7 @@ from Other.measurements import DoidAccuracy
 
 def main():
     startTime = time.time()
-    parsingContext = ParsingContextThread(None, False)
+    parsingContext = ParsingContextThread(progress=None, createCollection=False, searchEngineHostName="localhost")
     parsingContext.CreateAnnotationFile(ANNOTATION_PATH)
     DoidAccuracy(ANNOTATION_PATH, DOID_ACCURACY_PATH)
     PrintElapsedTime(startTime, time.time(), "Total elapsed time")

@@ -22,20 +22,27 @@ from GDA_backend.Common.util import CheckNan, CheckEmpty
 class Diseases:
     @staticmethod
     def Read(obsoleteDOIDs, filePath=DISEASES_PATH):
-        diseasesData = pd.read_csv(filePath, sep='\t', header=None, usecols=[1, 2, 3], dtype=str)
+        diseasesData = pd.read_csv(filePath, sep='\t', header=None, usecols=[0, 1, 2, 3], dtype=str)
         diseasesData = diseasesData.to_numpy()
 
         diseasesSet = OrderedSet()
         for row in diseasesData:
-            doid = CheckNan(row[1])
+            doid = CheckNan(row[2])
             if doid in obsoleteDOIDs:
                 continue
 
-            symbol = CheckNan(row[0])
-            diseaseName = CheckNan(row[2])
+            ensemblProteinID = CheckNan(row[0])
+            if ensemblProteinID is not None and not ensemblProteinID.startswith("ENSP"):
+                ensemblProteinID = None
+
+            symbol = CheckNan(row[1])
+            if symbol is not None and symbol.startswith("ENSP"):
+                symbol = None
+
+            diseaseName = CheckNan(row[3])
             if "DOID:" in diseaseName:
                 diseaseName = None
 
-            diseasesSet.add(DiseasesRow(symbol, doid, diseaseName))
+            diseasesSet.add(DiseasesRow(symbol, doid, diseaseName, ensemblProteinID))
 
         return diseasesSet

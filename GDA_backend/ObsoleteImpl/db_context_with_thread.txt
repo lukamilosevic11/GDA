@@ -4,7 +4,6 @@ from Common.init import Thread, Source
 import concurrent.futures
 
 
-# TODO: remove thread support
 class DBContext:
     def __init__(self):
         # self.threadFunctions = [disgenet.DisGeNet.Read,

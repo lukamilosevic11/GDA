@@ -14,6 +14,7 @@
 #  all copies or substantial portions of the Software.
 
 from GDA_backend.Common.init import Source
+from GDA_backend.Mapping.ensembl import Ensembl
 from GDA_backend.Mapping.hugo import Hugo
 from GDA_backend.Mapping.obo import OBO
 from GDA_backend.Mapping.orphanet_xref import OrphanetXref
@@ -40,8 +41,7 @@ class DBContext:
         self.__uniprot = Uniprot.Read()
         self.__hugo = Hugo.Read()
         self.__orphanetXref = OrphanetXref.Read()
-        self.__totalLength = len(self.__disGeNet) + len(self.__cosmic) + len(self.__clinvar) + len(self.__humsavar) + \
-                             len(self.__orphanet) + len(self.__hpo) + len(self.__diseases)
+        self.__ensembl = Ensembl.Read()
 
     def GetDatabaseBySource(self, source):
         if source is Source.DISGENET:
@@ -66,6 +66,8 @@ class DBContext:
             return self.__hugo
         elif source is Source.ORPHANET_XREF:
             return self.__orphanetXref
+        elif source is Source.ENSEMBL:
+            return self.__ensembl
 
     def GetDatabaseLengthBySource(self, source):
         if source is Source.DISGENET:
@@ -90,9 +92,12 @@ class DBContext:
             return len(self.__hugo)
         elif source is Source.ORPHANET_XREF:
             return len(self.__orphanetXref)
+        elif source is Source.ENSEMBL:
+            return len(self.__ensembl)
 
     def GetTotalParsingLength(self):
-        return self.__totalLength
+        return len(self.__disGeNet) + len(self.__cosmic) + len(self.__clinvar) + len(self.__humsavar) + len(
+            self.__orphanet) + len(self.__hpo) + len(self.__diseases)
 
     def GetAllSourcesLength(self):
         return sum(list(map(self.GetDatabaseLengthBySource, Source.GetAllSources())))

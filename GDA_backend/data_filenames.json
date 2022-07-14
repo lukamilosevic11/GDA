@@ -11,5 +11,7 @@
   "OBO": "obo.txt",
   "UNIPROT": "uniprot.dat",
   "HUGO": "hugo.txt",
-  "ORPHANET_XREF": "orphanet_xref.xml"
+  "ORPHANET_XREF": "orphanet_xref.xml",
+  "ENSEMBL_ENTREZ": "ensembl_entrez.tsv",
+  "ENSEMBL_UNIPROT": "ensembl_uniprot.tsv"
 }

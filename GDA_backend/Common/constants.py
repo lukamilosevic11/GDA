@@ -53,6 +53,8 @@ OBO_PATH = GetPath("OBO", "obo.txt")
 UNIPROT_PATH = GetPath("UNIPROT", "uniprot.dat")
 HUGO_PATH = GetPath("HUGO", "hugo.txt")
 ORPHANET_XREF_PATH = GetPath("ORPHANET_XREF", "orphanet_xref.xml")
+ENSEMBL_ENTREZ_PATH = GetPath("ENSEMBL_ENTREZ", "ensembl_entrez.tsv")
+ENSEMBL_UNIPROT_PATH = GetPath("ENSEMBL_UNIPROT", "ensembl_uniprot.tsv")
 
 # Search Engine
 if os.path.exists("api_key.txt"):

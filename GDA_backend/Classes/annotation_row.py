@@ -86,8 +86,18 @@ class CosmicRow(AnnotationRow):
 
 
 class DiseasesRow(AnnotationRow):
-    def __init__(self, symbol, doid, diseaseName):
+    def __init__(self, symbol, doid, diseaseName, ensemblProteinID):
         super(DiseasesRow, self).__init__(symbol, None, None, None, doid, "Diseases", diseaseName)
+        self.ensemblProteinID = ensemblProteinID
+
+    def __eq__(self, other):
+        return super(DiseasesRow, self).__eq__(other) and self.ensemblProteinID == other.ensemblProteinID
+
+    def __hash__(self):
+        return hash((self.symbol, self.doid, self.diseaseName, self.ensemblProteinID))
+
+    def __str__(self):
+        return super(DiseasesRow, self).__str__() + '\t' + str(self.ensemblProteinID)
 
 
 class DisGeNetRow(AnnotationRow):
@@ -282,3 +292,21 @@ class HugoRow(AnnotationRow):
 
     def getSymbolSynonyms(self):
         return [symbolSynonym for symbolSynonym in self.__aliasSymbols]
+
+
+class EnsemblRow(AnnotationRow):
+    def __init__(self, entrezID, uniprotID, ensemblID, ensemblProteinID):
+        super(EnsemblRow, self).__init__(None, entrezID, uniprotID, ensemblID, None, "Ensembl", None)
+        self.ensemblProteinID = ensemblProteinID
+
+    def __eq__(self, other):
+        if other.ensemblProteinID is None:
+            return super(EnsemblRow, self).__eq__(other)
+
+        return super(EnsemblRow, self).__eq__(other) and self.ensemblProteinID == other.ensemblProteinID
+
+    def __hash__(self):
+        return hash((self.entrezID, self.uniprotID, self.ensemblID))
+
+    def __str__(self):
+        return super(EnsemblRow, self).__str__() + '\t' + str(self.ensemblProteinID)

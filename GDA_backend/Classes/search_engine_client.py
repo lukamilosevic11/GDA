@@ -18,12 +18,12 @@ from GDA_backend.Common.init import typesense
 
 
 class SearchEngineClient:
-    def __init__(self, apiKey=API_KEY, nodes=None, connectionTimeoutSeconds=2):
+    def __init__(self, hostName, apiKey=API_KEY, nodes=None, connectionTimeoutSeconds=2):
         if nodes is None:
             # "host" variable should be changed based on way of execution:
             # docker (name of container for typesense)
             # independent app(localhost)
-            nodes = [{"host": "typesense", "port": "8108", "protocol": "http"}]
+            nodes = [{"host": hostName, "port": "8108", "protocol": "http"}]
 
         self.client = typesense.Client({
             "api_key": apiKey,

@@ -86,11 +86,12 @@ class Source(Enum):
     UNIPROT = 9
     HUGO = 10
     ORPHANET_XREF = 11
+    ENSEMBL = 12
 
     @staticmethod
     def GetAllSources():
-        return [Source.DISGENET, Source.COSMIC, Source.CLINVAR, Source.HUMSAVAR, Source.ORPHANET,
-                Source.HPO, Source.DISEASES, Source.OBO, Source.UNIPROT, Source.HUGO, Source.ORPHANET_XREF]
+        return [Source.DISGENET, Source.COSMIC, Source.CLINVAR, Source.HUMSAVAR, Source.ORPHANET, Source.HPO,
+                Source.DISEASES, Source.OBO, Source.UNIPROT, Source.HUGO, Source.ORPHANET_XREF, Source.ENSEMBL]
 
     @staticmethod
     def GetSourcesForParsing():
@@ -121,3 +122,5 @@ class Source(Enum):
             return "Hugo"
         elif source is Source.ORPHANET_XREF:
             return "Orphanet Xref"
+        elif source is Source.ENSEMBL:
+            return "Ensembl"
