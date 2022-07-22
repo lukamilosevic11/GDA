@@ -14,34 +14,24 @@
 #  all copies or substantial portions of the Software.
 
 from GDA_backend.Common.init import Source
-from GDA_backend.Mapping.ensembl import Ensembl
-from GDA_backend.Mapping.hugo import Hugo
-from GDA_backend.Mapping.obo import OBO
-from GDA_backend.Mapping.orphanet_xref import OrphanetXref
-from GDA_backend.Mapping.uniprot import Uniprot
-from GDA_backend.Sources.clinvar import ClinVar
-from GDA_backend.Sources.cosmic import Cosmic
-from GDA_backend.Sources.diseases import Diseases
-from GDA_backend.Sources.disgenet import DisGeNet
-from GDA_backend.Sources.hpo import HPO
-from GDA_backend.Sources.humsavar import HumsaVar
-from GDA_backend.Sources.orphanet import Orphanet
+from GDA_backend.Classes.sources import IOSource
+from GDA_backend.Classes.mapping import IOMapping
 
 
 class DBContext:
     def __init__(self):
-        self.__disGeNet = DisGeNet.Read()
-        self.__cosmic = Cosmic.Read()
-        self.__clinvar = ClinVar.Read()
-        self.__humsavar = HumsaVar.Read()
-        self.__orphanet = Orphanet.Read()
-        self.__hpo = HPO.Read()
-        self.__obo, obsoleteDOIDs = OBO.Read(returnObsoleteDOIDs=True)
-        self.__diseases = Diseases.Read(obsoleteDOIDs)
-        self.__uniprot = Uniprot.Read()
-        self.__hugo = Hugo.Read()
-        self.__orphanetXref = OrphanetXref.Read()
-        self.__ensembl = Ensembl.Read()
+        self.__disGeNet = IOSource.ReadDisGeNet()
+        self.__cosmic = IOSource.ReadCosmic()
+        self.__clinvar = IOSource.ReadClinVar()
+        self.__humsavar = IOSource.ReadHumsaVar()
+        self.__orphanet = IOSource.ReadOrphanet()
+        self.__hpo = IOSource.ReadHPO()
+        self.__obo, obsoleteDOIDs = IOMapping.ReadOBO(returnObsoleteDOIDs=True)
+        self.__diseases = IOSource.ReadDiseases(obsoleteDOIDs)
+        self.__uniprot = IOMapping.ReadUniProt()
+        self.__hugo = IOMapping.ReadHUGO()
+        self.__orphanetXref = IOMapping.ReadOrphanetXref()
+        self.__ensembl = IOMapping.ReadEnsembl()
 
     def GetDatabaseBySource(self, source):
         if source is Source.DISGENET:

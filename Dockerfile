@@ -26,9 +26,7 @@ ENV PYTHONUNBUFFERED 1
 COPY GDA_backend/Classes ./GDA_backend/Classes
 COPY GDA_backend/Common ./GDA_backend/Common
 COPY GDA_backend/Data ./GDA_backend/Data
-COPY GDA_backend/Mapping ./GDA_backend/Mapping
 COPY GDA_backend/Other ./GDA_backend/Other
-COPY GDA_backend/Sources ./GDA_backend/Sources
 
 COPY GDA_frontend/GDA_datatables ./GDA_frontend/GDA_datatables
 COPY GDA_frontend/GDA_frontend ./GDA_frontend/GDA_frontend

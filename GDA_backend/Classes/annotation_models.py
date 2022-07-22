@@ -241,7 +241,7 @@ class OBORow(AnnotationRow):
 
 class UniProtRow(AnnotationRow):
     def __init__(self, symbol, symbolSynonyms, entrezID, ensemblID, uniprotID, ensemblProteinID):
-        super(UniProtRow, self).__init__(symbol, entrezID, uniprotID, ensemblID, None, "Uniprot", None)
+        super(UniProtRow, self).__init__(symbol, entrezID, uniprotID, ensemblID, None, "UniProt", None)
         self.__symbolSynonyms = symbolSynonyms
         self.ensemblProteinID = ensemblProteinID
 
