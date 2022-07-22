@@ -13,7 +13,7 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from GDA_backend.Classes.annotation_row import UniprotRow
+from GDA_backend.Classes.annotation_models import UniProtRow
 from GDA_backend.Common.constants import UNIPROT_PATH
 from GDA_backend.Common.init import OrderedSet
 
@@ -45,17 +45,17 @@ class Uniprot:
                         entrezID = entrezIDs[0] if entrezIDs else None
                         ensemblID = ensemblIDs[0] if ensemblIDs else None
                         uniprotSet.add(
-                            UniprotRow(symbol, symbolSynonyms, entrezID, ensemblID, uniprotID, ensemblProteinID))
+                            UniProtRow(symbol, symbolSynonyms, entrezID, ensemblID, uniprotID, ensemblProteinID))
                     elif len(symbols) > 1:
                         for symbol in symbols:
                             symbolSynonyms = symbolSynonymsDict[symbol]
-                            uniprotSet.add(UniprotRow(symbol, symbolSynonyms, None, None, uniprotID, ensemblProteinID))
+                            uniprotSet.add(UniProtRow(symbol, symbolSynonyms, None, None, uniprotID, ensemblProteinID))
                     symbols = []
                     symbolSynonymsDict = {}
                     entrezIDs = []
                     ensemblIDs = []
                 elif valueType == "UniProtKB-ID" and ensemblProteinID is not None:
-                    uniprotSet.add(UniprotRow(None, [], None, None, uniprotID, ensemblProteinID))
+                    uniprotSet.add(UniProtRow(None, [], None, None, uniprotID, ensemblProteinID))
                 elif valueType == "STRING":
                     ensemblProteinID = value.split(".")[1]
                 elif valueType == "Gene_Name":

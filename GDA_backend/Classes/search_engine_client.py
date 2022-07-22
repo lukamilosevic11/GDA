@@ -46,8 +46,8 @@ class SearchEngineClient:
     def ImportDataFromFile(self, name, filePath, batchSize=200):
         result = None
         with open(filePath, "r") as jsonlFile:
-            result = self.client.collections[name]. \
-                documents.import_(jsonlFile.read().encode("utf-8"), {"batch_size": batchSize})
+            result = self.client.collections[name].documents.import_(jsonlFile.read().encode("utf-8"),
+                                                                     {"batch_size": batchSize})
 
         return result
 

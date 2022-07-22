@@ -239,14 +239,14 @@ class OBORow(AnnotationRow):
         return self.__altIds
 
 
-class UniprotRow(AnnotationRow):
+class UniProtRow(AnnotationRow):
     def __init__(self, symbol, symbolSynonyms, entrezID, ensemblID, uniprotID, ensemblProteinID):
-        super(UniprotRow, self).__init__(symbol, entrezID, uniprotID, ensemblID, None, "Uniprot", None)
+        super(UniProtRow, self).__init__(symbol, entrezID, uniprotID, ensemblID, None, "Uniprot", None)
         self.__symbolSynonyms = symbolSynonyms
         self.ensemblProteinID = ensemblProteinID
 
     def __eq__(self, other):
-        return super(UniprotRow, self).__eq__(other) and self.__symbolSynonyms == other.__symbolSynonyms \
+        return super(UniProtRow, self).__eq__(other) and self.__symbolSynonyms == other.__symbolSynonyms \
                and self.ensemblProteinID == other.ensemblProteinID
 
     def __hash__(self):
@@ -258,7 +258,7 @@ class UniprotRow(AnnotationRow):
         if len(symbolSynonymsStr) != 0:
             symbolSynonymsStr = "\n\tSymbol Synonyms: " + symbolSynonymsStr
 
-        return super(UniprotRow, self).__str__() + '\t' + self.ensemblProteinID + symbolSynonymsStr
+        return super(UniProtRow, self).__str__() + '\t' + self.ensemblProteinID + symbolSynonymsStr
 
     def getSymbolSynonyms(self):
         return [symbolSynonym for symbolSynonym in self.__symbolSynonyms]

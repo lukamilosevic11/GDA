@@ -108,7 +108,7 @@ class EnsemblID:
 
 
 # DOID is part of: Diseases, OBO
-# DOID can be found using diseaseName
+# DOID can be found using diseaseName and xrefs
 class DOID:
     def __init__(self, searchEngineClient, diseaseNameFrozenSetDict, omimDict, umlsDict, meshDict, gardDict, medDraDict,
                  icd10Dict):
@@ -176,8 +176,8 @@ class DOID:
 
     def __SearchWithSearchEngine(self, preprocessedDiseaseNameTokens):
         preprocessedDiseaseName = ' '.join(preprocessedDiseaseNameTokens)
-        searchResult = self.__searchEngineClient. \
-            SearchByQuery(COLLECTION_NAME_DOID, preprocessedDiseaseName, QUERY_BY_DOID)
+        searchResult = self.__searchEngineClient.SearchByQuery(COLLECTION_NAME_DOID, preprocessedDiseaseName,
+                                                               QUERY_BY_DOID)
         if len(searchResult["hits"]) > 0:
             foundDiseaseName = searchResult["hits"][0]["document"]["diseaseName"]
             jaccSimilarity = JaccardSimilarity(foundDiseaseName, preprocessedDiseaseName)

@@ -90,50 +90,43 @@ class AnnotationContext:
         self.__InitializeSearchEngineClient(createCollection)
         self.__InitializeAttributes()
 
-    def __InitializeOrphanetXrefDictionaries(self, progress, progressTask):
-        sourceSet = self.__dbContext.GetDatabaseBySource(Source.ORPHANET_XREF)
-        for term in sourceSet:
-            progress.update(progressTask, advance=1)
-            if self.totalProgress is not None:
-                self.totalProgress.increase_step()
-
-            if term.orpha is not None:
-                # Orpha -> Xrefs
-                exactXrefs = term.GetExactXrefs()
-                btntXrefs = term.GetBtntXrefs()
-                ntbtXrefs = term.GetNtbtXrefs()
-                otherXrefs = term.GetOtherXrefs()
-                if exactXrefs and term.orpha not in self.__orphaToExactXrefs:
-                    self.__orphaToExactXrefs[term.orpha] = exactXrefs
-
-                if btntXrefs and term.orpha not in self.__orphaToBtntXrefs:
-                    self.__orphaToBtntXrefs[term.orpha] = btntXrefs
-
-                if ntbtXrefs and term.orpha not in self.__orphaToNtbtXrefs:
-                    self.__orphaToNtbtXrefs[term.orpha] = ntbtXrefs
-
-                if otherXrefs and term.orpha not in self.__orphaToOtherXrefs:
-                    self.__orphaToOtherXrefs[term.orpha] = otherXrefs
-
-                # Orpha -> Disease Name
-                if term.orpha not in self.__orphaToDiseaseName and term.diseaseName is not None:
-                    self.__orphaToDiseaseName[term.orpha] = term.diseaseName
-
     def __InitializeDictionaries(self):
         with Progress(SpinnerColumn(), TextColumn("[progress.description]{task.description}"), BarColumn(),
                       TaskProgressColumn(), MofNCompleteColumn(),
                       TimeElapsedColumn(), TimeRemainingColumn()) as progress:
             progressTask = progress.add_task("Preparing for parsing", total=self.__dbContext.GetAllSourcesLength())
-            self.__InitializeOrphanetXrefDictionaries(progress, progressTask)
             for source in self.__sources:
-                if source is Source.ORPHANET_XREF:
-                    continue
-
                 sourceSet = self.__dbContext.GetDatabaseBySource(source)
                 for term in sourceSet:
                     progress.update(progressTask, advance=1)
                     if self.totalProgress is not None:
                         self.totalProgress.increase_step()
+
+                    # Xrefs
+                    if source is Source.ORPHANET_XREF and term.orpha is not None:
+                        # Orpha -> Xrefs
+                        exactXrefs = term.GetExactXrefs()
+                        btntXrefs = term.GetBtntXrefs()
+                        ntbtXrefs = term.GetNtbtXrefs()
+                        otherXrefs = term.GetOtherXrefs()
+
+                        if exactXrefs and term.orpha not in self.__orphaToExactXrefs:
+                            self.__orphaToExactXrefs[term.orpha] = exactXrefs
+
+                        if btntXrefs and term.orpha not in self.__orphaToBtntXrefs:
+                            self.__orphaToBtntXrefs[term.orpha] = btntXrefs
+
+                        if ntbtXrefs and term.orpha not in self.__orphaToNtbtXrefs:
+                            self.__orphaToNtbtXrefs[term.orpha] = ntbtXrefs
+
+                        if otherXrefs and term.orpha not in self.__orphaToOtherXrefs:
+                            self.__orphaToOtherXrefs[term.orpha] = otherXrefs
+
+                        # Orpha -> Disease Name
+                        if term.orpha not in self.__orphaToDiseaseName and term.diseaseName is not None:
+                            self.__orphaToDiseaseName[term.orpha] = term.diseaseName
+
+                        continue
 
                     # Symbol
                     if term.symbol is not None:
@@ -295,16 +288,15 @@ class AnnotationContext:
                         if diseaseNameSynonyms and term.doid is not None:
                             for diseaseNameSynonym in diseaseNameSynonyms:
                                 preprocessedDiseaseNameSynonym = PreprocessingDiseaseName(diseaseNameSynonym)
-                                preprocessedDiseaseNameSynonymFrozenSet = \
-                                    frozenset(preprocessedDiseaseNameSynonym)
+                                preprocessedDiseaseNameSynonymFrozenSet = frozenset(preprocessedDiseaseNameSynonym)
                                 if preprocessedDiseaseNameSynonymFrozenSet not in self.__diseaseNameFrozenSetToDOID:
-                                    self.__diseaseNameFrozenSetToDOID[preprocessedDiseaseNameSynonymFrozenSet] = \
-                                        term.doid
+                                    self.__diseaseNameFrozenSetToDOID[
+                                        preprocessedDiseaseNameSynonymFrozenSet] = term.doid
 
                                 # Search Engine Set
                                 preprocessedDiseaseNameSynonym = ' '.join(preprocessedDiseaseNameSynonym)
-                                definition = PreprocessingDiseaseName(term.definition, True) \
-                                    if term.definition is not None else ""
+                                definition = PreprocessingDiseaseName(term.definition,
+                                                                      True) if term.definition is not None else ""
                                 self.__searchEngineSet.add((preprocessedDiseaseNameSynonym, definition, term.doid))
 
                         # xrefs -> DOID
@@ -352,9 +344,8 @@ class AnnotationContext:
                     if value not in self.__omimToDoidAndDiseaseName:
                         self.__omimToDoidAndDiseaseName[value] = [(doid, diseaseName)]
                     elif (doid, diseaseName) not in self.__omimToDoidAndDiseaseName[value]:
-                        omimDoidAndDiseaseNames = \
-                            list(map(lambda x: (x[0], set(PreprocessingDiseaseName(x[1]))),
-                                     self.__omimToDoidAndDiseaseName[value]))
+                        omimDoidAndDiseaseNames = list(map(lambda x: (x[0], set(PreprocessingDiseaseName(x[1]))),
+                                                           self.__omimToDoidAndDiseaseName[value]))
                         if (doid, diseaseNamePreprocessed) not in omimDoidAndDiseaseNames:
                             self.__omimToDoidAndDiseaseName[value].append((doid, diseaseName))
                             self.__omimToDoidAndDiseaseName[value].sort(key=lambda x: x[0])

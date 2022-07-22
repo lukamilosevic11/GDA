@@ -14,7 +14,7 @@
 #  all copies or substantial portions of the Software.
 
 from GDA_backend.Classes.annotation_context import AnnotationContext
-from GDA_backend.Classes.annotation_row import AnnotationRowOutput
+from GDA_backend.Classes.annotation_models import AnnotationRowOutput
 from GDA_backend.Classes.db_context import DBContext
 from GDA_backend.Common.constants import DOID_SOURCE_DATABASE, ANNOTATION_FILE_HEADER, DOID_SOURCE_XREF_OMIM
 from GDA_backend.Common.init import Source, partial, Attribute, permutations, time, ThreadPoolExecutor, Progress, \
@@ -270,9 +270,8 @@ class ParsingContextThread:
                         for value in values:
                             ntbtDoid, ntbtDoidSource = self.annotationContext.doid.GetByXref(xref, value)
                             if preprocessedDiseaesName is not None and ntbtDoid is not None:
-                                ntbtDiseaseName = \
-                                    PreprocessingDiseaseName(self.annotationContext.diseaseName.GetByDoid(ntbtDoid),
-                                                             True)
+                                ntbtDiseaseName = PreprocessingDiseaseName(
+                                    self.annotationContext.diseaseName.GetByDoid(ntbtDoid), True)
                                 if ntbtDiseaseName is not None:
                                     currentJaccardIndex = JaccardSimilarity(ntbtDiseaseName, preprocessedDiseaesName)
                                     if currentJaccardIndex > maxJaccardIndex:
@@ -297,9 +296,8 @@ class ParsingContextThread:
                         for value in values:
                             otherDoid, otherDoidSource = self.annotationContext.doid.GetByXref(xref, value)
                             if preprocessedDiseaesName is not None and otherDoid is not None:
-                                otherDiseaseName = \
-                                    PreprocessingDiseaseName(self.annotationContext.diseaseName.GetByDoid(otherDoid),
-                                                             True)
+                                otherDiseaseName = PreprocessingDiseaseName(
+                                    self.annotationContext.diseaseName.GetByDoid(otherDoid), True)
                                 if otherDiseaseName is not None:
                                     currentJaccardIndex = JaccardSimilarity(otherDiseaseName, preprocessedDiseaesName)
                                     if currentJaccardIndex > maxJaccardIndex:

@@ -13,7 +13,7 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from GDA_backend.Classes.annotation_row import OBORow
+from GDA_backend.Classes.annotation_models import OBORow
 from GDA_backend.Common.constants import OBO_PATH, RGD_OBO_PATH
 from GDA_backend.Common.init import Ontology, multiprocessing, OrderedSet
 from GDA_backend.Common.util import CheckEmpty

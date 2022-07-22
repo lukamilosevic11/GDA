@@ -13,7 +13,7 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from GDA_backend.Classes.annotation_row import HPORow
+from GDA_backend.Classes.annotation_models import HPORow
 from GDA_backend.Common.constants import HPO_PATH
 from GDA_backend.Common.init import OrderedSet
 from GDA_backend.Common.util import CheckEmpty

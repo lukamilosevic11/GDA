@@ -13,7 +13,7 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from GDA_backend.Classes.annotation_row import OrphanetRow
+from GDA_backend.Classes.annotation_models import OrphanetRow
 from GDA_backend.Common.constants import ORPHANET_PATH
 from GDA_backend.Common.init import et, OrderedSet
 
