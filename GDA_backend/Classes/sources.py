@@ -21,7 +21,7 @@ from GDA_backend.Common.init import pd, et, OrderedSet
 from GDA_backend.Common.util import CheckNan, CheckEmpty
 
 
-class IOSource:
+class SourceInput:
     @staticmethod
     def ReadDisGeNet(filePath=DISGENET_PATH):
         disGeNetData = pd.read_csv(filePath, sep='\t', dtype=str)

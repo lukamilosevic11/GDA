@@ -14,24 +14,24 @@
 #  all copies or substantial portions of the Software.
 
 from GDA_backend.Common.init import Source
-from GDA_backend.Classes.sources import IOSource
-from GDA_backend.Classes.mapping import IOMapping
+from GDA_backend.Classes.sources import SourceInput
+from GDA_backend.Classes.mapping import MappingInput
 
 
 class DBContext:
     def __init__(self):
-        self.__disGeNet = IOSource.ReadDisGeNet()
-        self.__cosmic = IOSource.ReadCosmic()
-        self.__clinvar = IOSource.ReadClinVar()
-        self.__humsavar = IOSource.ReadHumsaVar()
-        self.__orphanet = IOSource.ReadOrphanet()
-        self.__hpo = IOSource.ReadHPO()
-        self.__obo, obsoleteDOIDs = IOMapping.ReadOBO(returnObsoleteDOIDs=True)
-        self.__diseases = IOSource.ReadDiseases(obsoleteDOIDs)
-        self.__uniprot = IOMapping.ReadUniProt()
-        self.__hugo = IOMapping.ReadHUGO()
-        self.__orphanetXref = IOMapping.ReadOrphanetXref()
-        self.__ensembl = IOMapping.ReadEnsembl()
+        self.__disGeNet = SourceInput.ReadDisGeNet()
+        self.__cosmic = SourceInput.ReadCosmic()
+        self.__clinvar = SourceInput.ReadClinVar()
+        self.__humsavar = SourceInput.ReadHumsaVar()
+        self.__orphanet = SourceInput.ReadOrphanet()
+        self.__hpo = SourceInput.ReadHPO()
+        self.__obo, obsoleteDOIDs = MappingInput.ReadOBO(returnObsoleteDOIDs=True)
+        self.__diseases = SourceInput.ReadDiseases(obsoleteDOIDs)
+        self.__uniprot = MappingInput.ReadUniProt()
+        self.__hugo = MappingInput.ReadHUGO()
+        self.__orphanetXref = MappingInput.ReadOrphanetXref()
+        self.__ensembl = MappingInput.ReadEnsembl()
 
     def GetDatabaseBySource(self, source):
         if source is Source.DISGENET:

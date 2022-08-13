@@ -35,7 +35,7 @@ def ExtractValues(values):
     return CheckNan(splittedValues[0]), []
 
 
-class IOMapping:
+class MappingInput:
     @staticmethod
     def ReadEnsembl(filePathEntrez=ENSEMBL_ENTREZ_PATH, filePathUniprot=ENSEMBL_UNIPROT_PATH):
         filePaths = [filePathEntrez, filePathUniprot]
