@@ -7,6 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>GDA</title>
+    <link rel="icon" type="image/x-icon" href="{% static "img/favicon.png" %}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,25 +57,6 @@
             }
         }
     </script>
-    {#    <script>#}
-    {#        $(document).ready(function () {#}
-    {#            let table = $("#annotationTable").DataTable({#}
-    {#                lengthChange: true,#}
-    {#                paging: true,#}
-    {#                responsive: true,#}
-    {#                autoWidth: true,#}
-    {#                buttons: [#}
-    {#                    "colvis",#}
-    {#                    {extend: "copyHtml5", className: "dtButton"},#}
-    {#                    "csvHtml5",#}
-    {#                    "excelHtml5",#}
-    {#                    "pdfHtml5",#}
-    {#                    "print"#}
-    {#                ]#}
-    {#            });#}
-    {#        });#}
-    {##}
-    {#    </script>#}
 <body>
 <div id="particles-js"></div>
 <div class="flex-wrapper">
@@ -137,11 +119,11 @@
                         <div class="ui items justify-content-start">
                             <div class="item">
                                 <div class="ui input mini input-search">
-                                    <input id="2" type="search" placeholder="Search Uniprot ID">
+                                    <input id="2" type="search" placeholder="Search UniProt ID">
                                 </div>
                             </div>
                             <div class="item">
-                                <span>Uniprot ID</span>
+                                <span>UniProt ID</span>
                             </div>
                         </div>
                     </th>

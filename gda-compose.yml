@@ -30,12 +30,15 @@ services:
     volumes:
       - typesense:/data/typesense
   gda:
-    image: gda:1.0
+    depends_on:
+      - typesense
+    image: lukamilosevic11/gda:latest
     container_name: gda
     environment:
       API_KEY: ${API_KEY}
     volumes:
-      - ~/Desktop/master/Storage:/GDA/GDA_backend/Storage
+      - ./Storage:/GDA/GDA_backend/Storage
+      - gda:/GDA/GDA_frontend/Database
     ports:
       - "8000:8000"
 volumes:

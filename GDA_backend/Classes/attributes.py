@@ -34,7 +34,7 @@ class Symbol:
     def GetByEnsemblID(self, ensemblID):
         return self.__ensemblIDDict[ensemblID] if ensemblID in self.__ensemblIDDict else None
 
-    def GetByUniprotID(self, uniprotID):
+    def GetByUniProtID(self, uniprotID):
         return self.__uniprotIDDict[uniprotID] if uniprotID in self.__uniprotIDDict else None
 
 
@@ -53,7 +53,7 @@ class EntrezID:
     def GetByEnsemblID(self, ensemblID):
         return self.__ensemblIDDict[ensemblID] if ensemblID in self.__ensemblIDDict else None
 
-    def GetByUniprotID(self, uniprotID):
+    def GetByUniProtID(self, uniprotID):
         return self.__uniprotIDDict[uniprotID] if uniprotID in self.__uniprotIDDict else None
 
     def GetByEnsemblProteinID(self, ensemblProteinID):
@@ -63,7 +63,7 @@ class EntrezID:
 
 # UniprotID is part of: Uniprot, Hugo, Ensembl
 # UniprotID can be found using symbol, entrezID, ensemblID, ensemblProteinID
-class UniprotID:
+class UniProtID:
     def __init__(self, symbolDict, entrezIDDict, ensemblIDDict, ensemblProteinIDDict):
         self.__symbolDict = symbolDict
         self.__entrezIDDict = entrezIDDict
@@ -99,7 +99,7 @@ class EnsemblID:
     def GetByEntrezID(self, entrezID):
         return self.__entrezIDDict[entrezID] if entrezID in self.__entrezIDDict else None
 
-    def GetByUniprotID(self, uniprotID):
+    def GetByUniProtID(self, uniprotID):
         return self.__uniprotIDDict[uniprotID] if uniprotID in self.__uniprotIDDict else None
 
     def GetByEnsemblProteinID(self, ensemblProteinID):
@@ -107,7 +107,7 @@ class EnsemblID:
             ensemblProteinID] if ensemblProteinID in self.__ensemblProteinIDDict else None
 
 
-# DOID is part of: Diseases, OBO
+# DOID is part of: Diseases, OBO and RGD
 # DOID can be found using diseaseName and xrefs
 class DOID:
     def __init__(self, searchEngineClient, diseaseNameFrozenSetDict, omimDict, umlsDict, meshDict, gardDict, medDraDict,
@@ -153,7 +153,7 @@ class DOID:
         elif xref == Xref.ICD10:
             return self.GetByIcd10(value)
 
-    def GetByDiseaseNameWithoutSearchEngine(self, diseaseName):
+    def GetByDiseaseName(self, diseaseName):
         if diseaseName is None:
             return None, None
 
@@ -163,7 +163,7 @@ class DOID:
 
         return None, None
 
-    def GetByDiseaseName(self, diseaseName):
+    def GetByDiseaseNameUsingSearchEngine(self, diseaseName):
         if diseaseName is None:
             return None, None
 
@@ -186,13 +186,13 @@ class DOID:
 
             return doid, doidSource
         elif " due " in preprocessedDiseaseName:
-            return self.GetByDiseaseName(preprocessedDiseaseName.split(" due ")[0])
+            return self.GetByDiseaseNameUsingSearchEngine(preprocessedDiseaseName.split(" due ")[0])
         elif " with without " in preprocessedDiseaseName:
-            return self.GetByDiseaseName(preprocessedDiseaseName.split(" with without ")[0])
+            return self.GetByDiseaseNameUsingSearchEngine(preprocessedDiseaseName.split(" with without ")[0])
         elif " with " in preprocessedDiseaseName:
-            return self.GetByDiseaseName(preprocessedDiseaseName.split(" with ")[0])
+            return self.GetByDiseaseNameUsingSearchEngine(preprocessedDiseaseName.split(" with ")[0])
         elif " without " in preprocessedDiseaseName:
-            return self.GetByDiseaseName(preprocessedDiseaseName.split(" without ")[0])
+            return self.GetByDiseaseNameUsingSearchEngine(preprocessedDiseaseName.split(" without ")[0])
 
         return None, None
 

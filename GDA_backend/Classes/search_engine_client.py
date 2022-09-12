@@ -18,12 +18,14 @@ from GDA_backend.Common.init import typesense
 
 
 class SearchEngineClient:
-    def __init__(self, hostName, apiKey=API_KEY, nodes=None, connectionTimeoutSeconds=2):
+    def __init__(self, hostName, apiKey=API_KEY, nodes=None, connectionTimeoutSeconds=10):
         if nodes is None:
             # "host" variable should be changed based on way of execution:
             # docker (name of container for typesense)
             # independent app(localhost)
             nodes = [{"host": hostName, "port": "8108", "protocol": "http"}]
+        elif "host" not in nodes[0]:
+            nodes[0]["host"] = hostName
 
         self.client = typesense.Client({
             "api_key": apiKey,
@@ -40,7 +42,7 @@ class SearchEngineClient:
     def DeleteCollection(self, name):
         return self.client.collections[name].delete()
 
-    def GetAllCollections(self):
+    def GetAllCollectionNames(self):
         return self.client.collections.retrieve()
 
     def ImportDataFromFile(self, name, filePath, batchSize=200):

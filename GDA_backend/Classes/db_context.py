@@ -59,6 +59,8 @@ class DBContext:
         elif source is Source.ENSEMBL:
             return self.__ensembl
 
+        return None
+
     def GetDatabaseLengthBySource(self, source):
         if source is Source.DISGENET:
             return len(self.__disGeNet)

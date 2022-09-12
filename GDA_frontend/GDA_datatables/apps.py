@@ -20,6 +20,7 @@ class FrontendTracker(metaclass=SingletonMetaclass):
         self.parsingStarted = False
         self.spinner = False
         self.showError = False
+        self.successParsing = False
 
     def __call__(self):
         return self

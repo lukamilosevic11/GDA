@@ -76,8 +76,12 @@ def PreprocessingDiseaseName(diseaseName, withoutList=False):
     # Removing Stopwords
     stopwords = nltk.corpus.stopwords.words("english")
     stopwords.remove("with")
-    stopwords.remove("i")
+    stopwords.remove('down')
+    stopwords.remove('i')
+    stopwords.remove('d')
+    stopwords.remove('a')
     stopwords.append("type")
+    stopwords.append('group')
     diseaseNameWithoutStopwords = [word for word in diseaseNameTokenized if word not in stopwords]
     if not diseaseNameWithoutStopwords:
         diseaseNameWithoutStopwords = diseaseNameTokenized

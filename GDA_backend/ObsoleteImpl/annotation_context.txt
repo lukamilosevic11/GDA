@@ -196,7 +196,7 @@ class AnnotationContext:
             if dropCollection:
                 self.__searchEngineClient.DeleteCollection(COLLECTION_NAME_DOID)
 
-            collections = self.__searchEngineClient.GetAllCollections()
+            collections = self.__searchEngineClient.GetAllCollectionNames()
             createCollection = True
             insertDocuments = True
             for collection in collections:
@@ -231,7 +231,7 @@ class EntrezID:
     def GetByEnsemblID(self, ensemblID):
         return self.__ensemblIDDict[ensemblID] if ensemblID in self.__ensemblIDDict else None
 
-    def GetByUniprotID(self, uniprotID):
+    def GetByUniProtID(self, uniprotID):
         return self.__uniprotIDDict[uniprotID] if uniprotID in self.__uniprotIDDict else None
 
 
@@ -267,7 +267,7 @@ class EnsemblID:
     def GetByEntrezID(self, entrezID):
         return self.__entrezIDDict[entrezID] if entrezID in self.__entrezIDDict else None
 
-    def GetByUniprotID(self, uniprotID):
+    def GetByUniProtID(self, uniprotID):
         return self.__uniprotIDDict[uniprotID] if uniprotID in self.__uniprotIDDict else None
 
 
@@ -278,7 +278,7 @@ class DOID:
         self.__searchEngineClient = searchEngineClient
         self.__diseaseNameFrozenSetDict = diseaseNameFrozenSetDict
 
-    def GetByDiseaseName(self, diseaseName):
+    def GetByDiseaseNameUsingSearchEngine(self, diseaseName):
         if diseaseName is None:
             return None
 

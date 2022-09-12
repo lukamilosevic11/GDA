@@ -15,6 +15,8 @@
 
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
+from GDA_backend.Common.constants import ERROR_LOG_PATH
+from GDA_backend.Common.init import datetime
 
 
 class Command(BaseCommand):
@@ -31,3 +33,5 @@ class Command(BaseCommand):
             call_command("runserver", "0.0.0.0:8000")
         except Exception as e:
             self.stdout.write(self.style.ERROR('ERROR: ' + str(e)))
+            with open(ERROR_LOG_PATH, "a+") as errorFile:
+                errorFile.write("gda_start.py " + str(datetime.now()) + " " + str(e) + "\n")

@@ -144,7 +144,7 @@
     def \cf8 GetByEnsemblID\cf5 (\cf7 self\cf4 , \cf5 ensemblID):\
         \cf4 return \cf7 self\cf5 .__ensemblIDDict[ensemblID] \cf4 if \cf5 ensemblID \cf4 in \cf7 self\cf5 .__ensemblIDDict \cf4 else None\
 \
-    def \cf8 GetByUniprotID\cf5 (\cf7 self\cf4 , \cf5 uniprotID):\
+    def \cf8 GetByUniProtID\cf5 (\cf7 self\cf4 , \cf5 uniprotID):\
         \cf4 return \cf7 self\cf5 .__uniprotIDDict[uniprotID] \cf4 if \cf5 uniprotID \cf4 in \cf7 self\cf5 .__uniprotIDDict \cf4 else None\
 \
 \
@@ -180,7 +180,7 @@
     def \cf8 GetByEntrezID\cf5 (\cf7 self\cf4 , \cf5 entrezID):\
         \cf4 return \cf7 self\cf5 .__entrezIDDict[entrezID] \cf4 if \cf5 entrezID \cf4 in \cf7 self\cf5 .__entrezIDDict \cf4 else None\
 \
-    def \cf8 GetByUniprotID\cf5 (\cf7 self\cf4 , \cf5 uniprotID):\
+    def \cf8 GetByUniProtID\cf5 (\cf7 self\cf4 , \cf5 uniprotID):\
         \cf4 return \cf7 self\cf5 .__uniprotIDDict[uniprotID] \cf4 if \cf5 uniprotID \cf4 in \cf7 self\cf5 .__uniprotIDDict \cf4 else None\
 \
 }

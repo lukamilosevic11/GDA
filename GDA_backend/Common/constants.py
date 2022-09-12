@@ -59,7 +59,7 @@ ENSEMBL_UNIPROT_PATH = GetPath("ENSEMBL_UNIPROT", "ensembl_uniprot.tsv")
 # Search Engine
 if os.path.exists("api_key.txt"):
     with open("api_key.txt", "r") as file:
-        API_KEY = file.readline()
+        API_KEY = file.readline().strip()
 else:
     API_KEY = "CjRuG4L-G0yv30cj8YlntQ"
 

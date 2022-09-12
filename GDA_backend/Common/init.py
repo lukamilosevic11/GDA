@@ -42,6 +42,7 @@ from time import perf_counter
 from concurrent.futures import ThreadPoolExecutor
 from rich.progress import Progress, SpinnerColumn, TimeElapsedColumn, TextColumn, BarColumn, TaskProgressColumn, \
     TimeRemainingColumn, MofNCompleteColumn
+from datetime import datetime
 
 
 class Xref(IntEnum):

@@ -1,12 +1,16 @@
 $(document).ready(function () {
 
-    function AfterParsing() {
+    function AfterParsing(successParsing=false) {
         $("#parseButton").prop('disabled', false);
         $("#seeAnnotationFileButton").removeClass("disabled");
         $("#initializeSearchEngine").prop('disabled', false);
         $("#progressBar").hide();
         $("#spinner").hide();
-        location.reload();
+        if(successParsing){
+            window.location.replace("annotation_file/");
+        }else {
+            location.reload();
+        }
     }
 
     function Error(msg, callAfterParsing = true) {
@@ -17,7 +21,7 @@ $(document).ready(function () {
             if (callAfterParsing) {
                 AfterParsing();
             }
-        }, 1500);
+        }, 2000);
     }
 
     function update() {
@@ -40,7 +44,7 @@ $(document).ready(function () {
                     }
 
                     if (!resp.parsing) {
-                        AfterParsing();
+                        AfterParsing(resp.successParsing);
                         clearInterval(updateIntervalId);
                     }
                 },

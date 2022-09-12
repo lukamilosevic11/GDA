@@ -13,11 +13,11 @@
 #  The above copyright notice and this permission notice shall be included in
 #  all copies or substantial portions of the Software.
 
-from GDA_backend.Classes.attributes import Symbol, EntrezID, UniprotID, EnsemblID, DOID, DiseaseName, Xrefs
+from GDA_backend.Classes.attributes import Symbol, EntrezID, UniProtID, EnsemblID, DOID, DiseaseName, Xrefs
 from GDA_backend.Classes.search_engine_client import SearchEngineClient
-from GDA_backend.Common.constants import COLLECTION_NAME_DOID, DISEASE_NAME_DOID_JSONL_PATH
+from GDA_backend.Common.constants import COLLECTION_NAME_DOID, DISEASE_NAME_DOID_JSONL_PATH, ERROR_LOG_PATH
 from GDA_backend.Common.init import Source, Xref, XREFS_SOURCE, json, Progress, SpinnerColumn, TimeElapsedColumn, \
-    TextColumn, BarColumn, TaskProgressColumn, TimeRemainingColumn, MofNCompleteColumn
+    TextColumn, BarColumn, TaskProgressColumn, TimeRemainingColumn, MofNCompleteColumn, datetime
 from GDA_backend.Common.util import PreprocessingDiseaseName, PreprocessAttribute
 
 
@@ -365,7 +365,7 @@ class AnnotationContext:
         self.symbol = Symbol(self.__entrezIDToSymbol, self.__ensemblIDToSymbol, self.__uniprotIDToSymbol)
         self.entrezID = EntrezID(self.__symbolToEntrezID, self.__ensemblIDToEntrezID, self.__uniprotIDToEntrezID,
                                  self.__ensemblProteinIDToEntrezID)
-        self.uniprotID = UniprotID(self.__symbolToUniprotID, self.__entrezIDToUniprotID, self.__ensemblIDToUniprotID,
+        self.uniprotID = UniProtID(self.__symbolToUniprotID, self.__entrezIDToUniprotID, self.__ensemblIDToUniprotID,
                                    self.__ensemblProteinIDToUniprotID)
         self.ensemblID = EnsemblID(self.__symbolToEnsemblID, self.__entrezIDToEnsemblID, self.__uniprotIDToEnsemblID,
                                    self.__ensemblProteinIDToEnsemblID)
@@ -379,7 +379,7 @@ class AnnotationContext:
 
     def __InitializeSearchEngineClient(self, createCollection):
         try:
-            collections = self.__searchEngineClient.GetAllCollections()
+            collections = self.__searchEngineClient.GetAllCollectionNames()
             collectionExist = False
             for collection in collections:
                 if collection["name"] == COLLECTION_NAME_DOID:
@@ -407,4 +407,5 @@ class AnnotationContext:
 
                 self.__searchEngineClient.ImportDataFromFile(COLLECTION_NAME_DOID, DISEASE_NAME_DOID_JSONL_PATH)
         except Exception as e:
-            print(e)
+            with open(ERROR_LOG_PATH, "a+") as errorFile:
+                errorFile.write("annotation_context.py " + str(datetime.now()) + " " + str(e) + "\n")

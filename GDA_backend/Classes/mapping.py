@@ -135,24 +135,20 @@ class MappingInput:
             def addValueToMappingRelationDict(xref, valueP, mappingRelationP):
                 if mappingRelationP == 'E':
                     if xref not in eDict:
-                        eDict[xref] = {valueP}
-                    else:
-                        eDict[xref].add(valueP)
+                        eDict[xref] = set()
+                    eDict[xref].add(valueP)
                 elif mappingRelationP == "BTNT":
                     if xref not in btntDict:
-                        btntDict[xref] = {valueP}
-                    else:
-                        btntDict[xref].add(valueP)
+                        btntDict[xref] = set()
+                    btntDict[xref].add(valueP)
                 elif mappingRelationP == "NTBT":
                     if xref not in ntbtDict:
-                        ntbtDict[xref] = {valueP}
-                    else:
-                        ntbtDict[xref].add(valueP)
+                        ntbtDict[xref] = set()
+                    ntbtDict[xref].add(valueP)
                 else:
                     if xref not in otherDict:
-                        otherDict[xref] = {valueP}
-                    else:
-                        otherDict[xref].add(valueP)
+                        otherDict[xref] = set()
+                    otherDict[xref].add(valueP)
 
             externalReferenceList = disorder.find("ExternalReferenceList")
             for externalReference in externalReferenceList:
@@ -209,6 +205,18 @@ class MappingInput:
                         ensemblID = ensemblIDs[0] if ensemblIDs else None
                         uniprotSet.add(
                             UniProtRow(symbol, symbolSynonyms, entrezID, ensemblID, uniprotID, ensemblProteinID))
+                    elif len(symbols) == 1 and len(entrezIDs) <= 1:
+                        symbol = symbols[0]
+                        symbolSynonyms = symbolSynonymsDict[symbol]
+                        entrezID = entrezIDs[0] if entrezIDs else None
+                        uniprotSet.add(
+                            UniProtRow(symbol, symbolSynonyms, entrezID, None, uniprotID, ensemblProteinID))
+                    elif len(symbols) == 1 and len(ensemblIDs) <= 1:
+                        symbol = symbols[0]
+                        symbolSynonyms = symbolSynonymsDict[symbol]
+                        ensemblID = ensemblIDs[0] if ensemblIDs else None
+                        uniprotSet.add(
+                            UniProtRow(symbol, symbolSynonyms, None, ensemblID, uniprotID, ensemblProteinID))
                     elif len(symbols) > 1:
                         for symbol in symbols:
                             symbolSynonyms = symbolSynonymsDict[symbol]

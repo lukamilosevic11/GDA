@@ -6,7 +6,7 @@ from django.views.generic import TemplateView
 from django_datatables_view.base_datatable_view import BaseDatatableView
 from GDA_backend.Classes.event import Subject, Observer
 from GDA_backend.Classes.parsing import Parsing
-from GDA_backend.Common.init import Lock, time
+from GDA_backend.Common.init import Lock, time, datetime
 from GDA_backend.Common.constants import ERROR_LOG_PATH
 from .apps import FrontendTracker
 from .models import AnnotationRowModel
@@ -20,6 +20,7 @@ def initialize_before_parsing(request):
         frontendTracker.parsing = True
         frontendTracker.parsingStarted = False
         frontendTracker.spinner = False
+        frontendTracker.successParsing = False
 
     return redirect("index")
 
@@ -32,7 +33,8 @@ def update_data(request):
             'parsing': frontendTracker.parsing,
             'progress': frontendTracker.progress,
             'spinner': frontendTracker.spinner,
-            'showError': frontendTracker.showError
+            'showError': frontendTracker.showError,
+            'successParsing': frontendTracker.successParsing
         }
 
         return JsonResponse(resp_data, status=200)
@@ -51,6 +53,7 @@ def parsing_triggered(request):
             frontendTracker.parsing = True
             frontendTracker.progress = 0
             frontendTracker.spinner = False
+            frontendTracker.successParsing = False
             progressSubject = Subject(Lock())
             observer = Observer(frontendTracker)
             progressSubject.attach(observer)
@@ -58,16 +61,16 @@ def parsing_triggered(request):
             frontendTracker.spinner = True
             call_command('migrate', 'GDA_datatables', '0001', '--fake')
             call_command('migrate', 'GDA_datatables', '0002')
+            frontendTracker.successParsing = True
             frontendTracker.parsing = False
             frontendTracker.parsingStarted = False
             frontendTracker.spinner = False
         except Exception as e:
-            print(e)
-            with open(ERROR_LOG_PATH, "w") as errorFile:
-                errorFile.write(str(e))
-
+            with open(ERROR_LOG_PATH, "a+") as errorFile:
+                errorFile.write("views.py " + str(datetime.now()) + " " + str(e) + "\n")
             frontendTracker.showError = True
-            time.sleep(1.5)
+            frontendTracker.successParsing = False
+            time.sleep(2)
             frontendTracker.parsingStarted = False
             frontendTracker.parsing = False
             frontendTracker.progress = 0
@@ -86,6 +89,7 @@ class IndexView(TemplateView):
         context["parsing"] = frontendTracker.parsing
         context["progress"] = frontendTracker.progress
         context["spinner"] = frontendTracker.spinner
+        context["successParsing"] = frontendTracker.successParsing
 
         return context
 
@@ -99,6 +103,7 @@ class AnnotationView(TemplateView):
         context["parsing"] = frontendTracker.parsing
         context["progress"] = frontendTracker.progress
         context["spinner"] = frontendTracker.spinner
+        context["successParsing"] = frontendTracker.successParsing
 
         return context
 
@@ -112,5 +117,6 @@ class AnnotationRowsListJson(BaseDatatableView):
         context["parsing"] = frontendTracker.parsing
         context["progress"] = frontendTracker.progress
         context["spinner"] = frontendTracker.spinner
+        context["successParsing"] = frontendTracker.successParsing
 
         return context
