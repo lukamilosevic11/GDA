@@ -874,3 +874,24 @@ input[type=number] {
 .inline-block-child {
     display: inline-block;
 }
+
+.semantic-modal {
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    /*top: auto!important;*/
+    /*width: auto!important;*/
+    height: auto !important;
+}
+
+.segmentDropdown {
+    cursor: pointer;
+}
+
+.secondaryDropdown {
+    cursor: default;
+}
+
+#helpHeader {
+    background: rgba(var(--color-primary-rgb), 0.85);
+}

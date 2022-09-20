@@ -22,3 +22,9 @@ annotation_context.py 2022-09-09 21:06:58.003342 [Errno 401] Forbidden - a valid
 views.py 2022-09-09 21:07:00.444641 [Errno 401] Forbidden - a valid `x-typesense-api-key` header must be sent.
 annotation_context.py 2022-09-09 21:13:32.157286 [Errno 401] Forbidden - a valid `x-typesense-api-key` header must be sent.
 views.py 2022-09-09 21:13:33.723898 [Errno 401] Forbidden - a valid `x-typesense-api-key` header must be sent.
+views.py 2022-09-12 12:29:47.487777 division by zero
+annotation_context.py 2022-09-12 12:40:18.411656 [Errno 401] Forbidden - a valid `x-typesense-api-key` header must be sent.
+views.py 2022-09-12 12:40:18.418087 division by zero
+views.py 2022-09-12 12:43:30.037265 division by zero
+annotation_context.py 2022-09-12 12:51:20.160947 [Errno 401] Forbidden - a valid `x-typesense-api-key` header must be sent.
+views.py 2022-09-12 12:51:20.175888 [Errno 401] Forbidden - a valid `x-typesense-api-key` header must be sent.

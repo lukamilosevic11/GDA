@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -25,7 +24,8 @@ class Migration(migrations.Migration):
                 ('doidSource', models.CharField(default='None', max_length=50, verbose_name='doidSource')),
             ],
             options={
-                'unique_together': {('symbol', 'entrezID', 'uniprotID', 'ensemblID', 'doid', 'source', 'diseaseName', 'doidSource')},
+                'unique_together': {
+                    ('symbol', 'entrezID', 'uniprotID', 'ensemblID', 'doid', 'source', 'diseaseName', 'doidSource')},
             },
         ),
     ]

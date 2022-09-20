@@ -20,16 +20,27 @@ $(document).ready(function () {
         return false;
     });
 
-    $('.social-tooltip').click(function () {
-        let socialElement = $('.social-tooltip');
-        socialElement.removeClass("simptip-position-top").removeClass("simptip-smooth").removeClass("simptip-fade");
-        socialElement.attr('data-tooltip', '');
+    $('#help').click(function () {
+        $('.secondaryDropdown').hide();
+        $('#helpModal').modal({
+            centered: false
+        }).modal('show');
+
+        return false;
+    });
+
+    $('.segmentDropdown').click(function () {
+        let id = $(this).attr('id');
+        let segmentNum = id.split("_")[1];
+        let toggleElementId = "#secondary" + segmentNum;
+        $(toggleElementId).slideToggle();
     });
 
     ProcessTooltip($("#github"), "Github");
     ProcessTooltip($("#linkedin"), "Linkedin");
     ProcessTooltip($("#phoneNumber"), "Copy phone number!")
     ProcessTooltip($("#website"), "Personal Website")
+    ProcessTooltip($("#help"), "Help")
 
     $.fn.DataTable.ext.pager.numbers_length = 5; //paging numbers
 

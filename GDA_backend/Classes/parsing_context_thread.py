@@ -203,7 +203,8 @@ class ParsingContextThread:
                         if doid is not None:
                             doidSource = DOID_SOURCE_XREF_OMIM
                         elif diseaseName is not None:
-                            doid, doidSource = self.annotationContext.doid.GetByDiseaseNameUsingSearchEngine(diseaseName)
+                            doid, doidSource = self.annotationContext.doid.GetByDiseaseNameUsingSearchEngine(
+                                diseaseName)
                     elif len(doidAndDiseaseNames) > 1:
                         multipleHPORowsFlag = True
                         # TODO: test this
@@ -211,7 +212,7 @@ class ParsingContextThread:
                         for i in range(lenOfDoidAndDiseaseNames):
                             omimDoid, omimDiseaseName = doidAndDiseaseNames[i]
                             if omimDoid is None and omimDiseaseName is not None:
-                                omimDoid, omimDoidSource = self.annotationContext.doid.\
+                                omimDoid, omimDoidSource = self.annotationContext.doid. \
                                     GetByDiseaseNameUsingSearchEngine(omimDiseaseName)
                                 if omimDoid is not None:
                                     doidAndDiseaseNames[i] = ((omimDoid, omimDoidSource), omimDiseaseName)
@@ -236,7 +237,8 @@ class ParsingContextThread:
                 doid, doidSource = self.annotationContext.doid.GetByOmim(term.omim)
                 if doid is None:
                     diseaseNameForSearch = "OMIM:" + term.omim
-                    doid, doidSource = self.annotationContext.doid.GetByDiseaseNameUsingSearchEngine(diseaseNameForSearch)
+                    doid, doidSource = self.annotationContext.doid.GetByDiseaseNameUsingSearchEngine(
+                        diseaseNameForSearch)
 
             # Get Doid using xref ORPHA
             if (source is Source.ORPHANET or source is Source.HPO) and term.orpha is not None and doid is None:

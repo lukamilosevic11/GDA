@@ -1,14 +1,14 @@
 $(document).ready(function () {
 
-    function AfterParsing(successParsing=false) {
+    function AfterParsing(successParsing = false) {
         $("#parseButton").prop('disabled', false);
         $("#seeAnnotationFileButton").removeClass("disabled");
         $("#initializeSearchEngine").prop('disabled', false);
         $("#progressBar").hide();
         $("#spinner").hide();
-        if(successParsing){
+        if (successParsing) {
             window.location.replace("annotation_file/");
-        }else {
+        } else {
             location.reload();
         }
     }
@@ -137,5 +137,25 @@ $(document).ready(function () {
     }, function () {
         websiteElement.removeClass("simptip-position-top").removeClass("simptip-smooth").removeClass("simptip-fade");
         websiteElement.attr('data-tooltip', '');
+    });
+
+    let helpElement = $('#help');
+    helpElement.hover(function () {
+        helpElement.attr('data-tooltip', 'Help');
+        helpElement.addClass("simptip-position-top").addClass("simptip-smooth").addClass("simptip-fade");
+    }, function () {
+        helpElement.removeClass("simptip-position-top").removeClass("simptip-smooth").removeClass("simptip-fade");
+        helpElement.attr('data-tooltip', '');
+    });
+
+    helpElement.click(function () {
+        helpElement.removeClass("simptip-position-top").removeClass("simptip-smooth").removeClass("simptip-fade");
+        helpElement.attr('data-tooltip', '');
+        $('#helpModal').modal('show');
+        return false;
+    });
+
+    $('.closeHelp').click(function () {
+        $('#helpModal').modal('hide');
     });
 });

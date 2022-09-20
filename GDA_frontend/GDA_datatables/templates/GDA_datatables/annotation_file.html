@@ -84,7 +84,6 @@
         </div>
     </header>
 
-
     <main id="main" style="width: 100%;">
         <section id="hero-animated" class="hero-animated" data-aos="zoom-out">
             <table id="annotationTable" class="ui small selectable striped yellow table unstackable"
@@ -205,6 +204,177 @@
         </section>
     </main>
 
+    <div id="helpModal" class="ui modal top aligned semantic-modal">
+        <i class="close icon inside"></i>
+        <div id="helpHeader" class="header">
+            Help
+        </div>
+        <div class="scrolling content">
+            <div class="ui raised segments">
+                <div id="segment_0" class="ui segment segmentDropdown">
+                    <p style="font-weight: bold;">How to return to the homepage?</p>
+                </div>
+                <div id="secondary0" class="ui secondary segment secondaryDropdown">
+                    <div style="display: flex; flex-direction: row;">
+                        <div class="ui image">
+                            <img src="{% static "img/help/homeButton.png" %}" style="width:95px; height:auto;">
+                        </div>
+                        <span style="margin-left: 20px;">
+                            Use <span style="font-weight: bold;">Home</span> button for returning to the Homepage.
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui raised segments">
+                <div id="segment_1" class="ui segment segmentDropdown">
+                    <p style="font-weight: bold;">How to resize the table?</p>
+                </div>
+                <div id="secondary1" class="ui secondary segment secondaryDropdown">
+                    <div style="display: flex; flex-direction: row;">
+                        <div class="ui image">
+                            <img src="{% static "img/help/size.png" %}" style="width:115px; height:auto;">
+                        </div>
+                        <span style="margin-left: 20px;">The table can be resized using a button next to the <b>Home</b> button, and there are three different sizes: <b>small</b>, <b>medium</b>, and <b>large</b>.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui raised segments">
+                <div id="segment_2" class="ui segment segmentDropdown">
+                    <p style="font-weight: bold;">How to change the visibility of the columns?</p>
+                </div>
+                <div id="secondary2" class="ui secondary segment secondaryDropdown">
+                    <div style="display: flex; flex-direction: row;">
+                        <div class="ui image">
+                            <img src="{% static "img/help/columnSize.png" %}" style="width:150px; height:auto;">
+                        </div>
+                        <span style="margin-left: 20px;">Click on the <b>Column visibility</b> button and choose which column you want to hide or show.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui raised segments">
+                <div id="segment_3" class="ui segment segmentDropdown">
+                    <p style="font-weight: bold;">How to extract data?</p>
+                </div>
+                <div id="secondary3" class="ui secondary segment secondaryDropdown">
+                    <div style="display: flex; flex-direction: row;">
+                        <div class="ui image">
+                            <img src="{% static "img/help/extractData.png" %}" style="width:130px; height:auto;">
+                        </div>
+                        <span style="margin-left: 20px;">Click on the button <b>Exact data</b> and choose extraction format.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui raised segments">
+                <div id="segment_4" class="ui segment segmentDropdown">
+                    <p style="font-weight: bold;">How to copy data from the table?</p>
+                </div>
+                <div id="secondary4" class="ui secondary segment secondaryDropdown">
+                    <div style="display: flex; flex-direction: row;">
+                        <div class="ui image">
+                            <img src="{% static "img/help/copy.png" %}" style="width:83px; height:auto;">
+                        </div>
+                        <span style="margin-left: 20px;">By pressing <b>Copy</b> button, there is an option to copy one or multiple rows.  Also, if there are no rows selected current table page will be copied.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui raised segments">
+                <div id="segment_5" class="ui segment segmentDropdown">
+                    <p style="font-weight: bold;">How to select rows?</p>
+                </div>
+                <div id="secondary5" class="ui secondary segment secondaryDropdown">
+                    <div style="display: flex; flex-direction: row;">
+                        <div class="ui image">
+                            <img src="{% static "img/help/selectAll.png" %}" style="width:110px; height:auto;">
+                        </div>
+                        <span style="margin-left: 20px;">Selection could be done with a mouse click on the row, if there is a reason for selecting all rows on the current page, then click the <b>Select all</b> button.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui raised segments">
+                <div id="segment_6" class="ui segment segmentDropdown">
+                    <p style="font-weight: bold;">How to deselect rows?</p>
+                </div>
+                <div id="secondary6" class="ui secondary segment secondaryDropdown">
+                    <div style="display: flex; flex-direction: row;">
+                        <div class="ui image">
+                            <img src="{% static "img/help/deselectAll.png" %}" style="width:120px; height:auto;">
+                        </div>
+                        <span style="margin-left: 20px;">Click on a row that you want to deselect, if you want to deselect all rows, then click on the button <b>Deselect all</b>.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui raised segments">
+                <div id="segment_7" class="ui segment segmentDropdown">
+                    <p style="font-weight: bold;">How to change number of entries?</p>
+                </div>
+                <div id="secondary7" class="ui secondary segment secondaryDropdown">
+                    <div style="display: flex; flex-direction: row;">
+                        <div class="ui image">
+                            <img src="{% static "img/help/showEntries.png" %}" style="width:140px; height:auto;">
+                        </div>
+                        <span style="margin-left: 20px;">Click on the button for the number of entries and choose one of the options: <b>10</b>, <b>25</b>, <b>50</b>, or <b>100</b>.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui raised segments">
+                <div id="segment_8" class="ui segment segmentDropdown">
+                    <p style="font-weight: bold;">How to search for data inside the table?</p>
+                </div>
+                <div id="secondary8" class="ui secondary segment secondaryDropdown">
+                    <div style="display: flex; flex-direction: row;">
+                        <div class="ui image">
+                            <img src="{% static "img/help/search.png" %}" style="width:200px; height:auto;">
+                        </div>
+                        <span style="margin-left: 20px;">Enter a search term inside the search box.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui raised segments">
+                <div id="segment_9" class="ui segment segmentDropdown">
+                    <p style="font-weight: bold;">How to search and order data by column?</p>
+                </div>
+                <div id="secondary9" class="ui secondary segment secondaryDropdown">
+                    <div style="display: flex; flex-direction: row;">
+                        <div class="ui image">
+                            <img src="{% static "img/help/searchAndOrder.png" %}" style="width:165px; height:auto;">
+                        </div>
+                        <span style="margin-left: 20px;">For ordering, just click on the column which you want to sort. For searching, just enter a search term inside the search box for a column that you want to search.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui raised segments">
+                <div id="segment_10" class="ui segment segmentDropdown">
+                    <p style="font-weight: bold;">How to use pagination?</p>
+                </div>
+                <div id="secondary10" class="ui secondary segment secondaryDropdown">
+                    <div style="display: flex; flex-direction: row;">
+                        <div class="ui image">
+                            <img src="{% static "img/help/pagination.png" %}" style="width:370px; height:auto;">
+                        </div>
+                        <span style="margin-left: 20px;">You can choose <b>Previous</b>, <b>Next</b>, or a page close to the current page. Also, you can enter the page number and go straight to that page.</span>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">
+                Close
+            </div>
+        </div>
+    </div>
+
     <footer id="footer" class="footer">
         <div class="footer-legal text-center">
             <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
@@ -231,9 +401,11 @@
                     <a id="phoneNumber" href="#">
                         <i class="bi bi-whatsapp"></i>
                     </a>
-                    <a id="website" href="https://alas.matf.bg.ac.rs/~mi15167/" target="_blank"
-                    >
+                    <a id="website" href="https://alas.matf.bg.ac.rs/~mi15167/" target="_blank">
                         <i class="bi bi-globe"></i>
+                    </a>
+                    <a id="help" href="#">
+                        <i class="bi bi-info-circle"></i>
                     </a>
                 </div>
             </div>
