@@ -47,7 +47,7 @@ $(document).ready(function () {
     // Initialization of datatable
     let table = $('#annotationTable').DataTable({
         language: DT_LANGUAGE,
-        order: [[0, "desc"]],
+        order: [[1, "asc"]],
         lengthMenu: [[10, 25, 50, 100], [10, 25, 50, 100]],
         columnDefs: [
             {
@@ -57,7 +57,15 @@ $(document).ready(function () {
             },
             {
                 data: 'symbol',
-                targets: [0]
+                targets: [0],
+                createdCell: function (td, cellData, rowData, row, col) {
+                    if (cellData.includes("#")) {
+                        let cell = $(td);
+                        // cell.text(cellData.slice(0, -1));
+                        cell.attr('data-tooltip', "Ensembl Protein ID");
+                        cell.addClass("simptip-position-top").addClass("simptip-smooth").addClass("simptip-fade");
+                    }
+                }
             },
             {
                 data: 'entrezID',
@@ -81,7 +89,15 @@ $(document).ready(function () {
             },
             {
                 data: 'diseaseName',
-                targets: [6]
+                targets: [6],
+                createdCell: function (td, cellData, rowData, row, col) {
+                    if (cellData.includes("ORPHA:") || cellData.includes("OMIM:")) {
+                        let cell = $(td);
+                        let info = cellData.includes("ORPHA:") ? "ORPHA Code" : "OMIM Code";
+                        cell.attr('data-tooltip', info);
+                        cell.addClass("simptip-position-top").addClass("simptip-smooth").addClass("simptip-fade");
+                    }
+                }
             },
             {
                 data: 'doidSource',

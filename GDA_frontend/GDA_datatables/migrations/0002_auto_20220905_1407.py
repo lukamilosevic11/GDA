@@ -16,13 +16,23 @@ def forwards(apps, schema_editor):
         AnnotationModel = apps.get_model('GDA_datatables', 'AnnotationRowModel')
         data = pd.read_csv(ANNOTATION_PATH, sep='\t', dtype=str).to_numpy()
         for row in data:
-            AnnotationModel.objects.create(symbol=str(row[0]),
+            symbol = str(row[0])
+            diseaseName = str(row[6])
+            if "<PROTEIN_ID>" in symbol:
+                symbol = "#" + symbol.split("<PROTEIN_ID>")[1].strip()
+
+            if "<ORPHA>" in diseaseName:
+                diseaseName = "ORPHA:" + diseaseName.split("<ORPHA>")[1].strip()
+            elif "<OMIM>" in diseaseName:
+                diseaseName = "OMIM:" + diseaseName.split("<OMIM>")[1].strip()
+
+            AnnotationModel.objects.create(symbol=symbol,
                                            entrezID=str(row[1]),
                                            uniprotID=str(row[2]),
                                            ensemblID=str(row[3]),
                                            doid=str(row[4]),
                                            source=str(row[5]),
-                                           diseaseName=str(row[6]),
+                                           diseaseName=diseaseName,
                                            doidSource=str(row[7])
                                            )
 

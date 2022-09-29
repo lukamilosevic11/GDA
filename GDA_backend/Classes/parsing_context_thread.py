@@ -59,8 +59,7 @@ class ParsingContextThread:
             doid = term.doid
             diseaseName = term.diseaseName
             doidSource = DOID_SOURCE_DATABASE if source is Source.DISEASES and doid is not None else None
-            multipleHPORowsFlag = False
-            doidAndDiseaseNames = None
+            doidAndDiseaseNames = []
 
             # Part of Phase II moved here because of initialization of foundAttributes and noneAttributes
             # Only for Diseases to find EntrezID, UniprotID and EnsemblID by EnsemblProteinID
@@ -78,25 +77,14 @@ class ParsingContextThread:
                         PreprocessAttribute(term.ensemblProteinID))
 
             noneAttributes = []
-            foundAttributes = {
-                Attribute.SYMBOL: True,
-                Attribute.ENTREZ_ID: True,
-                Attribute.UNIPROT_ID: True,
-                Attribute.ENSEMBL_ID: True
-            }
-
             if symbol is None:
                 noneAttributes.append(Attribute.SYMBOL)
-                foundAttributes[Attribute.SYMBOL] = False
             if entrezID is None:
                 noneAttributes.append(Attribute.ENTREZ_ID)
-                foundAttributes[Attribute.ENTREZ_ID] = False
             if uniprotID is None:
                 noneAttributes.append(Attribute.UNIPROT_ID)
-                foundAttributes[Attribute.UNIPROT_ID] = False
             if ensemblID is None:
                 noneAttributes.append(Attribute.ENSEMBL_ID)
-                foundAttributes[Attribute.ENSEMBL_ID] = False
 
             def partialGetMethodsSymbol(entrezIDP, uniprotIDP, ensemblIDP):
                 partialMethods = []
@@ -152,8 +140,7 @@ class ParsingContextThread:
 
             # Phase II
             # Symbol, EntrezID, UniprotID, EnsemblID
-            if foundAttributes[Attribute.ENTREZ_ID] or foundAttributes[Attribute.UNIPROT_ID] or \
-                    foundAttributes[Attribute.ENSEMBL_ID] or foundAttributes[Attribute.SYMBOL]:
+            if symbol is not None or entrezID is not None or uniprotID is not None or ensemblID is not None:
                 ordersOfSearch = list(permutations(noneAttributes))
                 stopSearch = False
                 for orderOfSearch in ordersOfSearch:
@@ -162,29 +149,21 @@ class ParsingContextThread:
                             symbol = GetAttribute(
                                 partialGetMethodsSymbol(PreprocessAttribute(entrezID), PreprocessAttribute(uniprotID),
                                                         PreprocessAttribute(ensemblID)))
-                            if symbol is not None:
-                                foundAttributes[attribute] = True
                         elif entrezID is None and attribute is Attribute.ENTREZ_ID:
                             entrezID = GetAttribute(
                                 partialGetMethodsEntrezID(PreprocessAttribute(symbol), PreprocessAttribute(uniprotID),
                                                           PreprocessAttribute(ensemblID)))
-                            if entrezID is not None:
-                                foundAttributes[attribute] = True
                         elif uniprotID is None and attribute is Attribute.UNIPROT_ID:
                             uniprotID = GetAttribute(
                                 partialGetMethodsUniprotID(PreprocessAttribute(symbol), PreprocessAttribute(entrezID),
                                                            PreprocessAttribute(ensemblID)))
-                            if uniprotID is not None:
-                                foundAttributes[attribute] = True
                         elif ensemblID is None and attribute is Attribute.ENSEMBL_ID:
                             ensemblID = GetAttribute(
                                 partialGetMethodsEnsemblID(PreprocessAttribute(symbol), PreprocessAttribute(entrezID),
                                                            PreprocessAttribute(uniprotID)))
-                            if ensemblID is not None:
-                                foundAttributes[attribute] = True
 
-                        if foundAttributes[Attribute.ENTREZ_ID] and foundAttributes[Attribute.UNIPROT_ID] and \
-                                foundAttributes[Attribute.ENSEMBL_ID] and foundAttributes[Attribute.SYMBOL]:
+                        if symbol is not None and entrezID is not None and uniprotID is not None and \
+                                ensemblID is not None:
                             stopSearch = True
                             break
 
@@ -197,35 +176,20 @@ class ParsingContextThread:
                 if term.orpha is not None:
                     diseaseName = self.annotationContext.diseaseName.GetByOrpha(term.orpha)
                 elif term.omim is not None:
-                    doidAndDiseaseNames = self.annotationContext.diseaseName.GetByOmimDoidAndDiseaseName(term.omim)
-                    if len(doidAndDiseaseNames) == 1:
-                        doid, diseaseName = doidAndDiseaseNames[0]
-                        if doid is not None:
-                            doidSource = DOID_SOURCE_XREF_OMIM
-                        elif diseaseName is not None:
-                            doid, doidSource = self.annotationContext.doid.GetByDiseaseNameUsingSearchEngine(
-                                diseaseName)
-                    elif len(doidAndDiseaseNames) > 1:
-                        multipleHPORowsFlag = True
-                        # TODO: test this
-                        lenOfDoidAndDiseaseNames = len(doidAndDiseaseNames)
-                        for i in range(lenOfDoidAndDiseaseNames):
-                            omimDoid, omimDiseaseName = doidAndDiseaseNames[i]
-                            if omimDoid is None and omimDiseaseName is not None:
-                                omimDoid, omimDoidSource = self.annotationContext.doid. \
-                                    GetByDiseaseNameUsingSearchEngine(omimDiseaseName)
-                                if omimDoid is not None:
-                                    doidAndDiseaseNames[i] = ((omimDoid, omimDoidSource), omimDiseaseName)
-                            elif omimDoid is not None:
-                                doidAndDiseaseNames[i] = ((omimDoid, DOID_SOURCE_XREF_OMIM), omimDiseaseName)
+                    diseaseNameForSearch = "OMIM:" + term.omim
+                    doid, doidSource = self.annotationContext.doid.GetByDiseaseNameUsingSearchEngine(
+                        diseaseNameForSearch)
+                    diseaseName = self.annotationContext.diseaseName.GetByDoid(doid)
 
                     if doid is None:
-                        diseaseNameForSearch = "OMIM:" + term.omim
-                        doid, doidSource = self.annotationContext.doid.GetByDiseaseNameUsingSearchEngine(
-                            diseaseNameForSearch)
-                        diseaseName = self.annotationContext.diseaseName.GetByDoid(doid)
-                        if diseaseName is not None and doid is not None:
-                            multipleHPORowsFlag = False
+                        _doidAndDiseaseNames = self.annotationContext.diseaseName.GetByOmimDoidAndDiseaseName(term.omim)
+                        for _doid, _diseaseName in _doidAndDiseaseNames:
+                            if _doid is None and _diseaseName is not None:
+                                _doid, _doidSource = self.annotationContext.doid. \
+                                    GetByDiseaseNameUsingSearchEngine(_diseaseName)
+                                doidAndDiseaseNames.append((_doid, _doidSource, _diseaseName))
+                            elif _doid is not None:
+                                doidAndDiseaseNames.append((_doid, DOID_SOURCE_XREF_OMIM, _diseaseName))
 
             # DOID
             # Get Doid using xref UMLS
@@ -343,13 +307,26 @@ class ParsingContextThread:
                 diseaseName = self.annotationContext.diseaseName.GetByDoid(doid)
 
             # Phase IV
-            if multipleHPORowsFlag and (doid is None or diseaseName is None) and doidAndDiseaseNames is not None:
-                for doidTuple, diseaseName in doidAndDiseaseNames:
-                    if doidTuple is not None:
-                        doid, doidSource = doidTuple
-
+            if source is Source.HPO:
+                if doidAndDiseaseNames:
+                    for doid, doidSource, diseaseName in doidAndDiseaseNames:
+                        if doid is None and diseaseName is None and term.omim is not None:
+                            sourceSet.add(AnnotationRowOutput(symbol, entrezID, uniprotID, ensemblID, doid, sourceName,
+                                                              "<OMIM>" + term.omim, doidSource))
+                        elif doid is not None or diseaseName is not None:
+                            sourceSet.add(AnnotationRowOutput(symbol, entrezID, uniprotID, ensemblID, doid, sourceName,
+                                                              diseaseName, doidSource))
+                elif doid is None and diseaseName is None and (term.omim is not None or term.orpha is not None):
+                    changedDiseaseName = "<OMIM>" + term.omim if term.omim is not None else "<ORPHA>" + term.orpha
+                    sourceSet.add(AnnotationRowOutput(symbol, entrezID, uniprotID, ensemblID, doid, sourceName,
+                                                      changedDiseaseName, doidSource))
+                elif doid is not None or diseaseName is not None:
                     sourceSet.add(AnnotationRowOutput(symbol, entrezID, uniprotID, ensemblID, doid, sourceName,
                                                       diseaseName, doidSource))
+            elif source is Source.DISEASES and term.ensemblProteinID is not None and \
+                    symbol is None and entrezID is None and ensemblID is None and uniprotID is None:
+                sourceSet.add(AnnotationRowOutput("<PROTEIN_ID>" + term.ensemblProteinID, entrezID, uniprotID,
+                                                  ensemblID, doid, sourceName, diseaseName, doidSource))
             else:
                 sourceSet.add(AnnotationRowOutput(symbol, entrezID, uniprotID, ensemblID, doid, sourceName, diseaseName,
                                                   doidSource))
