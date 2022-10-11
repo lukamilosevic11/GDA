@@ -42,7 +42,7 @@ GDA.bat -u
 ```shell
 ./GDA.sh -up
 ```
-These scripts have two types of arguments, long and short, both types can be used as well as their combinations. 
+These scripts have two types of arguments, long and short, both types can be used and their combinations also. 
 Full usage is shown below:
 ```text
   Usage: ./GDA.sh <options> [output mode]
