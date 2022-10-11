@@ -4,8 +4,7 @@
 
 # What is this? :book:
 Web Application for creation of annotation file where data is used from different
-sources. Annotation file contains gene disease connections and also additional information for genes and diseases from another sources.  
-This is project for my master thesis and app will be used at the [`Vinča Institute of Nuclear Sciences, National Institute of The Republic of Serbia`](https://www.vin.bg.ac.rs/en/).
+sources. Annotation file contains gene disease connections and also additional information for genes and diseases from another sources. This is project for my master thesis and app will be used at the [`Vinča Institute of Nuclear Sciences, National Institute of The Republic of Serbia`](https://www.vin.bg.ac.rs/en/).
 - Preview of the application on [`YouTube`](https://www.youtube.com/watch?v=n99pI8E5tTQ)
 - Official [`Docker Image`](https://hub.docker.com/r/lukamilosevic11/gda)
 
