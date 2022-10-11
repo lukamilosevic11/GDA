@@ -5,19 +5,19 @@
 # What is this? :book:
 Web Application for creation of annotation file where data is used from different
 sources. Annotation file contains gene disease connections and also additional information for genes and diseases from another sources.  
-This is project for my master thesis and app will be used at the [Vinča Institute of Nuclear Sciences, National Institute of The Republic of Serbia](https://www.vin.bg.ac.rs/en/).
-- Preview of this application on [`YouTube`](https://www.youtube.com/watch?v=n99pI8E5tTQ)
-- Official [`Docker image`](https://hub.docker.com/r/lukamilosevic11/gda)
+This is project for my master thesis and app will be used at the [`Vinča Institute of Nuclear Sciences, National Institute of The Republic of Serbia`](https://www.vin.bg.ac.rs/en/).
+- Preview of the application on [`YouTube`](https://www.youtube.com/watch?v=n99pI8E5tTQ)
+- Official [`Docker Image`](https://hub.docker.com/r/lukamilosevic11/gda)
 
 # Requirements :wrench: 
 - `Docker`
 - `Docker Compose`
 - `Docker Volume`
 <br>To be able to start this application on your computer, you should have installed `Windows`, `Linux` or `MacOS` operating system and listed Docker tools. 
-Required Docker tools can be installed by following instructions on official [Docker website](https://www.docker.com/). 
+Required Docker tools can be installed by following instructions on official [`Docker website`](https://www.docker.com/). 
 
 # How to run application? :rocket:
-Application will be delivered as compressed file [GDA.zip](./GDA.zip) which contains directory with all necessary files for starting application.
+Application will be delivered as compressed file [`GDA.zip`](https://github.com/lukamilosevic11/GDA/raw/main/GDA.zip "Download GDA.zip") which contains directory with all necessary files for starting application.
 <br>Structure of compressed file:
 ```
 GDA.zip
@@ -133,26 +133,27 @@ The application consists of two parts:
 - Adding additional data from other resources which could be helpful in the process of information enrichment 
 
 # More details about GDA :books:
-There is no official documentation page, but there is my [master thesis](LukaMilosevic_Master_Thesis_Serbian.pdf) only available in Serbian which contains detailed explanation of each part of application, including full implementation explained. 
+There is no official documentation page, but there is my [`master thesis`](LukaMilosevic_Master_Thesis_Serbian.pdf) only available in Serbian which contains detailed explanation of each part of application, including full implementation explained. 
 
 # License and used resources :earth_asia:
-- `Typesense` - https://typesense.org/
+- [`Typesense`](https://typesense.org/`)
 - `Databases`
-    - `DisGeNet` - https://www.disgenet.org/
-    - `COSMIC` - https://cancer.sanger.ac.uk/cosmic
-    - `HumsaVar` - https://www.uniprot.org/help/humsavar_change
-    - `Orphanet` and `Orphanet Xref` - https://www.orphadata.com/
-    - `ClinVar` - https://www.ncbi.nlm.nih.gov/clinvar/
-    - `HPO` - https://hpo.jax.org/app/
-    - `Diseases` - https://diseases.jensenlab.org/Search
-    - `UniProt` - https://www.uniprot.org/
-    - `HUGO` - https://www.genenames.org/
-    - `OBO` - https://obofoundry.org/
-    - `RGD` - https://rgd.mcw.edu/
-    - `Ensembl` - https://www.ensembl.org/index.html
+    - [`DisGeNet`](https://www.disgenet.org/)
+    - [`COSMIC`](https://cancer.sanger.ac.uk/cosmic)
+    - [`HumsaVar`](https://www.uniprot.org/help/humsavar_change)
+    - [`Orphanet`](https://www.orphadata.com/)
+    - [`ClinVar`](https://www.ncbi.nlm.nih.gov/clinvar/)
+    - [`HPO`](https://hpo.jax.org/app/)
+    - [`Diseases`](https://diseases.jensenlab.org/Search)
+    - [`UniProt`](https://www.uniprot.org/)
+    - [`HUGO`](https://www.genenames.org/)
+    - [`OBO`](https://obofoundry.org/)
+    - [`RGD`](https://rgd.mcw.edu/)
+    - [`Ensembl`](https://www.ensembl.org/index.html)
+    - [`Orphanet Xref`](https://www.orphadata.com/)
 - `Images`
-    - `freepik` - https://www.freepik.com/
-    - `shutterstock` - https://www.shutterstock.com/
+    - [`freepik`](https://www.freepik.com/)
+    - [`shutterstock`](https://www.shutterstock.com/)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
