@@ -155,7 +155,7 @@ There is no official documentation page, but there is my [master thesis](LukaMil
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-<div style="text-align: right"><em>All links were last accessed in September 2022</em></div>
+*All links were last accessed in September 2022*
 
 # System :computer:
 - Model Name: MacBook Air
