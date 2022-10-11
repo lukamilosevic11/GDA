@@ -25,7 +25,7 @@ from GDA_backend.Common.util import GetAttribute, WriteStructureToFile, JaccardS
 
 
 class ParsingContextThread:
-    def __init__(self, progress, createCollection, searchEngineHostName="localhost"):
+    def __init__(self, progress, createCollection, searchEngineHostName="typesense"):
         dbContextStartTime = time.time()
         self.dbContext = DBContext()
         PrintElapsedTime(dbContextStartTime, time.time(), "Reading sources elapsed time")

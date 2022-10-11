@@ -28,12 +28,12 @@ COPY GDA_backend/Classes ./GDA_backend/Classes
 COPY GDA_backend/Common ./GDA_backend/Common
 COPY GDA_backend/Data ./GDA_backend/Data
 COPY GDA_backend/Other ./GDA_backend/Other
-COPY GDA_frontend/Database ./GDA_frontend/Database
 COPY GDA_frontend/GDA_datatables ./GDA_frontend/GDA_datatables
 COPY GDA_frontend/GDA_frontend ./GDA_frontend/GDA_frontend
 COPY GDA_frontend/manage.py ./GDA_frontend
 COPY requirements.txt .
 
+RUN ["mkdir", "-p", "./GDA_frontend/Database"]
 RUN ["mkdir", "-p", "./GDA_backend/Storage"]
 RUN ["pip3", "install", "-r", "./requirements.txt"]
 RUN ["python3", "./GDA_frontend/manage.py", "migrate"]

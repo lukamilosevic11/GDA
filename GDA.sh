@@ -41,7 +41,7 @@ EOF
                           - Networks defined in the networks section of the gda-compose file
                           - The default network, if one is used
                         Networks and volumes defined as external are never removed.
-    -d|-down -r|-reset Stops containers and removes containers, networks, volumes, and images created by up command.
+    -d|-down -r|-reset  Stops containers and removes containers, networks, volumes, and images created by up command.
 EOF
 }
 
